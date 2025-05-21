@@ -61,7 +61,7 @@ results_file = open(os.path.join(folders[append_folder], 'results.csv'), 'w')
 
 results_file.write('iteration, tac, time, total_time\n')
 
-datafile = '../datafiles/' + args.model + '.dat'
+datafile = '/home/andresfel9403/hens/datafiles/' + args.model + '.dat'
 
 solver = 'gurobi'
 opt    = SolverFactory(solver)
@@ -152,7 +152,7 @@ for run in range(1, maxIters):
 
     opt.options[ 'LogFile' ] = os.path.join(folders[ logs_folder ], 'gur' + str(run).zfill(len(str(maxIters))) + '.log')
 
-    results = opt.solve(instance, tee=False)
+    results = opt.solve(instance, tee=True)
 
     instance.solutions.load_from(results)
 

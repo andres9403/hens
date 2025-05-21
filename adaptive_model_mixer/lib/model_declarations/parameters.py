@@ -5,8 +5,9 @@ from pyomo.core.base.param import Param
 from pyomo.core.base.sets import Set
 from pyomo.core.base.rangeset import RangeSet
 from pyomo.core.base.set_types import PositiveReals, NonNegativeReals, PositiveIntegers, PercentFraction
-
+from pyomo.core.base.expression import Expression
 from .parameter_initialisation_functions import *
+from pyomo.environ import value
 
 ############################################################
 ############################################################
@@ -26,12 +27,16 @@ def declare_parameters(model):
     model.Number_cold_stream = Param(within=PositiveIntegers, doc="number of cold streams" )
 
     model.First_stage = Param(within=PositiveIntegers, default=1,                    doc='Index of the first stage')
-    model.Last_stage  = Param(within=PositiveIntegers, default=model.Number_stages+1, doc='Index of the last stage' )
+   ## Problem when using the last stage as a parameter
+   # model.Last_stage  = Param(within=PositiveIntegers, default=model.Number_stages+1, doc='Index of the last stage' )
 
+    model.Last_stage = Expression(expr=model.Number_stages + 1)
+   
     model.HP = RangeSet(1, model.Number_hot_stream,  doc="set of hot process streams i"          )
     model.CP = RangeSet(1, model.Number_cold_stream, doc="set of cold process streams j"         )
-    model.ST = RangeSet(model.First_stage, model.Number_stages,      doc="set of stages in the superstructure" )
+    model.ST = RangeSet(model.First_stage, model.Number_stages, doc="set of stages in the superstructure" )
     model.K  = RangeSet(model.First_stage, model.Last_stage, doc="set of temperature locations"          )
+    #model.K  = RangeSet(model.First_stage, value(model.Number_stages) + 1, doc="set of temperature locations")
     model.First_Stage_Set = RangeSet(model.First_stage, model.First_stage)
     model.K_Take_First_Stage = model.K - model.First_Stage_Set
 
