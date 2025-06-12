@@ -3,23 +3,22 @@
 
 from .helper_functions import lmtd_inverse_gradient_calculator, lmtd_inv
 
-from pyomo.core.base.constraint import Constraint
+from pyomo.environ import Constraint
 
 def z_th_sum_rule(model, i, k):
-    return sum(model.z_th[i,k,n] for n in range(1, len(model.Th_breakpoints[i,k])) ) == 1
+    return sum(model.z_th[i,k,n] for n in range(1, len(model.Th_breakpoints[i,k].data())) ) == 1
 
 def th_lower_rule(model, i, k):
-    return model.th[i,k] >= sum(model.Th_breakpoints[i,k][n]*model.z_th[i,k,n] for n in range(1, len(model.Th_breakpoints[i,k])))
+    return model.th[i,k] >= sum(model.Th_breakpoints[i,k].at(n)*model.z_th[i,k,n] for n in range(1, len(model.Th_breakpoints[i,k].data())))
 
 def th_upper_rule(model, i, k):
-    return model.th[i,k] <= sum(model.Th_breakpoints[i,k][n+1]*model.z_th[i,k,n] for n in range(1, len(model.Th_breakpoints[i,k])))
+    return model.th[i,k] <= sum(model.Th_breakpoints[i,k].at(n+1)*model.z_th[i,k,n] for n in range(1, len(model.Th_breakpoints[i,k].data())))
 
 def var_delta_fh_sum_rule(model, i, j, k):
-    return model.fh[i,j,k] == sum(model.var_delta_fh[i,j,k,n] for n in range(1, len(model.Th_breakpoints[i,k])))
+    return model.fh[i,j,k] == sum(model.var_delta_fh[i,j,k,n] for n in range(1, len(model.Th_breakpoints[i,k].data())))
 
 def var_delta_fh_upper_rule(model, i, j, k, n):
     return model.var_delta_fh[i,j,k,n] <= model.Fh[i]*model.z_th[i,k,n]
-
 ##########################
 def z_thx_sum_rule(model, i, j, k):
     return sum(model.z_thx[i,j,k,n] for n in range(1, len(model.Thx_breakpoints[i,j,k])) ) == 1
@@ -111,7 +110,7 @@ def z_q_hu_sum_rule(model, j):
     return sum(model.z_q_hu[j,n] for n in range(1, len(model.Q_hu_breakpoints[j])) ) == 1
 
 def q_hu_lower_rule(model, j):
-    return model.q_hu[j] >= sum(model.Q_hu_breakpoints[j][n]*model.z_q_hu[j,n] for n in range(1, len(model.Q_hu_breakpoints[j])))
+    return model.q_hu[j] >= sum(model.Q_hu_breakpoints[j].at(n)*model.z_q_hu[j,n] for n in range(1, len(model.Q_hu_breakpoints[j])))
 
 def q_hu_upper_rule(model, j):
     return model.q_hu[j] <= sum(model.Q_hu_breakpoints[j][n+1]*model.z_q_hu[j,n] for n in range(1, len(model.Q_hu_breakpoints[j])))
@@ -190,25 +189,25 @@ def temp_app_hu_rule(model, j):
 
 def mccor_convex_h_in_1_rule(model, i, j, k):
     return  model.bh_in[i,j,k] >=\
-            sum(model.Th_breakpoints[i,k][n]*model.var_delta_fh[i,j,k,n] \
+            sum(model.Th_breakpoints[i,k].at(n)*model.var_delta_fh[i,j,k,n] \
                 for n in range(1, len(model.Th_breakpoints[i,k])))
 
 def mccor_convex_h_in_2_rule(model, i, j, k):
     return  model.bh_in[i,j,k] >=\
             model.th[i,k]*model.Fh[i] +\
-            sum(model.Th_breakpoints[i,k][n+1]*\
+            sum(model.Th_breakpoints[i,k].at(n+1)*\
                 (model.var_delta_fh[i,j,k,n] - model.Fh[i]*model.z_th[i,k,n]) \
                 for n in range(1, len(model.Th_breakpoints[i,k])))
 
 def mccor_concave_h_in_1_rule(model, i, j, k):
     return  model.bh_in[i,j,k] <=\
-            sum(model.Th_breakpoints[i,k][n+1]*model.var_delta_fh[i,j,k,n] \
+            sum(model.Th_breakpoints[i,k].at(n+1)*model.var_delta_fh[i,j,k,n] \
                 for n in range(1, len(model.Th_breakpoints[i,k])))
 
 def mccor_concave_h_in_2_rule(model, i, j, k):
     return  model.bh_in[i,j,k] <=\
             model.th[i,k]*model.Fh[i] +\
-            sum(model.Th_breakpoints[i,k][n]*\
+            sum(model.Th_breakpoints[i,k].at(n)*\
                 (model.var_delta_fh[i,j,k,n] - model.Fh[i]*model.z_th[i,k,n]) \
                 for n in range(1, len(model.Th_breakpoints[i,k])))
 
@@ -389,7 +388,7 @@ def area_hu_mccor_convex_1_rule(model, j):
             model.U_hu[j]*(\
                 model.q_hu[j]*reclmtd_hu_lower +\
                 sum(\
-                    model.Q_hu_breakpoints[j][n]*model.var_delta_reclmtd_hu[j,n]\
+                    model.Q_hu_breakpoints[j].at(n)*model.var_delta_reclmtd_hu[j,n]\
                     for n in range(1, len(model.Q_hu_breakpoints[j])))\
             )
 
@@ -420,10 +419,17 @@ def area_hu_mccor_concave_2_rule(model, j):
             model.U_hu[j]*(\
                 model.q_hu[j]*reclmtd_hu_upper +\
                 sum(\
-                    model.Q_hu_breakpoints[j][n]*\
+                    model.Q_hu_breakpoints[j].at(n)*\
                     (model.var_delta_reclmtd_hu[j,n] - (reclmtd_hu_upper - reclmtd_hu_lower)*model.z_q_hu[j,n])\
                     for n in range(1, len(model.Q_hu_breakpoints[j])))\
             )
+
+# Define original nonlinear constraints for Area
+def area_original_rule(model, i, j, k):
+    if model.Beta == 1:
+        return model.area[i,j,k] == model.reclmtd[i,j,k]/model.U[i,j]
+    else:
+        return model.area[i,j,k] >= model.reclmtd[i,j,k]/model.U[i,j]
 
 # LMTD
 def grad_reclmtd_rule(model, i, j, k, x0, y0):

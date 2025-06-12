@@ -57,7 +57,7 @@ def create_output_dir(root, model, append):
 
 def initialise_parser():
     parser = ArgumentParser()
-    parser.add_argument('model', nargs='?', default='model3', help='The model you wish to run e.g. model1 for datafile: ../datafiles/model1.dat')
+    parser.add_argument('model', nargs='?', default='model1', help='The model you wish to run e.g. model1 for datafile: ../datafiles/model1.dat')
     parser.add_argument('run_name', nargs='?', default='test', help='The name of the run you are running the results will be placed in a directory with this name')
     parser.add_argument('-i', '--print-instance', help='print instance of final run', action='store_true')
     parser.add_argument('-t', '--num-threads', type=int, help='Number of cpu cores used.', default=1)

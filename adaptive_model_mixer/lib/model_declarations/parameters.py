@@ -1,11 +1,7 @@
 # Author: Miten Mistry
 #         Department of Computing, Imperial College London
 
-from pyomo.core.base.param import Param
-from pyomo.core.base.sets import Set
-from pyomo.core.base.rangeset import RangeSet
-from pyomo.core.base.set_types import PositiveReals, NonNegativeReals, PositiveIntegers, PercentFraction
-from pyomo.core.base.expression import Expression
+from pyomo.core import Set, RangeSet, Param, PositiveReals, NonNegativeReals, PositiveIntegers, PercentFraction, Expression
 from .parameter_initialisation_functions import *
 from pyomo.environ import value
 

@@ -63,7 +63,7 @@ results_file.write('iteration, tac, time, total_time\n')
 
 datafile = '/home/andresfel9403/hens/datafiles/' + args.model + '.dat'
 
-solver = 'glpk'
+solver = 'gurobi'
 opt    = SolverFactory(solver)
 if args.num_threads:
     opt.options[ 'threads' ] = min(number_of_cores, args.num_threads)
