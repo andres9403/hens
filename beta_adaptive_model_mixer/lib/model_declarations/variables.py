@@ -18,8 +18,12 @@ def declare_variables(model):
     model.area_hu_beta = Var(model.CP, initialize = 0, domain=NonNegativeReals)
 
     # Flow rates
+
+    ## (f^C)_ijk FLOW RATES  ENTERING THE EXCHANGER IJK IN THE COLD SIDE
     model.fh = Var(model.HP, model.CP, model.ST, bounds=fh_bounds,\
             doc="Flow rate entering heat exchanger ijk cold side" )
+    
+    ## (f^H)_ijk FLOW RATES  ENTERING THE EXCHANGER IJK IN THE HOT SIDE
     model.fc = Var(model.HP, model.CP, model.ST, bounds=fc_bounds,\
             doc="Flow rate entering heat exchanger ijk hot side"  )
 

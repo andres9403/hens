@@ -3,7 +3,7 @@
 
 from pyomo.core.base.constraint import Constraint
 
-from .index_generators import reclmtd_index, reclmtd_cu_index, reclmtd_hu_index, z_q_index, z_q_cu_index, z_q_hu_index, var_delta_fh_index, var_delta_fhx_index, var_delta_fc_index, var_delta_fcx_index
+from .index_generators import reclmtd_index, reclmtd_cu_index, reclmtd_hu_index, z_q_index, z_q_cu_index, z_q_hu_index, var_delta_fh_index, var_delta_fhxu_index, var_delta_fc_index, var_delta_fcx_index
 
 from .constraint_rules import *
 

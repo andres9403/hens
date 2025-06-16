@@ -152,6 +152,10 @@ def declare_constraints(model):
     model.area_hu_beta_mccor_convex_2 = Constraint(model.CP, rule=area_hu_beta_mccor_convex_2_rule)
     model.area_hu_beta_mccor_concave_1 = Constraint(model.CP, rule=area_hu_beta_mccor_concave_1_rule)
     model.area_hu_beta_mccor_concave_2 = Constraint(model.CP, rule=area_hu_beta_mccor_concave_2_rule)
+    
+    # def area_nonlinear_rule(model, i, j, k):
+    #     return model.area[i, j, k] == model.q[i, j, k] * model.th[i, k]
+    # model.area_nonlinear = Constraint(model.HP, model.CP, model.ST, rule=area_nonlinear_rule)
 
     # model.z_active = Constraint(model.HP, model.CP, model.ST, rule=z_active_rule)
     # model.z_cu_active = Constraint(model.HP, rule=z_cu_active_rule)

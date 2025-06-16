@@ -210,43 +210,45 @@ def declare_hu_area_beta_breakpoints(model, j):
     global hu_area_betas
     return hu_area_betas[j]
 
-def initialise_hx_model(datafile):
+def initialise_hx_model(datafile, exp_type):
     model = create_model()
     instance = model.create_instance(datafile)
+    if exp_type == 'MINLP':
+        return model
+    else:
+        add_initial_th_breakpoints(instance)
+        add_initial_thx_breakpoints(instance)
+        add_initial_tc_breakpoints(instance)
+        add_initial_tcx_breakpoints(instance)
 
-    add_initial_th_breakpoints(instance)
-    add_initial_thx_breakpoints(instance)
-    add_initial_tc_breakpoints(instance)
-    add_initial_tcx_breakpoints(instance)
+        add_initial_stream_tangent_points(instance)
+        add_initial_cu_tangent_points(instance)
+        add_initial_hu_tangent_points(instance)
 
-    add_initial_stream_tangent_points(instance)
-    add_initial_cu_tangent_points(instance)
-    add_initial_hu_tangent_points(instance)
+        add_initial_stream_q_points(instance)
+        add_initial_cu_q_points(instance)
+        add_initial_hu_q_points(instance)
 
-    add_initial_stream_q_points(instance)
-    add_initial_cu_q_points(instance)
-    add_initial_hu_q_points(instance)
+        add_initial_stream_area_beta_points(instance)
+        add_initial_cu_area_beta_points(instance)
+        add_initial_hu_area_beta_points(instance)
 
-    add_initial_stream_area_beta_points(instance)
-    add_initial_cu_area_beta_points(instance)
-    add_initial_hu_area_beta_points(instance)
+        model.Th_breakpoints.initialize  = declare_th_breakpoints
+        model.Thx_breakpoints.initialize = declare_thx_breakpoints
+        model.Tc_breakpoints.initialize  = declare_tc_breakpoints
+        model.Tcx_breakpoints.initialize = declare_tcx_breakpoints
 
-    model.Th_breakpoints.initialize  = declare_th_breakpoints
-    model.Thx_breakpoints.initialize = declare_thx_breakpoints
-    model.Tc_breakpoints.initialize  = declare_tc_breakpoints
-    model.Tcx_breakpoints.initialize = declare_tcx_breakpoints
+        model.Reclmtd_gradient_points.initialize    = declare_stream_tangent_points
+        model.Reclmtd_cu_gradient_points.initialize = declare_cu_tangent_points
+        model.Reclmtd_hu_gradient_points.initialize = declare_hu_tangent_points
 
-    model.Reclmtd_gradient_points.initialize    = declare_stream_tangent_points
-    model.Reclmtd_cu_gradient_points.initialize = declare_cu_tangent_points
-    model.Reclmtd_hu_gradient_points.initialize = declare_hu_tangent_points
+        model.Q_breakpoints.initialize = declare_stream_q_breakpoints
+        model.Q_cu_breakpoints.initialize = declare_cu_q_breakpoints
+        model.Q_hu_breakpoints.initialize = declare_hu_q_breakpoints
 
-    model.Q_breakpoints.initialize = declare_stream_q_breakpoints
-    model.Q_cu_breakpoints.initialize = declare_cu_q_breakpoints
-    model.Q_hu_breakpoints.initialize = declare_hu_q_breakpoints
-
-    model.Area_beta_breakpoints.initialize = declare_stream_area_beta_breakpoints
-    model.Area_cu_beta_breakpoints.initialize = declare_cu_area_beta_breakpoints
-    model.Area_hu_beta_breakpoints.initialize = declare_hu_area_beta_breakpoints
+        model.Area_beta_breakpoints.initialize = declare_stream_area_beta_breakpoints
+        model.Area_cu_beta_breakpoints.initialize = declare_cu_area_beta_breakpoints
+        model.Area_hu_beta_breakpoints.initialize = declare_hu_area_beta_breakpoints
 
     return model
 

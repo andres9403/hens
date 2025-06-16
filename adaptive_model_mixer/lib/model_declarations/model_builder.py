@@ -17,12 +17,3 @@ def create_model():
     declare_constraints(model)
     return model
 
-# Create original MINLP model
-def create_original_model():
-    model = AbstractModel()
-    declare_parameters(model)
-    declare_variables(model)
-    declare_original_objective(model)
-    declare_original_constraints(model)
-    
-    return model

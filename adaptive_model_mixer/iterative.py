@@ -68,7 +68,7 @@ opt    = SolverFactory(solver)
 if args.num_threads:
     opt.options[ 'threads' ] = min(number_of_cores, args.num_threads)
 
-opt.options[ 'MIPFocus' ] = 1
+opt.options[ 'MIPFocus' ] = 0
 
 tolerances = {
     'IntFeasTol': -1,
@@ -97,7 +97,9 @@ else:
         opt.options[ 'MarkowitzTol' ] = args.MarkowitzTol
         tolerances[ 'MarkowitzTol' ] = args.MarkowitzTol
 
-model = initialise_hx_model(datafile)
+experiment = 'MINLP'
+
+model = initialise_hx_model(datafile, experiment)
 
 warmstart = False
 
@@ -146,6 +148,19 @@ for run in range(1, maxIters):
     print('Running iteration ', run)
 
     instance = model.create_instance(datafile)
+
+    # Print the number of nonlinear constraints
+    from pyomo.core.expr.visitor import polynomial_degree
+    from pyomo.environ import Constraint
+    nonlinear_constraints = 0
+    for c in instance.component_objects(Constraint, active=True):
+        for idx in c:
+            expr = c[idx].body
+            deg = polynomial_degree(expr)
+            if deg is None or deg > 1:
+                nonlinear_constraints += 1
+    print(f"********************Model has {nonlinear_constraints} nonlinear constraints.")
+
     output_file.write('----------------------------------\n')
     output_file.write('---- Run: ' + str(run) + '\n')
     output_file.write('----------------------------------\n')
@@ -153,40 +168,44 @@ for run in range(1, maxIters):
     opt.options[ 'LogFile' ] = os.path.join(folders[ logs_folder ], 'gur' + str(run).zfill(len(str(maxIters))) + '.log')
 
     results = opt.solve(instance, tee=True)
-
+    
     instance.solutions.load_from(results)
 
-    old_points = new_points
+    if experiment == 'Reformulation':
 
-    active_hx, inactive_hx         = get_active_hx(instance)
+        old_points = new_points
 
-    new_tangent_points = get_new_tangent_points(instance, active_hx)
-    added_tangents    = add_new_tangent_points(new_tangent_points)
-    new_q_breakpoints = get_new_q_breakpoints(instance, active_hx)
-    new_beta_breakpoints = get_new_beta_breakpoints(instance, active_hx)
-    new_balancing_breakpoints = get_new_balancing_breakpoints(instance, active_hx, inactive_hx, args.weaken)
+        active_hx, inactive_hx         = get_active_hx(instance)
 
-    new_points = copy.deepcopy(get_all_points())
+        new_tangent_points = get_new_tangent_points(instance, active_hx)
+        added_tangents    = add_new_tangent_points(new_tangent_points)
+        new_q_breakpoints = get_new_q_breakpoints(instance, active_hx)
+        new_beta_breakpoints = get_new_beta_breakpoints(instance, active_hx)
+        new_balancing_breakpoints = get_new_balancing_breakpoints(instance, active_hx, inactive_hx, args.weaken)
+
+        new_points = copy.deepcopy(get_all_points())
 
     output_file.write('----------------------------------\n')
     output_file.write('---- TAC: ' + str(value(instance.TAC)) + '\n')
     output_file.write('----------------------------------\n')
     output_file.write('\n')
-    output_file.write('Found ActiveHx:\n')
-    pprint(active_hx, output_file)
-    output_file.write('\n')
-    output_file.write('Adding Tangents at:\n')
-    pprint(added_tangents, output_file)
-    output_file.write('\n')
-    output_file.write('Adding Balancing breakpoints at:\n')
-    pprint(new_balancing_breakpoints, output_file)
-    output_file.write('\n')
-    output_file.write('Adding q breakpoints at:\n')
-    pprint(new_q_breakpoints, output_file)
-    output_file.write('\n')
-    output_file.write('Adding area beta breakpoints at:\n')
-    pprint(new_beta_breakpoints, output_file)
-    output_file.write('\n')
+
+    if experiment == 'Reformulation':
+        output_file.write('Found ActiveHx:\n')
+        pprint(active_hx, output_file)
+        output_file.write('\n')
+        output_file.write('Adding Tangents at:\n')
+        pprint(added_tangents, output_file)
+        output_file.write('\n')
+        output_file.write('Adding Balancing breakpoints at:\n')
+        pprint(new_balancing_breakpoints, output_file)
+        output_file.write('\n')
+        output_file.write('Adding q breakpoints at:\n')
+        pprint(new_q_breakpoints, output_file)
+        output_file.write('\n')
+        output_file.write('Adding area beta breakpoints at:\n')
+        pprint(new_beta_breakpoints, output_file)
+        output_file.write('\n')
 
     output_file.flush()
 
