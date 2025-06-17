@@ -5,6 +5,8 @@ from .helper_functions import lmtd_inverse_gradient_calculator, lmtd_inv
 
 from pyomo.environ import Constraint
 
+
+
 def z_th_sum_rule(model, i, k):
     return sum(model.z_th[i,k,n] for n in range(1, len(model.Th_breakpoints[i,k].data())) ) == 1
 
@@ -24,10 +26,10 @@ def z_thx_sum_rule(model, i, j, k):
     return sum(model.z_thx[i,j,k,n] for n in range(1, len(model.Thx_breakpoints[i,j,k])) ) == 1
 
 def thx_lower_rule(model, i, j, k):
-    return model.thx[i,j,k] >= sum(model.Thx_breakpoints[i,j,k][n]*model.z_thx[i,j,k,n] for n in range(1, len(model.Thx_breakpoints[i,j,k])))
+    return model.thx[i,j,k] >= sum(model.Thx_breakpoints[i,j,k].at(n)*model.z_thx[i,j,k,n] for n in range(1, len(model.Thx_breakpoints[i,j,k])))
 
 def thx_upper_rule(model, i, j, k):
-    return model.thx[i,j,k] <= sum(model.Thx_breakpoints[i,j,k][n+1]*model.z_thx[i,j,k,n] for n in range(1, len(model.Thx_breakpoints[i,j,k])))
+    return model.thx[i,j,k] <= sum(model.Thx_breakpoints[i,j,k].at(n+1)*model.z_thx[i,j,k,n] for n in range(1, len(model.Thx_breakpoints[i,j,k])))
 
 def var_delta_fhx_sum_rule(model, i, j, k):
     return model.fh[i,j,k] == sum(model.var_delta_fhx[i,j,k,n] for n in range(1, len(model.Thx_breakpoints[i,j,k])))
@@ -40,10 +42,10 @@ def z_tc_sum_rule(model, j, k):
     return sum(model.z_tc[j,k+1,n] for n in range(1, len(model.Tc_breakpoints[j,k+1])) ) == 1
 
 def tc_lower_rule(model, j, k):
-    return model.tc[j,k+1] >= sum(model.Tc_breakpoints[j,k+1][n]*model.z_tc[j,k+1,n] for n in range(1, len(model.Tc_breakpoints[j,k+1])))
+    return model.tc[j,k+1] >= sum(model.Tc_breakpoints[j,k+1].at(n)*model.z_tc[j,k+1,n] for n in range(1, len(model.Tc_breakpoints[j,k+1])))
 
 def tc_upper_rule(model, j, k):
-    return model.tc[j,k+1] <= sum(model.Tc_breakpoints[j,k+1][n+1]*model.z_tc[j,k+1,n] for n in range(1, len(model.Tc_breakpoints[j,k+1])))
+    return model.tc[j,k+1] <= sum(model.Tc_breakpoints[j,k+1].at(n+1)*model.z_tc[j,k+1,n] for n in range(1, len(model.Tc_breakpoints[j,k+1])))
 
 def var_delta_fc_sum_rule(model, i, j, k):
     return model.fc[i,j,k] == sum(model.var_delta_fc[i,j,k,n] for n in range(1, len(model.Tc_breakpoints[j,k+1])))
@@ -56,10 +58,10 @@ def z_tcx_sum_rule(model, i, j, k):
     return sum(model.z_tcx[i,j,k,n] for n in range(1, len(model.Tcx_breakpoints[i,j,k])) ) == 1
 
 def tcx_lower_rule(model, i, j, k):
-    return model.tcx[i,j,k] >= sum(model.Tcx_breakpoints[i,j,k][n]*model.z_tcx[i,j,k,n] for n in range(1, len(model.Tcx_breakpoints[i,j,k])))
+    return model.tcx[i,j,k] >= sum(model.Tcx_breakpoints[i,j,k].at(n)*model.z_tcx[i,j,k,n] for n in range(1, len(model.Tcx_breakpoints[i,j,k])))
 
 def tcx_upper_rule(model, i, j, k):
-    return model.tcx[i,j,k] <= sum(model.Tcx_breakpoints[i,j,k][n+1]*model.z_tcx[i,j,k,n] for n in range(1, len(model.Tcx_breakpoints[i,j,k])))
+    return model.tcx[i,j,k] <= sum(model.Tcx_breakpoints[i,j,k].at(n+1)*model.z_tcx[i,j,k,n] for n in range(1, len(model.Tcx_breakpoints[i,j,k])))
 
 def var_delta_fcx_sum_rule(model, i, j, k):
     return model.fc[i,j,k] == sum(model.var_delta_fcx[i,j,k,n] for n in range(1, len(model.Tcx_breakpoints[i,j,k])))
@@ -74,10 +76,10 @@ def z_q_sum_rule(model, i, j, k):
     return sum(model.z_q[i,j,k,n] for n in range(1, len(model.Q_breakpoints[i,j,k])) ) == 1
 
 def q_lower_rule(model, i, j, k):
-    return model.q[i,j,k] >= sum(model.Q_breakpoints[i,j,k][n]*model.z_q[i,j,k,n] for n in range(1, len(model.Q_breakpoints[i,j,k])))
+    return model.q[i,j,k] >= sum(model.Q_breakpoints[i,j,k].at(n)*model.z_q[i,j,k,n] for n in range(1, len(model.Q_breakpoints[i,j,k])))
 
 def q_upper_rule(model, i, j, k):
-    return model.q[i,j,k] <= sum(model.Q_breakpoints[i,j,k][n+1]*model.z_q[i,j,k,n] for n in range(1, len(model.Q_breakpoints[i,j,k])))
+    return model.q[i,j,k] <= sum(model.Q_breakpoints[i,j,k].at(n+1)*model.z_q[i,j,k,n] for n in range(1, len(model.Q_breakpoints[i,j,k])))
 
 def var_delta_reclmtd_sum_rule(model, i, j, k):
     reclmtd_lower, _ = model.reclmtd[i,j,k].bounds
@@ -92,10 +94,10 @@ def z_q_cu_sum_rule(model, i):
     return sum(model.z_q_cu[i,n] for n in range(1, len(model.Q_cu_breakpoints[i])) ) == 1
 
 def q_cu_lower_rule(model, i):
-    return model.q_cu[i] >= sum(model.Q_cu_breakpoints[i][n]*model.z_q_cu[i,n] for n in range(1, len(model.Q_cu_breakpoints[i])))
+    return model.q_cu[i] >= sum(model.Q_cu_breakpoints[i].at(n)*model.z_q_cu[i,n] for n in range(1, len(model.Q_cu_breakpoints[i])))
 
 def q_cu_upper_rule(model, i):
-    return model.q_cu[i] <= sum(model.Q_cu_breakpoints[i][n+1]*model.z_q_cu[i,n] for n in range(1, len(model.Q_cu_breakpoints[i])))
+    return model.q_cu[i] <= sum(model.Q_cu_breakpoints[i].at(n+1)*model.z_q_cu[i,n] for n in range(1, len(model.Q_cu_breakpoints[i])))
 
 def var_delta_reclmtd_cu_sum_rule(model, i):
     reclmtd_cu_lower, _ = model.reclmtd_cu[i].bounds
@@ -113,7 +115,7 @@ def q_hu_lower_rule(model, j):
     return model.q_hu[j] >= sum(model.Q_hu_breakpoints[j].at(n)*model.z_q_hu[j,n] for n in range(1, len(model.Q_hu_breakpoints[j])))
 
 def q_hu_upper_rule(model, j):
-    return model.q_hu[j] <= sum(model.Q_hu_breakpoints[j][n+1]*model.z_q_hu[j,n] for n in range(1, len(model.Q_hu_breakpoints[j])))
+    return model.q_hu[j] <= sum(model.Q_hu_breakpoints[j].at(n+1)*model.z_q_hu[j,n] for n in range(1, len(model.Q_hu_breakpoints[j])))
 
 def var_delta_reclmtd_hu_sum_rule(model, j):
     reclmtd_hu_lower, _ = model.reclmtd_hu[j].bounds
@@ -213,73 +215,73 @@ def mccor_concave_h_in_2_rule(model, i, j, k):
 
 def mccor_convex_h_out_1_rule(model, i, j, k):
     return  model.bh_out[i,j,k] >= \
-            sum(model.Thx_breakpoints[i,j,k][n]*model.var_delta_fhx[i,j,k,n] \
+            sum(model.Thx_breakpoints[i,j,k].at(n)*model.var_delta_fhx[i,j,k,n] \
                 for n in range(1, len(model.Thx_breakpoints[i,j,k])))
 
 def mccor_convex_h_out_2_rule(model, i, j, k):
     return  model.bh_out[i,j,k] >= \
             model.thx[i,j,k]*model.Fh[i] +\
-            sum(model.Thx_breakpoints[i,j,k][n+1]*\
+            sum(model.Thx_breakpoints[i,j,k].at(n+1)*\
                 (model.var_delta_fhx[i,j,k,n] - model.Fh[i]*model.z_thx[i,j,k,n]) \
                 for n in range(1, len(model.Thx_breakpoints[i,j,k])))
 
 def mccor_concave_h_out_1_rule(model, i, j, k):
     return  model.bh_out[i,j,k] <= \
-            sum(model.Thx_breakpoints[i,j,k][n+1]*model.var_delta_fhx[i,j,k,n] \
+            sum(model.Thx_breakpoints[i,j,k].at(n+1)*model.var_delta_fhx[i,j,k,n] \
                 for n in range(1, len(model.Thx_breakpoints[i,j,k])))
 
 def mccor_concave_h_out_2_rule(model, i, j, k):
     return  model.bh_out[i,j,k] <= \
             model.thx[i,j,k]*model.Fh[i] +\
-            sum(model.Thx_breakpoints[i,j,k][n]*\
+            sum(model.Thx_breakpoints[i,j,k].at(n)*\
                 (model.var_delta_fhx[i,j,k,n] - model.Fh[i]*model.z_thx[i,j,k,n]) \
                 for n in range(1, len(model.Thx_breakpoints[i,j,k])))
 
 def mccor_convex_c_in_1_rule(model, i, j, k):
     return  model.bc_in[i,j,k] >=\
-            sum(model.Tc_breakpoints[j,k+1][n]*model.var_delta_fc[i,j,k,n] \
+            sum(model.Tc_breakpoints[j,k+1].at(n)*model.var_delta_fc[i,j,k,n] \
                 for n in range(1, len(model.Tc_breakpoints[j,k+1])))
 
 def mccor_convex_c_in_2_rule(model, i, j, k):
     return  model.bc_in[i,j,k] >= \
             model.tc[j,k+1]*model.Fc[j] + \
-            sum(model.Tc_breakpoints[j,k+1][n+1]*\
+            sum(model.Tc_breakpoints[j,k+1].at(n+1)*\
                 (model.var_delta_fc[i,j,k,n] - model.Fc[j]*model.z_tc[j,k+1,n]) \
                 for n in range(1, len(model.Tc_breakpoints[j,k+1])))
 
 def mccor_concave_c_in_1_rule(model, i, j, k):
     return  model.bc_in[i,j,k] <= \
-            sum(model.Tc_breakpoints[j,k+1][n+1]*model.var_delta_fc[i,j,k,n] \
+            sum(model.Tc_breakpoints[j,k+1].at(n+1)*model.var_delta_fc[i,j,k,n] \
                 for n in range(1, len(model.Tc_breakpoints[j,k+1])))
 
 def mccor_concave_c_in_2_rule(model, i, j, k):
     return  model.bc_in[i,j,k] <= \
             model.tc[j,k+1]*model.Fc[j] + \
-            sum(model.Tc_breakpoints[j,k+1][n]*\
+            sum(model.Tc_breakpoints[j,k+1].at(n)*\
                 (model.var_delta_fc[i,j,k,n] - model.Fc[j]*model.z_tc[j,k+1,n]) \
                 for n in range(1, len(model.Tc_breakpoints[j,k+1])))
 
 def mccor_convex_c_out_1_rule(model, i, j, k):
     return  model.bc_out[i,j,k] >= \
-            sum(model.Tcx_breakpoints[i,j,k][n]*model.var_delta_fcx[i,j,k,n] \
+            sum(model.Tcx_breakpoints[i,j,k].at(n)*model.var_delta_fcx[i,j,k,n] \
                 for n in range(1, len(model.Tcx_breakpoints[i,j,k])))
 
 def mccor_convex_c_out_2_rule(model, i, j, k):
     return  model.bc_out[i,j,k] >= \
             model.tcx[i,j,k]*model.Fc[j] + \
-            sum(model.Tcx_breakpoints[i,j,k][n+1]*\
+            sum(model.Tcx_breakpoints[i,j,k].at(n+1)*\
                 (model.var_delta_fcx[i,j,k,n] - model.Fc[j]*model.z_tcx[i,j,k,n]) \
                 for n in range(1, len(model.Tcx_breakpoints[i,j,k])))
 
 def mccor_concave_c_out_1_rule(model, i, j, k):
     return  model.bc_out[i,j,k] <= \
-            sum(model.Tcx_breakpoints[i,j,k][n+1]*model.var_delta_fcx[i,j,k,n] \
+            sum(model.Tcx_breakpoints[i,j,k].at(n+1)*model.var_delta_fcx[i,j,k,n] \
                 for n in range(1, len(model.Tcx_breakpoints[i,j,k])))
 
 def mccor_concave_c_out_2_rule(model, i, j, k):
     return  model.bc_out[i,j,k] <= \
             model.tcx[i,j,k]*model.Fc[j] + \
-            sum(model.Tcx_breakpoints[i,j,k][n]*\
+            sum(model.Tcx_breakpoints[i,j,k].at(n)*\
                 (model.var_delta_fcx[i,j,k,n] - model.Fc[j]*model.z_tcx[i,j,k,n])\
                 for n in range(1, len(model.Tcx_breakpoints[i,j,k])))
 
@@ -302,7 +304,7 @@ def area_mccor_convex_1_rule(model, i, j, k):
             model.U[i,j]*(\
                 model.q[i,j,k]*reclmtd_lower +\
                 sum( \
-                    model.Q_breakpoints[i,j,k][n]*model.var_delta_reclmtd[i,j,k,n] \
+                    model.Q_breakpoints[i,j,k].at(n)*model.var_delta_reclmtd[i,j,k,n] \
                     for n in range(1, len(model.Q_breakpoints[i,j,k]))) \
             )
 
@@ -312,7 +314,7 @@ def area_mccor_convex_2_rule(model, i, j, k):
             model.U[i,j]*(\
                 model.q[i,j,k]*reclmtd_upper + \
                 sum( \
-                    model.Q_breakpoints[i,j,k][n+1]* \
+                    model.Q_breakpoints[i,j,k].at(n+1)* \
                     (model.var_delta_reclmtd[i,j,k,n] - (reclmtd_upper-reclmtd_lower)*model.z_q[i,j,k,n])\
                     for n in range(1, len(model.Q_breakpoints[i,j,k]))) \
             )
@@ -323,7 +325,7 @@ def area_mccor_concave_1_rule(model, i, j, k):
             model.U[i,j]*( \
                 model.q[i,j,k]*reclmtd_lower + \
                 sum( \
-                    model.Q_breakpoints[i,j,k][n+1]*model.var_delta_reclmtd[i,j,k,n]\
+                    model.Q_breakpoints[i,j,k].at(n+1)*model.var_delta_reclmtd[i,j,k,n]\
                     for n in range(1, len(model.Q_breakpoints[i,j,k])))\
             )
 
@@ -333,7 +335,7 @@ def area_mccor_concave_2_rule(model, i, j, k):
             model.U[i,j]*(\
                 model.q[i,j,k]*reclmtd_upper + \
                 sum( \
-                    model.Q_breakpoints[i,j,k][n]* \
+                    model.Q_breakpoints[i,j,k].at(n)* \
                     (model.var_delta_reclmtd[i,j,k,n] - (reclmtd_upper-reclmtd_lower)*model.z_q[i,j,k,n])\
                     for n in range(1, len(model.Q_breakpoints[i,j,k]))) \
             )
@@ -345,7 +347,7 @@ def area_cu_mccor_convex_1_rule(model, i):
             model.U_cu[i]*(\
                 model.q_cu[i]*reclmtd_cu_lower +\
                 sum(\
-                    model.Q_cu_breakpoints[i][n]*model.var_delta_reclmtd_cu[i,n]\
+                    model.Q_cu_breakpoints[i].at(n)*model.var_delta_reclmtd_cu[i,n]\
                     for n in range(1, len(model.Q_cu_breakpoints[i])))\
             )
 
@@ -355,7 +357,7 @@ def area_cu_mccor_convex_2_rule(model, i):
             model.U_cu[i]*(\
                 model.q_cu[i]*reclmtd_cu_upper +\
                 sum(\
-                    model.Q_cu_breakpoints[i][n+1]*\
+                    model.Q_cu_breakpoints[i].at(n+1)*\
                     (model.var_delta_reclmtd_cu[i,n] - (reclmtd_cu_upper - reclmtd_cu_lower)*model.z_q_cu[i,n])\
                     for n in range(1, len(model.Q_cu_breakpoints[i])))\
             )
@@ -366,7 +368,7 @@ def area_cu_mccor_concave_1_rule(model, i):
             model.U_cu[i]*(\
                 model.q_cu[i]*reclmtd_cu_lower +\
                 sum(\
-                    model.Q_cu_breakpoints[i][n+1]*model.var_delta_reclmtd_cu[i,n]\
+                    model.Q_cu_breakpoints[i].at(n+1)*model.var_delta_reclmtd_cu[i,n]\
                     for n in range(1, len(model.Q_cu_breakpoints[i])))\
             )
 
@@ -376,7 +378,7 @@ def area_cu_mccor_concave_2_rule(model, i):
             model.U_cu[i]*(\
                 model.q_cu[i]*reclmtd_cu_upper +\
                 sum(\
-                    model.Q_cu_breakpoints[i][n]*\
+                    model.Q_cu_breakpoints[i].at(n)*\
                     (model.var_delta_reclmtd_cu[i,n] - (reclmtd_cu_upper - reclmtd_cu_lower)*model.z_q_cu[i,n])\
                     for n in range(1, len(model.Q_cu_breakpoints[i])))\
             )
@@ -398,7 +400,7 @@ def area_hu_mccor_convex_2_rule(model, j):
             model.U_hu[j]*(\
                 model.q_hu[j]*reclmtd_hu_upper +\
                 sum(\
-                    model.Q_hu_breakpoints[j][n+1]*\
+                    model.Q_hu_breakpoints[j].at(n+1)*\
                     (model.var_delta_reclmtd_hu[j,n] - (reclmtd_hu_upper - reclmtd_hu_lower)*model.z_q_hu[j,n])\
                     for n in range(1, len(model.Q_hu_breakpoints[j])))\
             )
@@ -409,7 +411,7 @@ def area_hu_mccor_concave_1_rule(model, j):
             model.U_hu[j]*(\
                 model.q_hu[j]*reclmtd_hu_lower +\
                 sum(\
-                    model.Q_hu_breakpoints[j][n+1]*model.var_delta_reclmtd_hu[j,n]\
+                    model.Q_hu_breakpoints[j].at(n+1)*model.var_delta_reclmtd_hu[j,n]\
                     for n in range(1, len(model.Q_hu_breakpoints[j])))\
             )
 

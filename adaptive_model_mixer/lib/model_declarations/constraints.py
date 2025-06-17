@@ -3,7 +3,7 @@
 
 from pyomo.core.base.constraint import Constraint
 
-from .index_generators import reclmtd_index, reclmtd_cu_index, reclmtd_hu_index, z_q_index, z_q_cu_index, z_q_hu_index, var_delta_fh_index, var_delta_fhxu_index, var_delta_fc_index, var_delta_fcx_index
+from .index_generators import reclmtd_index, reclmtd_cu_index, reclmtd_hu_index, z_q_index, z_q_cu_index, z_q_hu_index, var_delta_fh_index, var_delta_fhx_index, var_delta_fc_index, var_delta_fcx_index
 
 from .constraint_rules import *
 
@@ -103,7 +103,15 @@ def declare_constraints(model):
     model.grad_reclmtd_cu = Constraint(reclmtd_cu_index, rule=grad_reclmtd_cu_rule)
     model.grad_reclmtd_hu = Constraint(reclmtd_hu_index, rule=grad_reclmtd_hu_rule)
 
-    # Area McCormick bounds
+    #%% Original Syntheat Area Constraints
+
+    # Original Area Constraints
+    #model.area_ijk = Constraint(model.HP, model.CP, model.ST, rule = area_ijk_rule)
+
+
+    #model.area_ijk = Constraint(model.HP, model.CP, model.ST, rule=area_ijk_rule)
+
+    #%% Area McCormick bounds
     model.z_q_sum = Constraint(model.HP, model.CP, model.ST, rule=z_q_sum_rule)
     model.q_lower = Constraint(model.HP, model.CP, model.ST, rule=q_lower_rule)
     model.q_upper = Constraint(model.HP, model.CP, model.ST, rule=q_upper_rule)
@@ -151,3 +159,4 @@ def declare_constraints(model):
     model.area_hu_low = Constraint(model.CP, rule=area_hu_low_rule)
     model.area_hu_up = Constraint(model.CP, rule=area_hu_up_rule)
     model.area_hu_pow_beta = Constraint(model.CP, rule=area_hu_pow_beta_rule)
+

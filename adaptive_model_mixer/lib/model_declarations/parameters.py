@@ -28,10 +28,20 @@ def declare_parameters(model):
 
     model.Last_stage = Expression(expr=model.Number_stages + 1)
    
-    model.HP = RangeSet(1, model.Number_hot_stream,  doc="set of hot process streams i"          )
-    model.CP = RangeSet(1, model.Number_cold_stream, doc="set of cold process streams j"         )
-    model.ST = RangeSet(model.First_stage, model.Number_stages, doc="set of stages in the superstructure" )
-    model.K  = RangeSet(model.First_stage, model.Last_stage, doc="set of temperature locations"          )
+    # model.HP = RangeSet(1, model.Number_hot_stream,  doc="set of hot process streams i"          )
+    # model.CP = RangeSet(1, model.Number_cold_stream, doc="set of cold process streams j"         )
+    # model.ST = RangeSet(model.First_stage, model.Number_stages, doc="set of stages in the superstructure" )
+    # model.K  = RangeSet(model.First_stage, model.Last_stage, doc="set of temperature locations"          )
+
+    # model.HP = RangeSet(1, int(value(model.Number_hot_stream)), doc="set of hot process streams i")
+    # model.CP = RangeSet(1, int(value(model.Number_cold_stream)), doc="set of cold process streams j")
+    # model.ST = RangeSet(int(value(model.First_stage)), int(value(model.Number_stages)), doc="set of stages in the superstructure")
+    # model.K  = RangeSet(int(value(model.First_stage)), int(value(model.Last_stage)), doc="set of temperature locations")
+    # model.First_Stage_Set = RangeSet(int(value(model.First_stage)), int(value(model.First_stage)))
+    model.HP = RangeSet(1, model.Number_hot_stream, doc="set of hot process streams i")
+    model.CP = RangeSet(1, model.Number_cold_stream, doc="set of cold process streams j")
+    model.ST = RangeSet(model.First_stage, model.Number_stages, doc="set of stages in the superstructure")
+    model.K  = RangeSet(model.First_stage, model.Last_stage, doc="set of temperature locations")
     #model.K  = RangeSet(model.First_stage, value(model.Number_stages) + 1, doc="set of temperature locations")
     model.First_Stage_Set = RangeSet(model.First_stage, model.First_stage)
     model.K_Take_First_Stage = model.K - model.First_Stage_Set
@@ -74,13 +84,14 @@ def declare_parameters(model):
 
     model.Gamma = Param(model.HP, model.CP, within=NonNegativeReals, initialize=Gamma_init)
 
+    
+    ## Breakpoints for McCormick Relaxation for the energy balances
     model.Th_breakpoints = Set(model.HP, model.ST, dimen=1, ordered=True, initialize=lambda model, i, k: th_breakpoints_init(model, i))
-
     model.Thx_breakpoints = Set(model.HP, model.CP, model.ST, dimen=1, ordered=True, initialize=lambda model, i, j, k: thx_breakpoints_init(model, i, j, k))
-
     model.Tc_breakpoints = Set(model.CP, model.K_Take_First_Stage, dimen=1, ordered=True, initialize=lambda model, j, k: tc_breakpoints_init(model, j))
-
     model.Tcx_breakpoints = Set(model.HP, model.CP, model.ST, dimen=1, ordered=True, initialize=lambda model, i, j, k: tcx_breakpoints_init(model, i, j, k))
+
+    ## Breakpoints for McCormick Relaxation for the heat loads
 
     model.Q_breakpoints = Set(model.HP, model.CP, model.ST, dimen=1, ordered=True, initialize=lambda model, i, j, k: q_breakpoints_init(model, i, j))
     model.Q_cu_breakpoints = Set(model.HP, dimen=1, ordered=True, initialize=lambda model, i: q_cu_breakpoints_init(model, i))

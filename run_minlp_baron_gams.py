@@ -11,8 +11,8 @@ datafile = '/home/andresfel9403/hens/datafiles/model1.dat'  # Change as needed
 instance = model.create_instance(datafile)
 
 # Step 3: Set up the solver for BARON via GAMS
-solver = SolverFactory('gams')
-solver.options['solver'] = 'baron'
+solver = SolverFactory('gurobi')
+#solver.options['solver'] = 'baron'
 # solver.options['threads'] = 4  # Adjust as needed
 
 # Optional: Set BARON-specific options
