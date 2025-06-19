@@ -11,6 +11,7 @@ from pyomo.core.base.numvalue import value
 from .model_declarations.model_builder import create_model
 from .model_declarations.helper_functions import two_point_generator, three_point_generator, lmtd_inv
 
+
 from .constants import *
 
 stream_tangent_points = {}
@@ -74,6 +75,8 @@ def initialise_parser():
     parser.add_argument('--FeasibilityTol', type=float, default=1e-6, help='Primal feasibility tolerance.')
     parser.add_argument('--OptimalityTol', type=float, default=1e-6, help='Dual feasibility tolerance.')
     parser.add_argument('--MarkowitzTol', type=float, default=0.0078125, help='Pivoting tolerance.')
+    parser.add_argument('--solver', type=str, default='gurobi', help='The solver to use. DEFAULT=gurobi', choices=['gurobi', 'cplex', 'baron', 'bonmin', 'ipopt'])
+    parser.add_argument('--model-type', type=str, default='MINLP', help='The type of model to run. DEFAULT=MINLP')
     return parser
 
 def validate_and_assign_args(args):
@@ -211,7 +214,7 @@ def declare_hu_area_beta_breakpoints(model, j):
     return hu_area_betas[j]
 
 def initialise_hx_model(datafile, exp_type):
-    model = create_model()
+    model = create_model(exp_type)
     instance = model.create_instance(datafile)
     if exp_type == 'MINLP':
         return model

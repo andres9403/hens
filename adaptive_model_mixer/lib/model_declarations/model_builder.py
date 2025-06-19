@@ -9,8 +9,9 @@ from .variables   import declare_variables
 from .objective   import declare_objective
 from .constraints import declare_constraints
 
-def create_model():
+def create_model(run_type):
     model = AbstractModel()
+    model.run_type = run_type
     declare_parameters(model)
     declare_variables(model)
     declare_objective(model)

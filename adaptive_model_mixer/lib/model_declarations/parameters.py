@@ -84,27 +84,33 @@ def declare_parameters(model):
 
     model.Gamma = Param(model.HP, model.CP, within=NonNegativeReals, initialize=Gamma_init)
 
-    
+    if  model.run_type == 'MILP':
     ## Breakpoints for McCormick Relaxation for the energy balances
-    model.Th_breakpoints = Set(model.HP, model.ST, dimen=1, ordered=True, initialize=lambda model, i, k: th_breakpoints_init(model, i))
-    model.Thx_breakpoints = Set(model.HP, model.CP, model.ST, dimen=1, ordered=True, initialize=lambda model, i, j, k: thx_breakpoints_init(model, i, j, k))
-    model.Tc_breakpoints = Set(model.CP, model.K_Take_First_Stage, dimen=1, ordered=True, initialize=lambda model, j, k: tc_breakpoints_init(model, j))
-    model.Tcx_breakpoints = Set(model.HP, model.CP, model.ST, dimen=1, ordered=True, initialize=lambda model, i, j, k: tcx_breakpoints_init(model, i, j, k))
+        model.Th_breakpoints = Set(model.HP, model.ST, dimen=1, ordered=True, initialize=lambda model, i, k: th_breakpoints_init(model, i))
+        model.Thx_breakpoints = Set(model.HP, model.CP, model.ST, dimen=1, ordered=True, initialize=lambda model, i, j, k: thx_breakpoints_init(model, i, j, k))
+        model.Tc_breakpoints = Set(model.CP, model.K_Take_First_Stage, dimen=1, ordered=True, initialize=lambda model, j, k: tc_breakpoints_init(model, j))
+        model.Tcx_breakpoints = Set(model.HP, model.CP, model.ST, dimen=1, ordered=True, initialize=lambda model, i, j, k: tcx_breakpoints_init(model, i, j, k))
 
-    ## Breakpoints for McCormick Relaxation for the heat loads
+        ## Breakpoints for McCormick Relaxation for the heat loads
 
-    model.Q_breakpoints = Set(model.HP, model.CP, model.ST, dimen=1, ordered=True, initialize=lambda model, i, j, k: q_breakpoints_init(model, i, j))
-    model.Q_cu_breakpoints = Set(model.HP, dimen=1, ordered=True, initialize=lambda model, i: q_cu_breakpoints_init(model, i))
-    model.Q_hu_breakpoints = Set(model.CP, dimen=1, ordered=True, initialize=lambda model, j: q_hu_breakpoints_init(model, j))
+        model.Q_breakpoints = Set(model.HP, model.CP, model.ST, dimen=1, ordered=True, initialize=lambda model, i, j, k: q_breakpoints_init(model, i, j))
+        model.Q_cu_breakpoints = Set(model.HP, dimen=1, ordered=True, initialize=lambda model, i: q_cu_breakpoints_init(model, i))
+        model.Q_hu_breakpoints = Set(model.CP, dimen=1, ordered=True, initialize=lambda model, j: q_hu_breakpoints_init(model, j))
 
-    model.Area_beta_breakpoints = Set(model.HP, model.CP, model.ST, dimen=1, ordered=True, initialize=lambda model,i,j,k: area_beta_breakpoints_init(model,i,j))
-    model.Area_beta_exp = Set(model.HP, model.CP, model.ST, dimen=1, ordered=True, initialize=lambda model,i,j,k: map(lambda A: pow(A, model.Beta), model.Area_beta_breakpoints[i,j,k]))
-    model.Area_beta_gradients = Set(model.HP, model.CP, model.ST, dimen=1, ordered=True, initialize=area_beta_gradients_init)
+        model.Area_beta_breakpoints = Set(model.HP, model.CP, model.ST, dimen=1, ordered=True, initialize=lambda model,i,j,k: area_beta_breakpoints_init(model,i,j))
+        model.Area_beta_exp = Set(model.HP, model.CP, model.ST, dimen=1, ordered=True, initialize=lambda model,i,j,k: map(lambda A: pow(A, model.Beta), model.Area_beta_breakpoints[i,j,k]))
+        model.Area_beta_gradients = Set(model.HP, model.CP, model.ST, dimen=1, ordered=True, initialize=area_beta_gradients_init)
 
-    model.Area_cu_beta_breakpoints = Set(model.HP, dimen=1, ordered=True, initialize=lambda model,i: area_cu_beta_breakpoints_init(model,i))
-    model.Area_cu_beta_exp = Set(model.HP, dimen=1, ordered=True, initialize=lambda model,i: map(lambda A: pow(A, model.Beta), model.Area_cu_beta_breakpoints[i]))
-    model.Area_cu_beta_gradients = Set(model.HP, dimen=1, ordered=True, initialize=area_cu_beta_gradients_init)
+        model.Area_cu_beta_breakpoints = Set(model.HP, dimen=1, ordered=True, initialize=lambda model,i: area_cu_beta_breakpoints_init(model,i))
+        model.Area_cu_beta_exp = Set(model.HP, dimen=1, ordered=True, initialize=lambda model,i: map(lambda A: pow(A, model.Beta), model.Area_cu_beta_breakpoints[i]))
+        model.Area_cu_beta_gradients = Set(model.HP, dimen=1, ordered=True, initialize=area_cu_beta_gradients_init)
 
-    model.Area_hu_beta_breakpoints = Set(model.CP, dimen=1, ordered=True, initialize=lambda model,j: area_hu_beta_breakpoints_init(model,j))
-    model.Area_hu_beta_exp = Set(model.CP, dimen=1, ordered=True, initialize=lambda model,j: map(lambda A: pow(A, model.Beta), model.Area_hu_beta_breakpoints[j]))
-    model.Area_hu_beta_gradients = Set(model.CP, dimen=1, ordered=True, initialize=area_hu_beta_gradients_init)
+        model.Area_hu_beta_breakpoints = Set(model.CP, dimen=1, ordered=True, initialize=lambda model,j: area_hu_beta_breakpoints_init(model,j))
+        model.Area_hu_beta_exp = Set(model.CP, dimen=1, ordered=True, initialize=lambda model,j: map(lambda A: pow(A, model.Beta), model.Area_hu_beta_breakpoints[j]))
+        model.Area_hu_beta_gradients = Set(model.CP, dimen=1, ordered=True, initialize=area_hu_beta_gradients_init)
+    elif model.run_type == 'MINLP':
+        pass
+    else:
+        raise ValueError("Unknown test type: %s" % test_type)
+
+

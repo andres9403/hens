@@ -6,6 +6,145 @@ from .helper_functions import lmtd_inverse_gradient_calculator, lmtd_inv
 from pyomo.environ import Constraint
 
 
+#%% Overall Heat Balance per Each Stream (SYNHEAT)
+
+    # Total Heat Balance of Hot Streams
+def overall_heat_balance_hot_rule(model, i):
+    return ( sum(model.q[i,j,k] for j in model.CP for k in model.ST ) + model.q_cu[i] ) == model.Fh[i]*(model.Th_in[i] - model.Th_out[i])
+
+    # Total Heat Balance of Cold Streams
+def overall_heat_balance_cold_rule(model, j):
+    return ( sum(model.q[i,j,k] for i in model.HP for k in model.ST ) + model.q_hu[j] ) == model.Fc[j]*(model.Tc_out[j] - model.Tc_in[j])
+
+#%% Mass Balances Constraints
+
+    # Mass balances for hot streams
+def mass_balance_hot_rule(model, i, k):
+    return sum( model.fh[i,j,k] for j in model.CP ) == model.Fh[i]
+
+    # Mass balances for hot streams
+def mass_balance_cold_rule(model, j, k):
+    return sum( model.fc[i,j,k] for i in model.HP ) == model.Fc[j]
+
+#%% Heat balance at each stage (SYNHEAT)
+
+    # Energy balances for hot streams
+def energy_balance_hot_rule(model, i, k):
+    return sum( model.q[i,j,k] for j in model.CP ) == model.Fh[i]*(model.th[i,k] - model.th[i,k+1])
+    
+    # Energy balances for cold streams
+def energy_balance_cold_rule(model, j, k):
+    return sum( model.q[i,j,k] for i in model.HP ) == model.Fc[j]*(model.tc[j,k] - model.tc[j, k+1])
+
+# def energy_balance_hot_mixer_rule(model, i, k):
+#     return model.Fh[i]*model.th[i,k+1] == sum(model.fh[i,j,k]*model.thx1 for j in model.CP )
+
+# def energy_balance_cold_mixer_rule(model, j, k):
+#     return model.Fc[j]*model.tc[j,k]   == sum( model.bc_out[i,j,k] for i in model.HP )
+
+#%% Hot and cold utility load (SYNHEAT)
+   
+    # Energy balances for cold utility
+def energy_balance_cu_rule(model, i):
+    return model.Fh[i]*( model.th[i,model.Number_stages+1] - model.Th_out[i] ) == model.q_cu[i]
+    
+    # Energy balances for hot utility
+def energy_balance_hu_rule(model, j):
+    return model.Fc[j]*( model.Tc_out[j] - model.tc[j,1] ) == model.q_hu[j]
+
+#%% Assignment of superstructure inlet temperatures (SYNHEAT)
+   
+   # Inlet temperatures for hot streams
+def hot_inlet_rule(model, i):
+    return model.th[i, 1] == model.Th_in[i]
+
+    # Inlet temperatures for cold streams
+def cold_inlet_rule(model, j):
+    return model.tc[j,model.Number_stages+1] == model.Tc_in[j]
+
+#%% Feasibility of temperatures (SYNHEAT) (Monotonicity Constraints)
+
+def decreasing_hot_rule(model, i, k):
+    return model.th[i,k+1] <= model.th[i,k]
+
+def decreasing_cold_rule(model, j, k):
+    return model.tc[j,k+1] <= model.tc[j,k]
+
+def hot_upper_bound_rule(model, i):
+    return model.th[i, model.Number_stages+1] >= model.Th_out[i]
+
+def cold_lower_bound_rule(model, j):
+    return model.tc[j,1] <= model.Tc_out[j]
+
+#%% Logical constraints (SYNHEAT) (Heat load bounds)
+
+def q_big_m_rule(model, i, j, k):
+    return model.q[i,j,k] - model.Omega_ij[i,j]*model.z[i,j,k] <= 0
+
+def q_cu_big_m_rule(model, i):
+    return model.q_cu[i] - model.Omega_i[i]*model.z_cu[i] <= 0
+
+def q_hu_big_m_rule(model, j):
+    return model.q_hu[j] - model.Omega_j[j]*model.z_hu[j] <= 0
+
+#%% Calculation of approach temperatures (SYNHEAT) (Temperature difference bounds)
+
+def temp_app_in_rule(model, i, j, k):
+    return model.dt[i,j,k] <= model.th[i,k] - model.tc[j,k] + model.Gamma[i,j]*(1 - model.z[i,j,k])
+
+def temp_app_out_rule(model, i, j, k):
+    return model.dt[i,j,k+1] <= model.th[i,k+1] - model.tc[j,k+1] + model.Gamma[i,j]*(1 - model.z[i,j,k])
+
+def temp_app_cu_rule(model, i):
+    return model.dt_cu[i] <= model.th[i,model.Number_stages + 1] - model.T_cu_out
+
+def temp_app_hu_rule(model, j):
+    return model.dt_hu[j] <= model.T_hu_out - model.tc[j,1]
+
+#%% RecLMTD Original Constraints (Mistry and Misener, 2016)
+    # RecLMTD constraints for hot and cold streams
+
+def reclmtd_rule(model, i, j, k):
+    return model.reclmtd[i,j,k] == lmtd_inv(model.dt[i,j,k], model.dt[i,j,k+1])
+
+def reclmtd_cu_rule(model, i):
+    return model.reclmtd_cu[i] == lmtd_inv(model.dt_cu[i], model.Th_in[i] - model.T_cu_out)
+
+def reclmtd_hu_rule(model, j):
+    return model.reclmtd_hu[j] == lmtd_inv(model.dt_hu[j], model.T_hu_in - model.dt_hu[j])
+
+#%% Area Original Constraints (Mistry and Misener, 2016)
+# Area constraints for hot and cold streams
+def area_rule(model, i, j, k):
+    return model.area[i, j, k] == model.q[i, j, k] * model.reclmtd[i, j, k] * model.U[i, j]
+def area_beta_rule(model, i, j, k):
+    return model.area_beta[i,j,k] == model.area[i,j,k]**model.Beta
+
+def area_cu_rule(model, i):
+    return model.area_cu[i] == model.q_cu[i] * model.reclmtd_cu[i] * model.U_cu[i]
+def area_beta_cu_rule(model, i):
+    return model.area_cu_beta[i] == model.area_cu[i]**model.Beta
+
+def area_hu_rule(model, j):
+    return model.area_hu[j] == model.q_hu[j] * model.reclmtd_hu[j] * model.U_hu[j]
+def area_beta_hu_rule(model, j):
+    return model.area_hu_beta[j] == model.area_hu[j]**model.Beta
+
+#%% "Maybe" Hot and Cold Mixer Energy Balances 
+def mixer_energy_bal_hot_rule(model, i, k):
+    return model.Fh[i]*model.th[i,k+1] == sum( model.bh_out[i,j,k] for j in model.CP)
+
+def mixer_energy_bal_cold_rule(model, j, k):
+    return model.Fc[j]*model.tc[j,k]   == sum( model.bc_out[i,j,k] for i in model.HP)
+
+def q_energy_bal_hot_rule(model, i, j, k):
+    return model.q[i,j,k] == (model.bh_in[i,j,k] - model.bh_out[i,j,k])
+
+def q_energy_bal_cold_rule(model, i, j, k):
+    return model.q[i,j,k] == (model.bc_out[i,j,k] - model.bc_in[i,j,k])
+
+
+#%%% RecLMTD MILP McCormick Relaxation Constraints (Mistry and Misener, 2016)
 
 def z_th_sum_rule(model, i, k):
     return sum(model.z_th[i,k,n] for n in range(1, len(model.Th_breakpoints[i,k].data())) ) == 1
@@ -126,68 +265,9 @@ def var_delta_reclmtd_hu_upper_rule(model, j, n):
     return model.var_delta_reclmtd_hu[j,n] <= (reclmtd_hu_upper-reclmtd_hu_lower)*model.z_q_hu[j,n]
 
 ##########################
-def overall_heat_balance_hot_rule(model, i):
-    return ( sum(model.q[i,j,k] for j in model.CP for k in model.ST ) + model.q_cu[i] ) == model.Fh[i]*(model.Th_in[i] - model.Th_out[i])
 
-def overall_heat_balance_cold_rule(model, j):
-    return ( sum(model.q[i,j,k] for i in model.HP for k in model.ST ) + model.q_hu[j] ) == model.Fc[j]*(model.Tc_out[j] - model.Tc_in[j])
 
-def energy_balance_hot_rule(model, i, k):
-    return sum( model.q[i,j,k] for j in model.CP ) == model.Fh[i]*(model.th[i,k] - model.th[i,k+1])
 
-def energy_balance_cold_rule(model, j, k):
-    return sum( model.q[i,j,k] for i in model.HP ) == model.Fc[j]*(model.tc[j,k] - model.tc[j, k+1])
-
-def energy_balance_cu_rule(model, i):
-    return model.Fh[i]*( model.th[i,model.Number_stages+1] - model.Th_out[i] ) == model.q_cu[i]
-
-def energy_balance_hu_rule(model, j):
-    return model.Fc[j]*( model.Tc_out[j] - model.tc[j,1] ) == model.q_hu[j]
-
-def hot_inlet_rule(model, i):
-    return model.th[i, 1] == model.Th_in[i]
-
-def cold_inlet_rule(model, j):
-    return model.tc[j,model.Number_stages+1] == model.Tc_in[j]
-
-def mass_balance_hot_rule(model, i, k):
-    return sum( model.fh[i,j,k] for j in model.CP ) == model.Fh[i]
-
-def mass_balance_cold_rule(model, j, k):
-    return sum( model.fc[i,j,k] for i in model.HP ) == model.Fc[j]
-
-def decreasing_hot_rule(model, i, k):
-    return model.th[i,k+1] <= model.th[i,k]
-
-def decreasing_cold_rule(model, j, k):
-    return model.tc[j,k+1] <= model.tc[j,k]
-
-def hot_upper_bound_rule(model, i):
-    return model.th[i, model.Number_stages+1] >= model.Th_out[i]
-
-def cold_lower_bound_rule(model, j):
-    return model.tc[j,1] <= model.Tc_out[j]
-
-def q_big_m_rule(model, i, j, k):
-    return model.q[i,j,k] - model.Omega_ij[i,j]*model.z[i,j,k] <= 0
-
-def q_cu_big_m_rule(model, i):
-    return model.q_cu[i] - model.Omega_i[i]*model.z_cu[i] <= 0
-
-def q_hu_big_m_rule(model, j):
-    return model.q_hu[j] - model.Omega_j[j]*model.z_hu[j] <= 0
-
-def temp_app_in_rule(model, i, j, k):
-    return model.dt[i,j,k] <= model.th[i,k] - model.tc[j,k] + model.Gamma[i,j]*(1 - model.z[i,j,k])
-
-def temp_app_out_rule(model, i, j, k):
-    return model.dt[i,j,k+1] <= model.th[i,k+1] - model.tc[j,k+1] + model.Gamma[i,j]*(1 - model.z[i,j,k])
-
-def temp_app_cu_rule(model, i):
-    return model.dt_cu[i] <= model.th[i,model.Number_stages + 1] - model.T_cu_out
-
-def temp_app_hu_rule(model, j):
-    return model.dt_hu[j] <= model.T_hu_out - model.tc[j,1]
 
 def mccor_convex_h_in_1_rule(model, i, j, k):
     return  model.bh_in[i,j,k] >=\
@@ -285,17 +365,8 @@ def mccor_concave_c_out_2_rule(model, i, j, k):
                 (model.var_delta_fcx[i,j,k,n] - model.Fc[j]*model.z_tcx[i,j,k,n])\
                 for n in range(1, len(model.Tcx_breakpoints[i,j,k])))
 
-def mixer_energy_bal_hot_rule(model, i, k):
-    return model.Fh[i]*model.th[i,k+1] == sum( model.bh_out[i,j,k] for j in model.CP)
 
-def mixer_energy_bal_cold_rule(model, j, k):
-    return model.Fc[j]*model.tc[j,k]   == sum( model.bc_out[i,j,k] for i in model.HP)
 
-def q_energy_bal_hot_rule(model, i, j, k):
-    return model.q[i,j,k] == (model.bh_in[i,j,k] - model.bh_out[i,j,k])
-
-def q_energy_bal_cold_rule(model, i, j, k):
-    return model.q[i,j,k] == (model.bc_out[i,j,k] - model.bc_in[i,j,k])
 
 # A_ijk
 def area_mccor_convex_1_rule(model, i, j, k):

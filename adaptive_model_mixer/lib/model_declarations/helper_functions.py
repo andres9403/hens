@@ -1,7 +1,7 @@
 # Author: Miten Mistry
 #         Department of Computing, Imperial College London
 
-from math import log
+from pyomo.environ import log
 
 def two_point_generator(points, bounds):
     lower, upper = bounds
@@ -26,7 +26,7 @@ def three_point_generator(points, bounds):
     return ret_set
 
 def lmtd_inv(x, y):
-    return log(x/y)/(x-y) if (x != y) else 1/x
+    return log(x/y)/(x-y)
 
 def lmtd_inverse_gradient_calculator(x0, y0):
     if x0 == y0:

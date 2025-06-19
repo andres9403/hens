@@ -66,39 +66,42 @@ def declare_variables(model):
             doc="temperature of hot stream i at hot end of stage k"  )
     model.tc = Var(model.CP, model.K, bounds=tc_bounds,\
             doc="temperature of cold stream j at hot end of stage k" )
-
-    # Binary variables
+    
     model.z    = Var(model.HP, model.CP, model.ST, initialize = 0, domain=Binary,\
-            doc="existence of the match between hot stream i and cold stream j at stage k" )
+                doc="existence of the match between hot stream i and cold stream j at stage k" )
+    
     model.z_cu = Var(model.HP,                     initialize = 0, domain=Binary,\
-            doc="existence of the match between hot stream i and cold utility"             )
+                doc="existence of the match between hot stream i and cold utility"             )
+    
     model.z_hu = Var(model.CP,                     initialize = 0, domain=Binary,\
-            doc="existence of the match between cold stream j and hot utility"             )
+                doc="existence of the match between cold stream j and hot utility"             )
+    
+    if model.run_type == 'MILP':
+    # Binary variables
+        model.z_area_beta = Var(z_area_beta_index, domain=Binary)
+        model.z_area_cu_beta = Var(z_area_cu_beta_index, domain=Binary)
+        model.z_area_hu_beta = Var(z_area_hu_beta_index, domain=Binary)
 
-    model.z_area_beta = Var(z_area_beta_index, domain=Binary)
-    model.z_area_cu_beta = Var(z_area_cu_beta_index, domain=Binary)
-    model.z_area_hu_beta = Var(z_area_hu_beta_index, domain=Binary)
+        model.z_q     = Var(z_q_index,      domain=Binary)
+        model.z_q_cu  = Var(z_q_cu_index,   domain=Binary)
+        model.z_q_hu  = Var(z_q_hu_index,   domain=Binary)
 
-    model.z_q     = Var(z_q_index,      domain=Binary)
-    model.z_q_cu  = Var(z_q_cu_index,   domain=Binary)
-    model.z_q_hu  = Var(z_q_hu_index,   domain=Binary)
+        model.var_delta_reclmtd    = Var(z_q_index,    domain=NonNegativeReals)
+        model.var_delta_reclmtd_cu = Var(z_q_cu_index, domain=NonNegativeReals)
+        model.var_delta_reclmtd_hu = Var(z_q_hu_index, domain=NonNegativeReals)
 
-    model.var_delta_reclmtd    = Var(z_q_index,    domain=NonNegativeReals)
-    model.var_delta_reclmtd_cu = Var(z_q_cu_index, domain=NonNegativeReals)
-    model.var_delta_reclmtd_hu = Var(z_q_hu_index, domain=NonNegativeReals)
+        # New variables
+        model.bh_in  = Var(model.HP, model.CP, model.ST,  bounds=bh_bounds)
+        model.bh_out = Var(model.HP, model.CP, model.ST,  bounds=bh_bounds)
+        model.bc_in  = Var(model.HP, model.CP, model.ST,  bounds=bc_bounds)
+        model.bc_out = Var(model.HP, model.CP, model.ST,  bounds=bc_bounds)
 
-    # New variables
-    model.bh_in  = Var(model.HP, model.CP, model.ST,  bounds=bh_bounds)
-    model.bh_out = Var(model.HP, model.CP, model.ST,  bounds=bh_bounds)
-    model.bc_in  = Var(model.HP, model.CP, model.ST,  bounds=bc_bounds)
-    model.bc_out = Var(model.HP, model.CP, model.ST,  bounds=bc_bounds)
+        model.z_th   = Var(z_th_index,  domain=Binary)
+        model.z_thx  = Var(z_thx_index, domain=Binary)
+        model.z_tc   = Var(z_tc_index,  domain=Binary)
+        model.z_tcx  = Var(z_tcx_index, domain=Binary)
 
-    model.z_th   = Var(z_th_index,  domain=Binary)
-    model.z_thx  = Var(z_thx_index, domain=Binary)
-    model.z_tc   = Var(z_tc_index,  domain=Binary)
-    model.z_tcx  = Var(z_tcx_index, domain=Binary)
-
-    model.var_delta_fh  = Var(var_delta_fh_index,  domain=NonNegativeReals)
-    model.var_delta_fhx = Var(var_delta_fhx_index, domain=NonNegativeReals)
-    model.var_delta_fc  = Var(var_delta_fc_index,  domain=NonNegativeReals)
-    model.var_delta_fcx = Var(var_delta_fcx_index, domain=NonNegativeReals)
+        model.var_delta_fh  = Var(var_delta_fh_index,  domain=NonNegativeReals)
+        model.var_delta_fhx = Var(var_delta_fhx_index, domain=NonNegativeReals)
+        model.var_delta_fc  = Var(var_delta_fc_index,  domain=NonNegativeReals)
+        model.var_delta_fcx = Var(var_delta_fcx_index, domain=NonNegativeReals)
