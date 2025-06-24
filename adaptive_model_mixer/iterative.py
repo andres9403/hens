@@ -64,13 +64,21 @@ results_file.write('iteration, tac, time, total_time\n')
 datafile = '/home/andresfel9403/hens/datafiles/' + args.model + '.dat'
 
 #solver = args.solver
-solver = 'gurobi_direct'
-
-if solver == 'gurobi_direct':
-    opt = SolverFactory(solver)
-    if args.num_threads:
-        opt.options[ 'threads' ] = min(number_of_cores, args.num_threads)
+if args.model_type == 'MINLP':
+    opt = SolverFactory('gams')
+    # opt.options['solver'] = 'gurobi'
+    # opt.options['mtype'] = 'nlp'
+    # opt.options['add_options'] = ['option optcr=1e-6', 'reslim = 3600']
+    # If you want to use BARON with GAMS,
+    # Optionally, set BARON-specific options here, e.g.:
+    # opt.options["BARON_option_name"] = value
+elif args.model_type == 'non_MINLP':
+    opt = SolverFactory("gurobi_direct")
     opt.options['NonConvex'] = 2
+    if args.num_threads:
+        opt.options['threads'] = min(number_of_cores, args.num_threads)
+else:
+    opt = SolverFactory(args.solver)
 
 tolerances = {
     'IntFeasTol': -1,
@@ -78,14 +86,12 @@ tolerances = {
     'OptimalityTol': -1
 }
 
-if args.tighten_tol:
-    opt.options[ 'IntFeasTol' ]     = 0.000000001
-    opt.options[ 'FeasibilityTol' ] = 0.000000001
-    opt.options[ 'OptimalityTol' ]  = 0.000000001
-    tolerances['IntFeasTol'] = 0.000000001
-    tolerances['FeasibilityTol'] = 0.000000001
-    tolerances['OptimalityTol'] = 0.000000001
-else:
+if args.solver in ['gurobi', 'gurobi_direct', 'cplex']:
+    # Set these options only for supported solvers
+    if args.tighten_tol:
+        opt.options['IntFeasTol'] = 1e-9
+        opt.options['FeasibilityTol'] = 1e-9
+        opt.options['OptimalityTol'] = 1e-9
     if args.IntFeasTol:
         opt.options[ 'IntFeasTol' ] = args.IntFeasTol
         tolerances[ 'IntFeasTol' ] = args.IntFeasTol
@@ -104,13 +110,17 @@ experiment = args.model_type
 model = initialise_hx_model(datafile, experiment)
 
 if experiment == 'MINLP':
+    print('###############Running MINLP model######################')
     instance = model.create_instance(datafile)
-    results = opt.solve(instance, tee=True)
-    instance.solutions.load_from(results)
-    if args.print_instance:
-        instance.pprint()
-    output_file.close()
-    results_file.close()
+    results = opt.solve(
+        instance,
+        tee=True,
+        io_options=dict(
+            solver='gurobi',
+            mtype='minlp',
+            add_options=['option optcr=1e-6', 'reslim = 3600'],
+        ),
+    )
 else:
     warmstart = False
 
@@ -178,11 +188,17 @@ else:
 
         opt.options[ 'LogFile' ] = os.path.join(folders[ logs_folder ], 'gur' + str(run).zfill(len(str(maxIters))) + '.log')
 
-        results = opt.solve(instance, tee=True)
-        
-        instance.solutions.load_from(results)
+        results = opt.solve(instance)
+        if (results.solver.status == pyomo.environ.SolverStatus.ok) and \
+           (results.solver.termination_condition == pyomo.environ.TerminationCondition.optimal):
+            instance.solutions.load_from(results)
+        else:
+            print("Solver did not find an optimal solution. Status:", results.solver.status)
+            print("Termination condition:", results.solver.termination_condition)
+            # Optionally: handle infeasibility or errors here (e.g., break, continue, etc.)
+            break  # or continue, depending on your logic
 
-        if experiment == 'Reformulation':
+        if experiment == 'non_MINLP':
 
             old_points = new_points
 
@@ -201,7 +217,7 @@ else:
         output_file.write('----------------------------------\n')
         output_file.write('\n')
 
-        if experiment == 'Reformulation':
+        if experiment == 'non_MINLP':
             output_file.write('Found ActiveHx:\n')
             pprint(active_hx, output_file)
             output_file.write('\n')

@@ -26,7 +26,14 @@ def three_point_generator(points, bounds):
     return ret_set
 
 def lmtd_inv(x, y):
-    return log(x/y)/(x-y)
+    return log(x/y)/(x-y) if x != y else 1/x
+
+
+def lmtd_inv_with_esp(x, y, esp = 1e-6):
+    print("******************************lmtd_inv_eps+called with x:", x, "y:", y)
+    return log(x/y)/(x-y + esp)
+    
+    
 
 def lmtd_inverse_gradient_calculator(x0, y0):
     if x0 == y0:

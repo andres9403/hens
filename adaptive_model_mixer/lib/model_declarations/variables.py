@@ -46,14 +46,7 @@ def declare_variables(model):
             doc="Approach between j and the hot utility"  )
 
     # Log mean temperature differences
-    model.reclmtd    = Var(model.HP, model.CP, model.ST, bounds=reclmtd_bounds,\
-            doc="Log mean temperature difference between hot stream i and cold stream j at stage k" )
-    model.reclmtd_cu = Var(model.HP,                     bounds=reclmtd_cu_bounds,\
-            doc="Log mean temperature difference between hot stream i and cold utility"             )
-    model.reclmtd_hu = Var(model.CP,                     bounds=reclmtd_hu_bounds,\
-            doc="Log mean temperature difference between cold stream j and hot utility"             )
-
-    # Heat loads
+     # Heat loads
     model.q    = Var(model.HP, model.CP, model.ST, bounds=q_bounds, initialize = 0,\
             doc="heat load between hot stream i and cold stream j at stage k" )
     model.q_cu = Var(model.HP,                     bounds=q_cu_bounds, initialize = 0,\
@@ -76,7 +69,9 @@ def declare_variables(model):
     model.z_hu = Var(model.CP,                     initialize = 0, domain=Binary,\
                 doc="existence of the match between cold stream j and hot utility"             )
     
-    if model.run_type == 'MILP':
+    model.dt_diff_abs = Var(model.HP, model.CP, model.ST, within=NonNegativeReals)
+    
+    if model.run_type == 'non_MINLP':
     # Binary variables
         model.z_area_beta = Var(z_area_beta_index, domain=Binary)
         model.z_area_cu_beta = Var(z_area_cu_beta_index, domain=Binary)
@@ -105,3 +100,19 @@ def declare_variables(model):
         model.var_delta_fhx = Var(var_delta_fhx_index, domain=NonNegativeReals)
         model.var_delta_fc  = Var(var_delta_fc_index,  domain=NonNegativeReals)
         model.var_delta_fcx = Var(var_delta_fcx_index, domain=NonNegativeReals)
+
+        model.reclmtd    = Var(model.HP, model.CP, model.ST, bounds=reclmtd_bounds,\
+            doc="Log mean temperature difference between hot stream i and cold stream j at stage k" )
+        model.reclmtd_cu = Var(model.HP,                     bounds=reclmtd_cu_bounds,\
+            doc="Log mean temperature difference between hot stream i and cold utility"             )
+        model.reclmtd_hu = Var(model.CP,                     bounds=reclmtd_hu_bounds,\
+            doc="Log mean temperature difference between cold stream j and hot utility"             )
+    elif model.run_type == 'MINLP':
+        # Binary variables
+        model.reclmtd    = Var(model.HP, model.CP, model.ST, #bounds=reclmtd_bounds_eps,\
+            doc="Log mean temperature difference between hot stream i and cold stream j at stage k" )
+        model.reclmtd_cu = Var(model.HP,                     #bounds=reclmtd_cu_bounds_eps,\
+            doc="Log mean temperature difference between hot stream i and cold utility"             )
+        model.reclmtd_hu = Var(model.CP,                     #bounds=reclmtd_hu_bounds_eps,\
+            doc="Log mean temperature difference between cold stream j and hot utility"             )
+

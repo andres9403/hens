@@ -84,7 +84,7 @@ def declare_parameters(model):
 
     model.Gamma = Param(model.HP, model.CP, within=NonNegativeReals, initialize=Gamma_init)
 
-    if  model.run_type == 'MILP':
+    if  model.run_type == 'non_MINLP':
     ## Breakpoints for McCormick Relaxation for the energy balances
         model.Th_breakpoints = Set(model.HP, model.ST, dimen=1, ordered=True, initialize=lambda model, i, k: th_breakpoints_init(model, i))
         model.Thx_breakpoints = Set(model.HP, model.CP, model.ST, dimen=1, ordered=True, initialize=lambda model, i, j, k: thx_breakpoints_init(model, i, j, k))
@@ -109,7 +109,8 @@ def declare_parameters(model):
         model.Area_hu_beta_exp = Set(model.CP, dimen=1, ordered=True, initialize=lambda model,j: map(lambda A: pow(A, model.Beta), model.Area_hu_beta_breakpoints[j]))
         model.Area_hu_beta_gradients = Set(model.CP, dimen=1, ordered=True, initialize=area_hu_beta_gradients_init)
     elif model.run_type == 'MINLP':
-        pass
+        model.Epsilon = Param(within=PositiveReals, default=1e-6, doc="Epsilon value for MINLP formulation")
+        #model.big_M = Param(within=PositiveReals, default=1e6, doc="Big-M value for MINLP formulation")
     else:
         raise ValueError("Unknown test type: %s" % test_type)
 

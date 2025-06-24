@@ -1,7 +1,7 @@
 # Author: Miten Mistry
 #         Department of Computing, Imperial College London
 
-from .helper_functions import lmtd_inverse_gradient_calculator, lmtd_inv
+from .helper_functions import lmtd_inverse_gradient_calculator, lmtd_inv, lmtd_inv_with_esp
 
 from pyomo.environ import Constraint
 
@@ -105,13 +105,13 @@ def temp_app_hu_rule(model, j):
     # RecLMTD constraints for hot and cold streams
 
 def reclmtd_rule(model, i, j, k):
-    return model.reclmtd[i,j,k] == lmtd_inv(model.dt[i,j,k], model.dt[i,j,k+1])
+    return model.reclmtd[i,j,k] == lmtd_inv_with_esp(model.dt[i,j,k], model.dt[i,j,k+1])
 
 def reclmtd_cu_rule(model, i):
-    return model.reclmtd_cu[i] == lmtd_inv(model.dt_cu[i], model.Th_in[i] - model.T_cu_out)
+    return model.reclmtd_cu[i] == lmtd_inv_with_esp(model.dt_cu[i], model.Th_in[i] - model.T_cu_out)
 
 def reclmtd_hu_rule(model, j):
-    return model.reclmtd_hu[j] == lmtd_inv(model.dt_hu[j], model.T_hu_in - model.dt_hu[j])
+    return model.reclmtd_hu[j] == lmtd_inv_with_esp(model.dt_hu[j], model.T_hu_in - model.dt_hu[j])
 
 #%% Area Original Constraints (Mistry and Misener, 2016)
 # Area constraints for hot and cold streams
@@ -129,6 +129,21 @@ def area_hu_rule(model, j):
     return model.area_hu[j] == model.q_hu[j] * model.reclmtd_hu[j] * model.U_hu[j]
 def area_beta_hu_rule(model, j):
     return model.area_hu_beta[j] == model.area_hu[j]**model.Beta
+
+epsilon = 1e-4  # or another small value
+
+# def dt_difference_rule(model, i, j, k):
+#     return abs(model.dt[i, j, k] - model.dt[i, j, k+1]) >= epsilon
+
+def dt_diff_abs_def_rule(model, i, j, k):
+    return [
+        model.dt_diff_abs[i,j,k] >= model.dt[i,j,k] - model.dt[i,j,k+1],
+        model.dt_diff_abs[i,j,k] >= model.dt[j,k+1] - model.dt[i,j,k]
+    ]
+
+def dt_difference_rule(model, i, j, k):
+    return model.dt_diff_abs[i,j,k] >= epsilon
+
 
 #%% "Maybe" Hot and Cold Mixer Energy Balances 
 def mixer_energy_bal_hot_rule(model, i, k):
@@ -514,6 +529,7 @@ def grad_reclmtd_rule(model, i, j, k, x0, y0):
 def grad_reclmtd_cu_rule(model, i, x0):
     y0 = model.Th_out[i] - model.T_cu_in
     gradients = lmtd_inverse_gradient_calculator(x0, y0)
+    print(x0,y0)
     return model.reclmtd_cu[i] >= lmtd_inv(x0, y0) + gradients[0]*(model.dt_cu[i] - x0)
 
 def grad_reclmtd_hu_rule(model, j, x0):

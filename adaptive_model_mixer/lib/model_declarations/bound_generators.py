@@ -1,7 +1,7 @@
 # Author: Miten Mistry
 #         Department of Computing, Imperial College London
 
-from .helper_functions import lmtd_inv
+from .helper_functions import lmtd_inv, lmtd_inv_with_esp
 
 def area_bounds(model, i, j, *k):
     _, q_upper    = q_bounds(model, i, j)
@@ -74,9 +74,33 @@ def reclmtd_hu_bounds(model, j):
 
     return (reclmtd_hu_lower, reclmtd_hu_upper)
 
+
+def reclmtd_bounds_eps(model, i, j, *k):
+    eps = 1E-6
+    reclmtd_lower = 1/(model.Th_in[i] - model.Tc_in[j] + eps)
+    reclmtd_upper = 1/(model.Delta_t_min + eps)
+    return (reclmtd_lower, reclmtd_upper)
+
+def reclmtd_cu_bounds_eps(model, i):
+    x_min = model.Delta_t_min
+    x_max = model.Th_in[i] - model.T_cu_out
+    y    = model.Th_out[i] - model.T_cu_in
+    reclmtd_cu_lower = lmtd_inv_with_esp(x_max,y)
+    reclmtd_cu_upper = lmtd_inv_with_esp(x_min,y)
+
+    return (reclmtd_cu_lower, reclmtd_cu_upper)
+
+def reclmtd_hu_bounds_eps(model, j):
+    x_min = model.Delta_t_min
+    x_max = model.T_hu_out - model.Tc_in[j]
+    y    = model.T_hu_in - model.Tc_out[j]
+    reclmtd_hu_lower = lmtd_inv_with_esp(x_max,y)
+    reclmtd_hu_upper = lmtd_inv_with_esp(x_min,y)
+
+    return (reclmtd_hu_lower, reclmtd_hu_upper)
+
 def q_bounds(model, i, j, *k):
     q_lower = 0
-
     q_upper_hot_side  = model.Fh[i]*(model.Th_in[i] - model.Th_out[i])
     q_upper_cold_side = model.Fc[j]*(model.Tc_out[j] - model.Tc_in[j])
     q_upper = min( q_upper_hot_side, q_upper_cold_side )

@@ -10,6 +10,10 @@ from pprint import pprint
 from pyomo.core.base.numvalue import value
 from .model_declarations.model_builder import create_model
 from .model_declarations.helper_functions import two_point_generator, three_point_generator, lmtd_inv
+from pyomo.opt import ProblemFormat
+
+from pyomo.core.expr.visitor import polynomial_degree
+from pyomo.environ import Constraint
 
 
 from .constants import *
@@ -58,7 +62,7 @@ def create_output_dir(root, model, append):
 
 def initialise_parser():
     parser = ArgumentParser()
-    parser.add_argument('model', nargs='?', default='model1', help='The model you wish to run e.g. model1 for datafile: ../datafiles/model1.dat')
+    parser.add_argument('model', nargs='?', default='model2', help='The model you wish to run e.g. model1 for datafile: ../datafiles/model1.dat')
     parser.add_argument('run_name', nargs='?', default='test', help='The name of the run you are running the results will be placed in a directory with this name')
     parser.add_argument('-i', '--print-instance', help='print instance of final run', action='store_true')
     parser.add_argument('-t', '--num-threads', type=int, help='Number of cpu cores used.', default=1)
@@ -75,7 +79,7 @@ def initialise_parser():
     parser.add_argument('--FeasibilityTol', type=float, default=1e-6, help='Primal feasibility tolerance.')
     parser.add_argument('--OptimalityTol', type=float, default=1e-6, help='Dual feasibility tolerance.')
     parser.add_argument('--MarkowitzTol', type=float, default=0.0078125, help='Pivoting tolerance.')
-    parser.add_argument('--solver', type=str, default='gurobi', help='The solver to use. DEFAULT=gurobi', choices=['gurobi', 'cplex', 'baron', 'bonmin', 'ipopt'])
+    parser.add_argument('--solver', type=str, default='gams', help='The solver to use. DEFAULT=gurobi', choices=['gurobi', 'cplex', 'baron', 'bonmin', 'ipopt'])
     parser.add_argument('--model-type', type=str, default='MINLP', help='The type of model to run. DEFAULT=MINLP')
     return parser
 
@@ -217,6 +221,16 @@ def initialise_hx_model(datafile, exp_type):
     model = create_model(exp_type)
     instance = model.create_instance(datafile)
     if exp_type == 'MINLP':
+        # For MINLP, write the full nonlinear model to a file for reference
+        #instance.write(filename='model.nl', format=ProblemFormat.nl)
+        with open('model.txt', 'w') as f:
+            instance.pprint(ostream=f)
+        for c in instance.component_objects(Constraint, active=True):
+            for idx in c:
+                expr = c[idx].body
+                deg = polynomial_degree(expr)
+                if deg is None or deg > 1:
+                    print(f"Nonlinear constraint: {c.name}{idx} -> {expr}")
         return model
     else:
         add_initial_th_breakpoints(instance)
