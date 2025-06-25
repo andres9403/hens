@@ -1,0 +1,342 @@
+GAMS 50.1.0  12b75dde Jun 18, 2025          LEX-LEG x86 64bit/Linux - 06/25/25 10:53:31 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+
+
+COMPILATION TIME     =        0.000 SECONDS      2 MB  50.1.0 12b75dde LEX-LEG
+GAMS 50.1.0  12b75dde Jun 18, 2025          LEX-LEG x86 64bit/Linux - 06/25/25 10:53:31 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Range Statistics    SOLVE m Using MINLP From line 417
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 1.000E+01, 9.750E+03] - Zero values observed as well
+Bound     [min, max] : [ 1.000E+00, 6.500E+02] - Zero values observed as well
+Matrix    [min, max] : [ 2.710E-01, 3.000E+08] - Zero values observed as well
+
+GAMS 50.1.0  12b75dde Jun 18, 2025          LEX-LEG x86 64bit/Linux - 06/25/25 10:53:31 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE m Using MINLP From line 417
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS         121     SINGLE EQUATIONS          121
+BLOCKS OF VARIABLES         113     SINGLE VARIABLES          113  14 projected
+NON ZERO ELEMENTS           401     NON LINEAR N-Z            124
+CODE LENGTH                 396     CONSTANT POOL              25     DISCRETE VARIABLES         12
+
+
+GENERATION TIME      =        0.001 SECONDS      3 MB  50.1.0 12b75dde LEX-LEG
+GAMS 50.1.0  12b75dde Jun 18, 2025          LEX-LEG x86 64bit/Linux - 06/25/25 10:53:31 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE m Using MINLP From line 417
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   m                   OBJECTIVE  objvar
+     TYPE    MINLP               DIRECTION  MINIMIZE
+     SOLVER  BARON               FROM LINE  417
+
+**** SOLVER STATUS     8 User Interrupt
+**** MODEL STATUS      8 Integer Solution
+**** OBJECTIVE VALUE           154895.9330
+
+ RESOURCE USAGE, LIMIT        335.220 10000000000.000
+ ITERATION COUNT, LIMIT         0    2147483647
+ EVALUATION ERRORS              0             0
+
+GAMS/BARON       50.1.0 12b75dde Jun 18, 2025          LEG x86 64bit/Linux    
+
+BARON is a product of The Optimization Firm, LLC. http://www.minlp.com/
+Parts of the BARON software were created at the
+University of Illinois at Urbana-Champaign.
+
+
+===========================================================================
+ BARON version 25.3.19. Built: LNX-64 2025-03-19 22:07:55         
+ Running on machine x-lt-acabezap
+
+ BARON is a product of The Optimization Firm.
+ For information on BARON, see https://minlp.com/about-baron
+
+ If you publish work using this software, please cite publications from
+ https://minlp.com/baron-publications, such as: 
+
+ Zhang, Y. and N. V. Sahinidis, Solving continuous and discrete
+ nonlinear programs with BARON, Comput Optim Appl (2024). 
+ https://doi.org/10.1007/s10589-024-00633-0
+===========================================================================
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP/QP: CLP/CBC, ILOG CPLEX                             
+---  The best solution found is:
+
+Solution      = 154895.932974982  found at node 1
+Best possible = 100500
+Absolute gap  = 54395.9329749824  optca = 1E-9
+Relative gap  = 0.351177283549259  optcr = 0.0001
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU e1                  .              .              .             EPS         
+---- EQU e2                  .              .              .             EPS         
+---- EQU e3                  .              .              .             EPS         
+---- EQU e4                  .              .              .             EPS         
+---- EQU e5                  .       -1.81899E-12          .             EPS         
+---- EQU e6                  .              .              .             EPS         
+---- EQU e7                  .              .              .             EPS         
+---- EQU e8                  .              .              .             EPS         
+---- EQU e9              3700.0000      3700.0000      3700.0000         EPS         
+---- EQU e10             7400.0000      7400.0000      7400.0000         EPS         
+---- EQU e11            -2800.0000     -2800.0000     -2800.0000         EPS         
+---- EQU e12            -4400.0000     -4400.0000     -4400.0000         EPS         
+---- EQU e13            -9750.0000     -9750.0000     -9750.0000         EPS         
+---- EQU e14            -6500.0000     -6500.0000     -6500.0000         EPS         
+---- EQU e15            -3600.0000     -3600.0000     -3600.0000         EPS         
+---- EQU e16            -1950.0000     -1950.0000     -1950.0000         EPS         
+---- EQU e17                 .            68.1055        +INF            EPS         
+---- EQU e18                 .           195.0000        +INF            EPS         
+---- EQU e19                 .              .            +INF            EPS         
+---- EQU e20                 .           121.4208        +INF            EPS         
+---- EQU e21                 .            45.4037        +INF            EPS         
+---- EQU e22                 .           161.8945        +INF            EPS         
+---- EQU e23                 .              .            +INF            EPS         
+---- EQU e24                 .           150.0000        +INF            EPS         
+---- EQU e25              370.0000       386.8945        +INF            EPS         
+---- EQU e26              370.0000       468.5792        +INF            EPS         
+---- EQU e27             -650.0000      -617.2982        +INF            EPS         
+---- EQU e28             -500.0000      -500.0000        +INF            EPS         
+---- EQU e29             -650.0000      -650.0000      -650.0000         EPS         
+---- EQU e30             -590.0000      -590.0000      -590.0000         EPS         
+---- EQU e31             -410.0000      -410.0000      -410.0000         EPS         
+---- EQU e32             -350.0000      -350.0000      -350.0000         EPS         
+---- EQU e33              -10.0000       -10.0000       -10.0000         EPS         
+---- EQU e34              -10.0000       -10.0000       -10.0000         EPS         
+---- EQU e35              -20.0000       -20.0000       -20.0000         EPS         
+---- EQU e36              -20.0000       -20.0000       -20.0000         EPS         
+---- EQU e37              -15.0000       -15.0000       -15.0000         EPS         
+---- EQU e38              -15.0000       -15.0000       -15.0000         EPS         
+---- EQU e39              -13.0000       -13.0000       -13.0000         EPS         
+---- EQU e40              -13.0000       -13.0000       -13.0000         EPS         
+---- EQU e41                 .       1.5678552E-9          .             EPS         
+---- EQU e42                 .              .              .             EPS         
+---- EQU e43                 .              .              .             EPS         
+---- EQU e44                 .              .              .             EPS         
+---- EQU e45                 .              .              .             EPS         
+---- EQU e46                 .              .              .             EPS         
+---- EQU e47                 .              .              .             EPS         
+---- EQU e48                 .              .              .             EPS         
+---- EQU e49                 .       1.136868E-12          .             EPS         
+---- EQU e50                 .              .              .             EPS         
+---- EQU e51                 .              .              .             EPS         
+---- EQU e52                 .              .              .             EPS         
+---- EQU e53                 .              .              .             EPS         
+---- EQU e54                 .       -8.34461E-10          .             EPS         
+---- EQU e55                 .              .              .             EPS         
+---- EQU e56                 .              .              .             EPS         
+---- EQU e57                 .       -1.567969E-9          .             EPS         
+---- EQU e58                 .              .              .             EPS         
+---- EQU e59                 .              .              .             EPS         
+---- EQU e60                 .              .              .             EPS         
+---- EQU e61                 .              .              .             EPS         
+---- EQU e62                 .       -8.34916E-10          .             EPS         
+---- EQU e63                 .              .              .             EPS         
+---- EQU e64                 .              .              .             EPS         
+---- EQU e65                 .       6.647838E-11          .             EPS         
+---- EQU e66                 .       -9.53902E-10          .             EPS         
+---- EQU e67                 .              .              .             EPS         
+---- EQU e68                 .       4.232348E-10          .             EPS         
+---- EQU e69                 .              .              .             EPS         
+---- EQU e70                 .       2.0730866E-9          .             EPS         
+---- EQU e71                 .              .              .             EPS         
+---- EQU e72                 .       -1.398895E-9          .             EPS         
+---- EQU e73                 .              .              .             EPS         
+---- EQU e74                 .              .              .             EPS         
+---- EQU e75                 .              .              .             EPS         
+---- EQU e76                 .              .              .             EPS         
+---- EQU e77                 .              .              .             EPS         
+---- EQU e78                 .              .              .             EPS         
+---- EQU e79                 .              .              .             EPS         
+---- EQU e80                 .              .              .             EPS         
+---- EQU e81                 .       5.235705E-10          .             EPS         
+---- EQU e82                 .       9.006840E-11          .             EPS         
+---- EQU e83                 .       4.244782E-11          .             EPS         
+---- EQU e84                 .              .              .             EPS         
+---- EQU e85                 .              .              .             EPS         
+---- EQU e86                 .              .              .             EPS         
+---- EQU e87                 .              .              .             EPS         
+---- EQU e88                 .              .              .             EPS         
+---- EQU e89               -INF        -2118.9446          .             EPS         
+---- EQU e90               -INF             .              .             EPS         
+---- EQU e91               -INF             .              .             EPS         
+---- EQU e92               -INF             .              .             EPS         
+---- EQU e93               -INF             .              .             EPS         
+---- EQU e94               -INF        -1171.5830          .             EPS         
+---- EQU e95               -INF             .              .             EPS         
+---- EQU e96               -INF             .              .             EPS         
+---- EQU e97               -INF        -3109.4723          .             EPS         
+---- EQU e98               -INF             .              .             EPS         
+---- EQU e99               -INF        -2631.0554          .             EPS         
+---- EQU e100              -INF        -2428.4170          .             EPS         
+---- EQU e101              -INF          280.0000       280.0000         EPS         
+---- EQU e102              -INF             .           280.0000         EPS         
+---- EQU e103              -INF          -68.1055       130.0000         EPS         
+---- EQU e104              -INF          130.0000       130.0000         EPS         
+---- EQU e105              -INF           45.4037       280.0000         EPS         
+---- EQU e106              -INF          280.0000       280.0000         EPS         
+---- EQU e107              -INF          -80.0000       130.0000         EPS         
+---- EQU e108              -INF          -80.0000       130.0000         EPS         
+---- EQU e109              -INF          280.0000       280.0000         EPS         
+---- EQU e110              -INF           33.1055       280.0000         EPS         
+---- EQU e111              -INF      1.421085E-14       130.0000         EPS         
+---- EQU e112              -INF          130.0000       130.0000         EPS         
+---- EQU e113              -INF      -1.06581E-14       280.0000         EPS         
+---- EQU e114              -INF          280.0000       280.0000         EPS         
+---- EQU e115              -INF          -80.0000       130.0000         EPS         
+---- EQU e116              -INF         -108.5792       130.0000         EPS         
+---- EQU e117              -INF         -320.0000      -320.0000         EPS         
+---- EQU e118              -INF         -320.0000      -320.0000         EPS         
+---- EQU e119              -INF          680.0000       680.0000         EPS         
+---- EQU e120              -INF          510.1093       680.0000         EPS         
+---- EQU e121                .              .              .             EPS         
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR b1                  .             1.0000         1.0000         EPS         
+---- VAR b2                  .              .             1.0000         EPS         
+---- VAR b3                  .              .             1.0000         EPS         
+---- VAR b4                  .             1.0000         1.0000         EPS         
+---- VAR b5                  .              .             1.0000         EPS         
+---- VAR b6                  .             1.0000         1.0000         EPS         
+---- VAR b7                  .              .             1.0000         EPS         
+---- VAR b8                  .              .             1.0000         EPS         
+---- VAR b9                  .             1.0000         1.0000         EPS         
+---- VAR b10                 .             1.0000         1.0000         EPS         
+---- VAR b11                 .             1.0000         1.0000         EPS         
+---- VAR b12                 .              .             1.0000         EPS         
+---- VAR x13              370.0000       650.0000       650.0000         EPS         
+---- VAR x14              370.0000       581.8945       650.0000         EPS         
+---- VAR x15              370.0000       386.8945       650.0000         EPS         
+---- VAR x16              370.0000       590.0000       590.0000         EPS         
+---- VAR x17              370.0000       590.0000       590.0000         EPS         
+---- VAR x18              370.0000       468.5792       590.0000         EPS         
+---- VAR x19              410.0000       617.2982       650.0000         EPS         
+---- VAR x20              410.0000       571.8945       650.0000         EPS         
+---- VAR x21              410.0000       410.0000       650.0000         EPS         
+---- VAR x22              350.0000       500.0000       500.0000         EPS         
+---- VAR x23              350.0000       500.0000       500.0000         EPS         
+---- VAR x24              350.0000       350.0000       500.0000         EPS         
+---- VAR x25                 .           681.0554        +INF            EPS         
+---- VAR x26                 .              .            +INF            EPS         
+---- VAR x27                 .              .            +INF            EPS         
+---- VAR x28                 .          1950.0000        +INF            EPS         
+---- VAR x29                 .              .            +INF            EPS         
+---- VAR x30                 .          2428.4170        +INF            EPS         
+---- VAR x31                 .              .            +INF            EPS         
+---- VAR x32                 .              .            +INF            EPS         
+---- VAR x33                 .           168.9446        +INF            EPS         
+---- VAR x34                 .          1971.5830        +INF            EPS         
+---- VAR x35                 .           490.5277        +INF            EPS         
+---- VAR x36                 .              .            +INF            EPS         
+---- VAR x37               10.0000        32.7018        +INF            EPS         
+---- VAR x38               10.0000        10.0000        +INF            EPS         
+---- VAR x39               10.0000        10.0000        +INF            EPS         
+---- VAR x40               10.0000        81.8945        +INF            EPS         
+---- VAR x41               10.0000        81.8945        +INF            EPS         
+---- VAR x42               10.0000        36.8945        +INF            EPS         
+---- VAR x43               10.0000        18.1055        +INF            EPS         
+---- VAR x44               10.0000        18.1055        +INF            EPS         
+---- VAR x45               10.0000        58.5792        +INF            EPS         
+---- VAR x46               10.0000        10.0000        +INF            EPS         
+---- VAR x47               10.0000        10.0000        +INF            EPS         
+---- VAR x48               10.0000        10.0000        +INF            EPS         
+---- VAR x49               10.0000        66.8945        +INF            EPS         
+---- VAR x50               10.0000       148.5792        +INF            EPS         
+---- VAR x51               10.0000        62.7018        +INF            EPS         
+---- VAR x52               10.0000        10.1093        +INF            EPS         
+---- VAR x53                 .             3.0630        10.0000         EPS         
+---- VAR x54                 .              .            10.0000         EPS         
+---- VAR x55                 .             6.9370        10.0000         EPS         
+---- VAR x56                 .            10.0000        10.0000         EPS         
+---- VAR x57                 .              .            20.0000         EPS         
+---- VAR x58                 .            20.0000        20.0000         EPS         
+---- VAR x59                 .            20.0000        20.0000         EPS         
+---- VAR x60                 .              .            20.0000         EPS         
+---- VAR x61                 .            15.0000        15.0000         EPS         
+---- VAR x62                 .             0.0045        15.0000         EPS         
+---- VAR x63                 .              .            13.0000         EPS         
+---- VAR x64                 .            13.0000        13.0000         EPS         
+---- VAR x65                 .              .            15.0000         EPS         
+---- VAR x66                 .            14.9955        15.0000         EPS         
+---- VAR x67                 .            13.0000        13.0000         EPS         
+---- VAR x68                 .              .            13.0000         EPS         
+---- VAR x69              370.0000       427.6500       650.0000         EPS         
+---- VAR x70              370.0000       370.0000       650.0000         EPS         
+---- VAR x71              370.0000       650.0000       650.0000         EPS         
+---- VAR x72              370.0000       386.8945       650.0000         EPS         
+---- VAR x73              370.0000       370.0000       590.0000         EPS         
+---- VAR x74              370.0000       468.5792       590.0000         EPS         
+---- VAR x75              370.0000       590.0000       590.0000         EPS         
+---- VAR x76              370.0000       370.0000       590.0000         EPS         
+---- VAR x77              410.0000       617.2982       650.0000         EPS         
+---- VAR x78              410.0000       410.0000       650.0000         EPS         
+---- VAR x79              350.0000       350.0000       500.0000         EPS         
+---- VAR x80              350.0000       500.0000       500.0000         EPS         
+---- VAR x81              410.0000       410.0000       650.0000         EPS         
+---- VAR x82              410.0000       571.9433       650.0000         EPS         
+---- VAR x83              350.0000       500.0000       500.0000         EPS         
+---- VAR x84              350.0000       350.0000       500.0000         EPS         
+---- VAR x85                 .            19.1602        +INF            EPS         
+---- VAR x86                 .             1.0000        +INF            EPS         
+---- VAR x87                 .              .            +INF            EPS         
+---- VAR x88                 .            56.4355        +INF            EPS         
+---- VAR x89                 .              .            +INF            EPS         
+---- VAR x90                 .            34.4702        +INF            EPS         
+---- VAR x91                 .              .            +INF            EPS         
+---- VAR x92                 .             1.0000        +INF            EPS         
+---- VAR x93                 .            68.4355        +INF            EPS         
+---- VAR x94                 .           104.4071        +INF            EPS         
+---- VAR x95                 .            44.3599        +INF            EPS         
+---- VAR x96                 .            59.0000        +INF            EPS         
+---- VAR x97                 .            71.0537        +INF            EPS         
+---- VAR x98                 .              .            +INF            EPS         
+---- VAR x99                 .              .            +INF            EPS         
+---- VAR x100                .              .            +INF            EPS         
+---- VAR x101                .            69.0931        +INF            EPS         
+---- VAR x102                .              .            +INF            EPS         
+---- VAR x103                .              .            +INF            EPS         
+---- VAR x104                .           140.8585        +INF            EPS         
+---- VAR x105                .              .            +INF            EPS         
+---- VAR x106                .              .            +INF            EPS         
+---- VAR x107                .              .            +INF            EPS         
+---- VAR x108                .              .            +INF            EPS         
+---- VAR x109                .             4.9366        +INF            EPS         
+---- VAR x110                .            37.7636        +INF            EPS         
+---- VAR x111                .            13.2665        +INF            EPS         
+---- VAR x112                .              .            +INF            EPS         
+---- VAR objvar            -INF       154895.9330        +INF             .          
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0     ERRORS
+
+
+EXECUTION TIME       =      335.261 SECONDS      3 MB  50.1.0 12b75dde LEX-LEG
+
+
+USER: David Bernal / SECQUOIA Research Group         G240524|0002AS-GEN
+      Purdue University, Davidson School of Chemical EngineeringDCE3427
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      /home/andresfel9403/hens/adaptive_model_mixer/heatexch_gen1.gms
+Output     /home/andresfel9403/hens/adaptive_model_mixer/heatexch_gen1.lst

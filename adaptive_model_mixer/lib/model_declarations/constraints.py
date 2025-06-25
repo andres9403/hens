@@ -70,7 +70,7 @@ def declare_constraints(model):
         
         model.area_hu_con = Constraint(model.HP, rule=area_hu_rule)
         model.area_hu_beta_rule_con = Constraint(model.CP, rule=area_beta_hu_rule)
-        model.dt_difference_con = Constraint(model.HP, model.CP, model.ST, rule=dt_difference_rule)
+        #model.dt_difference_con = Constraint(model.HP, model.CP, model.ST, rule=dt_difference_rule)
     else:
 
         model.z_th_sum = Constraint(model.HP, model.ST, rule=z_th_sum_rule)

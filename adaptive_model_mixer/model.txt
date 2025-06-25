@@ -1,0 +1,580 @@
+4 Set Declarations
+    K_Take_First_Stage : Size=1, Index=None, Ordered=True
+        Key  : Dimen : Domain              : Size : Members
+        None :     1 : K - First_Stage_Set :    2 : {2, 3}
+    Reclmtd_cu_gradient_points : Size=2, Index=HP, Ordered=Insertion
+        Key : Dimen : Domain : Size : Members
+          1 :     1 :    Any :    0 :      {}
+          2 :     1 :    Any :    0 :      {}
+    Reclmtd_gradient_points : Size=8, Index=HP*CP*ST, Ordered=Insertion
+        Key       : Dimen : Domain : Size : Members
+        (1, 1, 1) :     2 :    Any :    0 :      {}
+        (1, 1, 2) :     2 :    Any :    0 :      {}
+        (1, 2, 1) :     2 :    Any :    0 :      {}
+        (1, 2, 2) :     2 :    Any :    0 :      {}
+        (2, 1, 1) :     2 :    Any :    0 :      {}
+        (2, 1, 2) :     2 :    Any :    0 :      {}
+        (2, 2, 1) :     2 :    Any :    0 :      {}
+        (2, 2, 2) :     2 :    Any :    0 :      {}
+    Reclmtd_hu_gradient_points : Size=2, Index=CP, Ordered=Insertion
+        Key : Dimen : Domain : Size : Members
+          1 :     1 :    Any :    0 :      {}
+          2 :     1 :    Any :    0 :      {}
+
+5 RangeSet Declarations
+    CP : set of cold process streams j
+        Dimen=1, Size=2, Bounds=(1, 2)
+        Key  : Finite : Members
+        None :   True :   [1:2]
+    First_Stage_Set : Dimen=1, Size=1, Bounds=(1, 1)
+        Key  : Finite : Members
+        None :   True :     [1]
+    HP : set of hot process streams i
+        Dimen=1, Size=2, Bounds=(1, 2)
+        Key  : Finite : Members
+        None :   True :   [1:2]
+    K : set of temperature locations
+        Dimen=1, Size=3, Bounds=(1, 3)
+        Key  : Finite : Members
+        None :   True :   [1:3]
+    ST : set of stages in the superstructure
+        Dimen=1, Size=2, Bounds=(1, 2)
+        Key  : Finite : Members
+        None :   True :   [1:2]
+
+34 Param Declarations
+    Alpha : factor for area cost
+        Size=1, Index=None, Domain=NonNegativeReals, Default=None, Mutable=False
+        Key  : Value
+        None :   150
+    Beta : exponent for the area cost
+        Size=1, Index=None, Domain=PercentFraction, Default=None, Mutable=False
+        Key  : Value
+        None :     1
+    Cost_cu : utility cost coeffiecient for cooling utility j
+        Size=1, Index=None, Domain=NonNegativeReals, Default=None, Mutable=False
+        Key  : Value
+        None :    15
+    Cost_hu : utility cost coeffiecient for heating utility k
+        Size=1, Index=None, Domain=NonNegativeReals, Default=None, Mutable=False
+        Key  : Value
+        None :    80
+    Cost_hx : fixed charge for exchangers
+        Size=1, Index=None, Domain=NonNegativeReals, Default=None, Mutable=False
+        Key  : Value
+        None :  5500
+    Delta_t_min : minimum temperature approach
+        Size=1, Index=None, Domain=NonNegativeReals, Default=None, Mutable=False
+        Key  : Value
+        None :    10
+    Ecc : Size=2, Index=CP, Domain=PositiveReals, Default=None, Mutable=False
+        Key : Value
+          1 :  3600
+          2 :  1950
+    Ech : Size=2, Index=HP, Domain=PositiveReals, Default=None, Mutable=False
+        Key : Value
+          1 :  2800
+          2 :  4400
+    Epsilon : Epsilon value for MINLP formulation
+        Size=1, Index=None, Domain=PositiveReals, Default=1e-06, Mutable=False
+        Key : Value
+    Fc : flow capacity of cold stream j
+        Size=2, Index=CP, Domain=Any, Default=None, Mutable=False
+        Key : Value
+          1 :    15
+          2 :    13
+    Fh : flow capicity of hot stream i
+        Size=2, Index=HP, Domain=Any, Default=None, Mutable=False
+        Key : Value
+          1 :    10
+          2 :    20
+    First_stage : Index of the first stage
+        Size=1, Index=None, Domain=PositiveIntegers, Default=1, Mutable=False
+        Key : Value
+    Gamma : Size=4, Index=HP*CP, Domain=NonNegativeReals, Default=None, Mutable=False
+        Key    : Value
+        (1, 1) :   280
+        (1, 2) :   130
+        (2, 1) :   280
+        (2, 2) :   130
+    H_cu : heat transfer coefficient for cold utility
+        Size=1, Index=None, Domain=Any, Default=None, Mutable=False
+        Key  : Value
+        None :     1
+    H_hu : heat transfer coefficient for hot utility
+        Size=1, Index=None, Domain=Any, Default=None, Mutable=False
+        Key  : Value
+        None :     5
+    Hc : heat transfer coefficient for cold stream j
+        Size=2, Index=CP, Domain=Any, Default=None, Mutable=False
+        Key : Value
+          1 :     1
+          2 :     1
+    Hh : heat transfer coefficient for hot stream i
+        Size=2, Index=HP, Domain=Any, Default=None, Mutable=False
+        Key : Value
+          1 :     1
+          2 :     1
+    Number_cold_stream : number of cold streams
+        Size=1, Index=None, Domain=PositiveIntegers, Default=None, Mutable=False
+        Key  : Value
+        None :     2
+    Number_hot_stream : number of hot streams
+        Size=1, Index=None, Domain=PositiveIntegers, Default=None, Mutable=False
+        Key  : Value
+        None :     2
+    Number_stages : number of stages
+        Size=1, Index=None, Domain=PositiveIntegers, Default=None, Mutable=False
+        Key  : Value
+        None :     2
+    Omega_i : Size=2, Index=HP, Domain=PositiveReals, Default=None, Mutable=False
+        Key : Value
+          1 :  2800
+          2 :  4400
+    Omega_ij : Size=4, Index=HP*CP, Domain=PositiveReals, Default=None, Mutable=False
+        Key    : Value
+        (1, 1) :  2800
+        (1, 2) :  1950
+        (2, 1) :  3600
+        (2, 2) :  1950
+    Omega_j : Size=2, Index=CP, Domain=PositiveReals, Default=None, Mutable=False
+        Key : Value
+          1 :  3600
+          2 :  1950
+    T_cu_in : inlet temperature of cold utility
+        Size=1, Index=None, Domain=PositiveReals, Default=None, Mutable=False
+        Key  : Value
+        None :   300
+    T_cu_out : outlet temperature of cold utility
+        Size=1, Index=None, Domain=PositiveReals, Default=None, Mutable=False
+        Key  : Value
+        None :   320
+    T_hu_in : inlet temperature of hot utility
+        Size=1, Index=None, Domain=PositiveReals, Default=None, Mutable=False
+        Key  : Value
+        None :   680
+    T_hu_out : outlet temperature of hot utility
+        Size=1, Index=None, Domain=PositiveReals, Default=None, Mutable=False
+        Key  : Value
+        None :   680
+    Tc_in : inlet temperature of cold stream j
+        Size=2, Index=CP, Domain=Any, Default=None, Mutable=False
+        Key : Value
+          1 :   410
+          2 :   350
+    Tc_out : outlet temperature of cold stream j
+        Size=2, Index=CP, Domain=Any, Default=None, Mutable=False
+        Key : Value
+          1 :   650
+          2 :   500
+    Th_in : inlet temperature of hot stream i
+        Size=2, Index=HP, Domain=Any, Default=None, Mutable=False
+        Key : Value
+          1 :   650
+          2 :   590
+    Th_out : outlet temperature of hot stream i
+        Size=2, Index=HP, Domain=Any, Default=None, Mutable=False
+        Key : Value
+          1 :   370
+          2 :   370
+    U : Size=4, Index=HP*CP, Domain=PositiveReals, Default=None, Mutable=False
+        Key    : Value
+        (1, 1) :   2.0
+        (1, 2) :   2.0
+        (2, 1) :   2.0
+        (2, 2) :   2.0
+    U_cu : Size=2, Index=HP, Domain=PositiveReals, Default=None, Mutable=False
+        Key : Value
+          1 :   2.0
+          2 :   2.0
+    U_hu : Size=2, Index=CP, Domain=PositiveReals, Default=None, Mutable=False
+        Key : Value
+          1 :   1.2
+          2 :   1.2
+
+25 Var Declarations
+    area : Area for exchanger ijk
+        Size=8, Index=HP*CP*ST
+        Key       : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1, 1) :     0 :     0 : 560.0 : False : False :  Reals
+        (1, 1, 2) :     0 :     0 : 560.0 : False : False :  Reals
+        (1, 2, 1) :     0 :     0 : 390.0 : False : False :  Reals
+        (1, 2, 2) :     0 :     0 : 390.0 : False : False :  Reals
+        (2, 1, 1) :     0 :     0 : 720.0 : False : False :  Reals
+        (2, 1, 2) :     0 :     0 : 720.0 : False : False :  Reals
+        (2, 2, 1) :     0 :     0 : 390.0 : False : False :  Reals
+        (2, 2, 2) :     0 :     0 : 390.0 : False : False :  Reals
+    area_beta : Size=8, Index=HP*CP*ST
+        Key       : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (1, 1, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (1, 2, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (1, 2, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (2, 1, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (2, 1, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (2, 2, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (2, 2, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+    area_cu : Area for cooler i
+        Size=2, Index=HP
+        Key : Lower : Value : Upper              : Fixed : Stale : Domain
+          1 :     0 :     0 : 181.61828057849593 : False : False :  Reals
+          2 :     0 :     0 :  285.4001551947793 : False : False :  Reals
+    area_cu_beta : Size=2, Index=HP
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+          1 :     0 :     0 :  None : False : False : NonNegativeReals
+          2 :     0 :     0 :  None : False : False : NonNegativeReals
+    area_hu : Area for heater j
+        Size=2, Index=CP
+        Key : Lower : Value : Upper             : Fixed : Stale : Domain
+          1 :     0 :     0 : 237.3002543523117 : False : False :  Reals
+          2 :     0 :     0 : 39.78511713810015 : False : False :  Reals
+    area_hu_beta : Size=2, Index=CP
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+          1 :     0 :     0 :  None : False : False : NonNegativeReals
+          2 :     0 :     0 :  None : False : False : NonNegativeReals
+    dt : Approach between i and j in location k
+        Size=12, Index=HP*CP*K
+        Key       : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1, 1) :  10.0 :  None :   240 : False :  True :  Reals
+        (1, 1, 2) :  10.0 :  None :   240 : False :  True :  Reals
+        (1, 1, 3) :  10.0 :  None :   240 : False :  True :  Reals
+        (1, 2, 1) :  10.0 :  None :   300 : False :  True :  Reals
+        (1, 2, 2) :  10.0 :  None :   300 : False :  True :  Reals
+        (1, 2, 3) :  10.0 :  None :   300 : False :  True :  Reals
+        (2, 1, 1) :  10.0 :  None :   180 : False :  True :  Reals
+        (2, 1, 2) :  10.0 :  None :   180 : False :  True :  Reals
+        (2, 1, 3) :  10.0 :  None :   180 : False :  True :  Reals
+        (2, 2, 1) :  10.0 :  None :   240 : False :  True :  Reals
+        (2, 2, 2) :  10.0 :  None :   240 : False :  True :  Reals
+        (2, 2, 3) :  10.0 :  None :   240 : False :  True :  Reals
+    dt_cu : Approach between i and the cold utility
+        Size=2, Index=HP
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+          1 :  10.0 :  None :   350 : False :  True :  Reals
+          2 :  10.0 :  None :   290 : False :  True :  Reals
+    dt_diff_abs : Size=8, Index=HP*CP*ST
+        Key       : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (1, 1, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (1, 2, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (1, 2, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (2, 1, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (2, 1, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (2, 2, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (2, 2, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+    dt_hu : Approach between j and the hot utility
+        Size=2, Index=CP
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+          1 :  10.0 :  None :   270 : False :  True :  Reals
+          2 :  10.0 :  None :   330 : False :  True :  Reals
+    fc : Flow rate entering heat exchanger ijk hot side
+        Size=8, Index=HP*CP*ST
+        Key       : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1, 1) :     0 :  None :    15 : False :  True :  Reals
+        (1, 1, 2) :     0 :  None :    15 : False :  True :  Reals
+        (1, 2, 1) :     0 :  None :    13 : False :  True :  Reals
+        (1, 2, 2) :     0 :  None :    13 : False :  True :  Reals
+        (2, 1, 1) :     0 :  None :    15 : False :  True :  Reals
+        (2, 1, 2) :     0 :  None :    15 : False :  True :  Reals
+        (2, 2, 1) :     0 :  None :    13 : False :  True :  Reals
+        (2, 2, 2) :     0 :  None :    13 : False :  True :  Reals
+    fh : Flow rate entering heat exchanger ijk cold side
+        Size=8, Index=HP*CP*ST
+        Key       : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1, 1) :     0 :  None :    10 : False :  True :  Reals
+        (1, 1, 2) :     0 :  None :    10 : False :  True :  Reals
+        (1, 2, 1) :     0 :  None :    10 : False :  True :  Reals
+        (1, 2, 2) :     0 :  None :    10 : False :  True :  Reals
+        (2, 1, 1) :     0 :  None :    20 : False :  True :  Reals
+        (2, 1, 2) :     0 :  None :    20 : False :  True :  Reals
+        (2, 2, 1) :     0 :  None :    20 : False :  True :  Reals
+        (2, 2, 2) :     0 :  None :    20 : False :  True :  Reals
+    q : heat load between hot stream i and cold stream j at stage k
+        Size=8, Index=HP*CP*ST
+        Key       : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1, 1) :     0 :     0 :  2800 : False : False :  Reals
+        (1, 1, 2) :     0 :     0 :  2800 : False : False :  Reals
+        (1, 2, 1) :     0 :     0 :  1950 : False : False :  Reals
+        (1, 2, 2) :     0 :     0 :  1950 : False : False :  Reals
+        (2, 1, 1) :     0 :     0 :  3600 : False : False :  Reals
+        (2, 1, 2) :     0 :     0 :  3600 : False : False :  Reals
+        (2, 2, 1) :     0 :     0 :  1950 : False : False :  Reals
+        (2, 2, 2) :     0 :     0 :  1950 : False : False :  Reals
+    q_cu : heat load between hot stream i and cold utility
+        Size=2, Index=HP
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+          1 :     0 :     0 :  2800 : False : False :  Reals
+          2 :     0 :     0 :  4400 : False : False :  Reals
+    q_hu : heat load between cold stream j and hot utility
+        Size=2, Index=CP
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+          1 :     0 :     0 :  3600 : False : False :  Reals
+          2 :     0 :     0 :  1950 : False : False :  Reals
+    reclmtd : Log mean temperature difference between hot stream i and cold stream j at stage k
+        Size=8, Index=HP*CP*ST
+        Key       : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1, 1) :  None :  None :  None : False :  True :  Reals
+        (1, 1, 2) :  None :  None :  None : False :  True :  Reals
+        (1, 2, 1) :  None :  None :  None : False :  True :  Reals
+        (1, 2, 2) :  None :  None :  None : False :  True :  Reals
+        (2, 1, 1) :  None :  None :  None : False :  True :  Reals
+        (2, 1, 2) :  None :  None :  None : False :  True :  Reals
+        (2, 2, 1) :  None :  None :  None : False :  True :  Reals
+        (2, 2, 2) :  None :  None :  None : False :  True :  Reals
+    reclmtd_cu : Log mean temperature difference between hot stream i and cold utility
+        Size=2, Index=HP
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+          1 :  None :  None :  None : False :  True :  Reals
+          2 :  None :  None :  None : False :  True :  Reals
+    reclmtd_hu : Log mean temperature difference between cold stream j and hot utility
+        Size=2, Index=CP
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+          1 :  None :  None :  None : False :  True :  Reals
+          2 :  None :  None :  None : False :  True :  Reals
+    tc : temperature of cold stream j at hot end of stage k
+        Size=6, Index=CP*K
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :   410 :  None :   650 : False :  True :  Reals
+        (1, 2) :   410 :  None :   650 : False :  True :  Reals
+        (1, 3) :   410 :  None :   650 : False :  True :  Reals
+        (2, 1) :   350 :  None :   500 : False :  True :  Reals
+        (2, 2) :   350 :  None :   500 : False :  True :  Reals
+        (2, 3) :   350 :  None :   500 : False :  True :  Reals
+    tcx : Outlet temperature of the heat exchanger ijk cold side
+        Size=8, Index=HP*CP*ST
+        Key       : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1, 1) :   410 :  None :   650 : False :  True :  Reals
+        (1, 1, 2) :   410 :  None :   650 : False :  True :  Reals
+        (1, 2, 1) :   350 :  None :   500 : False :  True :  Reals
+        (1, 2, 2) :   350 :  None :   500 : False :  True :  Reals
+        (2, 1, 1) :   410 :  None :   650 : False :  True :  Reals
+        (2, 1, 2) :   410 :  None :   650 : False :  True :  Reals
+        (2, 2, 1) :   350 :  None :   500 : False :  True :  Reals
+        (2, 2, 2) :   350 :  None :   500 : False :  True :  Reals
+    th : temperature of hot stream i at hot end of stage k
+        Size=6, Index=HP*K
+        Key    : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1) :   370 :  None :   650 : False :  True :  Reals
+        (1, 2) :   370 :  None :   650 : False :  True :  Reals
+        (1, 3) :   370 :  None :   650 : False :  True :  Reals
+        (2, 1) :   370 :  None :   590 : False :  True :  Reals
+        (2, 2) :   370 :  None :   590 : False :  True :  Reals
+        (2, 3) :   370 :  None :   590 : False :  True :  Reals
+    thx : Outlet temperature of the heat exchanger ijk hot side
+        Size=8, Index=HP*CP*ST
+        Key       : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1, 1) :   370 :  None :   650 : False :  True :  Reals
+        (1, 1, 2) :   370 :  None :   650 : False :  True :  Reals
+        (1, 2, 1) :   370 :  None :   650 : False :  True :  Reals
+        (1, 2, 2) :   370 :  None :   650 : False :  True :  Reals
+        (2, 1, 1) :   370 :  None :   590 : False :  True :  Reals
+        (2, 1, 2) :   370 :  None :   590 : False :  True :  Reals
+        (2, 2, 1) :   370 :  None :   590 : False :  True :  Reals
+        (2, 2, 2) :   370 :  None :   590 : False :  True :  Reals
+    z : existence of the match between hot stream i and cold stream j at stage k
+        Size=8, Index=HP*CP*ST
+        Key       : Lower : Value : Upper : Fixed : Stale : Domain
+        (1, 1, 1) :     0 :     0 :     1 : False : False : Binary
+        (1, 1, 2) :     0 :     0 :     1 : False : False : Binary
+        (1, 2, 1) :     0 :     0 :     1 : False : False : Binary
+        (1, 2, 2) :     0 :     0 :     1 : False : False : Binary
+        (2, 1, 1) :     0 :     0 :     1 : False : False : Binary
+        (2, 1, 2) :     0 :     0 :     1 : False : False : Binary
+        (2, 2, 1) :     0 :     0 :     1 : False : False : Binary
+        (2, 2, 2) :     0 :     0 :     1 : False : False : Binary
+    z_cu : existence of the match between hot stream i and cold utility
+        Size=2, Index=HP
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+          1 :     0 :     0 :     1 : False : False : Binary
+          2 :     0 :     0 :     1 : False : False : Binary
+    z_hu : existence of the match between cold stream j and hot utility
+        Size=2, Index=CP
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+          1 :     0 :     0 :     1 : False : False : Binary
+          2 :     0 :     0 :     1 : False : False : Binary
+
+1 Expression Declarations
+    Last_stage : Size=1, Index=None
+        Key  : Expression
+        None : Number_stages + 1
+
+1 Objective Declarations
+    TAC : Size=1, Index=None, Active=True
+        Key  : Active : Sense    : Expression
+        None :   True : minimize : 15*(q_cu[1] + q_cu[2]) + 80*(q_hu[1] + q_hu[2]) + 5500*(z[1,1,1] + z[1,1,2] + z[1,2,1] + z[1,2,2] + z[2,1,1] + z[2,1,2] + z[2,2,1] + z[2,2,2] + z_cu[1] + z_cu[2] + z_hu[1] + z_hu[2]) + 150*(area_beta[1,1,1] + area_beta[1,1,2] + area_beta[1,2,1] + area_beta[1,2,2] + area_beta[2,1,1] + area_beta[2,1,2] + area_beta[2,2,1] + area_beta[2,2,2] + area_cu_beta[1] + area_cu_beta[2] + area_hu_beta[1] + area_hu_beta[2])
+
+30 Constraint Declarations
+    area_beta_rule_con : Size=8, Index=HP*CP*ST, Active=True
+        Key       : Lower : Body                           : Upper : Active
+        (1, 1, 1) :   0.0 : area_beta[1,1,1] - area[1,1,1] :   0.0 :   True
+        (1, 1, 2) :   0.0 : area_beta[1,1,2] - area[1,1,2] :   0.0 :   True
+        (1, 2, 1) :   0.0 : area_beta[1,2,1] - area[1,2,1] :   0.0 :   True
+        (1, 2, 2) :   0.0 : area_beta[1,2,2] - area[1,2,2] :   0.0 :   True
+        (2, 1, 1) :   0.0 : area_beta[2,1,1] - area[2,1,1] :   0.0 :   True
+        (2, 1, 2) :   0.0 : area_beta[2,1,2] - area[2,1,2] :   0.0 :   True
+        (2, 2, 1) :   0.0 : area_beta[2,2,1] - area[2,2,1] :   0.0 :   True
+        (2, 2, 2) :   0.0 : area_beta[2,2,2] - area[2,2,2] :   0.0 :   True
+    area_con : Size=8, Index=HP*CP*ST, Active=True
+        Key       : Lower : Body                                      : Upper : Active
+        (1, 1, 1) :   0.0 : area[1,1,1] - q[1,1,1]*reclmtd[1,1,1]*2.0 :   0.0 :   True
+        (1, 1, 2) :   0.0 : area[1,1,2] - q[1,1,2]*reclmtd[1,1,2]*2.0 :   0.0 :   True
+        (1, 2, 1) :   0.0 : area[1,2,1] - q[1,2,1]*reclmtd[1,2,1]*2.0 :   0.0 :   True
+        (1, 2, 2) :   0.0 : area[1,2,2] - q[1,2,2]*reclmtd[1,2,2]*2.0 :   0.0 :   True
+        (2, 1, 1) :   0.0 : area[2,1,1] - q[2,1,1]*reclmtd[2,1,1]*2.0 :   0.0 :   True
+        (2, 1, 2) :   0.0 : area[2,1,2] - q[2,1,2]*reclmtd[2,1,2]*2.0 :   0.0 :   True
+        (2, 2, 1) :   0.0 : area[2,2,1] - q[2,2,1]*reclmtd[2,2,1]*2.0 :   0.0 :   True
+        (2, 2, 2) :   0.0 : area[2,2,2] - q[2,2,2]*reclmtd[2,2,2]*2.0 :   0.0 :   True
+    area_cu_beta_rule_con : Size=2, Index=HP, Active=True
+        Key : Lower : Body                         : Upper : Active
+          1 :   0.0 : area_cu_beta[1] - area_cu[1] :   0.0 :   True
+          2 :   0.0 : area_cu_beta[2] - area_cu[2] :   0.0 :   True
+    area_cu_con : Size=2, Index=HP, Active=True
+        Key : Lower : Body                                   : Upper : Active
+          1 :   0.0 : area_cu[1] - q_cu[1]*reclmtd_cu[1]*2.0 :   0.0 :   True
+          2 :   0.0 : area_cu[2] - q_cu[2]*reclmtd_cu[2]*2.0 :   0.0 :   True
+    area_hu_beta_rule_con : Size=2, Index=CP, Active=True
+        Key : Lower : Body                         : Upper : Active
+          1 :   0.0 : area_hu_beta[1] - area_hu[1] :   0.0 :   True
+          2 :   0.0 : area_hu_beta[2] - area_hu[2] :   0.0 :   True
+    area_hu_con : Size=2, Index=HP, Active=True
+        Key : Lower : Body                                   : Upper : Active
+          1 :   0.0 : area_hu[1] - q_hu[1]*reclmtd_hu[1]*1.2 :   0.0 :   True
+          2 :   0.0 : area_hu[2] - q_hu[2]*reclmtd_hu[2]*1.2 :   0.0 :   True
+    cold_inlet : Size=2, Index=CP, Active=True
+        Key : Lower : Body    : Upper : Active
+          1 : 410.0 : tc[1,3] : 410.0 :   True
+          2 : 350.0 : tc[2,3] : 350.0 :   True
+    cold_lower_bound : Size=2, Index=CP, Active=True
+        Key : Lower : Body    : Upper : Active
+          1 :  -Inf : tc[1,1] : 650.0 :   True
+          2 :  -Inf : tc[2,1] : 500.0 :   True
+    decreasing_cold : Size=4, Index=CP*ST, Active=True
+        Key    : Lower : Body              : Upper : Active
+        (1, 1) :  -Inf : tc[1,2] - tc[1,1] :   0.0 :   True
+        (1, 2) :  -Inf : tc[1,3] - tc[1,2] :   0.0 :   True
+        (2, 1) :  -Inf : tc[2,2] - tc[2,1] :   0.0 :   True
+        (2, 2) :  -Inf : tc[2,3] - tc[2,2] :   0.0 :   True
+    decreasing_hot : Size=4, Index=HP*ST, Active=True
+        Key    : Lower : Body              : Upper : Active
+        (1, 1) :  -Inf : th[1,2] - th[1,1] :   0.0 :   True
+        (1, 2) :  -Inf : th[1,3] - th[1,2] :   0.0 :   True
+        (2, 1) :  -Inf : th[2,2] - th[2,1] :   0.0 :   True
+        (2, 2) :  -Inf : th[2,3] - th[2,2] :   0.0 :   True
+    energy_balance_cold : Energy exchanged by cold stream j in stage k
+        Size=4, Index=CP*ST, Active=True
+        Key    : Lower : Body                                         : Upper : Active
+        (1, 1) :   0.0 : q[1,1,1] + q[2,1,1] - 15*(tc[1,1] - tc[1,2]) :   0.0 :   True
+        (1, 2) :   0.0 : q[1,1,2] + q[2,1,2] - 15*(tc[1,2] - tc[1,3]) :   0.0 :   True
+        (2, 1) :   0.0 : q[1,2,1] + q[2,2,1] - 13*(tc[2,1] - tc[2,2]) :   0.0 :   True
+        (2, 2) :   0.0 : q[1,2,2] + q[2,2,2] - 13*(tc[2,2] - tc[2,3]) :   0.0 :   True
+    energy_balance_cu : Energy exchanged by hot stream i with the cold utility
+        Size=2, Index=HP, Active=True
+        Key : Lower : Body                         : Upper : Active
+          1 :   0.0 : 10*(th[1,3] - 370) - q_cu[1] :   0.0 :   True
+          2 :   0.0 : 20*(th[2,3] - 370) - q_cu[2] :   0.0 :   True
+    energy_balance_hot : Energy exchanged by hot stream i in stage k
+        Size=4, Index=HP*ST, Active=True
+        Key    : Lower : Body                                         : Upper : Active
+        (1, 1) :   0.0 : q[1,1,1] + q[1,2,1] - 10*(th[1,1] - th[1,2]) :   0.0 :   True
+        (1, 2) :   0.0 : q[1,1,2] + q[1,2,2] - 10*(th[1,2] - th[1,3]) :   0.0 :   True
+        (2, 1) :   0.0 : q[2,1,1] + q[2,2,1] - 20*(th[2,1] - th[2,2]) :   0.0 :   True
+        (2, 2) :   0.0 : q[2,1,2] + q[2,2,2] - 20*(th[2,2] - th[2,3]) :   0.0 :   True
+    energy_balance_hu : Energy exchanged by cold stream j with the hot utility
+        Size=2, Index=CP, Active=True
+        Key : Lower : Body                         : Upper : Active
+          1 :   0.0 : 15*(650 - tc[1,1]) - q_hu[1] :   0.0 :   True
+          2 :   0.0 : 13*(500 - tc[2,1]) - q_hu[2] :   0.0 :   True
+    hot_inlet : Size=2, Index=HP, Active=True
+        Key : Lower : Body    : Upper : Active
+          1 : 650.0 : th[1,1] : 650.0 :   True
+          2 : 590.0 : th[2,1] : 590.0 :   True
+    hot_upper_bound : Size=2, Index=HP, Active=True
+        Key : Lower : Body    : Upper : Active
+          1 : 370.0 : th[1,3] :  +Inf :   True
+          2 : 370.0 : th[2,3] :  +Inf :   True
+    mass_balance_cold : Size=4, Index=CP*ST, Active=True
+        Key    : Lower : Body                  : Upper : Active
+        (1, 1) :  15.0 : fc[1,1,1] + fc[2,1,1] :  15.0 :   True
+        (1, 2) :  15.0 : fc[1,1,2] + fc[2,1,2] :  15.0 :   True
+        (2, 1) :  13.0 : fc[1,2,1] + fc[2,2,1] :  13.0 :   True
+        (2, 2) :  13.0 : fc[1,2,2] + fc[2,2,2] :  13.0 :   True
+    mass_balance_hot : Size=4, Index=HP*ST, Active=True
+        Key    : Lower : Body                  : Upper : Active
+        (1, 1) :  10.0 : fh[1,1,1] + fh[1,2,1] :  10.0 :   True
+        (1, 2) :  10.0 : fh[1,1,2] + fh[1,2,2] :  10.0 :   True
+        (2, 1) :  20.0 : fh[2,1,1] + fh[2,2,1] :  20.0 :   True
+        (2, 2) :  20.0 : fh[2,1,2] + fh[2,2,2] :  20.0 :   True
+    overall_heat_balance_cold : Size=2, Index=CP, Active=True
+        Key : Lower  : Body                                                : Upper  : Active
+          1 : 3600.0 : q[1,1,1] + q[1,1,2] + q[2,1,1] + q[2,1,2] + q_hu[1] : 3600.0 :   True
+          2 : 1950.0 : q[1,2,1] + q[1,2,2] + q[2,2,1] + q[2,2,2] + q_hu[2] : 1950.0 :   True
+    overall_heat_balance_hot : Size=2, Index=HP, Active=True
+        Key : Lower  : Body                                                : Upper  : Active
+          1 : 2800.0 : q[1,1,1] + q[1,1,2] + q[1,2,1] + q[1,2,2] + q_cu[1] : 2800.0 :   True
+          2 : 4400.0 : q[2,1,1] + q[2,1,2] + q[2,2,1] + q[2,2,2] + q_cu[2] : 4400.0 :   True
+    q_big_m : Size=8, Index=HP*CP*ST, Active=True
+        Key       : Lower : Body                     : Upper : Active
+        (1, 1, 1) :  -Inf : q[1,1,1] - 2800*z[1,1,1] :   0.0 :   True
+        (1, 1, 2) :  -Inf : q[1,1,2] - 2800*z[1,1,2] :   0.0 :   True
+        (1, 2, 1) :  -Inf : q[1,2,1] - 1950*z[1,2,1] :   0.0 :   True
+        (1, 2, 2) :  -Inf : q[1,2,2] - 1950*z[1,2,2] :   0.0 :   True
+        (2, 1, 1) :  -Inf : q[2,1,1] - 3600*z[2,1,1] :   0.0 :   True
+        (2, 1, 2) :  -Inf : q[2,1,2] - 3600*z[2,1,2] :   0.0 :   True
+        (2, 2, 1) :  -Inf : q[2,2,1] - 1950*z[2,2,1] :   0.0 :   True
+        (2, 2, 2) :  -Inf : q[2,2,2] - 1950*z[2,2,2] :   0.0 :   True
+    q_cu_big_m : Size=2, Index=HP, Active=True
+        Key : Lower : Body                   : Upper : Active
+          1 :  -Inf : q_cu[1] - 2800*z_cu[1] :   0.0 :   True
+          2 :  -Inf : q_cu[2] - 4400*z_cu[2] :   0.0 :   True
+    q_hu_big_m : Size=2, Index=CP, Active=True
+        Key : Lower : Body                   : Upper : Active
+          1 :  -Inf : q_hu[1] - 3600*z_hu[1] :   0.0 :   True
+          2 :  -Inf : q_hu[2] - 1950*z_hu[2] :   0.0 :   True
+    reclmtd_con : Size=8, Index=HP*CP*ST, Active=True
+        Key       : Lower : Body                                                                      : Upper : Active
+        (1, 1, 1) :   0.0 : reclmtd[1,1,1] - log(dt[1,1,1]/dt[1,1,2])/(dt[1,1,1] - dt[1,1,2] + 1e-06) :   0.0 :   True
+        (1, 1, 2) :   0.0 : reclmtd[1,1,2] - log(dt[1,1,2]/dt[1,1,3])/(dt[1,1,2] - dt[1,1,3] + 1e-06) :   0.0 :   True
+        (1, 2, 1) :   0.0 : reclmtd[1,2,1] - log(dt[1,2,1]/dt[1,2,2])/(dt[1,2,1] - dt[1,2,2] + 1e-06) :   0.0 :   True
+        (1, 2, 2) :   0.0 : reclmtd[1,2,2] - log(dt[1,2,2]/dt[1,2,3])/(dt[1,2,2] - dt[1,2,3] + 1e-06) :   0.0 :   True
+        (2, 1, 1) :   0.0 : reclmtd[2,1,1] - log(dt[2,1,1]/dt[2,1,2])/(dt[2,1,1] - dt[2,1,2] + 1e-06) :   0.0 :   True
+        (2, 1, 2) :   0.0 : reclmtd[2,1,2] - log(dt[2,1,2]/dt[2,1,3])/(dt[2,1,2] - dt[2,1,3] + 1e-06) :   0.0 :   True
+        (2, 2, 1) :   0.0 : reclmtd[2,2,1] - log(dt[2,2,1]/dt[2,2,2])/(dt[2,2,1] - dt[2,2,2] + 1e-06) :   0.0 :   True
+        (2, 2, 2) :   0.0 : reclmtd[2,2,2] - log(dt[2,2,2]/dt[2,2,3])/(dt[2,2,2] - dt[2,2,3] + 1e-06) :   0.0 :   True
+    reclmtd_cu_con : Size=2, Index=HP, Active=True
+        Key : Lower : Body                                                                         : Upper : Active
+          1 :   0.0 : reclmtd_cu[1] - log(0.0030303030303030303*dt_cu[1])/(dt_cu[1] - 330 + 1e-06) :   0.0 :   True
+          2 :   0.0 :  reclmtd_cu[2] - log(0.003703703703703704*dt_cu[2])/(dt_cu[2] - 270 + 1e-06) :   0.0 :   True
+    reclmtd_hu_con : Size=2, Index=CP, Active=True
+        Key : Lower : Body                                                                                 : Upper : Active
+          1 :   0.0 : reclmtd_hu[1] - log(dt_hu[1]/(680 - dt_hu[1]))/(dt_hu[1] - (680 - dt_hu[1]) + 1e-06) :   0.0 :   True
+          2 :   0.0 : reclmtd_hu[2] - log(dt_hu[2]/(680 - dt_hu[2]))/(dt_hu[2] - (680 - dt_hu[2]) + 1e-06) :   0.0 :   True
+    temp_app_cu : Size=2, Index=HP, Active=True
+        Key : Lower : Body                       : Upper : Active
+          1 :  -Inf : dt_cu[1] - (th[1,3] - 320) :   0.0 :   True
+          2 :  -Inf : dt_cu[2] - (th[2,3] - 320) :   0.0 :   True
+    temp_app_hu : Size=2, Index=CP, Active=True
+        Key : Lower : Body                       : Upper : Active
+          1 :  -Inf : dt_hu[1] - (680 - tc[1,1]) :   0.0 :   True
+          2 :  -Inf : dt_hu[2] - (680 - tc[2,1]) :   0.0 :   True
+    temp_app_in : Size=8, Index=HP*CP*ST, Active=True
+        Key       : Lower : Body                                                 : Upper : Active
+        (1, 1, 1) :  -Inf : dt[1,1,1] - (th[1,1] - tc[1,1] + 280*(1 - z[1,1,1])) :   0.0 :   True
+        (1, 1, 2) :  -Inf : dt[1,1,2] - (th[1,2] - tc[1,2] + 280*(1 - z[1,1,2])) :   0.0 :   True
+        (1, 2, 1) :  -Inf : dt[1,2,1] - (th[1,1] - tc[2,1] + 130*(1 - z[1,2,1])) :   0.0 :   True
+        (1, 2, 2) :  -Inf : dt[1,2,2] - (th[1,2] - tc[2,2] + 130*(1 - z[1,2,2])) :   0.0 :   True
+        (2, 1, 1) :  -Inf : dt[2,1,1] - (th[2,1] - tc[1,1] + 280*(1 - z[2,1,1])) :   0.0 :   True
+        (2, 1, 2) :  -Inf : dt[2,1,2] - (th[2,2] - tc[1,2] + 280*(1 - z[2,1,2])) :   0.0 :   True
+        (2, 2, 1) :  -Inf : dt[2,2,1] - (th[2,1] - tc[2,1] + 130*(1 - z[2,2,1])) :   0.0 :   True
+        (2, 2, 2) :  -Inf : dt[2,2,2] - (th[2,2] - tc[2,2] + 130*(1 - z[2,2,2])) :   0.0 :   True
+    temp_app_out : Size=8, Index=HP*CP*ST, Active=True
+        Key       : Lower : Body                                                 : Upper : Active
+        (1, 1, 1) :  -Inf : dt[1,1,2] - (th[1,2] - tc[1,2] + 280*(1 - z[1,1,1])) :   0.0 :   True
+        (1, 1, 2) :  -Inf : dt[1,1,3] - (th[1,3] - tc[1,3] + 280*(1 - z[1,1,2])) :   0.0 :   True
+        (1, 2, 1) :  -Inf : dt[1,2,2] - (th[1,2] - tc[2,2] + 130*(1 - z[1,2,1])) :   0.0 :   True
+        (1, 2, 2) :  -Inf : dt[1,2,3] - (th[1,3] - tc[2,3] + 130*(1 - z[1,2,2])) :   0.0 :   True
+        (2, 1, 1) :  -Inf : dt[2,1,2] - (th[2,2] - tc[1,2] + 280*(1 - z[2,1,1])) :   0.0 :   True
+        (2, 1, 2) :  -Inf : dt[2,1,3] - (th[2,3] - tc[1,3] + 280*(1 - z[2,1,2])) :   0.0 :   True
+        (2, 2, 1) :  -Inf : dt[2,2,2] - (th[2,2] - tc[2,2] + 130*(1 - z[2,2,1])) :   0.0 :   True
+        (2, 2, 2) :  -Inf : dt[2,2,3] - (th[2,3] - tc[2,3] + 130*(1 - z[2,2,2])) :   0.0 :   True
+
+100 Declarations: Alpha Beta Cost_hx Cost_cu Cost_hu Delta_t_min Number_stages Number_hot_stream Number_cold_stream First_stage Last_stage HP CP ST K First_Stage_Set K_Take_First_Stage Fh Fc Hh Hc H_cu H_hu Th_in Tc_in Th_out Tc_out T_cu_in T_cu_out T_hu_in T_hu_out Reclmtd_gradient_points Reclmtd_cu_gradient_points Reclmtd_hu_gradient_points U U_cu U_hu Ech Ecc Omega_ij Omega_i Omega_j Gamma Epsilon area area_cu area_hu area_beta area_cu_beta area_hu_beta fh fc thx tcx dt dt_cu dt_hu q q_cu q_hu th tc z z_cu z_hu dt_diff_abs reclmtd reclmtd_cu reclmtd_hu TAC overall_heat_balance_hot overall_heat_balance_cold mass_balance_hot mass_balance_cold energy_balance_hot energy_balance_cold energy_balance_cu energy_balance_hu hot_inlet cold_inlet decreasing_hot decreasing_cold hot_upper_bound cold_lower_bound q_big_m q_cu_big_m q_hu_big_m temp_app_in temp_app_out temp_app_cu temp_app_hu reclmtd_con reclmtd_cu_con reclmtd_hu_con area_con area_beta_rule_con area_cu_con area_cu_beta_rule_con area_hu_con area_hu_beta_rule_con

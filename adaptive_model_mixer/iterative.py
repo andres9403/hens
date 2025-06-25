@@ -66,6 +66,14 @@ datafile = '/home/andresfel9403/hens/datafiles/' + args.model + '.dat'
 #solver = args.solver
 if args.model_type == 'MINLP':
     opt = SolverFactory('gams')
+    opt.options['solver'] = 'baron'
+    #add_options=['option optcr=1e-6', 'reslim = 3600'],
+    # io_options=dict(
+    #         solver='gurobi',
+    #         mtype='minlp',
+    #         add_options=['option optcr=1e-6', 'reslim = 3600'],
+    #     ),
+    # )
     # opt.options['solver'] = 'gurobi'
     # opt.options['mtype'] = 'nlp'
     # opt.options['add_options'] = ['option optcr=1e-6', 'reslim = 3600']
@@ -112,15 +120,7 @@ model = initialise_hx_model(datafile, experiment)
 if experiment == 'MINLP':
     print('###############Running MINLP model######################')
     instance = model.create_instance(datafile)
-    results = opt.solve(
-        instance,
-        tee=True,
-        io_options=dict(
-            solver='gurobi',
-            mtype='minlp',
-            add_options=['option optcr=1e-6', 'reslim = 3600'],
-        ),
-    )
+    results = opt.solve(instance, tee=True)
 else:
     warmstart = False
 

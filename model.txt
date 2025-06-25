@@ -2,37 +2,85 @@
     K_Take_First_Stage : Size=1, Index=None, Ordered=True
         Key  : Dimen : Domain              : Size : Members
         None :     1 : K - First_Stage_Set :    2 : {2, 3}
-    Reclmtd_cu_gradient_points : Size=2, Index=HP, Ordered=Insertion
+    Reclmtd_cu_gradient_points : Size=5, Index=HP, Ordered=Insertion
         Key : Dimen : Domain : Size : Members
           1 :     1 :    Any :    0 :      {}
           2 :     1 :    Any :    0 :      {}
-    Reclmtd_gradient_points : Size=8, Index=HP*CP*ST, Ordered=Insertion
+          3 :     1 :    Any :    0 :      {}
+          4 :     1 :    Any :    0 :      {}
+          5 :     1 :    Any :    0 :      {}
+    Reclmtd_gradient_points : Size=50, Index=HP*CP*ST, Ordered=Insertion
         Key       : Dimen : Domain : Size : Members
         (1, 1, 1) :     2 :    Any :    0 :      {}
         (1, 1, 2) :     2 :    Any :    0 :      {}
         (1, 2, 1) :     2 :    Any :    0 :      {}
         (1, 2, 2) :     2 :    Any :    0 :      {}
+        (1, 3, 1) :     2 :    Any :    0 :      {}
+        (1, 3, 2) :     2 :    Any :    0 :      {}
+        (1, 4, 1) :     2 :    Any :    0 :      {}
+        (1, 4, 2) :     2 :    Any :    0 :      {}
+        (1, 5, 1) :     2 :    Any :    0 :      {}
+        (1, 5, 2) :     2 :    Any :    0 :      {}
         (2, 1, 1) :     2 :    Any :    0 :      {}
         (2, 1, 2) :     2 :    Any :    0 :      {}
         (2, 2, 1) :     2 :    Any :    0 :      {}
         (2, 2, 2) :     2 :    Any :    0 :      {}
-    Reclmtd_hu_gradient_points : Size=2, Index=CP, Ordered=Insertion
+        (2, 3, 1) :     2 :    Any :    0 :      {}
+        (2, 3, 2) :     2 :    Any :    0 :      {}
+        (2, 4, 1) :     2 :    Any :    0 :      {}
+        (2, 4, 2) :     2 :    Any :    0 :      {}
+        (2, 5, 1) :     2 :    Any :    0 :      {}
+        (2, 5, 2) :     2 :    Any :    0 :      {}
+        (3, 1, 1) :     2 :    Any :    0 :      {}
+        (3, 1, 2) :     2 :    Any :    0 :      {}
+        (3, 2, 1) :     2 :    Any :    0 :      {}
+        (3, 2, 2) :     2 :    Any :    0 :      {}
+        (3, 3, 1) :     2 :    Any :    0 :      {}
+        (3, 3, 2) :     2 :    Any :    0 :      {}
+        (3, 4, 1) :     2 :    Any :    0 :      {}
+        (3, 4, 2) :     2 :    Any :    0 :      {}
+        (3, 5, 1) :     2 :    Any :    0 :      {}
+        (3, 5, 2) :     2 :    Any :    0 :      {}
+        (4, 1, 1) :     2 :    Any :    0 :      {}
+        (4, 1, 2) :     2 :    Any :    0 :      {}
+        (4, 2, 1) :     2 :    Any :    0 :      {}
+        (4, 2, 2) :     2 :    Any :    0 :      {}
+        (4, 3, 1) :     2 :    Any :    0 :      {}
+        (4, 3, 2) :     2 :    Any :    0 :      {}
+        (4, 4, 1) :     2 :    Any :    0 :      {}
+        (4, 4, 2) :     2 :    Any :    0 :      {}
+        (4, 5, 1) :     2 :    Any :    0 :      {}
+        (4, 5, 2) :     2 :    Any :    0 :      {}
+        (5, 1, 1) :     2 :    Any :    0 :      {}
+        (5, 1, 2) :     2 :    Any :    0 :      {}
+        (5, 2, 1) :     2 :    Any :    0 :      {}
+        (5, 2, 2) :     2 :    Any :    0 :      {}
+        (5, 3, 1) :     2 :    Any :    0 :      {}
+        (5, 3, 2) :     2 :    Any :    0 :      {}
+        (5, 4, 1) :     2 :    Any :    0 :      {}
+        (5, 4, 2) :     2 :    Any :    0 :      {}
+        (5, 5, 1) :     2 :    Any :    0 :      {}
+        (5, 5, 2) :     2 :    Any :    0 :      {}
+    Reclmtd_hu_gradient_points : Size=5, Index=CP, Ordered=Insertion
         Key : Dimen : Domain : Size : Members
           1 :     1 :    Any :    0 :      {}
           2 :     1 :    Any :    0 :      {}
+          3 :     1 :    Any :    0 :      {}
+          4 :     1 :    Any :    0 :      {}
+          5 :     1 :    Any :    0 :      {}
 
 5 RangeSet Declarations
     CP : set of cold process streams j
-        Dimen=1, Size=2, Bounds=(1, 2)
+        Dimen=1, Size=5, Bounds=(1, 5)
         Key  : Finite : Members
-        None :   True :   [1:2]
+        None :   True :   [1:5]
     First_Stage_Set : Dimen=1, Size=1, Bounds=(1, 1)
         Key  : Finite : Members
         None :   True :     [1]
     HP : set of hot process streams i
-        Dimen=1, Size=2, Bounds=(1, 2)
+        Dimen=1, Size=5, Bounds=(1, 5)
         Key  : Finite : Members
-        None :   True :   [1:2]
+        None :   True :   [1:5]
     K : set of temperature locations
         Dimen=1, Size=3, Bounds=(1, 3)
         Key  : Finite : Members
@@ -46,352 +94,994 @@
     Alpha : factor for area cost
         Size=1, Index=None, Domain=NonNegativeReals, Default=None, Mutable=False
         Key  : Value
-        None :   150
+        None :   146
     Beta : exponent for the area cost
         Size=1, Index=None, Domain=PercentFraction, Default=None, Mutable=False
         Key  : Value
-        None :   1.0
+        None :   0.6
     Cost_cu : utility cost coeffiecient for cooling utility j
         Size=1, Index=None, Domain=NonNegativeReals, Default=None, Mutable=False
         Key  : Value
-        None :    15
+        None :    10
     Cost_hu : utility cost coeffiecient for heating utility k
         Size=1, Index=None, Domain=NonNegativeReals, Default=None, Mutable=False
         Key  : Value
-        None :    80
+        None :   200
     Cost_hx : fixed charge for exchangers
         Size=1, Index=None, Domain=NonNegativeReals, Default=None, Mutable=False
         Key  : Value
-        None :  5500
+        None :  4000
     Delta_t_min : minimum temperature approach
         Size=1, Index=None, Domain=NonNegativeReals, Default=None, Mutable=False
         Key  : Value
         None :    10
-    Ecc : Size=2, Index=CP, Domain=PositiveReals, Default=None, Mutable=False
+    Ecc : Size=5, Index=CP, Domain=PositiveReals, Default=None, Mutable=False
         Key : Value
-          1 :  3600
-          2 :  1950
-    Ech : Size=2, Index=HP, Domain=PositiveReals, Default=None, Mutable=False
+          1 :              760.0
+          2 :  647.2099999999999
+          3 : 1539.7200000000003
+          4 :            1634.85
+          5 : 1544.2900000000002
+    Ech : Size=5, Index=HP, Domain=PositiveReals, Default=None, Mutable=False
         Key : Value
-          1 :  2800
-          2 :  4400
+          1 :             586.96
+          2 : 1177.6599999999999
+          3 :            2384.28
+          4 : 1539.7200000000003
+          5 : 2359.4100000000003
     Epsilon : Epsilon value for MINLP formulation
         Size=1, Index=None, Domain=PositiveReals, Default=1e-06, Mutable=False
         Key : Value
     Fc : flow capacity of cold stream j
-        Size=2, Index=CP, Domain=Any, Default=None, Mutable=False
+        Size=5, Index=CP, Domain=Any, Default=None, Mutable=False
         Key : Value
-          1 :    15
-          2 :    13
+          1 :   7.6
+          2 :   6.1
+          3 :   8.4
+          4 :  17.3
+          5 :  13.9
     Fh : flow capicity of hot stream i
-        Size=2, Index=HP, Domain=Any, Default=None, Mutable=False
+        Size=5, Index=HP, Domain=Any, Default=None, Mutable=False
         Key : Value
-          1 :    10
-          2 :    20
+          1 :   8.8
+          2 :  10.6
+          3 :  14.8
+          4 :  12.6
+          5 :  17.7
     First_stage : Index of the first stage
         Size=1, Index=None, Domain=PositiveIntegers, Default=1, Mutable=False
         Key : Value
-    Gamma : Size=4, Index=HP*CP, Domain=NonNegativeReals, Default=None, Mutable=False
+    Gamma : Size=25, Index=HP*CP, Domain=NonNegativeReals, Default=None, Mutable=False
         Key    : Value
-        (1, 1) :   280
-        (1, 2) :   130
-        (2, 1) :   280
-        (2, 2) :   130
+        (1, 1) :               66.7
+        (1, 2) : 128.39999999999998
+        (1, 3) :              127.8
+        (1, 4) :  83.39999999999999
+        (1, 5) : 111.10000000000001
+        (2, 1) :  22.19999999999999
+        (2, 2) :  83.89999999999998
+        (2, 3) :  83.29999999999998
+        (2, 4) :  38.89999999999998
+        (2, 5) :               66.6
+        (3, 1) :               94.4
+        (3, 2) :              156.1
+        (3, 3) :              155.5
+        (3, 4) :              111.1
+        (3, 5) :              138.8
+        (4, 1) : 11.099999999999994
+        (4, 2) :  72.79999999999998
+        (4, 3) :  72.19999999999999
+        (4, 4) : 27.799999999999983
+        (4, 5) :               55.5
+        (5, 1) :               94.4
+        (5, 2) :              156.1
+        (5, 3) :              155.5
+        (5, 4) :              111.1
+        (5, 5) :              138.8
     H_cu : heat transfer coefficient for cold utility
         Size=1, Index=None, Domain=Any, Default=None, Mutable=False
         Key  : Value
-        None :     1
+        None :   1.7
     H_hu : heat transfer coefficient for hot utility
         Size=1, Index=None, Domain=Any, Default=None, Mutable=False
         Key  : Value
-        None :     5
+        None :   3.4
     Hc : heat transfer coefficient for cold stream j
-        Size=2, Index=CP, Domain=Any, Default=None, Mutable=False
+        Size=5, Index=CP, Domain=Any, Default=None, Mutable=False
         Key : Value
-          1 :     1
-          2 :     1
+          1 :   1.7
+          2 :   1.7
+          3 :   1.7
+          4 :   1.7
+          5 :   1.7
     Hh : heat transfer coefficient for hot stream i
-        Size=2, Index=HP, Domain=Any, Default=None, Mutable=False
+        Size=5, Index=HP, Domain=Any, Default=None, Mutable=False
         Key : Value
-          1 :     1
-          2 :     1
+          1 :   1.7
+          2 :   1.7
+          3 :   1.7
+          4 :   1.7
+          5 :   1.7
     Number_cold_stream : number of cold streams
         Size=1, Index=None, Domain=PositiveIntegers, Default=None, Mutable=False
         Key  : Value
-        None :     2
+        None :     5
     Number_hot_stream : number of hot streams
         Size=1, Index=None, Domain=PositiveIntegers, Default=None, Mutable=False
         Key  : Value
-        None :     2
+        None :     5
     Number_stages : number of stages
         Size=1, Index=None, Domain=PositiveIntegers, Default=None, Mutable=False
         Key  : Value
         None :     2
-    Omega_i : Size=2, Index=HP, Domain=PositiveReals, Default=None, Mutable=False
+    Omega_i : Size=5, Index=HP, Domain=PositiveReals, Default=None, Mutable=False
         Key : Value
-          1 :  2800
-          2 :  4400
-    Omega_ij : Size=4, Index=HP*CP, Domain=PositiveReals, Default=None, Mutable=False
+          1 :             586.96
+          2 : 1177.6599999999999
+          3 :            2384.28
+          4 : 1539.7200000000003
+          5 : 2359.4100000000003
+    Omega_ij : Size=25, Index=HP*CP, Domain=PositiveReals, Default=None, Mutable=False
         Key    : Value
-        (1, 1) :  2800
-        (1, 2) :  1950
-        (2, 1) :  3600
-        (2, 2) :  1950
-    Omega_j : Size=2, Index=CP, Domain=PositiveReals, Default=None, Mutable=False
+        (1, 1) :             586.96
+        (1, 2) :             586.96
+        (1, 3) :             586.96
+        (1, 4) :             586.96
+        (1, 5) :             586.96
+        (2, 1) :              760.0
+        (2, 2) :  647.2099999999999
+        (2, 3) : 1177.6599999999999
+        (2, 4) : 1177.6599999999999
+        (2, 5) : 1177.6599999999999
+        (3, 1) :              760.0
+        (3, 2) :  647.2099999999999
+        (3, 3) : 1539.7200000000003
+        (3, 4) :            1634.85
+        (3, 5) : 1544.2900000000002
+        (4, 1) :              760.0
+        (4, 2) :  647.2099999999999
+        (4, 3) : 1539.7200000000003
+        (4, 4) : 1539.7200000000003
+        (4, 5) : 1539.7200000000003
+        (5, 1) :              760.0
+        (5, 2) :  647.2099999999999
+        (5, 3) : 1539.7200000000003
+        (5, 4) :            1634.85
+        (5, 5) : 1544.2900000000002
+    Omega_j : Size=5, Index=CP, Domain=PositiveReals, Default=None, Mutable=False
         Key : Value
-          1 :  3600
-          2 :  1950
+          1 :              760.0
+          2 :  647.2099999999999
+          3 : 1539.7200000000003
+          4 :            1634.85
+          5 : 1544.2900000000002
     T_cu_in : inlet temperature of cold utility
         Size=1, Index=None, Domain=PositiveReals, Default=None, Mutable=False
         Key  : Value
-        None :   300
+        None :    25
     T_cu_out : outlet temperature of cold utility
         Size=1, Index=None, Domain=PositiveReals, Default=None, Mutable=False
         Key  : Value
-        None :   320
+        None :    40
     T_hu_in : inlet temperature of hot utility
         Size=1, Index=None, Domain=PositiveReals, Default=None, Mutable=False
         Key  : Value
-        None :   680
+        None :   240
     T_hu_out : outlet temperature of hot utility
         Size=1, Index=None, Domain=PositiveReals, Default=None, Mutable=False
         Key  : Value
-        None :   680
+        None :   240
     Tc_in : inlet temperature of cold stream j
-        Size=2, Index=CP, Domain=Any, Default=None, Mutable=False
+        Size=5, Index=CP, Domain=Any, Default=None, Mutable=False
         Key : Value
-          1 :   410
-          2 :   350
+          1 :    60
+          2 : 115.6
+          3 :  37.8
+          4 :  82.2
+          5 :  93.3
     Tc_out : outlet temperature of cold stream j
-        Size=2, Index=CP, Domain=Any, Default=None, Mutable=False
+        Size=5, Index=CP, Domain=Any, Default=None, Mutable=False
         Key : Value
-          1 :   650
-          2 :   500
+          1 :   160
+          2 : 221.7
+          3 : 221.1
+          4 : 176.7
+          5 : 204.4
     Th_in : inlet temperature of hot stream i
-        Size=2, Index=HP, Domain=Any, Default=None, Mutable=False
+        Size=5, Index=HP, Domain=Any, Default=None, Mutable=False
         Key : Value
-          1 :   650
-          2 :   590
+          1 :   160
+          2 : 248.9
+          3 : 226.7
+          4 : 271.1
+          5 : 198.9
     Th_out : outlet temperature of hot stream i
-        Size=2, Index=HP, Domain=Any, Default=None, Mutable=False
+        Size=5, Index=HP, Domain=Any, Default=None, Mutable=False
         Key : Value
-          1 :   370
-          2 :   370
-    U : Size=4, Index=HP*CP, Domain=PositiveReals, Default=None, Mutable=False
+          1 :  93.3
+          2 : 137.8
+          3 :  65.6
+          4 : 148.9
+          5 :  65.6
+    U : Size=25, Index=HP*CP, Domain=PositiveReals, Default=None, Mutable=False
         Key    : Value
-        (1, 1) :   2.0
-        (1, 2) :   2.0
-        (2, 1) :   2.0
-        (2, 2) :   2.0
-    U_cu : Size=2, Index=HP, Domain=PositiveReals, Default=None, Mutable=False
+        (1, 1) : 1.1764705882352942
+        (1, 2) : 1.1764705882352942
+        (1, 3) : 1.1764705882352942
+        (1, 4) : 1.1764705882352942
+        (1, 5) : 1.1764705882352942
+        (2, 1) : 1.1764705882352942
+        (2, 2) : 1.1764705882352942
+        (2, 3) : 1.1764705882352942
+        (2, 4) : 1.1764705882352942
+        (2, 5) : 1.1764705882352942
+        (3, 1) : 1.1764705882352942
+        (3, 2) : 1.1764705882352942
+        (3, 3) : 1.1764705882352942
+        (3, 4) : 1.1764705882352942
+        (3, 5) : 1.1764705882352942
+        (4, 1) : 1.1764705882352942
+        (4, 2) : 1.1764705882352942
+        (4, 3) : 1.1764705882352942
+        (4, 4) : 1.1764705882352942
+        (4, 5) : 1.1764705882352942
+        (5, 1) : 1.1764705882352942
+        (5, 2) : 1.1764705882352942
+        (5, 3) : 1.1764705882352942
+        (5, 4) : 1.1764705882352942
+        (5, 5) : 1.1764705882352942
+    U_cu : Size=5, Index=HP, Domain=PositiveReals, Default=None, Mutable=False
         Key : Value
-          1 :   2.0
-          2 :   2.0
-    U_hu : Size=2, Index=CP, Domain=PositiveReals, Default=None, Mutable=False
+          1 : 1.1764705882352942
+          2 : 1.1764705882352942
+          3 : 1.1764705882352942
+          4 : 1.1764705882352942
+          5 : 1.1764705882352942
+    U_hu : Size=5, Index=CP, Domain=PositiveReals, Default=None, Mutable=False
         Key : Value
-          1 :   1.2
-          2 :   1.2
+          1 : 0.8823529411764706
+          2 : 0.8823529411764706
+          3 : 0.8823529411764706
+          4 : 0.8823529411764706
+          5 : 0.8823529411764706
 
 25 Var Declarations
     area : Area for exchanger ijk
-        Size=8, Index=HP*CP*ST
-        Key       : Lower : Value : Upper : Fixed : Stale : Domain
-        (1, 1, 1) :     0 :     0 : 560.0 : False : False :  Reals
-        (1, 1, 2) :     0 :     0 : 560.0 : False : False :  Reals
-        (1, 2, 1) :     0 :     0 : 390.0 : False : False :  Reals
-        (1, 2, 2) :     0 :     0 : 390.0 : False : False :  Reals
-        (2, 1, 1) :     0 :     0 : 720.0 : False : False :  Reals
-        (2, 1, 2) :     0 :     0 : 720.0 : False : False :  Reals
-        (2, 2, 1) :     0 :     0 : 390.0 : False : False :  Reals
-        (2, 2, 2) :     0 :     0 : 390.0 : False : False :  Reals
-    area_beta : Size=8, Index=HP*CP*ST
+        Size=50, Index=HP*CP*ST
+        Key       : Lower : Value : Upper              : Fixed : Stale : Domain
+        (1, 1, 1) :     0 :     0 :  69.05411764705883 : False : False :  Reals
+        (1, 1, 2) :     0 :     0 :  69.05411764705883 : False : False :  Reals
+        (1, 2, 1) :     0 :     0 :  69.05411764705883 : False : False :  Reals
+        (1, 2, 2) :     0 :     0 :  69.05411764705883 : False : False :  Reals
+        (1, 3, 1) :     0 :     0 :  69.05411764705883 : False : False :  Reals
+        (1, 3, 2) :     0 :     0 :  69.05411764705883 : False : False :  Reals
+        (1, 4, 1) :     0 :     0 :  69.05411764705883 : False : False :  Reals
+        (1, 4, 2) :     0 :     0 :  69.05411764705883 : False : False :  Reals
+        (1, 5, 1) :     0 :     0 :  69.05411764705883 : False : False :  Reals
+        (1, 5, 2) :     0 :     0 :  69.05411764705883 : False : False :  Reals
+        (2, 1, 1) :     0 :     0 :  89.41176470588236 : False : False :  Reals
+        (2, 1, 2) :     0 :     0 :  89.41176470588236 : False : False :  Reals
+        (2, 2, 1) :     0 :     0 :  76.14235294117645 : False : False :  Reals
+        (2, 2, 2) :     0 :     0 :  76.14235294117645 : False : False :  Reals
+        (2, 3, 1) :     0 :     0 : 138.54823529411763 : False : False :  Reals
+        (2, 3, 2) :     0 :     0 : 138.54823529411763 : False : False :  Reals
+        (2, 4, 1) :     0 :     0 : 138.54823529411763 : False : False :  Reals
+        (2, 4, 2) :     0 :     0 : 138.54823529411763 : False : False :  Reals
+        (2, 5, 1) :     0 :     0 : 138.54823529411763 : False : False :  Reals
+        (2, 5, 2) :     0 :     0 : 138.54823529411763 : False : False :  Reals
+        (3, 1, 1) :     0 :     0 :  89.41176470588236 : False : False :  Reals
+        (3, 1, 2) :     0 :     0 :  89.41176470588236 : False : False :  Reals
+        (3, 2, 1) :     0 :     0 :  76.14235294117645 : False : False :  Reals
+        (3, 2, 2) :     0 :     0 :  76.14235294117645 : False : False :  Reals
+        (3, 3, 1) :     0 :     0 : 181.14352941176475 : False : False :  Reals
+        (3, 3, 2) :     0 :     0 : 181.14352941176475 : False : False :  Reals
+        (3, 4, 1) :     0 :     0 :  192.3352941176471 : False : False :  Reals
+        (3, 4, 2) :     0 :     0 :  192.3352941176471 : False : False :  Reals
+        (3, 5, 1) :     0 :     0 : 181.68117647058827 : False : False :  Reals
+        (3, 5, 2) :     0 :     0 : 181.68117647058827 : False : False :  Reals
+        (4, 1, 1) :     0 :     0 :  89.41176470588236 : False : False :  Reals
+        (4, 1, 2) :     0 :     0 :  89.41176470588236 : False : False :  Reals
+        (4, 2, 1) :     0 :     0 :  76.14235294117645 : False : False :  Reals
+        (4, 2, 2) :     0 :     0 :  76.14235294117645 : False : False :  Reals
+        (4, 3, 1) :     0 :     0 : 181.14352941176475 : False : False :  Reals
+        (4, 3, 2) :     0 :     0 : 181.14352941176475 : False : False :  Reals
+        (4, 4, 1) :     0 :     0 : 181.14352941176475 : False : False :  Reals
+        (4, 4, 2) :     0 :     0 : 181.14352941176475 : False : False :  Reals
+        (4, 5, 1) :     0 :     0 : 181.14352941176475 : False : False :  Reals
+        (4, 5, 2) :     0 :     0 : 181.14352941176475 : False : False :  Reals
+        (5, 1, 1) :     0 :     0 :  89.41176470588236 : False : False :  Reals
+        (5, 1, 2) :     0 :     0 :  89.41176470588236 : False : False :  Reals
+        (5, 2, 1) :     0 :     0 :  76.14235294117645 : False : False :  Reals
+        (5, 2, 2) :     0 :     0 :  76.14235294117645 : False : False :  Reals
+        (5, 3, 1) :     0 :     0 : 181.14352941176475 : False : False :  Reals
+        (5, 3, 2) :     0 :     0 : 181.14352941176475 : False : False :  Reals
+        (5, 4, 1) :     0 :     0 :  192.3352941176471 : False : False :  Reals
+        (5, 4, 2) :     0 :     0 :  192.3352941176471 : False : False :  Reals
+        (5, 5, 1) :     0 :     0 : 181.68117647058827 : False : False :  Reals
+        (5, 5, 2) :     0 :     0 : 181.68117647058827 : False : False :  Reals
+    area_beta : Size=50, Index=HP*CP*ST
         Key       : Lower : Value : Upper : Fixed : Stale : Domain
         (1, 1, 1) :     0 :     0 :  None : False : False : NonNegativeReals
         (1, 1, 2) :     0 :     0 :  None : False : False : NonNegativeReals
         (1, 2, 1) :     0 :     0 :  None : False : False : NonNegativeReals
         (1, 2, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (1, 3, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (1, 3, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (1, 4, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (1, 4, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (1, 5, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (1, 5, 2) :     0 :     0 :  None : False : False : NonNegativeReals
         (2, 1, 1) :     0 :     0 :  None : False : False : NonNegativeReals
         (2, 1, 2) :     0 :     0 :  None : False : False : NonNegativeReals
         (2, 2, 1) :     0 :     0 :  None : False : False : NonNegativeReals
         (2, 2, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (2, 3, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (2, 3, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (2, 4, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (2, 4, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (2, 5, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (2, 5, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (3, 1, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (3, 1, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (3, 2, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (3, 2, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (3, 3, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (3, 3, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (3, 4, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (3, 4, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (3, 5, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (3, 5, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (4, 1, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (4, 1, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (4, 2, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (4, 2, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (4, 3, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (4, 3, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (4, 4, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (4, 4, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (4, 5, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (4, 5, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (5, 1, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (5, 1, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (5, 2, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (5, 2, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (5, 3, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (5, 3, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (5, 4, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (5, 4, 2) :     0 :     0 :  None : False : False : NonNegativeReals
+        (5, 5, 1) :     0 :     0 :  None : False : False : NonNegativeReals
+        (5, 5, 2) :     0 :     0 :  None : False : False : NonNegativeReals
     area_cu : Area for cooler i
-        Size=2, Index=HP
+        Size=5, Index=HP
         Key : Lower : Value : Upper              : Fixed : Stale : Domain
-          1 :     0 :     0 : 181.61828057849593 : False : False :  Reals
-          2 :     0 :     0 :  285.4001551947793 : False : False :  Reals
-    area_cu_beta : Size=2, Index=HP
+          1 :     0 :     0 :  22.75735506822926 : False : False :  Reals
+          2 :     0 :     0 :  32.65629408613748 : False : False :  Reals
+          3 :     0 :     0 : 128.44338870924773 : False : False :  Reals
+          4 :     0 :     0 :   40.0279440393786 : False : False :  Reals
+          5 :     0 :     0 :  127.1036185995295 : False : False :  Reals
+    area_cu_beta : Size=5, Index=HP
         Key : Lower : Value : Upper : Fixed : Stale : Domain
           1 :     0 :     0 :  None : False : False : NonNegativeReals
           2 :     0 :     0 :  None : False : False : NonNegativeReals
+          3 :     0 :     0 :  None : False : False : NonNegativeReals
+          4 :     0 :     0 :  None : False : False : NonNegativeReals
+          5 :     0 :     0 :  None : False : False : NonNegativeReals
     area_hu : Area for heater j
-        Size=2, Index=CP
-        Key : Lower : Value : Upper             : Fixed : Stale : Domain
-          1 :     0 :     0 : 237.3002543523117 : False : False :  Reals
-          2 :     0 :     0 : 39.78511713810015 : False : False :  Reals
-    area_hu_beta : Size=2, Index=CP
+        Size=5, Index=CP
+        Key : Lower : Value : Upper              : Fixed : Stale : Domain
+          1 :     0 :     0 : 19.920700483319433 : False : False :  Reals
+          2 :     0 :     0 : 41.578951478434796 : False : False :  Reals
+          3 :     0 :     0 :  97.17284288744699 : False : False :  Reals
+          4 :     0 :     0 :  49.94132696854278 : False : False :  Reals
+          5 :     0 :     0 :  67.58542664848115 : False : False :  Reals
+    area_hu_beta : Size=5, Index=CP
         Key : Lower : Value : Upper : Fixed : Stale : Domain
           1 :     0 :     0 :  None : False : False : NonNegativeReals
           2 :     0 :     0 :  None : False : False : NonNegativeReals
+          3 :     0 :     0 :  None : False : False : NonNegativeReals
+          4 :     0 :     0 :  None : False : False : NonNegativeReals
+          5 :     0 :     0 :  None : False : False : NonNegativeReals
     dt : Approach between i and j in location k
-        Size=12, Index=HP*CP*K
-        Key       : Lower : Value : Upper : Fixed : Stale : Domain
-        (1, 1, 1) :  10.0 :  None :   240 : False :  True :  Reals
-        (1, 1, 2) :  10.0 :  None :   240 : False :  True :  Reals
-        (1, 1, 3) :  10.0 :  None :   240 : False :  True :  Reals
-        (1, 2, 1) :  10.0 :  None :   300 : False :  True :  Reals
-        (1, 2, 2) :  10.0 :  None :   300 : False :  True :  Reals
-        (1, 2, 3) :  10.0 :  None :   300 : False :  True :  Reals
-        (2, 1, 1) :  10.0 :  None :   180 : False :  True :  Reals
-        (2, 1, 2) :  10.0 :  None :   180 : False :  True :  Reals
-        (2, 1, 3) :  10.0 :  None :   180 : False :  True :  Reals
-        (2, 2, 1) :  10.0 :  None :   240 : False :  True :  Reals
-        (2, 2, 2) :  10.0 :  None :   240 : False :  True :  Reals
-        (2, 2, 3) :  10.0 :  None :   240 : False :  True :  Reals
+        Size=75, Index=HP*CP*K
+        Key       : Lower : Value : Upper              : Fixed : Stale : Domain
+        (1, 1, 1) :  10.0 :  None :                100 : False :  True :  Reals
+        (1, 1, 2) :  10.0 :  None :                100 : False :  True :  Reals
+        (1, 1, 3) :  10.0 :  None :                100 : False :  True :  Reals
+        (1, 2, 1) :  10.0 :  None : 44.400000000000006 : False :  True :  Reals
+        (1, 2, 2) :  10.0 :  None : 44.400000000000006 : False :  True :  Reals
+        (1, 2, 3) :  10.0 :  None : 44.400000000000006 : False :  True :  Reals
+        (1, 3, 1) :  10.0 :  None :              122.2 : False :  True :  Reals
+        (1, 3, 2) :  10.0 :  None :              122.2 : False :  True :  Reals
+        (1, 3, 3) :  10.0 :  None :              122.2 : False :  True :  Reals
+        (1, 4, 1) :  10.0 :  None :               77.8 : False :  True :  Reals
+        (1, 4, 2) :  10.0 :  None :               77.8 : False :  True :  Reals
+        (1, 4, 3) :  10.0 :  None :               77.8 : False :  True :  Reals
+        (1, 5, 1) :  10.0 :  None :               66.7 : False :  True :  Reals
+        (1, 5, 2) :  10.0 :  None :               66.7 : False :  True :  Reals
+        (1, 5, 3) :  10.0 :  None :               66.7 : False :  True :  Reals
+        (2, 1, 1) :  10.0 :  None :              188.9 : False :  True :  Reals
+        (2, 1, 2) :  10.0 :  None :              188.9 : False :  True :  Reals
+        (2, 1, 3) :  10.0 :  None :              188.9 : False :  True :  Reals
+        (2, 2, 1) :  10.0 :  None :              133.3 : False :  True :  Reals
+        (2, 2, 2) :  10.0 :  None :              133.3 : False :  True :  Reals
+        (2, 2, 3) :  10.0 :  None :              133.3 : False :  True :  Reals
+        (2, 3, 1) :  10.0 :  None : 211.10000000000002 : False :  True :  Reals
+        (2, 3, 2) :  10.0 :  None : 211.10000000000002 : False :  True :  Reals
+        (2, 3, 3) :  10.0 :  None : 211.10000000000002 : False :  True :  Reals
+        (2, 4, 1) :  10.0 :  None :              166.7 : False :  True :  Reals
+        (2, 4, 2) :  10.0 :  None :              166.7 : False :  True :  Reals
+        (2, 4, 3) :  10.0 :  None :              166.7 : False :  True :  Reals
+        (2, 5, 1) :  10.0 :  None : 155.60000000000002 : False :  True :  Reals
+        (2, 5, 2) :  10.0 :  None : 155.60000000000002 : False :  True :  Reals
+        (2, 5, 3) :  10.0 :  None : 155.60000000000002 : False :  True :  Reals
+        (3, 1, 1) :  10.0 :  None :              166.7 : False :  True :  Reals
+        (3, 1, 2) :  10.0 :  None :              166.7 : False :  True :  Reals
+        (3, 1, 3) :  10.0 :  None :              166.7 : False :  True :  Reals
+        (3, 2, 1) :  10.0 :  None :              111.1 : False :  True :  Reals
+        (3, 2, 2) :  10.0 :  None :              111.1 : False :  True :  Reals
+        (3, 2, 3) :  10.0 :  None :              111.1 : False :  True :  Reals
+        (3, 3, 1) :  10.0 :  None : 188.89999999999998 : False :  True :  Reals
+        (3, 3, 2) :  10.0 :  None : 188.89999999999998 : False :  True :  Reals
+        (3, 3, 3) :  10.0 :  None : 188.89999999999998 : False :  True :  Reals
+        (3, 4, 1) :  10.0 :  None :              144.5 : False :  True :  Reals
+        (3, 4, 2) :  10.0 :  None :              144.5 : False :  True :  Reals
+        (3, 4, 3) :  10.0 :  None :              144.5 : False :  True :  Reals
+        (3, 5, 1) :  10.0 :  None : 133.39999999999998 : False :  True :  Reals
+        (3, 5, 2) :  10.0 :  None : 133.39999999999998 : False :  True :  Reals
+        (3, 5, 3) :  10.0 :  None : 133.39999999999998 : False :  True :  Reals
+        (4, 1, 1) :  10.0 :  None : 211.10000000000002 : False :  True :  Reals
+        (4, 1, 2) :  10.0 :  None : 211.10000000000002 : False :  True :  Reals
+        (4, 1, 3) :  10.0 :  None : 211.10000000000002 : False :  True :  Reals
+        (4, 2, 1) :  10.0 :  None : 155.50000000000003 : False :  True :  Reals
+        (4, 2, 2) :  10.0 :  None : 155.50000000000003 : False :  True :  Reals
+        (4, 2, 3) :  10.0 :  None : 155.50000000000003 : False :  True :  Reals
+        (4, 3, 1) :  10.0 :  None :              233.3 : False :  True :  Reals
+        (4, 3, 2) :  10.0 :  None :              233.3 : False :  True :  Reals
+        (4, 3, 3) :  10.0 :  None :              233.3 : False :  True :  Reals
+        (4, 4, 1) :  10.0 :  None : 188.90000000000003 : False :  True :  Reals
+        (4, 4, 2) :  10.0 :  None : 188.90000000000003 : False :  True :  Reals
+        (4, 4, 3) :  10.0 :  None : 188.90000000000003 : False :  True :  Reals
+        (4, 5, 1) :  10.0 :  None :              177.8 : False :  True :  Reals
+        (4, 5, 2) :  10.0 :  None :              177.8 : False :  True :  Reals
+        (4, 5, 3) :  10.0 :  None :              177.8 : False :  True :  Reals
+        (5, 1, 1) :  10.0 :  None :              138.9 : False :  True :  Reals
+        (5, 1, 2) :  10.0 :  None :              138.9 : False :  True :  Reals
+        (5, 1, 3) :  10.0 :  None :              138.9 : False :  True :  Reals
+        (5, 2, 1) :  10.0 :  None :  83.30000000000001 : False :  True :  Reals
+        (5, 2, 2) :  10.0 :  None :  83.30000000000001 : False :  True :  Reals
+        (5, 2, 3) :  10.0 :  None :  83.30000000000001 : False :  True :  Reals
+        (5, 3, 1) :  10.0 :  None : 161.10000000000002 : False :  True :  Reals
+        (5, 3, 2) :  10.0 :  None : 161.10000000000002 : False :  True :  Reals
+        (5, 3, 3) :  10.0 :  None : 161.10000000000002 : False :  True :  Reals
+        (5, 4, 1) :  10.0 :  None :              116.7 : False :  True :  Reals
+        (5, 4, 2) :  10.0 :  None :              116.7 : False :  True :  Reals
+        (5, 4, 3) :  10.0 :  None :              116.7 : False :  True :  Reals
+        (5, 5, 1) :  10.0 :  None : 105.60000000000001 : False :  True :  Reals
+        (5, 5, 2) :  10.0 :  None : 105.60000000000001 : False :  True :  Reals
+        (5, 5, 3) :  10.0 :  None : 105.60000000000001 : False :  True :  Reals
     dt_cu : Approach between i and the cold utility
-        Size=2, Index=HP
-        Key : Lower : Value : Upper : Fixed : Stale : Domain
-          1 :  10.0 :  None :   350 : False :  True :  Reals
-          2 :  10.0 :  None :   290 : False :  True :  Reals
-    dt_diff_abs : Size=8, Index=HP*CP*ST
+        Size=5, Index=HP
+        Key : Lower : Value : Upper              : Fixed : Stale : Domain
+          1 :  10.0 :  None :                135 : False :  True :  Reals
+          2 :  10.0 :  None :              223.9 : False :  True :  Reals
+          3 :  10.0 :  None :              201.7 : False :  True :  Reals
+          4 :  10.0 :  None : 246.10000000000002 : False :  True :  Reals
+          5 :  10.0 :  None :              173.9 : False :  True :  Reals
+    dt_diff_abs : Size=50, Index=HP*CP*ST
         Key       : Lower : Value : Upper : Fixed : Stale : Domain
         (1, 1, 1) :     0 :  None :  None : False :  True : NonNegativeReals
         (1, 1, 2) :     0 :  None :  None : False :  True : NonNegativeReals
         (1, 2, 1) :     0 :  None :  None : False :  True : NonNegativeReals
         (1, 2, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (1, 3, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (1, 3, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (1, 4, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (1, 4, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (1, 5, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (1, 5, 2) :     0 :  None :  None : False :  True : NonNegativeReals
         (2, 1, 1) :     0 :  None :  None : False :  True : NonNegativeReals
         (2, 1, 2) :     0 :  None :  None : False :  True : NonNegativeReals
         (2, 2, 1) :     0 :  None :  None : False :  True : NonNegativeReals
         (2, 2, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (2, 3, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (2, 3, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (2, 4, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (2, 4, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (2, 5, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (2, 5, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (3, 1, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (3, 1, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (3, 2, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (3, 2, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (3, 3, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (3, 3, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (3, 4, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (3, 4, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (3, 5, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (3, 5, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (4, 1, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (4, 1, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (4, 2, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (4, 2, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (4, 3, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (4, 3, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (4, 4, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (4, 4, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (4, 5, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (4, 5, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (5, 1, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (5, 1, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (5, 2, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (5, 2, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (5, 3, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (5, 3, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (5, 4, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (5, 4, 2) :     0 :  None :  None : False :  True : NonNegativeReals
+        (5, 5, 1) :     0 :  None :  None : False :  True : NonNegativeReals
+        (5, 5, 2) :     0 :  None :  None : False :  True : NonNegativeReals
     dt_hu : Approach between j and the hot utility
-        Size=2, Index=CP
+        Size=5, Index=CP
         Key : Lower : Value : Upper : Fixed : Stale : Domain
-          1 :  10.0 :  None :   270 : False :  True :  Reals
-          2 :  10.0 :  None :   330 : False :  True :  Reals
+          1 :  10.0 :  None :   180 : False :  True :  Reals
+          2 :  10.0 :  None : 124.4 : False :  True :  Reals
+          3 :  10.0 :  None : 202.2 : False :  True :  Reals
+          4 :  10.0 :  None : 157.8 : False :  True :  Reals
+          5 :  10.0 :  None : 146.7 : False :  True :  Reals
     fc : Flow rate entering heat exchanger ijk hot side
-        Size=8, Index=HP*CP*ST
+        Size=50, Index=HP*CP*ST
         Key       : Lower : Value : Upper : Fixed : Stale : Domain
-        (1, 1, 1) :     0 :  None :    15 : False :  True :  Reals
-        (1, 1, 2) :     0 :  None :    15 : False :  True :  Reals
-        (1, 2, 1) :     0 :  None :    13 : False :  True :  Reals
-        (1, 2, 2) :     0 :  None :    13 : False :  True :  Reals
-        (2, 1, 1) :     0 :  None :    15 : False :  True :  Reals
-        (2, 1, 2) :     0 :  None :    15 : False :  True :  Reals
-        (2, 2, 1) :     0 :  None :    13 : False :  True :  Reals
-        (2, 2, 2) :     0 :  None :    13 : False :  True :  Reals
+        (1, 1, 1) :     0 :  None :   7.6 : False :  True :  Reals
+        (1, 1, 2) :     0 :  None :   7.6 : False :  True :  Reals
+        (1, 2, 1) :     0 :  None :   6.1 : False :  True :  Reals
+        (1, 2, 2) :     0 :  None :   6.1 : False :  True :  Reals
+        (1, 3, 1) :     0 :  None :   8.4 : False :  True :  Reals
+        (1, 3, 2) :     0 :  None :   8.4 : False :  True :  Reals
+        (1, 4, 1) :     0 :  None :  17.3 : False :  True :  Reals
+        (1, 4, 2) :     0 :  None :  17.3 : False :  True :  Reals
+        (1, 5, 1) :     0 :  None :  13.9 : False :  True :  Reals
+        (1, 5, 2) :     0 :  None :  13.9 : False :  True :  Reals
+        (2, 1, 1) :     0 :  None :   7.6 : False :  True :  Reals
+        (2, 1, 2) :     0 :  None :   7.6 : False :  True :  Reals
+        (2, 2, 1) :     0 :  None :   6.1 : False :  True :  Reals
+        (2, 2, 2) :     0 :  None :   6.1 : False :  True :  Reals
+        (2, 3, 1) :     0 :  None :   8.4 : False :  True :  Reals
+        (2, 3, 2) :     0 :  None :   8.4 : False :  True :  Reals
+        (2, 4, 1) :     0 :  None :  17.3 : False :  True :  Reals
+        (2, 4, 2) :     0 :  None :  17.3 : False :  True :  Reals
+        (2, 5, 1) :     0 :  None :  13.9 : False :  True :  Reals
+        (2, 5, 2) :     0 :  None :  13.9 : False :  True :  Reals
+        (3, 1, 1) :     0 :  None :   7.6 : False :  True :  Reals
+        (3, 1, 2) :     0 :  None :   7.6 : False :  True :  Reals
+        (3, 2, 1) :     0 :  None :   6.1 : False :  True :  Reals
+        (3, 2, 2) :     0 :  None :   6.1 : False :  True :  Reals
+        (3, 3, 1) :     0 :  None :   8.4 : False :  True :  Reals
+        (3, 3, 2) :     0 :  None :   8.4 : False :  True :  Reals
+        (3, 4, 1) :     0 :  None :  17.3 : False :  True :  Reals
+        (3, 4, 2) :     0 :  None :  17.3 : False :  True :  Reals
+        (3, 5, 1) :     0 :  None :  13.9 : False :  True :  Reals
+        (3, 5, 2) :     0 :  None :  13.9 : False :  True :  Reals
+        (4, 1, 1) :     0 :  None :   7.6 : False :  True :  Reals
+        (4, 1, 2) :     0 :  None :   7.6 : False :  True :  Reals
+        (4, 2, 1) :     0 :  None :   6.1 : False :  True :  Reals
+        (4, 2, 2) :     0 :  None :   6.1 : False :  True :  Reals
+        (4, 3, 1) :     0 :  None :   8.4 : False :  True :  Reals
+        (4, 3, 2) :     0 :  None :   8.4 : False :  True :  Reals
+        (4, 4, 1) :     0 :  None :  17.3 : False :  True :  Reals
+        (4, 4, 2) :     0 :  None :  17.3 : False :  True :  Reals
+        (4, 5, 1) :     0 :  None :  13.9 : False :  True :  Reals
+        (4, 5, 2) :     0 :  None :  13.9 : False :  True :  Reals
+        (5, 1, 1) :     0 :  None :   7.6 : False :  True :  Reals
+        (5, 1, 2) :     0 :  None :   7.6 : False :  True :  Reals
+        (5, 2, 1) :     0 :  None :   6.1 : False :  True :  Reals
+        (5, 2, 2) :     0 :  None :   6.1 : False :  True :  Reals
+        (5, 3, 1) :     0 :  None :   8.4 : False :  True :  Reals
+        (5, 3, 2) :     0 :  None :   8.4 : False :  True :  Reals
+        (5, 4, 1) :     0 :  None :  17.3 : False :  True :  Reals
+        (5, 4, 2) :     0 :  None :  17.3 : False :  True :  Reals
+        (5, 5, 1) :     0 :  None :  13.9 : False :  True :  Reals
+        (5, 5, 2) :     0 :  None :  13.9 : False :  True :  Reals
     fh : Flow rate entering heat exchanger ijk cold side
-        Size=8, Index=HP*CP*ST
+        Size=50, Index=HP*CP*ST
         Key       : Lower : Value : Upper : Fixed : Stale : Domain
-        (1, 1, 1) :     0 :  None :    10 : False :  True :  Reals
-        (1, 1, 2) :     0 :  None :    10 : False :  True :  Reals
-        (1, 2, 1) :     0 :  None :    10 : False :  True :  Reals
-        (1, 2, 2) :     0 :  None :    10 : False :  True :  Reals
-        (2, 1, 1) :     0 :  None :    20 : False :  True :  Reals
-        (2, 1, 2) :     0 :  None :    20 : False :  True :  Reals
-        (2, 2, 1) :     0 :  None :    20 : False :  True :  Reals
-        (2, 2, 2) :     0 :  None :    20 : False :  True :  Reals
+        (1, 1, 1) :     0 :  None :   8.8 : False :  True :  Reals
+        (1, 1, 2) :     0 :  None :   8.8 : False :  True :  Reals
+        (1, 2, 1) :     0 :  None :   8.8 : False :  True :  Reals
+        (1, 2, 2) :     0 :  None :   8.8 : False :  True :  Reals
+        (1, 3, 1) :     0 :  None :   8.8 : False :  True :  Reals
+        (1, 3, 2) :     0 :  None :   8.8 : False :  True :  Reals
+        (1, 4, 1) :     0 :  None :   8.8 : False :  True :  Reals
+        (1, 4, 2) :     0 :  None :   8.8 : False :  True :  Reals
+        (1, 5, 1) :     0 :  None :   8.8 : False :  True :  Reals
+        (1, 5, 2) :     0 :  None :   8.8 : False :  True :  Reals
+        (2, 1, 1) :     0 :  None :  10.6 : False :  True :  Reals
+        (2, 1, 2) :     0 :  None :  10.6 : False :  True :  Reals
+        (2, 2, 1) :     0 :  None :  10.6 : False :  True :  Reals
+        (2, 2, 2) :     0 :  None :  10.6 : False :  True :  Reals
+        (2, 3, 1) :     0 :  None :  10.6 : False :  True :  Reals
+        (2, 3, 2) :     0 :  None :  10.6 : False :  True :  Reals
+        (2, 4, 1) :     0 :  None :  10.6 : False :  True :  Reals
+        (2, 4, 2) :     0 :  None :  10.6 : False :  True :  Reals
+        (2, 5, 1) :     0 :  None :  10.6 : False :  True :  Reals
+        (2, 5, 2) :     0 :  None :  10.6 : False :  True :  Reals
+        (3, 1, 1) :     0 :  None :  14.8 : False :  True :  Reals
+        (3, 1, 2) :     0 :  None :  14.8 : False :  True :  Reals
+        (3, 2, 1) :     0 :  None :  14.8 : False :  True :  Reals
+        (3, 2, 2) :     0 :  None :  14.8 : False :  True :  Reals
+        (3, 3, 1) :     0 :  None :  14.8 : False :  True :  Reals
+        (3, 3, 2) :     0 :  None :  14.8 : False :  True :  Reals
+        (3, 4, 1) :     0 :  None :  14.8 : False :  True :  Reals
+        (3, 4, 2) :     0 :  None :  14.8 : False :  True :  Reals
+        (3, 5, 1) :     0 :  None :  14.8 : False :  True :  Reals
+        (3, 5, 2) :     0 :  None :  14.8 : False :  True :  Reals
+        (4, 1, 1) :     0 :  None :  12.6 : False :  True :  Reals
+        (4, 1, 2) :     0 :  None :  12.6 : False :  True :  Reals
+        (4, 2, 1) :     0 :  None :  12.6 : False :  True :  Reals
+        (4, 2, 2) :     0 :  None :  12.6 : False :  True :  Reals
+        (4, 3, 1) :     0 :  None :  12.6 : False :  True :  Reals
+        (4, 3, 2) :     0 :  None :  12.6 : False :  True :  Reals
+        (4, 4, 1) :     0 :  None :  12.6 : False :  True :  Reals
+        (4, 4, 2) :     0 :  None :  12.6 : False :  True :  Reals
+        (4, 5, 1) :     0 :  None :  12.6 : False :  True :  Reals
+        (4, 5, 2) :     0 :  None :  12.6 : False :  True :  Reals
+        (5, 1, 1) :     0 :  None :  17.7 : False :  True :  Reals
+        (5, 1, 2) :     0 :  None :  17.7 : False :  True :  Reals
+        (5, 2, 1) :     0 :  None :  17.7 : False :  True :  Reals
+        (5, 2, 2) :     0 :  None :  17.7 : False :  True :  Reals
+        (5, 3, 1) :     0 :  None :  17.7 : False :  True :  Reals
+        (5, 3, 2) :     0 :  None :  17.7 : False :  True :  Reals
+        (5, 4, 1) :     0 :  None :  17.7 : False :  True :  Reals
+        (5, 4, 2) :     0 :  None :  17.7 : False :  True :  Reals
+        (5, 5, 1) :     0 :  None :  17.7 : False :  True :  Reals
+        (5, 5, 2) :     0 :  None :  17.7 : False :  True :  Reals
     q : heat load between hot stream i and cold stream j at stage k
-        Size=8, Index=HP*CP*ST
-        Key       : Lower : Value : Upper : Fixed : Stale : Domain
-        (1, 1, 1) :     0 :     0 :  2800 : False : False :  Reals
-        (1, 1, 2) :     0 :     0 :  2800 : False : False :  Reals
-        (1, 2, 1) :     0 :     0 :  1950 : False : False :  Reals
-        (1, 2, 2) :     0 :     0 :  1950 : False : False :  Reals
-        (2, 1, 1) :     0 :     0 :  3600 : False : False :  Reals
-        (2, 1, 2) :     0 :     0 :  3600 : False : False :  Reals
-        (2, 2, 1) :     0 :     0 :  1950 : False : False :  Reals
-        (2, 2, 2) :     0 :     0 :  1950 : False : False :  Reals
+        Size=50, Index=HP*CP*ST
+        Key       : Lower : Value : Upper              : Fixed : Stale : Domain
+        (1, 1, 1) :     0 :     0 :             586.96 : False : False :  Reals
+        (1, 1, 2) :     0 :     0 :             586.96 : False : False :  Reals
+        (1, 2, 1) :     0 :     0 :             586.96 : False : False :  Reals
+        (1, 2, 2) :     0 :     0 :             586.96 : False : False :  Reals
+        (1, 3, 1) :     0 :     0 :             586.96 : False : False :  Reals
+        (1, 3, 2) :     0 :     0 :             586.96 : False : False :  Reals
+        (1, 4, 1) :     0 :     0 :             586.96 : False : False :  Reals
+        (1, 4, 2) :     0 :     0 :             586.96 : False : False :  Reals
+        (1, 5, 1) :     0 :     0 :             586.96 : False : False :  Reals
+        (1, 5, 2) :     0 :     0 :             586.96 : False : False :  Reals
+        (2, 1, 1) :     0 :     0 :              760.0 : False : False :  Reals
+        (2, 1, 2) :     0 :     0 :              760.0 : False : False :  Reals
+        (2, 2, 1) :     0 :     0 :  647.2099999999999 : False : False :  Reals
+        (2, 2, 2) :     0 :     0 :  647.2099999999999 : False : False :  Reals
+        (2, 3, 1) :     0 :     0 : 1177.6599999999999 : False : False :  Reals
+        (2, 3, 2) :     0 :     0 : 1177.6599999999999 : False : False :  Reals
+        (2, 4, 1) :     0 :     0 : 1177.6599999999999 : False : False :  Reals
+        (2, 4, 2) :     0 :     0 : 1177.6599999999999 : False : False :  Reals
+        (2, 5, 1) :     0 :     0 : 1177.6599999999999 : False : False :  Reals
+        (2, 5, 2) :     0 :     0 : 1177.6599999999999 : False : False :  Reals
+        (3, 1, 1) :     0 :     0 :              760.0 : False : False :  Reals
+        (3, 1, 2) :     0 :     0 :              760.0 : False : False :  Reals
+        (3, 2, 1) :     0 :     0 :  647.2099999999999 : False : False :  Reals
+        (3, 2, 2) :     0 :     0 :  647.2099999999999 : False : False :  Reals
+        (3, 3, 1) :     0 :     0 : 1539.7200000000003 : False : False :  Reals
+        (3, 3, 2) :     0 :     0 : 1539.7200000000003 : False : False :  Reals
+        (3, 4, 1) :     0 :     0 :            1634.85 : False : False :  Reals
+        (3, 4, 2) :     0 :     0 :            1634.85 : False : False :  Reals
+        (3, 5, 1) :     0 :     0 : 1544.2900000000002 : False : False :  Reals
+        (3, 5, 2) :     0 :     0 : 1544.2900000000002 : False : False :  Reals
+        (4, 1, 1) :     0 :     0 :              760.0 : False : False :  Reals
+        (4, 1, 2) :     0 :     0 :              760.0 : False : False :  Reals
+        (4, 2, 1) :     0 :     0 :  647.2099999999999 : False : False :  Reals
+        (4, 2, 2) :     0 :     0 :  647.2099999999999 : False : False :  Reals
+        (4, 3, 1) :     0 :     0 : 1539.7200000000003 : False : False :  Reals
+        (4, 3, 2) :     0 :     0 : 1539.7200000000003 : False : False :  Reals
+        (4, 4, 1) :     0 :     0 : 1539.7200000000003 : False : False :  Reals
+        (4, 4, 2) :     0 :     0 : 1539.7200000000003 : False : False :  Reals
+        (4, 5, 1) :     0 :     0 : 1539.7200000000003 : False : False :  Reals
+        (4, 5, 2) :     0 :     0 : 1539.7200000000003 : False : False :  Reals
+        (5, 1, 1) :     0 :     0 :              760.0 : False : False :  Reals
+        (5, 1, 2) :     0 :     0 :              760.0 : False : False :  Reals
+        (5, 2, 1) :     0 :     0 :  647.2099999999999 : False : False :  Reals
+        (5, 2, 2) :     0 :     0 :  647.2099999999999 : False : False :  Reals
+        (5, 3, 1) :     0 :     0 : 1539.7200000000003 : False : False :  Reals
+        (5, 3, 2) :     0 :     0 : 1539.7200000000003 : False : False :  Reals
+        (5, 4, 1) :     0 :     0 :            1634.85 : False : False :  Reals
+        (5, 4, 2) :     0 :     0 :            1634.85 : False : False :  Reals
+        (5, 5, 1) :     0 :     0 : 1544.2900000000002 : False : False :  Reals
+        (5, 5, 2) :     0 :     0 : 1544.2900000000002 : False : False :  Reals
     q_cu : heat load between hot stream i and cold utility
-        Size=2, Index=HP
-        Key : Lower : Value : Upper : Fixed : Stale : Domain
-          1 :     0 :     0 :  2800 : False : False :  Reals
-          2 :     0 :     0 :  4400 : False : False :  Reals
+        Size=5, Index=HP
+        Key : Lower : Value : Upper              : Fixed : Stale : Domain
+          1 :     0 :     0 :             586.96 : False : False :  Reals
+          2 :     0 :     0 : 1177.6599999999999 : False : False :  Reals
+          3 :     0 :     0 :            2384.28 : False : False :  Reals
+          4 :     0 :     0 : 1539.7200000000003 : False : False :  Reals
+          5 :     0 :     0 : 2359.4100000000003 : False : False :  Reals
     q_hu : heat load between cold stream j and hot utility
-        Size=2, Index=CP
-        Key : Lower : Value : Upper : Fixed : Stale : Domain
-          1 :     0 :     0 :  3600 : False : False :  Reals
-          2 :     0 :     0 :  1950 : False : False :  Reals
+        Size=5, Index=CP
+        Key : Lower : Value : Upper              : Fixed : Stale : Domain
+          1 :     0 :     0 :              760.0 : False : False :  Reals
+          2 :     0 :     0 :  647.2099999999999 : False : False :  Reals
+          3 :     0 :     0 : 1539.7200000000003 : False : False :  Reals
+          4 :     0 :     0 :            1634.85 : False : False :  Reals
+          5 :     0 :     0 : 1544.2900000000002 : False : False :  Reals
     reclmtd : Log mean temperature difference between hot stream i and cold stream j at stage k
-        Size=8, Index=HP*CP*ST
+        Size=50, Index=HP*CP*ST
         Key       : Lower : Value : Upper : Fixed : Stale : Domain
         (1, 1, 1) :  None :  None :  None : False :  True :  Reals
         (1, 1, 2) :  None :  None :  None : False :  True :  Reals
         (1, 2, 1) :  None :  None :  None : False :  True :  Reals
         (1, 2, 2) :  None :  None :  None : False :  True :  Reals
+        (1, 3, 1) :  None :  None :  None : False :  True :  Reals
+        (1, 3, 2) :  None :  None :  None : False :  True :  Reals
+        (1, 4, 1) :  None :  None :  None : False :  True :  Reals
+        (1, 4, 2) :  None :  None :  None : False :  True :  Reals
+        (1, 5, 1) :  None :  None :  None : False :  True :  Reals
+        (1, 5, 2) :  None :  None :  None : False :  True :  Reals
         (2, 1, 1) :  None :  None :  None : False :  True :  Reals
         (2, 1, 2) :  None :  None :  None : False :  True :  Reals
         (2, 2, 1) :  None :  None :  None : False :  True :  Reals
         (2, 2, 2) :  None :  None :  None : False :  True :  Reals
+        (2, 3, 1) :  None :  None :  None : False :  True :  Reals
+        (2, 3, 2) :  None :  None :  None : False :  True :  Reals
+        (2, 4, 1) :  None :  None :  None : False :  True :  Reals
+        (2, 4, 2) :  None :  None :  None : False :  True :  Reals
+        (2, 5, 1) :  None :  None :  None : False :  True :  Reals
+        (2, 5, 2) :  None :  None :  None : False :  True :  Reals
+        (3, 1, 1) :  None :  None :  None : False :  True :  Reals
+        (3, 1, 2) :  None :  None :  None : False :  True :  Reals
+        (3, 2, 1) :  None :  None :  None : False :  True :  Reals
+        (3, 2, 2) :  None :  None :  None : False :  True :  Reals
+        (3, 3, 1) :  None :  None :  None : False :  True :  Reals
+        (3, 3, 2) :  None :  None :  None : False :  True :  Reals
+        (3, 4, 1) :  None :  None :  None : False :  True :  Reals
+        (3, 4, 2) :  None :  None :  None : False :  True :  Reals
+        (3, 5, 1) :  None :  None :  None : False :  True :  Reals
+        (3, 5, 2) :  None :  None :  None : False :  True :  Reals
+        (4, 1, 1) :  None :  None :  None : False :  True :  Reals
+        (4, 1, 2) :  None :  None :  None : False :  True :  Reals
+        (4, 2, 1) :  None :  None :  None : False :  True :  Reals
+        (4, 2, 2) :  None :  None :  None : False :  True :  Reals
+        (4, 3, 1) :  None :  None :  None : False :  True :  Reals
+        (4, 3, 2) :  None :  None :  None : False :  True :  Reals
+        (4, 4, 1) :  None :  None :  None : False :  True :  Reals
+        (4, 4, 2) :  None :  None :  None : False :  True :  Reals
+        (4, 5, 1) :  None :  None :  None : False :  True :  Reals
+        (4, 5, 2) :  None :  None :  None : False :  True :  Reals
+        (5, 1, 1) :  None :  None :  None : False :  True :  Reals
+        (5, 1, 2) :  None :  None :  None : False :  True :  Reals
+        (5, 2, 1) :  None :  None :  None : False :  True :  Reals
+        (5, 2, 2) :  None :  None :  None : False :  True :  Reals
+        (5, 3, 1) :  None :  None :  None : False :  True :  Reals
+        (5, 3, 2) :  None :  None :  None : False :  True :  Reals
+        (5, 4, 1) :  None :  None :  None : False :  True :  Reals
+        (5, 4, 2) :  None :  None :  None : False :  True :  Reals
+        (5, 5, 1) :  None :  None :  None : False :  True :  Reals
+        (5, 5, 2) :  None :  None :  None : False :  True :  Reals
     reclmtd_cu : Log mean temperature difference between hot stream i and cold utility
-        Size=2, Index=HP
+        Size=5, Index=HP
         Key : Lower : Value : Upper : Fixed : Stale : Domain
           1 :  None :  None :  None : False :  True :  Reals
           2 :  None :  None :  None : False :  True :  Reals
+          3 :  None :  None :  None : False :  True :  Reals
+          4 :  None :  None :  None : False :  True :  Reals
+          5 :  None :  None :  None : False :  True :  Reals
     reclmtd_hu : Log mean temperature difference between cold stream j and hot utility
-        Size=2, Index=CP
+        Size=5, Index=CP
         Key : Lower : Value : Upper : Fixed : Stale : Domain
           1 :  None :  None :  None : False :  True :  Reals
           2 :  None :  None :  None : False :  True :  Reals
+          3 :  None :  None :  None : False :  True :  Reals
+          4 :  None :  None :  None : False :  True :  Reals
+          5 :  None :  None :  None : False :  True :  Reals
     tc : temperature of cold stream j at hot end of stage k
-        Size=6, Index=CP*K
+        Size=15, Index=CP*K
         Key    : Lower : Value : Upper : Fixed : Stale : Domain
-        (1, 1) :   410 :  None :   650 : False :  True :  Reals
-        (1, 2) :   410 :  None :   650 : False :  True :  Reals
-        (1, 3) :   410 :  None :   650 : False :  True :  Reals
-        (2, 1) :   350 :  None :   500 : False :  True :  Reals
-        (2, 2) :   350 :  None :   500 : False :  True :  Reals
-        (2, 3) :   350 :  None :   500 : False :  True :  Reals
+        (1, 1) :    60 :  None :   160 : False :  True :  Reals
+        (1, 2) :    60 :  None :   160 : False :  True :  Reals
+        (1, 3) :    60 :  None :   160 : False :  True :  Reals
+        (2, 1) : 115.6 :  None : 221.7 : False :  True :  Reals
+        (2, 2) : 115.6 :  None : 221.7 : False :  True :  Reals
+        (2, 3) : 115.6 :  None : 221.7 : False :  True :  Reals
+        (3, 1) :  37.8 :  None : 221.1 : False :  True :  Reals
+        (3, 2) :  37.8 :  None : 221.1 : False :  True :  Reals
+        (3, 3) :  37.8 :  None : 221.1 : False :  True :  Reals
+        (4, 1) :  82.2 :  None : 176.7 : False :  True :  Reals
+        (4, 2) :  82.2 :  None : 176.7 : False :  True :  Reals
+        (4, 3) :  82.2 :  None : 176.7 : False :  True :  Reals
+        (5, 1) :  93.3 :  None : 204.4 : False :  True :  Reals
+        (5, 2) :  93.3 :  None : 204.4 : False :  True :  Reals
+        (5, 3) :  93.3 :  None : 204.4 : False :  True :  Reals
     tcx : Outlet temperature of the heat exchanger ijk cold side
-        Size=8, Index=HP*CP*ST
+        Size=50, Index=HP*CP*ST
         Key       : Lower : Value : Upper : Fixed : Stale : Domain
-        (1, 1, 1) :   410 :  None :   650 : False :  True :  Reals
-        (1, 1, 2) :   410 :  None :   650 : False :  True :  Reals
-        (1, 2, 1) :   350 :  None :   500 : False :  True :  Reals
-        (1, 2, 2) :   350 :  None :   500 : False :  True :  Reals
-        (2, 1, 1) :   410 :  None :   650 : False :  True :  Reals
-        (2, 1, 2) :   410 :  None :   650 : False :  True :  Reals
-        (2, 2, 1) :   350 :  None :   500 : False :  True :  Reals
-        (2, 2, 2) :   350 :  None :   500 : False :  True :  Reals
+        (1, 1, 1) :    60 :  None :   160 : False :  True :  Reals
+        (1, 1, 2) :    60 :  None :   160 : False :  True :  Reals
+        (1, 2, 1) : 115.6 :  None : 221.7 : False :  True :  Reals
+        (1, 2, 2) : 115.6 :  None : 221.7 : False :  True :  Reals
+        (1, 3, 1) :  37.8 :  None : 221.1 : False :  True :  Reals
+        (1, 3, 2) :  37.8 :  None : 221.1 : False :  True :  Reals
+        (1, 4, 1) :  82.2 :  None : 176.7 : False :  True :  Reals
+        (1, 4, 2) :  82.2 :  None : 176.7 : False :  True :  Reals
+        (1, 5, 1) :  93.3 :  None : 204.4 : False :  True :  Reals
+        (1, 5, 2) :  93.3 :  None : 204.4 : False :  True :  Reals
+        (2, 1, 1) :    60 :  None :   160 : False :  True :  Reals
+        (2, 1, 2) :    60 :  None :   160 : False :  True :  Reals
+        (2, 2, 1) : 115.6 :  None : 221.7 : False :  True :  Reals
+        (2, 2, 2) : 115.6 :  None : 221.7 : False :  True :  Reals
+        (2, 3, 1) :  37.8 :  None : 221.1 : False :  True :  Reals
+        (2, 3, 2) :  37.8 :  None : 221.1 : False :  True :  Reals
+        (2, 4, 1) :  82.2 :  None : 176.7 : False :  True :  Reals
+        (2, 4, 2) :  82.2 :  None : 176.7 : False :  True :  Reals
+        (2, 5, 1) :  93.3 :  None : 204.4 : False :  True :  Reals
+        (2, 5, 2) :  93.3 :  None : 204.4 : False :  True :  Reals
+        (3, 1, 1) :    60 :  None :   160 : False :  True :  Reals
+        (3, 1, 2) :    60 :  None :   160 : False :  True :  Reals
+        (3, 2, 1) : 115.6 :  None : 221.7 : False :  True :  Reals
+        (3, 2, 2) : 115.6 :  None : 221.7 : False :  True :  Reals
+        (3, 3, 1) :  37.8 :  None : 221.1 : False :  True :  Reals
+        (3, 3, 2) :  37.8 :  None : 221.1 : False :  True :  Reals
+        (3, 4, 1) :  82.2 :  None : 176.7 : False :  True :  Reals
+        (3, 4, 2) :  82.2 :  None : 176.7 : False :  True :  Reals
+        (3, 5, 1) :  93.3 :  None : 204.4 : False :  True :  Reals
+        (3, 5, 2) :  93.3 :  None : 204.4 : False :  True :  Reals
+        (4, 1, 1) :    60 :  None :   160 : False :  True :  Reals
+        (4, 1, 2) :    60 :  None :   160 : False :  True :  Reals
+        (4, 2, 1) : 115.6 :  None : 221.7 : False :  True :  Reals
+        (4, 2, 2) : 115.6 :  None : 221.7 : False :  True :  Reals
+        (4, 3, 1) :  37.8 :  None : 221.1 : False :  True :  Reals
+        (4, 3, 2) :  37.8 :  None : 221.1 : False :  True :  Reals
+        (4, 4, 1) :  82.2 :  None : 176.7 : False :  True :  Reals
+        (4, 4, 2) :  82.2 :  None : 176.7 : False :  True :  Reals
+        (4, 5, 1) :  93.3 :  None : 204.4 : False :  True :  Reals
+        (4, 5, 2) :  93.3 :  None : 204.4 : False :  True :  Reals
+        (5, 1, 1) :    60 :  None :   160 : False :  True :  Reals
+        (5, 1, 2) :    60 :  None :   160 : False :  True :  Reals
+        (5, 2, 1) : 115.6 :  None : 221.7 : False :  True :  Reals
+        (5, 2, 2) : 115.6 :  None : 221.7 : False :  True :  Reals
+        (5, 3, 1) :  37.8 :  None : 221.1 : False :  True :  Reals
+        (5, 3, 2) :  37.8 :  None : 221.1 : False :  True :  Reals
+        (5, 4, 1) :  82.2 :  None : 176.7 : False :  True :  Reals
+        (5, 4, 2) :  82.2 :  None : 176.7 : False :  True :  Reals
+        (5, 5, 1) :  93.3 :  None : 204.4 : False :  True :  Reals
+        (5, 5, 2) :  93.3 :  None : 204.4 : False :  True :  Reals
     th : temperature of hot stream i at hot end of stage k
-        Size=6, Index=HP*K
+        Size=15, Index=HP*K
         Key    : Lower : Value : Upper : Fixed : Stale : Domain
-        (1, 1) :   370 :  None :   650 : False :  True :  Reals
-        (1, 2) :   370 :  None :   650 : False :  True :  Reals
-        (1, 3) :   370 :  None :   650 : False :  True :  Reals
-        (2, 1) :   370 :  None :   590 : False :  True :  Reals
-        (2, 2) :   370 :  None :   590 : False :  True :  Reals
-        (2, 3) :   370 :  None :   590 : False :  True :  Reals
+        (1, 1) :  93.3 :  None :   160 : False :  True :  Reals
+        (1, 2) :  93.3 :  None :   160 : False :  True :  Reals
+        (1, 3) :  93.3 :  None :   160 : False :  True :  Reals
+        (2, 1) : 137.8 :  None : 248.9 : False :  True :  Reals
+        (2, 2) : 137.8 :  None : 248.9 : False :  True :  Reals
+        (2, 3) : 137.8 :  None : 248.9 : False :  True :  Reals
+        (3, 1) :  65.6 :  None : 226.7 : False :  True :  Reals
+        (3, 2) :  65.6 :  None : 226.7 : False :  True :  Reals
+        (3, 3) :  65.6 :  None : 226.7 : False :  True :  Reals
+        (4, 1) : 148.9 :  None : 271.1 : False :  True :  Reals
+        (4, 2) : 148.9 :  None : 271.1 : False :  True :  Reals
+        (4, 3) : 148.9 :  None : 271.1 : False :  True :  Reals
+        (5, 1) :  65.6 :  None : 198.9 : False :  True :  Reals
+        (5, 2) :  65.6 :  None : 198.9 : False :  True :  Reals
+        (5, 3) :  65.6 :  None : 198.9 : False :  True :  Reals
     thx : Outlet temperature of the heat exchanger ijk hot side
-        Size=8, Index=HP*CP*ST
+        Size=50, Index=HP*CP*ST
         Key       : Lower : Value : Upper : Fixed : Stale : Domain
-        (1, 1, 1) :   370 :  None :   650 : False :  True :  Reals
-        (1, 1, 2) :   370 :  None :   650 : False :  True :  Reals
-        (1, 2, 1) :   370 :  None :   650 : False :  True :  Reals
-        (1, 2, 2) :   370 :  None :   650 : False :  True :  Reals
-        (2, 1, 1) :   370 :  None :   590 : False :  True :  Reals
-        (2, 1, 2) :   370 :  None :   590 : False :  True :  Reals
-        (2, 2, 1) :   370 :  None :   590 : False :  True :  Reals
-        (2, 2, 2) :   370 :  None :   590 : False :  True :  Reals
+        (1, 1, 1) :  93.3 :  None :   160 : False :  True :  Reals
+        (1, 1, 2) :  93.3 :  None :   160 : False :  True :  Reals
+        (1, 2, 1) :  93.3 :  None :   160 : False :  True :  Reals
+        (1, 2, 2) :  93.3 :  None :   160 : False :  True :  Reals
+        (1, 3, 1) :  93.3 :  None :   160 : False :  True :  Reals
+        (1, 3, 2) :  93.3 :  None :   160 : False :  True :  Reals
+        (1, 4, 1) :  93.3 :  None :   160 : False :  True :  Reals
+        (1, 4, 2) :  93.3 :  None :   160 : False :  True :  Reals
+        (1, 5, 1) :  93.3 :  None :   160 : False :  True :  Reals
+        (1, 5, 2) :  93.3 :  None :   160 : False :  True :  Reals
+        (2, 1, 1) : 137.8 :  None : 248.9 : False :  True :  Reals
+        (2, 1, 2) : 137.8 :  None : 248.9 : False :  True :  Reals
+        (2, 2, 1) : 137.8 :  None : 248.9 : False :  True :  Reals
+        (2, 2, 2) : 137.8 :  None : 248.9 : False :  True :  Reals
+        (2, 3, 1) : 137.8 :  None : 248.9 : False :  True :  Reals
+        (2, 3, 2) : 137.8 :  None : 248.9 : False :  True :  Reals
+        (2, 4, 1) : 137.8 :  None : 248.9 : False :  True :  Reals
+        (2, 4, 2) : 137.8 :  None : 248.9 : False :  True :  Reals
+        (2, 5, 1) : 137.8 :  None : 248.9 : False :  True :  Reals
+        (2, 5, 2) : 137.8 :  None : 248.9 : False :  True :  Reals
+        (3, 1, 1) :  65.6 :  None : 226.7 : False :  True :  Reals
+        (3, 1, 2) :  65.6 :  None : 226.7 : False :  True :  Reals
+        (3, 2, 1) :  65.6 :  None : 226.7 : False :  True :  Reals
+        (3, 2, 2) :  65.6 :  None : 226.7 : False :  True :  Reals
+        (3, 3, 1) :  65.6 :  None : 226.7 : False :  True :  Reals
+        (3, 3, 2) :  65.6 :  None : 226.7 : False :  True :  Reals
+        (3, 4, 1) :  65.6 :  None : 226.7 : False :  True :  Reals
+        (3, 4, 2) :  65.6 :  None : 226.7 : False :  True :  Reals
+        (3, 5, 1) :  65.6 :  None : 226.7 : False :  True :  Reals
+        (3, 5, 2) :  65.6 :  None : 226.7 : False :  True :  Reals
+        (4, 1, 1) : 148.9 :  None : 271.1 : False :  True :  Reals
+        (4, 1, 2) : 148.9 :  None : 271.1 : False :  True :  Reals
+        (4, 2, 1) : 148.9 :  None : 271.1 : False :  True :  Reals
+        (4, 2, 2) : 148.9 :  None : 271.1 : False :  True :  Reals
+        (4, 3, 1) : 148.9 :  None : 271.1 : False :  True :  Reals
+        (4, 3, 2) : 148.9 :  None : 271.1 : False :  True :  Reals
+        (4, 4, 1) : 148.9 :  None : 271.1 : False :  True :  Reals
+        (4, 4, 2) : 148.9 :  None : 271.1 : False :  True :  Reals
+        (4, 5, 1) : 148.9 :  None : 271.1 : False :  True :  Reals
+        (4, 5, 2) : 148.9 :  None : 271.1 : False :  True :  Reals
+        (5, 1, 1) :  65.6 :  None : 198.9 : False :  True :  Reals
+        (5, 1, 2) :  65.6 :  None : 198.9 : False :  True :  Reals
+        (5, 2, 1) :  65.6 :  None : 198.9 : False :  True :  Reals
+        (5, 2, 2) :  65.6 :  None : 198.9 : False :  True :  Reals
+        (5, 3, 1) :  65.6 :  None : 198.9 : False :  True :  Reals
+        (5, 3, 2) :  65.6 :  None : 198.9 : False :  True :  Reals
+        (5, 4, 1) :  65.6 :  None : 198.9 : False :  True :  Reals
+        (5, 4, 2) :  65.6 :  None : 198.9 : False :  True :  Reals
+        (5, 5, 1) :  65.6 :  None : 198.9 : False :  True :  Reals
+        (5, 5, 2) :  65.6 :  None : 198.9 : False :  True :  Reals
     z : existence of the match between hot stream i and cold stream j at stage k
-        Size=8, Index=HP*CP*ST
+        Size=50, Index=HP*CP*ST
         Key       : Lower : Value : Upper : Fixed : Stale : Domain
         (1, 1, 1) :     0 :     0 :     1 : False : False : Binary
         (1, 1, 2) :     0 :     0 :     1 : False : False : Binary
         (1, 2, 1) :     0 :     0 :     1 : False : False : Binary
         (1, 2, 2) :     0 :     0 :     1 : False : False : Binary
+        (1, 3, 1) :     0 :     0 :     1 : False : False : Binary
+        (1, 3, 2) :     0 :     0 :     1 : False : False : Binary
+        (1, 4, 1) :     0 :     0 :     1 : False : False : Binary
+        (1, 4, 2) :     0 :     0 :     1 : False : False : Binary
+        (1, 5, 1) :     0 :     0 :     1 : False : False : Binary
+        (1, 5, 2) :     0 :     0 :     1 : False : False : Binary
         (2, 1, 1) :     0 :     0 :     1 : False : False : Binary
         (2, 1, 2) :     0 :     0 :     1 : False : False : Binary
         (2, 2, 1) :     0 :     0 :     1 : False : False : Binary
         (2, 2, 2) :     0 :     0 :     1 : False : False : Binary
+        (2, 3, 1) :     0 :     0 :     1 : False : False : Binary
+        (2, 3, 2) :     0 :     0 :     1 : False : False : Binary
+        (2, 4, 1) :     0 :     0 :     1 : False : False : Binary
+        (2, 4, 2) :     0 :     0 :     1 : False : False : Binary
+        (2, 5, 1) :     0 :     0 :     1 : False : False : Binary
+        (2, 5, 2) :     0 :     0 :     1 : False : False : Binary
+        (3, 1, 1) :     0 :     0 :     1 : False : False : Binary
+        (3, 1, 2) :     0 :     0 :     1 : False : False : Binary
+        (3, 2, 1) :     0 :     0 :     1 : False : False : Binary
+        (3, 2, 2) :     0 :     0 :     1 : False : False : Binary
+        (3, 3, 1) :     0 :     0 :     1 : False : False : Binary
+        (3, 3, 2) :     0 :     0 :     1 : False : False : Binary
+        (3, 4, 1) :     0 :     0 :     1 : False : False : Binary
+        (3, 4, 2) :     0 :     0 :     1 : False : False : Binary
+        (3, 5, 1) :     0 :     0 :     1 : False : False : Binary
+        (3, 5, 2) :     0 :     0 :     1 : False : False : Binary
+        (4, 1, 1) :     0 :     0 :     1 : False : False : Binary
+        (4, 1, 2) :     0 :     0 :     1 : False : False : Binary
+        (4, 2, 1) :     0 :     0 :     1 : False : False : Binary
+        (4, 2, 2) :     0 :     0 :     1 : False : False : Binary
+        (4, 3, 1) :     0 :     0 :     1 : False : False : Binary
+        (4, 3, 2) :     0 :     0 :     1 : False : False : Binary
+        (4, 4, 1) :     0 :     0 :     1 : False : False : Binary
+        (4, 4, 2) :     0 :     0 :     1 : False : False : Binary
+        (4, 5, 1) :     0 :     0 :     1 : False : False : Binary
+        (4, 5, 2) :     0 :     0 :     1 : False : False : Binary
+        (5, 1, 1) :     0 :     0 :     1 : False : False : Binary
+        (5, 1, 2) :     0 :     0 :     1 : False : False : Binary
+        (5, 2, 1) :     0 :     0 :     1 : False : False : Binary
+        (5, 2, 2) :     0 :     0 :     1 : False : False : Binary
+        (5, 3, 1) :     0 :     0 :     1 : False : False : Binary
+        (5, 3, 2) :     0 :     0 :     1 : False : False : Binary
+        (5, 4, 1) :     0 :     0 :     1 : False : False : Binary
+        (5, 4, 2) :     0 :     0 :     1 : False : False : Binary
+        (5, 5, 1) :     0 :     0 :     1 : False : False : Binary
+        (5, 5, 2) :     0 :     0 :     1 : False : False : Binary
     z_cu : existence of the match between hot stream i and cold utility
-        Size=2, Index=HP
+        Size=5, Index=HP
         Key : Lower : Value : Upper : Fixed : Stale : Domain
           1 :     0 :     0 :     1 : False : False : Binary
           2 :     0 :     0 :     1 : False : False : Binary
+          3 :     0 :     0 :     1 : False : False : Binary
+          4 :     0 :     0 :     1 : False : False : Binary
+          5 :     0 :     0 :     1 : False : False : Binary
     z_hu : existence of the match between cold stream j and hot utility
-        Size=2, Index=CP
+        Size=5, Index=CP
         Key : Lower : Value : Upper : Fixed : Stale : Domain
           1 :     0 :     0 :     1 : False : False : Binary
           2 :     0 :     0 :     1 : False : False : Binary
+          3 :     0 :     0 :     1 : False : False : Binary
+          4 :     0 :     0 :     1 : False : False : Binary
+          5 :     0 :     0 :     1 : False : False : Binary
 
 1 Expression Declarations
     Last_stage : Size=1, Index=None
@@ -401,190 +1091,574 @@
 1 Objective Declarations
     TAC : Size=1, Index=None, Active=True
         Key  : Active : Sense    : Expression
-        None :   True : minimize : 15*(q_cu[1] + q_cu[2]) + 80*(q_hu[1] + q_hu[2]) + 5500*(z[1,1,1] + z[1,1,2] + z[1,2,1] + z[1,2,2] + z[2,1,1] + z[2,1,2] + z[2,2,1] + z[2,2,2] + z_cu[1] + z_cu[2] + z_hu[1] + z_hu[2]) + 150*(area_beta[1,1,1] + area_beta[1,1,2] + area_beta[1,2,1] + area_beta[1,2,2] + area_beta[2,1,1] + area_beta[2,1,2] + area_beta[2,2,1] + area_beta[2,2,2] + area_cu_beta[1] + area_cu_beta[2] + area_hu_beta[1] + area_hu_beta[2])
+        None :   True : minimize : 10*(q_cu[1] + q_cu[2] + q_cu[3] + q_cu[4] + q_cu[5]) + 200*(q_hu[1] + q_hu[2] + q_hu[3] + q_hu[4] + q_hu[5]) + 4000*(z[1,1,1] + z[1,1,2] + z[1,2,1] + z[1,2,2] + z[1,3,1] + z[1,3,2] + z[1,4,1] + z[1,4,2] + z[1,5,1] + z[1,5,2] + z[2,1,1] + z[2,1,2] + z[2,2,1] + z[2,2,2] + z[2,3,1] + z[2,3,2] + z[2,4,1] + z[2,4,2] + z[2,5,1] + z[2,5,2] + z[3,1,1] + z[3,1,2] + z[3,2,1] + z[3,2,2] + z[3,3,1] + z[3,3,2] + z[3,4,1] + z[3,4,2] + z[3,5,1] + z[3,5,2] + z[4,1,1] + z[4,1,2] + z[4,2,1] + z[4,2,2] + z[4,3,1] + z[4,3,2] + z[4,4,1] + z[4,4,2] + z[4,5,1] + z[4,5,2] + z[5,1,1] + z[5,1,2] + z[5,2,1] + z[5,2,2] + z[5,3,1] + z[5,3,2] + z[5,4,1] + z[5,4,2] + z[5,5,1] + z[5,5,2] + z_cu[1] + z_cu[2] + z_cu[3] + z_cu[4] + z_cu[5] + z_hu[1] + z_hu[2] + z_hu[3] + z_hu[4] + z_hu[5]) + 146*(area_beta[1,1,1] + area_beta[1,1,2] + area_beta[1,2,1] + area_beta[1,2,2] + area_beta[1,3,1] + area_beta[1,3,2] + area_beta[1,4,1] + area_beta[1,4,2] + area_beta[1,5,1] + area_beta[1,5,2] + area_beta[2,1,1] + area_beta[2,1,2] + area_beta[2,2,1] + area_beta[2,2,2] + area_beta[2,3,1] + area_beta[2,3,2] + area_beta[2,4,1] + area_beta[2,4,2] + area_beta[2,5,1] + area_beta[2,5,2] + area_beta[3,1,1] + area_beta[3,1,2] + area_beta[3,2,1] + area_beta[3,2,2] + area_beta[3,3,1] + area_beta[3,3,2] + area_beta[3,4,1] + area_beta[3,4,2] + area_beta[3,5,1] + area_beta[3,5,2] + area_beta[4,1,1] + area_beta[4,1,2] + area_beta[4,2,1] + area_beta[4,2,2] + area_beta[4,3,1] + area_beta[4,3,2] + area_beta[4,4,1] + area_beta[4,4,2] + area_beta[4,5,1] + area_beta[4,5,2] + area_beta[5,1,1] + area_beta[5,1,2] + area_beta[5,2,1] + area_beta[5,2,2] + area_beta[5,3,1] + area_beta[5,3,2] + area_beta[5,4,1] + area_beta[5,4,2] + area_beta[5,5,1] + area_beta[5,5,2] + area_cu_beta[1] + area_cu_beta[2] + area_cu_beta[3] + area_cu_beta[4] + area_cu_beta[5] + area_hu_beta[1] + area_hu_beta[2] + area_hu_beta[3] + area_hu_beta[4] + area_hu_beta[5])
 
 31 Constraint Declarations
-    area_beta_rule_con : Size=8, Index=HP*CP*ST, Active=True
-        Key       : Lower : Body                           : Upper : Active
-        (1, 1, 1) :   0.0 : area_beta[1,1,1] - area[1,1,1] :   0.0 :   True
-        (1, 1, 2) :   0.0 : area_beta[1,1,2] - area[1,1,2] :   0.0 :   True
-        (1, 2, 1) :   0.0 : area_beta[1,2,1] - area[1,2,1] :   0.0 :   True
-        (1, 2, 2) :   0.0 : area_beta[1,2,2] - area[1,2,2] :   0.0 :   True
-        (2, 1, 1) :   0.0 : area_beta[2,1,1] - area[2,1,1] :   0.0 :   True
-        (2, 1, 2) :   0.0 : area_beta[2,1,2] - area[2,1,2] :   0.0 :   True
-        (2, 2, 1) :   0.0 : area_beta[2,2,1] - area[2,2,1] :   0.0 :   True
-        (2, 2, 2) :   0.0 : area_beta[2,2,2] - area[2,2,2] :   0.0 :   True
-    area_con : Size=8, Index=HP*CP*ST, Active=True
-        Key       : Lower : Body                                      : Upper : Active
-        (1, 1, 1) :   0.0 : area[1,1,1] - q[1,1,1]*reclmtd[1,1,1]*2.0 :   0.0 :   True
-        (1, 1, 2) :   0.0 : area[1,1,2] - q[1,1,2]*reclmtd[1,1,2]*2.0 :   0.0 :   True
-        (1, 2, 1) :   0.0 : area[1,2,1] - q[1,2,1]*reclmtd[1,2,1]*2.0 :   0.0 :   True
-        (1, 2, 2) :   0.0 : area[1,2,2] - q[1,2,2]*reclmtd[1,2,2]*2.0 :   0.0 :   True
-        (2, 1, 1) :   0.0 : area[2,1,1] - q[2,1,1]*reclmtd[2,1,1]*2.0 :   0.0 :   True
-        (2, 1, 2) :   0.0 : area[2,1,2] - q[2,1,2]*reclmtd[2,1,2]*2.0 :   0.0 :   True
-        (2, 2, 1) :   0.0 : area[2,2,1] - q[2,2,1]*reclmtd[2,2,1]*2.0 :   0.0 :   True
-        (2, 2, 2) :   0.0 : area[2,2,2] - q[2,2,2]*reclmtd[2,2,2]*2.0 :   0.0 :   True
-    area_cu_beta_rule_con : Size=2, Index=HP, Active=True
-        Key : Lower : Body                         : Upper : Active
-          1 :   0.0 : area_cu_beta[1] - area_cu[1] :   0.0 :   True
-          2 :   0.0 : area_cu_beta[2] - area_cu[2] :   0.0 :   True
-    area_cu_con : Size=2, Index=HP, Active=True
-        Key : Lower : Body                                   : Upper : Active
-          1 :   0.0 : area_cu[1] - q_cu[1]*reclmtd_cu[1]*2.0 :   0.0 :   True
-          2 :   0.0 : area_cu[2] - q_cu[2]*reclmtd_cu[2]*2.0 :   0.0 :   True
-    area_hu_beta_rule_con : Size=2, Index=CP, Active=True
-        Key : Lower : Body                         : Upper : Active
-          1 :   0.0 : area_hu_beta[1] - area_hu[1] :   0.0 :   True
-          2 :   0.0 : area_hu_beta[2] - area_hu[2] :   0.0 :   True
-    area_hu_con : Size=2, Index=HP, Active=True
-        Key : Lower : Body                                   : Upper : Active
-          1 :   0.0 : area_hu[1] - q_hu[1]*reclmtd_hu[1]*1.2 :   0.0 :   True
-          2 :   0.0 : area_hu[2] - q_hu[2]*reclmtd_hu[2]*1.2 :   0.0 :   True
-    cold_inlet : Size=2, Index=CP, Active=True
+    area_beta_rule_con : Size=50, Index=HP*CP*ST, Active=True
+        Key       : Lower : Body                                : Upper : Active
+        (1, 1, 1) :   0.0 : area_beta[1,1,1] - area[1,1,1]**0.6 :   0.0 :   True
+        (1, 1, 2) :   0.0 : area_beta[1,1,2] - area[1,1,2]**0.6 :   0.0 :   True
+        (1, 2, 1) :   0.0 : area_beta[1,2,1] - area[1,2,1]**0.6 :   0.0 :   True
+        (1, 2, 2) :   0.0 : area_beta[1,2,2] - area[1,2,2]**0.6 :   0.0 :   True
+        (1, 3, 1) :   0.0 : area_beta[1,3,1] - area[1,3,1]**0.6 :   0.0 :   True
+        (1, 3, 2) :   0.0 : area_beta[1,3,2] - area[1,3,2]**0.6 :   0.0 :   True
+        (1, 4, 1) :   0.0 : area_beta[1,4,1] - area[1,4,1]**0.6 :   0.0 :   True
+        (1, 4, 2) :   0.0 : area_beta[1,4,2] - area[1,4,2]**0.6 :   0.0 :   True
+        (1, 5, 1) :   0.0 : area_beta[1,5,1] - area[1,5,1]**0.6 :   0.0 :   True
+        (1, 5, 2) :   0.0 : area_beta[1,5,2] - area[1,5,2]**0.6 :   0.0 :   True
+        (2, 1, 1) :   0.0 : area_beta[2,1,1] - area[2,1,1]**0.6 :   0.0 :   True
+        (2, 1, 2) :   0.0 : area_beta[2,1,2] - area[2,1,2]**0.6 :   0.0 :   True
+        (2, 2, 1) :   0.0 : area_beta[2,2,1] - area[2,2,1]**0.6 :   0.0 :   True
+        (2, 2, 2) :   0.0 : area_beta[2,2,2] - area[2,2,2]**0.6 :   0.0 :   True
+        (2, 3, 1) :   0.0 : area_beta[2,3,1] - area[2,3,1]**0.6 :   0.0 :   True
+        (2, 3, 2) :   0.0 : area_beta[2,3,2] - area[2,3,2]**0.6 :   0.0 :   True
+        (2, 4, 1) :   0.0 : area_beta[2,4,1] - area[2,4,1]**0.6 :   0.0 :   True
+        (2, 4, 2) :   0.0 : area_beta[2,4,2] - area[2,4,2]**0.6 :   0.0 :   True
+        (2, 5, 1) :   0.0 : area_beta[2,5,1] - area[2,5,1]**0.6 :   0.0 :   True
+        (2, 5, 2) :   0.0 : area_beta[2,5,2] - area[2,5,2]**0.6 :   0.0 :   True
+        (3, 1, 1) :   0.0 : area_beta[3,1,1] - area[3,1,1]**0.6 :   0.0 :   True
+        (3, 1, 2) :   0.0 : area_beta[3,1,2] - area[3,1,2]**0.6 :   0.0 :   True
+        (3, 2, 1) :   0.0 : area_beta[3,2,1] - area[3,2,1]**0.6 :   0.0 :   True
+        (3, 2, 2) :   0.0 : area_beta[3,2,2] - area[3,2,2]**0.6 :   0.0 :   True
+        (3, 3, 1) :   0.0 : area_beta[3,3,1] - area[3,3,1]**0.6 :   0.0 :   True
+        (3, 3, 2) :   0.0 : area_beta[3,3,2] - area[3,3,2]**0.6 :   0.0 :   True
+        (3, 4, 1) :   0.0 : area_beta[3,4,1] - area[3,4,1]**0.6 :   0.0 :   True
+        (3, 4, 2) :   0.0 : area_beta[3,4,2] - area[3,4,2]**0.6 :   0.0 :   True
+        (3, 5, 1) :   0.0 : area_beta[3,5,1] - area[3,5,1]**0.6 :   0.0 :   True
+        (3, 5, 2) :   0.0 : area_beta[3,5,2] - area[3,5,2]**0.6 :   0.0 :   True
+        (4, 1, 1) :   0.0 : area_beta[4,1,1] - area[4,1,1]**0.6 :   0.0 :   True
+        (4, 1, 2) :   0.0 : area_beta[4,1,2] - area[4,1,2]**0.6 :   0.0 :   True
+        (4, 2, 1) :   0.0 : area_beta[4,2,1] - area[4,2,1]**0.6 :   0.0 :   True
+        (4, 2, 2) :   0.0 : area_beta[4,2,2] - area[4,2,2]**0.6 :   0.0 :   True
+        (4, 3, 1) :   0.0 : area_beta[4,3,1] - area[4,3,1]**0.6 :   0.0 :   True
+        (4, 3, 2) :   0.0 : area_beta[4,3,2] - area[4,3,2]**0.6 :   0.0 :   True
+        (4, 4, 1) :   0.0 : area_beta[4,4,1] - area[4,4,1]**0.6 :   0.0 :   True
+        (4, 4, 2) :   0.0 : area_beta[4,4,2] - area[4,4,2]**0.6 :   0.0 :   True
+        (4, 5, 1) :   0.0 : area_beta[4,5,1] - area[4,5,1]**0.6 :   0.0 :   True
+        (4, 5, 2) :   0.0 : area_beta[4,5,2] - area[4,5,2]**0.6 :   0.0 :   True
+        (5, 1, 1) :   0.0 : area_beta[5,1,1] - area[5,1,1]**0.6 :   0.0 :   True
+        (5, 1, 2) :   0.0 : area_beta[5,1,2] - area[5,1,2]**0.6 :   0.0 :   True
+        (5, 2, 1) :   0.0 : area_beta[5,2,1] - area[5,2,1]**0.6 :   0.0 :   True
+        (5, 2, 2) :   0.0 : area_beta[5,2,2] - area[5,2,2]**0.6 :   0.0 :   True
+        (5, 3, 1) :   0.0 : area_beta[5,3,1] - area[5,3,1]**0.6 :   0.0 :   True
+        (5, 3, 2) :   0.0 : area_beta[5,3,2] - area[5,3,2]**0.6 :   0.0 :   True
+        (5, 4, 1) :   0.0 : area_beta[5,4,1] - area[5,4,1]**0.6 :   0.0 :   True
+        (5, 4, 2) :   0.0 : area_beta[5,4,2] - area[5,4,2]**0.6 :   0.0 :   True
+        (5, 5, 1) :   0.0 : area_beta[5,5,1] - area[5,5,1]**0.6 :   0.0 :   True
+        (5, 5, 2) :   0.0 : area_beta[5,5,2] - area[5,5,2]**0.6 :   0.0 :   True
+    area_con : Size=50, Index=HP*CP*ST, Active=True
+        Key       : Lower : Body                                                     : Upper : Active
+        (1, 1, 1) :   0.0 : area[1,1,1] - q[1,1,1]*reclmtd[1,1,1]*1.1764705882352942 :   0.0 :   True
+        (1, 1, 2) :   0.0 : area[1,1,2] - q[1,1,2]*reclmtd[1,1,2]*1.1764705882352942 :   0.0 :   True
+        (1, 2, 1) :   0.0 : area[1,2,1] - q[1,2,1]*reclmtd[1,2,1]*1.1764705882352942 :   0.0 :   True
+        (1, 2, 2) :   0.0 : area[1,2,2] - q[1,2,2]*reclmtd[1,2,2]*1.1764705882352942 :   0.0 :   True
+        (1, 3, 1) :   0.0 : area[1,3,1] - q[1,3,1]*reclmtd[1,3,1]*1.1764705882352942 :   0.0 :   True
+        (1, 3, 2) :   0.0 : area[1,3,2] - q[1,3,2]*reclmtd[1,3,2]*1.1764705882352942 :   0.0 :   True
+        (1, 4, 1) :   0.0 : area[1,4,1] - q[1,4,1]*reclmtd[1,4,1]*1.1764705882352942 :   0.0 :   True
+        (1, 4, 2) :   0.0 : area[1,4,2] - q[1,4,2]*reclmtd[1,4,2]*1.1764705882352942 :   0.0 :   True
+        (1, 5, 1) :   0.0 : area[1,5,1] - q[1,5,1]*reclmtd[1,5,1]*1.1764705882352942 :   0.0 :   True
+        (1, 5, 2) :   0.0 : area[1,5,2] - q[1,5,2]*reclmtd[1,5,2]*1.1764705882352942 :   0.0 :   True
+        (2, 1, 1) :   0.0 : area[2,1,1] - q[2,1,1]*reclmtd[2,1,1]*1.1764705882352942 :   0.0 :   True
+        (2, 1, 2) :   0.0 : area[2,1,2] - q[2,1,2]*reclmtd[2,1,2]*1.1764705882352942 :   0.0 :   True
+        (2, 2, 1) :   0.0 : area[2,2,1] - q[2,2,1]*reclmtd[2,2,1]*1.1764705882352942 :   0.0 :   True
+        (2, 2, 2) :   0.0 : area[2,2,2] - q[2,2,2]*reclmtd[2,2,2]*1.1764705882352942 :   0.0 :   True
+        (2, 3, 1) :   0.0 : area[2,3,1] - q[2,3,1]*reclmtd[2,3,1]*1.1764705882352942 :   0.0 :   True
+        (2, 3, 2) :   0.0 : area[2,3,2] - q[2,3,2]*reclmtd[2,3,2]*1.1764705882352942 :   0.0 :   True
+        (2, 4, 1) :   0.0 : area[2,4,1] - q[2,4,1]*reclmtd[2,4,1]*1.1764705882352942 :   0.0 :   True
+        (2, 4, 2) :   0.0 : area[2,4,2] - q[2,4,2]*reclmtd[2,4,2]*1.1764705882352942 :   0.0 :   True
+        (2, 5, 1) :   0.0 : area[2,5,1] - q[2,5,1]*reclmtd[2,5,1]*1.1764705882352942 :   0.0 :   True
+        (2, 5, 2) :   0.0 : area[2,5,2] - q[2,5,2]*reclmtd[2,5,2]*1.1764705882352942 :   0.0 :   True
+        (3, 1, 1) :   0.0 : area[3,1,1] - q[3,1,1]*reclmtd[3,1,1]*1.1764705882352942 :   0.0 :   True
+        (3, 1, 2) :   0.0 : area[3,1,2] - q[3,1,2]*reclmtd[3,1,2]*1.1764705882352942 :   0.0 :   True
+        (3, 2, 1) :   0.0 : area[3,2,1] - q[3,2,1]*reclmtd[3,2,1]*1.1764705882352942 :   0.0 :   True
+        (3, 2, 2) :   0.0 : area[3,2,2] - q[3,2,2]*reclmtd[3,2,2]*1.1764705882352942 :   0.0 :   True
+        (3, 3, 1) :   0.0 : area[3,3,1] - q[3,3,1]*reclmtd[3,3,1]*1.1764705882352942 :   0.0 :   True
+        (3, 3, 2) :   0.0 : area[3,3,2] - q[3,3,2]*reclmtd[3,3,2]*1.1764705882352942 :   0.0 :   True
+        (3, 4, 1) :   0.0 : area[3,4,1] - q[3,4,1]*reclmtd[3,4,1]*1.1764705882352942 :   0.0 :   True
+        (3, 4, 2) :   0.0 : area[3,4,2] - q[3,4,2]*reclmtd[3,4,2]*1.1764705882352942 :   0.0 :   True
+        (3, 5, 1) :   0.0 : area[3,5,1] - q[3,5,1]*reclmtd[3,5,1]*1.1764705882352942 :   0.0 :   True
+        (3, 5, 2) :   0.0 : area[3,5,2] - q[3,5,2]*reclmtd[3,5,2]*1.1764705882352942 :   0.0 :   True
+        (4, 1, 1) :   0.0 : area[4,1,1] - q[4,1,1]*reclmtd[4,1,1]*1.1764705882352942 :   0.0 :   True
+        (4, 1, 2) :   0.0 : area[4,1,2] - q[4,1,2]*reclmtd[4,1,2]*1.1764705882352942 :   0.0 :   True
+        (4, 2, 1) :   0.0 : area[4,2,1] - q[4,2,1]*reclmtd[4,2,1]*1.1764705882352942 :   0.0 :   True
+        (4, 2, 2) :   0.0 : area[4,2,2] - q[4,2,2]*reclmtd[4,2,2]*1.1764705882352942 :   0.0 :   True
+        (4, 3, 1) :   0.0 : area[4,3,1] - q[4,3,1]*reclmtd[4,3,1]*1.1764705882352942 :   0.0 :   True
+        (4, 3, 2) :   0.0 : area[4,3,2] - q[4,3,2]*reclmtd[4,3,2]*1.1764705882352942 :   0.0 :   True
+        (4, 4, 1) :   0.0 : area[4,4,1] - q[4,4,1]*reclmtd[4,4,1]*1.1764705882352942 :   0.0 :   True
+        (4, 4, 2) :   0.0 : area[4,4,2] - q[4,4,2]*reclmtd[4,4,2]*1.1764705882352942 :   0.0 :   True
+        (4, 5, 1) :   0.0 : area[4,5,1] - q[4,5,1]*reclmtd[4,5,1]*1.1764705882352942 :   0.0 :   True
+        (4, 5, 2) :   0.0 : area[4,5,2] - q[4,5,2]*reclmtd[4,5,2]*1.1764705882352942 :   0.0 :   True
+        (5, 1, 1) :   0.0 : area[5,1,1] - q[5,1,1]*reclmtd[5,1,1]*1.1764705882352942 :   0.0 :   True
+        (5, 1, 2) :   0.0 : area[5,1,2] - q[5,1,2]*reclmtd[5,1,2]*1.1764705882352942 :   0.0 :   True
+        (5, 2, 1) :   0.0 : area[5,2,1] - q[5,2,1]*reclmtd[5,2,1]*1.1764705882352942 :   0.0 :   True
+        (5, 2, 2) :   0.0 : area[5,2,2] - q[5,2,2]*reclmtd[5,2,2]*1.1764705882352942 :   0.0 :   True
+        (5, 3, 1) :   0.0 : area[5,3,1] - q[5,3,1]*reclmtd[5,3,1]*1.1764705882352942 :   0.0 :   True
+        (5, 3, 2) :   0.0 : area[5,3,2] - q[5,3,2]*reclmtd[5,3,2]*1.1764705882352942 :   0.0 :   True
+        (5, 4, 1) :   0.0 : area[5,4,1] - q[5,4,1]*reclmtd[5,4,1]*1.1764705882352942 :   0.0 :   True
+        (5, 4, 2) :   0.0 : area[5,4,2] - q[5,4,2]*reclmtd[5,4,2]*1.1764705882352942 :   0.0 :   True
+        (5, 5, 1) :   0.0 : area[5,5,1] - q[5,5,1]*reclmtd[5,5,1]*1.1764705882352942 :   0.0 :   True
+        (5, 5, 2) :   0.0 : area[5,5,2] - q[5,5,2]*reclmtd[5,5,2]*1.1764705882352942 :   0.0 :   True
+    area_cu_beta_rule_con : Size=5, Index=HP, Active=True
+        Key : Lower : Body                              : Upper : Active
+          1 :   0.0 : area_cu_beta[1] - area_cu[1]**0.6 :   0.0 :   True
+          2 :   0.0 : area_cu_beta[2] - area_cu[2]**0.6 :   0.0 :   True
+          3 :   0.0 : area_cu_beta[3] - area_cu[3]**0.6 :   0.0 :   True
+          4 :   0.0 : area_cu_beta[4] - area_cu[4]**0.6 :   0.0 :   True
+          5 :   0.0 : area_cu_beta[5] - area_cu[5]**0.6 :   0.0 :   True
+    area_cu_con : Size=5, Index=HP, Active=True
+        Key : Lower : Body                                                  : Upper : Active
+          1 :   0.0 : area_cu[1] - q_cu[1]*reclmtd_cu[1]*1.1764705882352942 :   0.0 :   True
+          2 :   0.0 : area_cu[2] - q_cu[2]*reclmtd_cu[2]*1.1764705882352942 :   0.0 :   True
+          3 :   0.0 : area_cu[3] - q_cu[3]*reclmtd_cu[3]*1.1764705882352942 :   0.0 :   True
+          4 :   0.0 : area_cu[4] - q_cu[4]*reclmtd_cu[4]*1.1764705882352942 :   0.0 :   True
+          5 :   0.0 : area_cu[5] - q_cu[5]*reclmtd_cu[5]*1.1764705882352942 :   0.0 :   True
+    area_hu_beta_rule_con : Size=5, Index=CP, Active=True
+        Key : Lower : Body                              : Upper : Active
+          1 :   0.0 : area_hu_beta[1] - area_hu[1]**0.6 :   0.0 :   True
+          2 :   0.0 : area_hu_beta[2] - area_hu[2]**0.6 :   0.0 :   True
+          3 :   0.0 : area_hu_beta[3] - area_hu[3]**0.6 :   0.0 :   True
+          4 :   0.0 : area_hu_beta[4] - area_hu[4]**0.6 :   0.0 :   True
+          5 :   0.0 : area_hu_beta[5] - area_hu[5]**0.6 :   0.0 :   True
+    area_hu_con : Size=5, Index=HP, Active=True
+        Key : Lower : Body                                                  : Upper : Active
+          1 :   0.0 : area_hu[1] - q_hu[1]*reclmtd_hu[1]*0.8823529411764706 :   0.0 :   True
+          2 :   0.0 : area_hu[2] - q_hu[2]*reclmtd_hu[2]*0.8823529411764706 :   0.0 :   True
+          3 :   0.0 : area_hu[3] - q_hu[3]*reclmtd_hu[3]*0.8823529411764706 :   0.0 :   True
+          4 :   0.0 : area_hu[4] - q_hu[4]*reclmtd_hu[4]*0.8823529411764706 :   0.0 :   True
+          5 :   0.0 : area_hu[5] - q_hu[5]*reclmtd_hu[5]*0.8823529411764706 :   0.0 :   True
+    cold_inlet : Size=5, Index=CP, Active=True
         Key : Lower : Body    : Upper : Active
-          1 : 410.0 : tc[1,3] : 410.0 :   True
-          2 : 350.0 : tc[2,3] : 350.0 :   True
-    cold_lower_bound : Size=2, Index=CP, Active=True
+          1 :  60.0 : tc[1,3] :  60.0 :   True
+          2 : 115.6 : tc[2,3] : 115.6 :   True
+          3 :  37.8 : tc[3,3] :  37.8 :   True
+          4 :  82.2 : tc[4,3] :  82.2 :   True
+          5 :  93.3 : tc[5,3] :  93.3 :   True
+    cold_lower_bound : Size=5, Index=CP, Active=True
         Key : Lower : Body    : Upper : Active
-          1 :  -Inf : tc[1,1] : 650.0 :   True
-          2 :  -Inf : tc[2,1] : 500.0 :   True
-    decreasing_cold : Size=4, Index=CP*ST, Active=True
+          1 :  -Inf : tc[1,1] : 160.0 :   True
+          2 :  -Inf : tc[2,1] : 221.7 :   True
+          3 :  -Inf : tc[3,1] : 221.1 :   True
+          4 :  -Inf : tc[4,1] : 176.7 :   True
+          5 :  -Inf : tc[5,1] : 204.4 :   True
+    decreasing_cold : Size=10, Index=CP*ST, Active=True
         Key    : Lower : Body              : Upper : Active
         (1, 1) :  -Inf : tc[1,2] - tc[1,1] :   0.0 :   True
         (1, 2) :  -Inf : tc[1,3] - tc[1,2] :   0.0 :   True
         (2, 1) :  -Inf : tc[2,2] - tc[2,1] :   0.0 :   True
         (2, 2) :  -Inf : tc[2,3] - tc[2,2] :   0.0 :   True
-    decreasing_hot : Size=4, Index=HP*ST, Active=True
+        (3, 1) :  -Inf : tc[3,2] - tc[3,1] :   0.0 :   True
+        (3, 2) :  -Inf : tc[3,3] - tc[3,2] :   0.0 :   True
+        (4, 1) :  -Inf : tc[4,2] - tc[4,1] :   0.0 :   True
+        (4, 2) :  -Inf : tc[4,3] - tc[4,2] :   0.0 :   True
+        (5, 1) :  -Inf : tc[5,2] - tc[5,1] :   0.0 :   True
+        (5, 2) :  -Inf : tc[5,3] - tc[5,2] :   0.0 :   True
+    decreasing_hot : Size=10, Index=HP*ST, Active=True
         Key    : Lower : Body              : Upper : Active
         (1, 1) :  -Inf : th[1,2] - th[1,1] :   0.0 :   True
         (1, 2) :  -Inf : th[1,3] - th[1,2] :   0.0 :   True
         (2, 1) :  -Inf : th[2,2] - th[2,1] :   0.0 :   True
         (2, 2) :  -Inf : th[2,3] - th[2,2] :   0.0 :   True
-    dt_difference_con : Size=8, Index=HP*CP*ST, Active=True
+        (3, 1) :  -Inf : th[3,2] - th[3,1] :   0.0 :   True
+        (3, 2) :  -Inf : th[3,3] - th[3,2] :   0.0 :   True
+        (4, 1) :  -Inf : th[4,2] - th[4,1] :   0.0 :   True
+        (4, 2) :  -Inf : th[4,3] - th[4,2] :   0.0 :   True
+        (5, 1) :  -Inf : th[5,2] - th[5,1] :   0.0 :   True
+        (5, 2) :  -Inf : th[5,3] - th[5,2] :   0.0 :   True
+    dt_difference_con : Size=50, Index=HP*CP*ST, Active=True
         Key       : Lower  : Body               : Upper : Active
         (1, 1, 1) : 0.0001 : dt_diff_abs[1,1,1] :  +Inf :   True
         (1, 1, 2) : 0.0001 : dt_diff_abs[1,1,2] :  +Inf :   True
         (1, 2, 1) : 0.0001 : dt_diff_abs[1,2,1] :  +Inf :   True
         (1, 2, 2) : 0.0001 : dt_diff_abs[1,2,2] :  +Inf :   True
+        (1, 3, 1) : 0.0001 : dt_diff_abs[1,3,1] :  +Inf :   True
+        (1, 3, 2) : 0.0001 : dt_diff_abs[1,3,2] :  +Inf :   True
+        (1, 4, 1) : 0.0001 : dt_diff_abs[1,4,1] :  +Inf :   True
+        (1, 4, 2) : 0.0001 : dt_diff_abs[1,4,2] :  +Inf :   True
+        (1, 5, 1) : 0.0001 : dt_diff_abs[1,5,1] :  +Inf :   True
+        (1, 5, 2) : 0.0001 : dt_diff_abs[1,5,2] :  +Inf :   True
         (2, 1, 1) : 0.0001 : dt_diff_abs[2,1,1] :  +Inf :   True
         (2, 1, 2) : 0.0001 : dt_diff_abs[2,1,2] :  +Inf :   True
         (2, 2, 1) : 0.0001 : dt_diff_abs[2,2,1] :  +Inf :   True
         (2, 2, 2) : 0.0001 : dt_diff_abs[2,2,2] :  +Inf :   True
+        (2, 3, 1) : 0.0001 : dt_diff_abs[2,3,1] :  +Inf :   True
+        (2, 3, 2) : 0.0001 : dt_diff_abs[2,3,2] :  +Inf :   True
+        (2, 4, 1) : 0.0001 : dt_diff_abs[2,4,1] :  +Inf :   True
+        (2, 4, 2) : 0.0001 : dt_diff_abs[2,4,2] :  +Inf :   True
+        (2, 5, 1) : 0.0001 : dt_diff_abs[2,5,1] :  +Inf :   True
+        (2, 5, 2) : 0.0001 : dt_diff_abs[2,5,2] :  +Inf :   True
+        (3, 1, 1) : 0.0001 : dt_diff_abs[3,1,1] :  +Inf :   True
+        (3, 1, 2) : 0.0001 : dt_diff_abs[3,1,2] :  +Inf :   True
+        (3, 2, 1) : 0.0001 : dt_diff_abs[3,2,1] :  +Inf :   True
+        (3, 2, 2) : 0.0001 : dt_diff_abs[3,2,2] :  +Inf :   True
+        (3, 3, 1) : 0.0001 : dt_diff_abs[3,3,1] :  +Inf :   True
+        (3, 3, 2) : 0.0001 : dt_diff_abs[3,3,2] :  +Inf :   True
+        (3, 4, 1) : 0.0001 : dt_diff_abs[3,4,1] :  +Inf :   True
+        (3, 4, 2) : 0.0001 : dt_diff_abs[3,4,2] :  +Inf :   True
+        (3, 5, 1) : 0.0001 : dt_diff_abs[3,5,1] :  +Inf :   True
+        (3, 5, 2) : 0.0001 : dt_diff_abs[3,5,2] :  +Inf :   True
+        (4, 1, 1) : 0.0001 : dt_diff_abs[4,1,1] :  +Inf :   True
+        (4, 1, 2) : 0.0001 : dt_diff_abs[4,1,2] :  +Inf :   True
+        (4, 2, 1) : 0.0001 : dt_diff_abs[4,2,1] :  +Inf :   True
+        (4, 2, 2) : 0.0001 : dt_diff_abs[4,2,2] :  +Inf :   True
+        (4, 3, 1) : 0.0001 : dt_diff_abs[4,3,1] :  +Inf :   True
+        (4, 3, 2) : 0.0001 : dt_diff_abs[4,3,2] :  +Inf :   True
+        (4, 4, 1) : 0.0001 : dt_diff_abs[4,4,1] :  +Inf :   True
+        (4, 4, 2) : 0.0001 : dt_diff_abs[4,4,2] :  +Inf :   True
+        (4, 5, 1) : 0.0001 : dt_diff_abs[4,5,1] :  +Inf :   True
+        (4, 5, 2) : 0.0001 : dt_diff_abs[4,5,2] :  +Inf :   True
+        (5, 1, 1) : 0.0001 : dt_diff_abs[5,1,1] :  +Inf :   True
+        (5, 1, 2) : 0.0001 : dt_diff_abs[5,1,2] :  +Inf :   True
+        (5, 2, 1) : 0.0001 : dt_diff_abs[5,2,1] :  +Inf :   True
+        (5, 2, 2) : 0.0001 : dt_diff_abs[5,2,2] :  +Inf :   True
+        (5, 3, 1) : 0.0001 : dt_diff_abs[5,3,1] :  +Inf :   True
+        (5, 3, 2) : 0.0001 : dt_diff_abs[5,3,2] :  +Inf :   True
+        (5, 4, 1) : 0.0001 : dt_diff_abs[5,4,1] :  +Inf :   True
+        (5, 4, 2) : 0.0001 : dt_diff_abs[5,4,2] :  +Inf :   True
+        (5, 5, 1) : 0.0001 : dt_diff_abs[5,5,1] :  +Inf :   True
+        (5, 5, 2) : 0.0001 : dt_diff_abs[5,5,2] :  +Inf :   True
     energy_balance_cold : Energy exchanged by cold stream j in stage k
-        Size=4, Index=CP*ST, Active=True
-        Key    : Lower : Body                                         : Upper : Active
-        (1, 1) :   0.0 : q[1,1,1] + q[2,1,1] - 15*(tc[1,1] - tc[1,2]) :   0.0 :   True
-        (1, 2) :   0.0 : q[1,1,2] + q[2,1,2] - 15*(tc[1,2] - tc[1,3]) :   0.0 :   True
-        (2, 1) :   0.0 : q[1,2,1] + q[2,2,1] - 13*(tc[2,1] - tc[2,2]) :   0.0 :   True
-        (2, 2) :   0.0 : q[1,2,2] + q[2,2,2] - 13*(tc[2,2] - tc[2,3]) :   0.0 :   True
+        Size=10, Index=CP*ST, Active=True
+        Key    : Lower : Body                                                                            : Upper : Active
+        (1, 1) :   0.0 :  q[1,1,1] + q[2,1,1] + q[3,1,1] + q[4,1,1] + q[5,1,1] - 7.6*(tc[1,1] - tc[1,2]) :   0.0 :   True
+        (1, 2) :   0.0 :  q[1,1,2] + q[2,1,2] + q[3,1,2] + q[4,1,2] + q[5,1,2] - 7.6*(tc[1,2] - tc[1,3]) :   0.0 :   True
+        (2, 1) :   0.0 :  q[1,2,1] + q[2,2,1] + q[3,2,1] + q[4,2,1] + q[5,2,1] - 6.1*(tc[2,1] - tc[2,2]) :   0.0 :   True
+        (2, 2) :   0.0 :  q[1,2,2] + q[2,2,2] + q[3,2,2] + q[4,2,2] + q[5,2,2] - 6.1*(tc[2,2] - tc[2,3]) :   0.0 :   True
+        (3, 1) :   0.0 :  q[1,3,1] + q[2,3,1] + q[3,3,1] + q[4,3,1] + q[5,3,1] - 8.4*(tc[3,1] - tc[3,2]) :   0.0 :   True
+        (3, 2) :   0.0 :  q[1,3,2] + q[2,3,2] + q[3,3,2] + q[4,3,2] + q[5,3,2] - 8.4*(tc[3,2] - tc[3,3]) :   0.0 :   True
+        (4, 1) :   0.0 : q[1,4,1] + q[2,4,1] + q[3,4,1] + q[4,4,1] + q[5,4,1] - 17.3*(tc[4,1] - tc[4,2]) :   0.0 :   True
+        (4, 2) :   0.0 : q[1,4,2] + q[2,4,2] + q[3,4,2] + q[4,4,2] + q[5,4,2] - 17.3*(tc[4,2] - tc[4,3]) :   0.0 :   True
+        (5, 1) :   0.0 : q[1,5,1] + q[2,5,1] + q[3,5,1] + q[4,5,1] + q[5,5,1] - 13.9*(tc[5,1] - tc[5,2]) :   0.0 :   True
+        (5, 2) :   0.0 : q[1,5,2] + q[2,5,2] + q[3,5,2] + q[4,5,2] + q[5,5,2] - 13.9*(tc[5,2] - tc[5,3]) :   0.0 :   True
     energy_balance_cu : Energy exchanged by hot stream i with the cold utility
-        Size=2, Index=HP, Active=True
-        Key : Lower : Body                         : Upper : Active
-          1 :   0.0 : 10*(th[1,3] - 370) - q_cu[1] :   0.0 :   True
-          2 :   0.0 : 20*(th[2,3] - 370) - q_cu[2] :   0.0 :   True
+        Size=5, Index=HP, Active=True
+        Key : Lower : Body                             : Upper : Active
+          1 :   0.0 :   8.8*(th[1,3] - 93.3) - q_cu[1] :   0.0 :   True
+          2 :   0.0 : 10.6*(th[2,3] - 137.8) - q_cu[2] :   0.0 :   True
+          3 :   0.0 :  14.8*(th[3,3] - 65.6) - q_cu[3] :   0.0 :   True
+          4 :   0.0 : 12.6*(th[4,3] - 148.9) - q_cu[4] :   0.0 :   True
+          5 :   0.0 :  17.7*(th[5,3] - 65.6) - q_cu[5] :   0.0 :   True
     energy_balance_hot : Energy exchanged by hot stream i in stage k
-        Size=4, Index=HP*ST, Active=True
-        Key    : Lower : Body                                         : Upper : Active
-        (1, 1) :   0.0 : q[1,1,1] + q[1,2,1] - 10*(th[1,1] - th[1,2]) :   0.0 :   True
-        (1, 2) :   0.0 : q[1,1,2] + q[1,2,2] - 10*(th[1,2] - th[1,3]) :   0.0 :   True
-        (2, 1) :   0.0 : q[2,1,1] + q[2,2,1] - 20*(th[2,1] - th[2,2]) :   0.0 :   True
-        (2, 2) :   0.0 : q[2,1,2] + q[2,2,2] - 20*(th[2,2] - th[2,3]) :   0.0 :   True
+        Size=10, Index=HP*ST, Active=True
+        Key    : Lower : Body                                                                            : Upper : Active
+        (1, 1) :   0.0 :  q[1,1,1] + q[1,2,1] + q[1,3,1] + q[1,4,1] + q[1,5,1] - 8.8*(th[1,1] - th[1,2]) :   0.0 :   True
+        (1, 2) :   0.0 :  q[1,1,2] + q[1,2,2] + q[1,3,2] + q[1,4,2] + q[1,5,2] - 8.8*(th[1,2] - th[1,3]) :   0.0 :   True
+        (2, 1) :   0.0 : q[2,1,1] + q[2,2,1] + q[2,3,1] + q[2,4,1] + q[2,5,1] - 10.6*(th[2,1] - th[2,2]) :   0.0 :   True
+        (2, 2) :   0.0 : q[2,1,2] + q[2,2,2] + q[2,3,2] + q[2,4,2] + q[2,5,2] - 10.6*(th[2,2] - th[2,3]) :   0.0 :   True
+        (3, 1) :   0.0 : q[3,1,1] + q[3,2,1] + q[3,3,1] + q[3,4,1] + q[3,5,1] - 14.8*(th[3,1] - th[3,2]) :   0.0 :   True
+        (3, 2) :   0.0 : q[3,1,2] + q[3,2,2] + q[3,3,2] + q[3,4,2] + q[3,5,2] - 14.8*(th[3,2] - th[3,3]) :   0.0 :   True
+        (4, 1) :   0.0 : q[4,1,1] + q[4,2,1] + q[4,3,1] + q[4,4,1] + q[4,5,1] - 12.6*(th[4,1] - th[4,2]) :   0.0 :   True
+        (4, 2) :   0.0 : q[4,1,2] + q[4,2,2] + q[4,3,2] + q[4,4,2] + q[4,5,2] - 12.6*(th[4,2] - th[4,3]) :   0.0 :   True
+        (5, 1) :   0.0 : q[5,1,1] + q[5,2,1] + q[5,3,1] + q[5,4,1] + q[5,5,1] - 17.7*(th[5,1] - th[5,2]) :   0.0 :   True
+        (5, 2) :   0.0 : q[5,1,2] + q[5,2,2] + q[5,3,2] + q[5,4,2] + q[5,5,2] - 17.7*(th[5,2] - th[5,3]) :   0.0 :   True
     energy_balance_hu : Energy exchanged by cold stream j with the hot utility
-        Size=2, Index=CP, Active=True
-        Key : Lower : Body                         : Upper : Active
-          1 :   0.0 : 15*(650 - tc[1,1]) - q_hu[1] :   0.0 :   True
-          2 :   0.0 : 13*(500 - tc[2,1]) - q_hu[2] :   0.0 :   True
-    hot_inlet : Size=2, Index=HP, Active=True
+        Size=5, Index=CP, Active=True
+        Key : Lower : Body                             : Upper : Active
+          1 :   0.0 :    7.6*(160 - tc[1,1]) - q_hu[1] :   0.0 :   True
+          2 :   0.0 :  6.1*(221.7 - tc[2,1]) - q_hu[2] :   0.0 :   True
+          3 :   0.0 :  8.4*(221.1 - tc[3,1]) - q_hu[3] :   0.0 :   True
+          4 :   0.0 : 17.3*(176.7 - tc[4,1]) - q_hu[4] :   0.0 :   True
+          5 :   0.0 : 13.9*(204.4 - tc[5,1]) - q_hu[5] :   0.0 :   True
+    hot_inlet : Size=5, Index=HP, Active=True
         Key : Lower : Body    : Upper : Active
-          1 : 650.0 : th[1,1] : 650.0 :   True
-          2 : 590.0 : th[2,1] : 590.0 :   True
-    hot_upper_bound : Size=2, Index=HP, Active=True
+          1 : 160.0 : th[1,1] : 160.0 :   True
+          2 : 248.9 : th[2,1] : 248.9 :   True
+          3 : 226.7 : th[3,1] : 226.7 :   True
+          4 : 271.1 : th[4,1] : 271.1 :   True
+          5 : 198.9 : th[5,1] : 198.9 :   True
+    hot_upper_bound : Size=5, Index=HP, Active=True
         Key : Lower : Body    : Upper : Active
-          1 : 370.0 : th[1,3] :  +Inf :   True
-          2 : 370.0 : th[2,3] :  +Inf :   True
-    mass_balance_cold : Size=4, Index=CP*ST, Active=True
-        Key    : Lower : Body                  : Upper : Active
-        (1, 1) :  15.0 : fc[1,1,1] + fc[2,1,1] :  15.0 :   True
-        (1, 2) :  15.0 : fc[1,1,2] + fc[2,1,2] :  15.0 :   True
-        (2, 1) :  13.0 : fc[1,2,1] + fc[2,2,1] :  13.0 :   True
-        (2, 2) :  13.0 : fc[1,2,2] + fc[2,2,2] :  13.0 :   True
-    mass_balance_hot : Size=4, Index=HP*ST, Active=True
-        Key    : Lower : Body                  : Upper : Active
-        (1, 1) :  10.0 : fh[1,1,1] + fh[1,2,1] :  10.0 :   True
-        (1, 2) :  10.0 : fh[1,1,2] + fh[1,2,2] :  10.0 :   True
-        (2, 1) :  20.0 : fh[2,1,1] + fh[2,2,1] :  20.0 :   True
-        (2, 2) :  20.0 : fh[2,1,2] + fh[2,2,2] :  20.0 :   True
-    overall_heat_balance_cold : Size=2, Index=CP, Active=True
-        Key : Lower  : Body                                                : Upper  : Active
-          1 : 3600.0 : q[1,1,1] + q[1,1,2] + q[2,1,1] + q[2,1,2] + q_hu[1] : 3600.0 :   True
-          2 : 1950.0 : q[1,2,1] + q[1,2,2] + q[2,2,1] + q[2,2,2] + q_hu[2] : 1950.0 :   True
-    overall_heat_balance_hot : Size=2, Index=HP, Active=True
-        Key : Lower  : Body                                                : Upper  : Active
-          1 : 2800.0 : q[1,1,1] + q[1,1,2] + q[1,2,1] + q[1,2,2] + q_cu[1] : 2800.0 :   True
-          2 : 4400.0 : q[2,1,1] + q[2,1,2] + q[2,2,1] + q[2,2,2] + q_cu[2] : 4400.0 :   True
-    q_big_m : Size=8, Index=HP*CP*ST, Active=True
-        Key       : Lower : Body                     : Upper : Active
-        (1, 1, 1) :  -Inf : q[1,1,1] - 2800*z[1,1,1] :   0.0 :   True
-        (1, 1, 2) :  -Inf : q[1,1,2] - 2800*z[1,1,2] :   0.0 :   True
-        (1, 2, 1) :  -Inf : q[1,2,1] - 1950*z[1,2,1] :   0.0 :   True
-        (1, 2, 2) :  -Inf : q[1,2,2] - 1950*z[1,2,2] :   0.0 :   True
-        (2, 1, 1) :  -Inf : q[2,1,1] - 3600*z[2,1,1] :   0.0 :   True
-        (2, 1, 2) :  -Inf : q[2,1,2] - 3600*z[2,1,2] :   0.0 :   True
-        (2, 2, 1) :  -Inf : q[2,2,1] - 1950*z[2,2,1] :   0.0 :   True
-        (2, 2, 2) :  -Inf : q[2,2,2] - 1950*z[2,2,2] :   0.0 :   True
-    q_cu_big_m : Size=2, Index=HP, Active=True
-        Key : Lower : Body                   : Upper : Active
-          1 :  -Inf : q_cu[1] - 2800*z_cu[1] :   0.0 :   True
-          2 :  -Inf : q_cu[2] - 4400*z_cu[2] :   0.0 :   True
-    q_hu_big_m : Size=2, Index=CP, Active=True
-        Key : Lower : Body                   : Upper : Active
-          1 :  -Inf : q_hu[1] - 3600*z_hu[1] :   0.0 :   True
-          2 :  -Inf : q_hu[2] - 1950*z_hu[2] :   0.0 :   True
-    reclmtd_con : Size=8, Index=HP*CP*ST, Active=True
+          1 :  93.3 : th[1,3] :  +Inf :   True
+          2 : 137.8 : th[2,3] :  +Inf :   True
+          3 :  65.6 : th[3,3] :  +Inf :   True
+          4 : 148.9 : th[4,3] :  +Inf :   True
+          5 :  65.6 : th[5,3] :  +Inf :   True
+    mass_balance_cold : Size=10, Index=CP*ST, Active=True
+        Key    : Lower : Body                                                      : Upper : Active
+        (1, 1) :   7.6 : fc[1,1,1] + fc[2,1,1] + fc[3,1,1] + fc[4,1,1] + fc[5,1,1] :   7.6 :   True
+        (1, 2) :   7.6 : fc[1,1,2] + fc[2,1,2] + fc[3,1,2] + fc[4,1,2] + fc[5,1,2] :   7.6 :   True
+        (2, 1) :   6.1 : fc[1,2,1] + fc[2,2,1] + fc[3,2,1] + fc[4,2,1] + fc[5,2,1] :   6.1 :   True
+        (2, 2) :   6.1 : fc[1,2,2] + fc[2,2,2] + fc[3,2,2] + fc[4,2,2] + fc[5,2,2] :   6.1 :   True
+        (3, 1) :   8.4 : fc[1,3,1] + fc[2,3,1] + fc[3,3,1] + fc[4,3,1] + fc[5,3,1] :   8.4 :   True
+        (3, 2) :   8.4 : fc[1,3,2] + fc[2,3,2] + fc[3,3,2] + fc[4,3,2] + fc[5,3,2] :   8.4 :   True
+        (4, 1) :  17.3 : fc[1,4,1] + fc[2,4,1] + fc[3,4,1] + fc[4,4,1] + fc[5,4,1] :  17.3 :   True
+        (4, 2) :  17.3 : fc[1,4,2] + fc[2,4,2] + fc[3,4,2] + fc[4,4,2] + fc[5,4,2] :  17.3 :   True
+        (5, 1) :  13.9 : fc[1,5,1] + fc[2,5,1] + fc[3,5,1] + fc[4,5,1] + fc[5,5,1] :  13.9 :   True
+        (5, 2) :  13.9 : fc[1,5,2] + fc[2,5,2] + fc[3,5,2] + fc[4,5,2] + fc[5,5,2] :  13.9 :   True
+    mass_balance_hot : Size=10, Index=HP*ST, Active=True
+        Key    : Lower : Body                                                      : Upper : Active
+        (1, 1) :   8.8 : fh[1,1,1] + fh[1,2,1] + fh[1,3,1] + fh[1,4,1] + fh[1,5,1] :   8.8 :   True
+        (1, 2) :   8.8 : fh[1,1,2] + fh[1,2,2] + fh[1,3,2] + fh[1,4,2] + fh[1,5,2] :   8.8 :   True
+        (2, 1) :  10.6 : fh[2,1,1] + fh[2,2,1] + fh[2,3,1] + fh[2,4,1] + fh[2,5,1] :  10.6 :   True
+        (2, 2) :  10.6 : fh[2,1,2] + fh[2,2,2] + fh[2,3,2] + fh[2,4,2] + fh[2,5,2] :  10.6 :   True
+        (3, 1) :  14.8 : fh[3,1,1] + fh[3,2,1] + fh[3,3,1] + fh[3,4,1] + fh[3,5,1] :  14.8 :   True
+        (3, 2) :  14.8 : fh[3,1,2] + fh[3,2,2] + fh[3,3,2] + fh[3,4,2] + fh[3,5,2] :  14.8 :   True
+        (4, 1) :  12.6 : fh[4,1,1] + fh[4,2,1] + fh[4,3,1] + fh[4,4,1] + fh[4,5,1] :  12.6 :   True
+        (4, 2) :  12.6 : fh[4,1,2] + fh[4,2,2] + fh[4,3,2] + fh[4,4,2] + fh[4,5,2] :  12.6 :   True
+        (5, 1) :  17.7 : fh[5,1,1] + fh[5,2,1] + fh[5,3,1] + fh[5,4,1] + fh[5,5,1] :  17.7 :   True
+        (5, 2) :  17.7 : fh[5,1,2] + fh[5,2,2] + fh[5,3,2] + fh[5,4,2] + fh[5,5,2] :  17.7 :   True
+    overall_heat_balance_cold : Size=5, Index=CP, Active=True
+        Key : Lower              : Body                                                                                                                  : Upper              : Active
+          1 :              760.0 : q[1,1,1] + q[1,1,2] + q[2,1,1] + q[2,1,2] + q[3,1,1] + q[3,1,2] + q[4,1,1] + q[4,1,2] + q[5,1,1] + q[5,1,2] + q_hu[1] :              760.0 :   True
+          2 :  647.2099999999999 : q[1,2,1] + q[1,2,2] + q[2,2,1] + q[2,2,2] + q[3,2,1] + q[3,2,2] + q[4,2,1] + q[4,2,2] + q[5,2,1] + q[5,2,2] + q_hu[2] :  647.2099999999999 :   True
+          3 : 1539.7200000000003 : q[1,3,1] + q[1,3,2] + q[2,3,1] + q[2,3,2] + q[3,3,1] + q[3,3,2] + q[4,3,1] + q[4,3,2] + q[5,3,1] + q[5,3,2] + q_hu[3] : 1539.7200000000003 :   True
+          4 :            1634.85 : q[1,4,1] + q[1,4,2] + q[2,4,1] + q[2,4,2] + q[3,4,1] + q[3,4,2] + q[4,4,1] + q[4,4,2] + q[5,4,1] + q[5,4,2] + q_hu[4] :            1634.85 :   True
+          5 : 1544.2900000000002 : q[1,5,1] + q[1,5,2] + q[2,5,1] + q[2,5,2] + q[3,5,1] + q[3,5,2] + q[4,5,1] + q[4,5,2] + q[5,5,1] + q[5,5,2] + q_hu[5] : 1544.2900000000002 :   True
+    overall_heat_balance_hot : Size=5, Index=HP, Active=True
+        Key : Lower              : Body                                                                                                                  : Upper              : Active
+          1 :             586.96 : q[1,1,1] + q[1,1,2] + q[1,2,1] + q[1,2,2] + q[1,3,1] + q[1,3,2] + q[1,4,1] + q[1,4,2] + q[1,5,1] + q[1,5,2] + q_cu[1] :             586.96 :   True
+          2 : 1177.6599999999999 : q[2,1,1] + q[2,1,2] + q[2,2,1] + q[2,2,2] + q[2,3,1] + q[2,3,2] + q[2,4,1] + q[2,4,2] + q[2,5,1] + q[2,5,2] + q_cu[2] : 1177.6599999999999 :   True
+          3 :            2384.28 : q[3,1,1] + q[3,1,2] + q[3,2,1] + q[3,2,2] + q[3,3,1] + q[3,3,2] + q[3,4,1] + q[3,4,2] + q[3,5,1] + q[3,5,2] + q_cu[3] :            2384.28 :   True
+          4 : 1539.7200000000003 : q[4,1,1] + q[4,1,2] + q[4,2,1] + q[4,2,2] + q[4,3,1] + q[4,3,2] + q[4,4,1] + q[4,4,2] + q[4,5,1] + q[4,5,2] + q_cu[4] : 1539.7200000000003 :   True
+          5 : 2359.4100000000003 : q[5,1,1] + q[5,1,2] + q[5,2,1] + q[5,2,2] + q[5,3,1] + q[5,3,2] + q[5,4,1] + q[5,4,2] + q[5,5,1] + q[5,5,2] + q_cu[5] : 2359.4100000000003 :   True
+    q_big_m : Size=50, Index=HP*CP*ST, Active=True
+        Key       : Lower : Body                                   : Upper : Active
+        (1, 1, 1) :  -Inf :             q[1,1,1] - 586.96*z[1,1,1] :   0.0 :   True
+        (1, 1, 2) :  -Inf :             q[1,1,2] - 586.96*z[1,1,2] :   0.0 :   True
+        (1, 2, 1) :  -Inf :             q[1,2,1] - 586.96*z[1,2,1] :   0.0 :   True
+        (1, 2, 2) :  -Inf :             q[1,2,2] - 586.96*z[1,2,2] :   0.0 :   True
+        (1, 3, 1) :  -Inf :             q[1,3,1] - 586.96*z[1,3,1] :   0.0 :   True
+        (1, 3, 2) :  -Inf :             q[1,3,2] - 586.96*z[1,3,2] :   0.0 :   True
+        (1, 4, 1) :  -Inf :             q[1,4,1] - 586.96*z[1,4,1] :   0.0 :   True
+        (1, 4, 2) :  -Inf :             q[1,4,2] - 586.96*z[1,4,2] :   0.0 :   True
+        (1, 5, 1) :  -Inf :             q[1,5,1] - 586.96*z[1,5,1] :   0.0 :   True
+        (1, 5, 2) :  -Inf :             q[1,5,2] - 586.96*z[1,5,2] :   0.0 :   True
+        (2, 1, 1) :  -Inf :              q[2,1,1] - 760.0*z[2,1,1] :   0.0 :   True
+        (2, 1, 2) :  -Inf :              q[2,1,2] - 760.0*z[2,1,2] :   0.0 :   True
+        (2, 2, 1) :  -Inf :  q[2,2,1] - 647.2099999999999*z[2,2,1] :   0.0 :   True
+        (2, 2, 2) :  -Inf :  q[2,2,2] - 647.2099999999999*z[2,2,2] :   0.0 :   True
+        (2, 3, 1) :  -Inf : q[2,3,1] - 1177.6599999999999*z[2,3,1] :   0.0 :   True
+        (2, 3, 2) :  -Inf : q[2,3,2] - 1177.6599999999999*z[2,3,2] :   0.0 :   True
+        (2, 4, 1) :  -Inf : q[2,4,1] - 1177.6599999999999*z[2,4,1] :   0.0 :   True
+        (2, 4, 2) :  -Inf : q[2,4,2] - 1177.6599999999999*z[2,4,2] :   0.0 :   True
+        (2, 5, 1) :  -Inf : q[2,5,1] - 1177.6599999999999*z[2,5,1] :   0.0 :   True
+        (2, 5, 2) :  -Inf : q[2,5,2] - 1177.6599999999999*z[2,5,2] :   0.0 :   True
+        (3, 1, 1) :  -Inf :              q[3,1,1] - 760.0*z[3,1,1] :   0.0 :   True
+        (3, 1, 2) :  -Inf :              q[3,1,2] - 760.0*z[3,1,2] :   0.0 :   True
+        (3, 2, 1) :  -Inf :  q[3,2,1] - 647.2099999999999*z[3,2,1] :   0.0 :   True
+        (3, 2, 2) :  -Inf :  q[3,2,2] - 647.2099999999999*z[3,2,2] :   0.0 :   True
+        (3, 3, 1) :  -Inf : q[3,3,1] - 1539.7200000000003*z[3,3,1] :   0.0 :   True
+        (3, 3, 2) :  -Inf : q[3,3,2] - 1539.7200000000003*z[3,3,2] :   0.0 :   True
+        (3, 4, 1) :  -Inf :            q[3,4,1] - 1634.85*z[3,4,1] :   0.0 :   True
+        (3, 4, 2) :  -Inf :            q[3,4,2] - 1634.85*z[3,4,2] :   0.0 :   True
+        (3, 5, 1) :  -Inf : q[3,5,1] - 1544.2900000000002*z[3,5,1] :   0.0 :   True
+        (3, 5, 2) :  -Inf : q[3,5,2] - 1544.2900000000002*z[3,5,2] :   0.0 :   True
+        (4, 1, 1) :  -Inf :              q[4,1,1] - 760.0*z[4,1,1] :   0.0 :   True
+        (4, 1, 2) :  -Inf :              q[4,1,2] - 760.0*z[4,1,2] :   0.0 :   True
+        (4, 2, 1) :  -Inf :  q[4,2,1] - 647.2099999999999*z[4,2,1] :   0.0 :   True
+        (4, 2, 2) :  -Inf :  q[4,2,2] - 647.2099999999999*z[4,2,2] :   0.0 :   True
+        (4, 3, 1) :  -Inf : q[4,3,1] - 1539.7200000000003*z[4,3,1] :   0.0 :   True
+        (4, 3, 2) :  -Inf : q[4,3,2] - 1539.7200000000003*z[4,3,2] :   0.0 :   True
+        (4, 4, 1) :  -Inf : q[4,4,1] - 1539.7200000000003*z[4,4,1] :   0.0 :   True
+        (4, 4, 2) :  -Inf : q[4,4,2] - 1539.7200000000003*z[4,4,2] :   0.0 :   True
+        (4, 5, 1) :  -Inf : q[4,5,1] - 1539.7200000000003*z[4,5,1] :   0.0 :   True
+        (4, 5, 2) :  -Inf : q[4,5,2] - 1539.7200000000003*z[4,5,2] :   0.0 :   True
+        (5, 1, 1) :  -Inf :              q[5,1,1] - 760.0*z[5,1,1] :   0.0 :   True
+        (5, 1, 2) :  -Inf :              q[5,1,2] - 760.0*z[5,1,2] :   0.0 :   True
+        (5, 2, 1) :  -Inf :  q[5,2,1] - 647.2099999999999*z[5,2,1] :   0.0 :   True
+        (5, 2, 2) :  -Inf :  q[5,2,2] - 647.2099999999999*z[5,2,2] :   0.0 :   True
+        (5, 3, 1) :  -Inf : q[5,3,1] - 1539.7200000000003*z[5,3,1] :   0.0 :   True
+        (5, 3, 2) :  -Inf : q[5,3,2] - 1539.7200000000003*z[5,3,2] :   0.0 :   True
+        (5, 4, 1) :  -Inf :            q[5,4,1] - 1634.85*z[5,4,1] :   0.0 :   True
+        (5, 4, 2) :  -Inf :            q[5,4,2] - 1634.85*z[5,4,2] :   0.0 :   True
+        (5, 5, 1) :  -Inf : q[5,5,1] - 1544.2900000000002*z[5,5,1] :   0.0 :   True
+        (5, 5, 2) :  -Inf : q[5,5,2] - 1544.2900000000002*z[5,5,2] :   0.0 :   True
+    q_cu_big_m : Size=5, Index=HP, Active=True
+        Key : Lower : Body                                 : Upper : Active
+          1 :  -Inf :             q_cu[1] - 586.96*z_cu[1] :   0.0 :   True
+          2 :  -Inf : q_cu[2] - 1177.6599999999999*z_cu[2] :   0.0 :   True
+          3 :  -Inf :            q_cu[3] - 2384.28*z_cu[3] :   0.0 :   True
+          4 :  -Inf : q_cu[4] - 1539.7200000000003*z_cu[4] :   0.0 :   True
+          5 :  -Inf : q_cu[5] - 2359.4100000000003*z_cu[5] :   0.0 :   True
+    q_hu_big_m : Size=5, Index=CP, Active=True
+        Key : Lower : Body                                 : Upper : Active
+          1 :  -Inf :              q_hu[1] - 760.0*z_hu[1] :   0.0 :   True
+          2 :  -Inf :  q_hu[2] - 647.2099999999999*z_hu[2] :   0.0 :   True
+          3 :  -Inf : q_hu[3] - 1539.7200000000003*z_hu[3] :   0.0 :   True
+          4 :  -Inf :            q_hu[4] - 1634.85*z_hu[4] :   0.0 :   True
+          5 :  -Inf : q_hu[5] - 1544.2900000000002*z_hu[5] :   0.0 :   True
+    reclmtd_con : Size=50, Index=HP*CP*ST, Active=True
         Key       : Lower : Body                                                                      : Upper : Active
         (1, 1, 1) :   0.0 : reclmtd[1,1,1] - log(dt[1,1,1]/dt[1,1,2])/(dt[1,1,1] - dt[1,1,2] + 1e-06) :   0.0 :   True
         (1, 1, 2) :   0.0 : reclmtd[1,1,2] - log(dt[1,1,2]/dt[1,1,3])/(dt[1,1,2] - dt[1,1,3] + 1e-06) :   0.0 :   True
         (1, 2, 1) :   0.0 : reclmtd[1,2,1] - log(dt[1,2,1]/dt[1,2,2])/(dt[1,2,1] - dt[1,2,2] + 1e-06) :   0.0 :   True
         (1, 2, 2) :   0.0 : reclmtd[1,2,2] - log(dt[1,2,2]/dt[1,2,3])/(dt[1,2,2] - dt[1,2,3] + 1e-06) :   0.0 :   True
+        (1, 3, 1) :   0.0 : reclmtd[1,3,1] - log(dt[1,3,1]/dt[1,3,2])/(dt[1,3,1] - dt[1,3,2] + 1e-06) :   0.0 :   True
+        (1, 3, 2) :   0.0 : reclmtd[1,3,2] - log(dt[1,3,2]/dt[1,3,3])/(dt[1,3,2] - dt[1,3,3] + 1e-06) :   0.0 :   True
+        (1, 4, 1) :   0.0 : reclmtd[1,4,1] - log(dt[1,4,1]/dt[1,4,2])/(dt[1,4,1] - dt[1,4,2] + 1e-06) :   0.0 :   True
+        (1, 4, 2) :   0.0 : reclmtd[1,4,2] - log(dt[1,4,2]/dt[1,4,3])/(dt[1,4,2] - dt[1,4,3] + 1e-06) :   0.0 :   True
+        (1, 5, 1) :   0.0 : reclmtd[1,5,1] - log(dt[1,5,1]/dt[1,5,2])/(dt[1,5,1] - dt[1,5,2] + 1e-06) :   0.0 :   True
+        (1, 5, 2) :   0.0 : reclmtd[1,5,2] - log(dt[1,5,2]/dt[1,5,3])/(dt[1,5,2] - dt[1,5,3] + 1e-06) :   0.0 :   True
         (2, 1, 1) :   0.0 : reclmtd[2,1,1] - log(dt[2,1,1]/dt[2,1,2])/(dt[2,1,1] - dt[2,1,2] + 1e-06) :   0.0 :   True
         (2, 1, 2) :   0.0 : reclmtd[2,1,2] - log(dt[2,1,2]/dt[2,1,3])/(dt[2,1,2] - dt[2,1,3] + 1e-06) :   0.0 :   True
         (2, 2, 1) :   0.0 : reclmtd[2,2,1] - log(dt[2,2,1]/dt[2,2,2])/(dt[2,2,1] - dt[2,2,2] + 1e-06) :   0.0 :   True
         (2, 2, 2) :   0.0 : reclmtd[2,2,2] - log(dt[2,2,2]/dt[2,2,3])/(dt[2,2,2] - dt[2,2,3] + 1e-06) :   0.0 :   True
-    reclmtd_cu_con : Size=2, Index=HP, Active=True
-        Key : Lower : Body                                                                         : Upper : Active
-          1 :   0.0 : reclmtd_cu[1] - log(0.0030303030303030303*dt_cu[1])/(dt_cu[1] - 330 + 1e-06) :   0.0 :   True
-          2 :   0.0 :  reclmtd_cu[2] - log(0.003703703703703704*dt_cu[2])/(dt_cu[2] - 270 + 1e-06) :   0.0 :   True
-    reclmtd_hu_con : Size=2, Index=CP, Active=True
+        (2, 3, 1) :   0.0 : reclmtd[2,3,1] - log(dt[2,3,1]/dt[2,3,2])/(dt[2,3,1] - dt[2,3,2] + 1e-06) :   0.0 :   True
+        (2, 3, 2) :   0.0 : reclmtd[2,3,2] - log(dt[2,3,2]/dt[2,3,3])/(dt[2,3,2] - dt[2,3,3] + 1e-06) :   0.0 :   True
+        (2, 4, 1) :   0.0 : reclmtd[2,4,1] - log(dt[2,4,1]/dt[2,4,2])/(dt[2,4,1] - dt[2,4,2] + 1e-06) :   0.0 :   True
+        (2, 4, 2) :   0.0 : reclmtd[2,4,2] - log(dt[2,4,2]/dt[2,4,3])/(dt[2,4,2] - dt[2,4,3] + 1e-06) :   0.0 :   True
+        (2, 5, 1) :   0.0 : reclmtd[2,5,1] - log(dt[2,5,1]/dt[2,5,2])/(dt[2,5,1] - dt[2,5,2] + 1e-06) :   0.0 :   True
+        (2, 5, 2) :   0.0 : reclmtd[2,5,2] - log(dt[2,5,2]/dt[2,5,3])/(dt[2,5,2] - dt[2,5,3] + 1e-06) :   0.0 :   True
+        (3, 1, 1) :   0.0 : reclmtd[3,1,1] - log(dt[3,1,1]/dt[3,1,2])/(dt[3,1,1] - dt[3,1,2] + 1e-06) :   0.0 :   True
+        (3, 1, 2) :   0.0 : reclmtd[3,1,2] - log(dt[3,1,2]/dt[3,1,3])/(dt[3,1,2] - dt[3,1,3] + 1e-06) :   0.0 :   True
+        (3, 2, 1) :   0.0 : reclmtd[3,2,1] - log(dt[3,2,1]/dt[3,2,2])/(dt[3,2,1] - dt[3,2,2] + 1e-06) :   0.0 :   True
+        (3, 2, 2) :   0.0 : reclmtd[3,2,2] - log(dt[3,2,2]/dt[3,2,3])/(dt[3,2,2] - dt[3,2,3] + 1e-06) :   0.0 :   True
+        (3, 3, 1) :   0.0 : reclmtd[3,3,1] - log(dt[3,3,1]/dt[3,3,2])/(dt[3,3,1] - dt[3,3,2] + 1e-06) :   0.0 :   True
+        (3, 3, 2) :   0.0 : reclmtd[3,3,2] - log(dt[3,3,2]/dt[3,3,3])/(dt[3,3,2] - dt[3,3,3] + 1e-06) :   0.0 :   True
+        (3, 4, 1) :   0.0 : reclmtd[3,4,1] - log(dt[3,4,1]/dt[3,4,2])/(dt[3,4,1] - dt[3,4,2] + 1e-06) :   0.0 :   True
+        (3, 4, 2) :   0.0 : reclmtd[3,4,2] - log(dt[3,4,2]/dt[3,4,3])/(dt[3,4,2] - dt[3,4,3] + 1e-06) :   0.0 :   True
+        (3, 5, 1) :   0.0 : reclmtd[3,5,1] - log(dt[3,5,1]/dt[3,5,2])/(dt[3,5,1] - dt[3,5,2] + 1e-06) :   0.0 :   True
+        (3, 5, 2) :   0.0 : reclmtd[3,5,2] - log(dt[3,5,2]/dt[3,5,3])/(dt[3,5,2] - dt[3,5,3] + 1e-06) :   0.0 :   True
+        (4, 1, 1) :   0.0 : reclmtd[4,1,1] - log(dt[4,1,1]/dt[4,1,2])/(dt[4,1,1] - dt[4,1,2] + 1e-06) :   0.0 :   True
+        (4, 1, 2) :   0.0 : reclmtd[4,1,2] - log(dt[4,1,2]/dt[4,1,3])/(dt[4,1,2] - dt[4,1,3] + 1e-06) :   0.0 :   True
+        (4, 2, 1) :   0.0 : reclmtd[4,2,1] - log(dt[4,2,1]/dt[4,2,2])/(dt[4,2,1] - dt[4,2,2] + 1e-06) :   0.0 :   True
+        (4, 2, 2) :   0.0 : reclmtd[4,2,2] - log(dt[4,2,2]/dt[4,2,3])/(dt[4,2,2] - dt[4,2,3] + 1e-06) :   0.0 :   True
+        (4, 3, 1) :   0.0 : reclmtd[4,3,1] - log(dt[4,3,1]/dt[4,3,2])/(dt[4,3,1] - dt[4,3,2] + 1e-06) :   0.0 :   True
+        (4, 3, 2) :   0.0 : reclmtd[4,3,2] - log(dt[4,3,2]/dt[4,3,3])/(dt[4,3,2] - dt[4,3,3] + 1e-06) :   0.0 :   True
+        (4, 4, 1) :   0.0 : reclmtd[4,4,1] - log(dt[4,4,1]/dt[4,4,2])/(dt[4,4,1] - dt[4,4,2] + 1e-06) :   0.0 :   True
+        (4, 4, 2) :   0.0 : reclmtd[4,4,2] - log(dt[4,4,2]/dt[4,4,3])/(dt[4,4,2] - dt[4,4,3] + 1e-06) :   0.0 :   True
+        (4, 5, 1) :   0.0 : reclmtd[4,5,1] - log(dt[4,5,1]/dt[4,5,2])/(dt[4,5,1] - dt[4,5,2] + 1e-06) :   0.0 :   True
+        (4, 5, 2) :   0.0 : reclmtd[4,5,2] - log(dt[4,5,2]/dt[4,5,3])/(dt[4,5,2] - dt[4,5,3] + 1e-06) :   0.0 :   True
+        (5, 1, 1) :   0.0 : reclmtd[5,1,1] - log(dt[5,1,1]/dt[5,1,2])/(dt[5,1,1] - dt[5,1,2] + 1e-06) :   0.0 :   True
+        (5, 1, 2) :   0.0 : reclmtd[5,1,2] - log(dt[5,1,2]/dt[5,1,3])/(dt[5,1,2] - dt[5,1,3] + 1e-06) :   0.0 :   True
+        (5, 2, 1) :   0.0 : reclmtd[5,2,1] - log(dt[5,2,1]/dt[5,2,2])/(dt[5,2,1] - dt[5,2,2] + 1e-06) :   0.0 :   True
+        (5, 2, 2) :   0.0 : reclmtd[5,2,2] - log(dt[5,2,2]/dt[5,2,3])/(dt[5,2,2] - dt[5,2,3] + 1e-06) :   0.0 :   True
+        (5, 3, 1) :   0.0 : reclmtd[5,3,1] - log(dt[5,3,1]/dt[5,3,2])/(dt[5,3,1] - dt[5,3,2] + 1e-06) :   0.0 :   True
+        (5, 3, 2) :   0.0 : reclmtd[5,3,2] - log(dt[5,3,2]/dt[5,3,3])/(dt[5,3,2] - dt[5,3,3] + 1e-06) :   0.0 :   True
+        (5, 4, 1) :   0.0 : reclmtd[5,4,1] - log(dt[5,4,1]/dt[5,4,2])/(dt[5,4,1] - dt[5,4,2] + 1e-06) :   0.0 :   True
+        (5, 4, 2) :   0.0 : reclmtd[5,4,2] - log(dt[5,4,2]/dt[5,4,3])/(dt[5,4,2] - dt[5,4,3] + 1e-06) :   0.0 :   True
+        (5, 5, 1) :   0.0 : reclmtd[5,5,1] - log(dt[5,5,1]/dt[5,5,2])/(dt[5,5,1] - dt[5,5,2] + 1e-06) :   0.0 :   True
+        (5, 5, 2) :   0.0 : reclmtd[5,5,2] - log(dt[5,5,2]/dt[5,5,3])/(dt[5,5,2] - dt[5,5,3] + 1e-06) :   0.0 :   True
+    reclmtd_cu_con : Size=5, Index=HP, Active=True
+        Key : Lower : Body                                                                                       : Upper : Active
+          1 :   0.0 :                reclmtd_cu[1] - log(0.008333333333333333*dt_cu[1])/(dt_cu[1] - 120 + 1e-06) :   0.0 :   True
+          2 :   0.0 :              reclmtd_cu[2] - log(0.004786979415988511*dt_cu[2])/(dt_cu[2] - 208.9 + 1e-06) :   0.0 :   True
+          3 :   0.0 :              reclmtd_cu[3] - log(0.005356186395286557*dt_cu[3])/(dt_cu[3] - 186.7 + 1e-06) :   0.0 :   True
+          4 :   0.0 : reclmtd_cu[4] - log(0.004327131112072695*dt_cu[4])/(dt_cu[4] - 231.10000000000002 + 1e-06) :   0.0 :   True
+          5 :   0.0 :              reclmtd_cu[5] - log(0.006293266205160478*dt_cu[5])/(dt_cu[5] - 158.9 + 1e-06) :   0.0 :   True
+    reclmtd_hu_con : Size=5, Index=CP, Active=True
         Key : Lower : Body                                                                                 : Upper : Active
-          1 :   0.0 : reclmtd_hu[1] - log(dt_hu[1]/(680 - dt_hu[1]))/(dt_hu[1] - (680 - dt_hu[1]) + 1e-06) :   0.0 :   True
-          2 :   0.0 : reclmtd_hu[2] - log(dt_hu[2]/(680 - dt_hu[2]))/(dt_hu[2] - (680 - dt_hu[2]) + 1e-06) :   0.0 :   True
-    temp_app_cu : Size=2, Index=HP, Active=True
+          1 :   0.0 : reclmtd_hu[1] - log(dt_hu[1]/(240 - dt_hu[1]))/(dt_hu[1] - (240 - dt_hu[1]) + 1e-06) :   0.0 :   True
+          2 :   0.0 : reclmtd_hu[2] - log(dt_hu[2]/(240 - dt_hu[2]))/(dt_hu[2] - (240 - dt_hu[2]) + 1e-06) :   0.0 :   True
+          3 :   0.0 : reclmtd_hu[3] - log(dt_hu[3]/(240 - dt_hu[3]))/(dt_hu[3] - (240 - dt_hu[3]) + 1e-06) :   0.0 :   True
+          4 :   0.0 : reclmtd_hu[4] - log(dt_hu[4]/(240 - dt_hu[4]))/(dt_hu[4] - (240 - dt_hu[4]) + 1e-06) :   0.0 :   True
+          5 :   0.0 : reclmtd_hu[5] - log(dt_hu[5]/(240 - dt_hu[5]))/(dt_hu[5] - (240 - dt_hu[5]) + 1e-06) :   0.0 :   True
+    temp_app_cu : Size=5, Index=HP, Active=True
+        Key : Lower : Body                      : Upper : Active
+          1 :  -Inf : dt_cu[1] - (th[1,3] - 40) :   0.0 :   True
+          2 :  -Inf : dt_cu[2] - (th[2,3] - 40) :   0.0 :   True
+          3 :  -Inf : dt_cu[3] - (th[3,3] - 40) :   0.0 :   True
+          4 :  -Inf : dt_cu[4] - (th[4,3] - 40) :   0.0 :   True
+          5 :  -Inf : dt_cu[5] - (th[5,3] - 40) :   0.0 :   True
+    temp_app_hu : Size=5, Index=CP, Active=True
         Key : Lower : Body                       : Upper : Active
-          1 :  -Inf : dt_cu[1] - (th[1,3] - 320) :   0.0 :   True
-          2 :  -Inf : dt_cu[2] - (th[2,3] - 320) :   0.0 :   True
-    temp_app_hu : Size=2, Index=CP, Active=True
-        Key : Lower : Body                       : Upper : Active
-          1 :  -Inf : dt_hu[1] - (680 - tc[1,1]) :   0.0 :   True
-          2 :  -Inf : dt_hu[2] - (680 - tc[2,1]) :   0.0 :   True
-    temp_app_in : Size=8, Index=HP*CP*ST, Active=True
-        Key       : Lower : Body                                                 : Upper : Active
-        (1, 1, 1) :  -Inf : dt[1,1,1] - (th[1,1] - tc[1,1] + 280*(1 - z[1,1,1])) :   0.0 :   True
-        (1, 1, 2) :  -Inf : dt[1,1,2] - (th[1,2] - tc[1,2] + 280*(1 - z[1,1,2])) :   0.0 :   True
-        (1, 2, 1) :  -Inf : dt[1,2,1] - (th[1,1] - tc[2,1] + 130*(1 - z[1,2,1])) :   0.0 :   True
-        (1, 2, 2) :  -Inf : dt[1,2,2] - (th[1,2] - tc[2,2] + 130*(1 - z[1,2,2])) :   0.0 :   True
-        (2, 1, 1) :  -Inf : dt[2,1,1] - (th[2,1] - tc[1,1] + 280*(1 - z[2,1,1])) :   0.0 :   True
-        (2, 1, 2) :  -Inf : dt[2,1,2] - (th[2,2] - tc[1,2] + 280*(1 - z[2,1,2])) :   0.0 :   True
-        (2, 2, 1) :  -Inf : dt[2,2,1] - (th[2,1] - tc[2,1] + 130*(1 - z[2,2,1])) :   0.0 :   True
-        (2, 2, 2) :  -Inf : dt[2,2,2] - (th[2,2] - tc[2,2] + 130*(1 - z[2,2,2])) :   0.0 :   True
-    temp_app_out : Size=8, Index=HP*CP*ST, Active=True
-        Key       : Lower : Body                                                 : Upper : Active
-        (1, 1, 1) :  -Inf : dt[1,1,2] - (th[1,2] - tc[1,2] + 280*(1 - z[1,1,1])) :   0.0 :   True
-        (1, 1, 2) :  -Inf : dt[1,1,3] - (th[1,3] - tc[1,3] + 280*(1 - z[1,1,2])) :   0.0 :   True
-        (1, 2, 1) :  -Inf : dt[1,2,2] - (th[1,2] - tc[2,2] + 130*(1 - z[1,2,1])) :   0.0 :   True
-        (1, 2, 2) :  -Inf : dt[1,2,3] - (th[1,3] - tc[2,3] + 130*(1 - z[1,2,2])) :   0.0 :   True
-        (2, 1, 1) :  -Inf : dt[2,1,2] - (th[2,2] - tc[1,2] + 280*(1 - z[2,1,1])) :   0.0 :   True
-        (2, 1, 2) :  -Inf : dt[2,1,3] - (th[2,3] - tc[1,3] + 280*(1 - z[2,1,2])) :   0.0 :   True
-        (2, 2, 1) :  -Inf : dt[2,2,2] - (th[2,2] - tc[2,2] + 130*(1 - z[2,2,1])) :   0.0 :   True
-        (2, 2, 2) :  -Inf : dt[2,2,3] - (th[2,3] - tc[2,3] + 130*(1 - z[2,2,2])) :   0.0 :   True
+          1 :  -Inf : dt_hu[1] - (240 - tc[1,1]) :   0.0 :   True
+          2 :  -Inf : dt_hu[2] - (240 - tc[2,1]) :   0.0 :   True
+          3 :  -Inf : dt_hu[3] - (240 - tc[3,1]) :   0.0 :   True
+          4 :  -Inf : dt_hu[4] - (240 - tc[4,1]) :   0.0 :   True
+          5 :  -Inf : dt_hu[5] - (240 - tc[5,1]) :   0.0 :   True
+    temp_app_in : Size=50, Index=HP*CP*ST, Active=True
+        Key       : Lower : Body                                                                : Upper : Active
+        (1, 1, 1) :  -Inf :               dt[1,1,1] - (th[1,1] - tc[1,1] + 66.7*(1 - z[1,1,1])) :   0.0 :   True
+        (1, 1, 2) :  -Inf :               dt[1,1,2] - (th[1,2] - tc[1,2] + 66.7*(1 - z[1,1,2])) :   0.0 :   True
+        (1, 2, 1) :  -Inf : dt[1,2,1] - (th[1,1] - tc[2,1] + 128.39999999999998*(1 - z[1,2,1])) :   0.0 :   True
+        (1, 2, 2) :  -Inf : dt[1,2,2] - (th[1,2] - tc[2,2] + 128.39999999999998*(1 - z[1,2,2])) :   0.0 :   True
+        (1, 3, 1) :  -Inf :              dt[1,3,1] - (th[1,1] - tc[3,1] + 127.8*(1 - z[1,3,1])) :   0.0 :   True
+        (1, 3, 2) :  -Inf :              dt[1,3,2] - (th[1,2] - tc[3,2] + 127.8*(1 - z[1,3,2])) :   0.0 :   True
+        (1, 4, 1) :  -Inf :  dt[1,4,1] - (th[1,1] - tc[4,1] + 83.39999999999999*(1 - z[1,4,1])) :   0.0 :   True
+        (1, 4, 2) :  -Inf :  dt[1,4,2] - (th[1,2] - tc[4,2] + 83.39999999999999*(1 - z[1,4,2])) :   0.0 :   True
+        (1, 5, 1) :  -Inf : dt[1,5,1] - (th[1,1] - tc[5,1] + 111.10000000000001*(1 - z[1,5,1])) :   0.0 :   True
+        (1, 5, 2) :  -Inf : dt[1,5,2] - (th[1,2] - tc[5,2] + 111.10000000000001*(1 - z[1,5,2])) :   0.0 :   True
+        (2, 1, 1) :  -Inf :  dt[2,1,1] - (th[2,1] - tc[1,1] + 22.19999999999999*(1 - z[2,1,1])) :   0.0 :   True
+        (2, 1, 2) :  -Inf :  dt[2,1,2] - (th[2,2] - tc[1,2] + 22.19999999999999*(1 - z[2,1,2])) :   0.0 :   True
+        (2, 2, 1) :  -Inf :  dt[2,2,1] - (th[2,1] - tc[2,1] + 83.89999999999998*(1 - z[2,2,1])) :   0.0 :   True
+        (2, 2, 2) :  -Inf :  dt[2,2,2] - (th[2,2] - tc[2,2] + 83.89999999999998*(1 - z[2,2,2])) :   0.0 :   True
+        (2, 3, 1) :  -Inf :  dt[2,3,1] - (th[2,1] - tc[3,1] + 83.29999999999998*(1 - z[2,3,1])) :   0.0 :   True
+        (2, 3, 2) :  -Inf :  dt[2,3,2] - (th[2,2] - tc[3,2] + 83.29999999999998*(1 - z[2,3,2])) :   0.0 :   True
+        (2, 4, 1) :  -Inf :  dt[2,4,1] - (th[2,1] - tc[4,1] + 38.89999999999998*(1 - z[2,4,1])) :   0.0 :   True
+        (2, 4, 2) :  -Inf :  dt[2,4,2] - (th[2,2] - tc[4,2] + 38.89999999999998*(1 - z[2,4,2])) :   0.0 :   True
+        (2, 5, 1) :  -Inf :               dt[2,5,1] - (th[2,1] - tc[5,1] + 66.6*(1 - z[2,5,1])) :   0.0 :   True
+        (2, 5, 2) :  -Inf :               dt[2,5,2] - (th[2,2] - tc[5,2] + 66.6*(1 - z[2,5,2])) :   0.0 :   True
+        (3, 1, 1) :  -Inf :               dt[3,1,1] - (th[3,1] - tc[1,1] + 94.4*(1 - z[3,1,1])) :   0.0 :   True
+        (3, 1, 2) :  -Inf :               dt[3,1,2] - (th[3,2] - tc[1,2] + 94.4*(1 - z[3,1,2])) :   0.0 :   True
+        (3, 2, 1) :  -Inf :              dt[3,2,1] - (th[3,1] - tc[2,1] + 156.1*(1 - z[3,2,1])) :   0.0 :   True
+        (3, 2, 2) :  -Inf :              dt[3,2,2] - (th[3,2] - tc[2,2] + 156.1*(1 - z[3,2,2])) :   0.0 :   True
+        (3, 3, 1) :  -Inf :              dt[3,3,1] - (th[3,1] - tc[3,1] + 155.5*(1 - z[3,3,1])) :   0.0 :   True
+        (3, 3, 2) :  -Inf :              dt[3,3,2] - (th[3,2] - tc[3,2] + 155.5*(1 - z[3,3,2])) :   0.0 :   True
+        (3, 4, 1) :  -Inf :              dt[3,4,1] - (th[3,1] - tc[4,1] + 111.1*(1 - z[3,4,1])) :   0.0 :   True
+        (3, 4, 2) :  -Inf :              dt[3,4,2] - (th[3,2] - tc[4,2] + 111.1*(1 - z[3,4,2])) :   0.0 :   True
+        (3, 5, 1) :  -Inf :              dt[3,5,1] - (th[3,1] - tc[5,1] + 138.8*(1 - z[3,5,1])) :   0.0 :   True
+        (3, 5, 2) :  -Inf :              dt[3,5,2] - (th[3,2] - tc[5,2] + 138.8*(1 - z[3,5,2])) :   0.0 :   True
+        (4, 1, 1) :  -Inf : dt[4,1,1] - (th[4,1] - tc[1,1] + 11.099999999999994*(1 - z[4,1,1])) :   0.0 :   True
+        (4, 1, 2) :  -Inf : dt[4,1,2] - (th[4,2] - tc[1,2] + 11.099999999999994*(1 - z[4,1,2])) :   0.0 :   True
+        (4, 2, 1) :  -Inf :  dt[4,2,1] - (th[4,1] - tc[2,1] + 72.79999999999998*(1 - z[4,2,1])) :   0.0 :   True
+        (4, 2, 2) :  -Inf :  dt[4,2,2] - (th[4,2] - tc[2,2] + 72.79999999999998*(1 - z[4,2,2])) :   0.0 :   True
+        (4, 3, 1) :  -Inf :  dt[4,3,1] - (th[4,1] - tc[3,1] + 72.19999999999999*(1 - z[4,3,1])) :   0.0 :   True
+        (4, 3, 2) :  -Inf :  dt[4,3,2] - (th[4,2] - tc[3,2] + 72.19999999999999*(1 - z[4,3,2])) :   0.0 :   True
+        (4, 4, 1) :  -Inf : dt[4,4,1] - (th[4,1] - tc[4,1] + 27.799999999999983*(1 - z[4,4,1])) :   0.0 :   True
+        (4, 4, 2) :  -Inf : dt[4,4,2] - (th[4,2] - tc[4,2] + 27.799999999999983*(1 - z[4,4,2])) :   0.0 :   True
+        (4, 5, 1) :  -Inf :               dt[4,5,1] - (th[4,1] - tc[5,1] + 55.5*(1 - z[4,5,1])) :   0.0 :   True
+        (4, 5, 2) :  -Inf :               dt[4,5,2] - (th[4,2] - tc[5,2] + 55.5*(1 - z[4,5,2])) :   0.0 :   True
+        (5, 1, 1) :  -Inf :               dt[5,1,1] - (th[5,1] - tc[1,1] + 94.4*(1 - z[5,1,1])) :   0.0 :   True
+        (5, 1, 2) :  -Inf :               dt[5,1,2] - (th[5,2] - tc[1,2] + 94.4*(1 - z[5,1,2])) :   0.0 :   True
+        (5, 2, 1) :  -Inf :              dt[5,2,1] - (th[5,1] - tc[2,1] + 156.1*(1 - z[5,2,1])) :   0.0 :   True
+        (5, 2, 2) :  -Inf :              dt[5,2,2] - (th[5,2] - tc[2,2] + 156.1*(1 - z[5,2,2])) :   0.0 :   True
+        (5, 3, 1) :  -Inf :              dt[5,3,1] - (th[5,1] - tc[3,1] + 155.5*(1 - z[5,3,1])) :   0.0 :   True
+        (5, 3, 2) :  -Inf :              dt[5,3,2] - (th[5,2] - tc[3,2] + 155.5*(1 - z[5,3,2])) :   0.0 :   True
+        (5, 4, 1) :  -Inf :              dt[5,4,1] - (th[5,1] - tc[4,1] + 111.1*(1 - z[5,4,1])) :   0.0 :   True
+        (5, 4, 2) :  -Inf :              dt[5,4,2] - (th[5,2] - tc[4,2] + 111.1*(1 - z[5,4,2])) :   0.0 :   True
+        (5, 5, 1) :  -Inf :              dt[5,5,1] - (th[5,1] - tc[5,1] + 138.8*(1 - z[5,5,1])) :   0.0 :   True
+        (5, 5, 2) :  -Inf :              dt[5,5,2] - (th[5,2] - tc[5,2] + 138.8*(1 - z[5,5,2])) :   0.0 :   True
+    temp_app_out : Size=50, Index=HP*CP*ST, Active=True
+        Key       : Lower : Body                                                                : Upper : Active
+        (1, 1, 1) :  -Inf :               dt[1,1,2] - (th[1,2] - tc[1,2] + 66.7*(1 - z[1,1,1])) :   0.0 :   True
+        (1, 1, 2) :  -Inf :               dt[1,1,3] - (th[1,3] - tc[1,3] + 66.7*(1 - z[1,1,2])) :   0.0 :   True
+        (1, 2, 1) :  -Inf : dt[1,2,2] - (th[1,2] - tc[2,2] + 128.39999999999998*(1 - z[1,2,1])) :   0.0 :   True
+        (1, 2, 2) :  -Inf : dt[1,2,3] - (th[1,3] - tc[2,3] + 128.39999999999998*(1 - z[1,2,2])) :   0.0 :   True
+        (1, 3, 1) :  -Inf :              dt[1,3,2] - (th[1,2] - tc[3,2] + 127.8*(1 - z[1,3,1])) :   0.0 :   True
+        (1, 3, 2) :  -Inf :              dt[1,3,3] - (th[1,3] - tc[3,3] + 127.8*(1 - z[1,3,2])) :   0.0 :   True
+        (1, 4, 1) :  -Inf :  dt[1,4,2] - (th[1,2] - tc[4,2] + 83.39999999999999*(1 - z[1,4,1])) :   0.0 :   True
+        (1, 4, 2) :  -Inf :  dt[1,4,3] - (th[1,3] - tc[4,3] + 83.39999999999999*(1 - z[1,4,2])) :   0.0 :   True
+        (1, 5, 1) :  -Inf : dt[1,5,2] - (th[1,2] - tc[5,2] + 111.10000000000001*(1 - z[1,5,1])) :   0.0 :   True
+        (1, 5, 2) :  -Inf : dt[1,5,3] - (th[1,3] - tc[5,3] + 111.10000000000001*(1 - z[1,5,2])) :   0.0 :   True
+        (2, 1, 1) :  -Inf :  dt[2,1,2] - (th[2,2] - tc[1,2] + 22.19999999999999*(1 - z[2,1,1])) :   0.0 :   True
+        (2, 1, 2) :  -Inf :  dt[2,1,3] - (th[2,3] - tc[1,3] + 22.19999999999999*(1 - z[2,1,2])) :   0.0 :   True
+        (2, 2, 1) :  -Inf :  dt[2,2,2] - (th[2,2] - tc[2,2] + 83.89999999999998*(1 - z[2,2,1])) :   0.0 :   True
+        (2, 2, 2) :  -Inf :  dt[2,2,3] - (th[2,3] - tc[2,3] + 83.89999999999998*(1 - z[2,2,2])) :   0.0 :   True
+        (2, 3, 1) :  -Inf :  dt[2,3,2] - (th[2,2] - tc[3,2] + 83.29999999999998*(1 - z[2,3,1])) :   0.0 :   True
+        (2, 3, 2) :  -Inf :  dt[2,3,3] - (th[2,3] - tc[3,3] + 83.29999999999998*(1 - z[2,3,2])) :   0.0 :   True
+        (2, 4, 1) :  -Inf :  dt[2,4,2] - (th[2,2] - tc[4,2] + 38.89999999999998*(1 - z[2,4,1])) :   0.0 :   True
+        (2, 4, 2) :  -Inf :  dt[2,4,3] - (th[2,3] - tc[4,3] + 38.89999999999998*(1 - z[2,4,2])) :   0.0 :   True
+        (2, 5, 1) :  -Inf :               dt[2,5,2] - (th[2,2] - tc[5,2] + 66.6*(1 - z[2,5,1])) :   0.0 :   True
+        (2, 5, 2) :  -Inf :               dt[2,5,3] - (th[2,3] - tc[5,3] + 66.6*(1 - z[2,5,2])) :   0.0 :   True
+        (3, 1, 1) :  -Inf :               dt[3,1,2] - (th[3,2] - tc[1,2] + 94.4*(1 - z[3,1,1])) :   0.0 :   True
+        (3, 1, 2) :  -Inf :               dt[3,1,3] - (th[3,3] - tc[1,3] + 94.4*(1 - z[3,1,2])) :   0.0 :   True
+        (3, 2, 1) :  -Inf :              dt[3,2,2] - (th[3,2] - tc[2,2] + 156.1*(1 - z[3,2,1])) :   0.0 :   True
+        (3, 2, 2) :  -Inf :              dt[3,2,3] - (th[3,3] - tc[2,3] + 156.1*(1 - z[3,2,2])) :   0.0 :   True
+        (3, 3, 1) :  -Inf :              dt[3,3,2] - (th[3,2] - tc[3,2] + 155.5*(1 - z[3,3,1])) :   0.0 :   True
+        (3, 3, 2) :  -Inf :              dt[3,3,3] - (th[3,3] - tc[3,3] + 155.5*(1 - z[3,3,2])) :   0.0 :   True
+        (3, 4, 1) :  -Inf :              dt[3,4,2] - (th[3,2] - tc[4,2] + 111.1*(1 - z[3,4,1])) :   0.0 :   True
+        (3, 4, 2) :  -Inf :              dt[3,4,3] - (th[3,3] - tc[4,3] + 111.1*(1 - z[3,4,2])) :   0.0 :   True
+        (3, 5, 1) :  -Inf :              dt[3,5,2] - (th[3,2] - tc[5,2] + 138.8*(1 - z[3,5,1])) :   0.0 :   True
+        (3, 5, 2) :  -Inf :              dt[3,5,3] - (th[3,3] - tc[5,3] + 138.8*(1 - z[3,5,2])) :   0.0 :   True
+        (4, 1, 1) :  -Inf : dt[4,1,2] - (th[4,2] - tc[1,2] + 11.099999999999994*(1 - z[4,1,1])) :   0.0 :   True
+        (4, 1, 2) :  -Inf : dt[4,1,3] - (th[4,3] - tc[1,3] + 11.099999999999994*(1 - z[4,1,2])) :   0.0 :   True
+        (4, 2, 1) :  -Inf :  dt[4,2,2] - (th[4,2] - tc[2,2] + 72.79999999999998*(1 - z[4,2,1])) :   0.0 :   True
+        (4, 2, 2) :  -Inf :  dt[4,2,3] - (th[4,3] - tc[2,3] + 72.79999999999998*(1 - z[4,2,2])) :   0.0 :   True
+        (4, 3, 1) :  -Inf :  dt[4,3,2] - (th[4,2] - tc[3,2] + 72.19999999999999*(1 - z[4,3,1])) :   0.0 :   True
+        (4, 3, 2) :  -Inf :  dt[4,3,3] - (th[4,3] - tc[3,3] + 72.19999999999999*(1 - z[4,3,2])) :   0.0 :   True
+        (4, 4, 1) :  -Inf : dt[4,4,2] - (th[4,2] - tc[4,2] + 27.799999999999983*(1 - z[4,4,1])) :   0.0 :   True
+        (4, 4, 2) :  -Inf : dt[4,4,3] - (th[4,3] - tc[4,3] + 27.799999999999983*(1 - z[4,4,2])) :   0.0 :   True
+        (4, 5, 1) :  -Inf :               dt[4,5,2] - (th[4,2] - tc[5,2] + 55.5*(1 - z[4,5,1])) :   0.0 :   True
+        (4, 5, 2) :  -Inf :               dt[4,5,3] - (th[4,3] - tc[5,3] + 55.5*(1 - z[4,5,2])) :   0.0 :   True
+        (5, 1, 1) :  -Inf :               dt[5,1,2] - (th[5,2] - tc[1,2] + 94.4*(1 - z[5,1,1])) :   0.0 :   True
+        (5, 1, 2) :  -Inf :               dt[5,1,3] - (th[5,3] - tc[1,3] + 94.4*(1 - z[5,1,2])) :   0.0 :   True
+        (5, 2, 1) :  -Inf :              dt[5,2,2] - (th[5,2] - tc[2,2] + 156.1*(1 - z[5,2,1])) :   0.0 :   True
+        (5, 2, 2) :  -Inf :              dt[5,2,3] - (th[5,3] - tc[2,3] + 156.1*(1 - z[5,2,2])) :   0.0 :   True
+        (5, 3, 1) :  -Inf :              dt[5,3,2] - (th[5,2] - tc[3,2] + 155.5*(1 - z[5,3,1])) :   0.0 :   True
+        (5, 3, 2) :  -Inf :              dt[5,3,3] - (th[5,3] - tc[3,3] + 155.5*(1 - z[5,3,2])) :   0.0 :   True
+        (5, 4, 1) :  -Inf :              dt[5,4,2] - (th[5,2] - tc[4,2] + 111.1*(1 - z[5,4,1])) :   0.0 :   True
+        (5, 4, 2) :  -Inf :              dt[5,4,3] - (th[5,3] - tc[4,3] + 111.1*(1 - z[5,4,2])) :   0.0 :   True
+        (5, 5, 1) :  -Inf :              dt[5,5,2] - (th[5,2] - tc[5,2] + 138.8*(1 - z[5,5,1])) :   0.0 :   True
+        (5, 5, 2) :  -Inf :              dt[5,5,3] - (th[5,3] - tc[5,3] + 138.8*(1 - z[5,5,2])) :   0.0 :   True
 
 101 Declarations: Alpha Beta Cost_hx Cost_cu Cost_hu Delta_t_min Number_stages Number_hot_stream Number_cold_stream First_stage Last_stage HP CP ST K First_Stage_Set K_Take_First_Stage Fh Fc Hh Hc H_cu H_hu Th_in Tc_in Th_out Tc_out T_cu_in T_cu_out T_hu_in T_hu_out Reclmtd_gradient_points Reclmtd_cu_gradient_points Reclmtd_hu_gradient_points U U_cu U_hu Ech Ecc Omega_ij Omega_i Omega_j Gamma Epsilon area area_cu area_hu area_beta area_cu_beta area_hu_beta fh fc thx tcx dt dt_cu dt_hu q q_cu q_hu th tc z z_cu z_hu dt_diff_abs reclmtd reclmtd_cu reclmtd_hu TAC overall_heat_balance_hot overall_heat_balance_cold mass_balance_hot mass_balance_cold energy_balance_hot energy_balance_cold energy_balance_cu energy_balance_hu hot_inlet cold_inlet decreasing_hot decreasing_cold hot_upper_bound cold_lower_bound q_big_m q_cu_big_m q_hu_big_m temp_app_in temp_app_out temp_app_cu temp_app_hu reclmtd_con reclmtd_cu_con reclmtd_hu_con area_con area_beta_rule_con area_cu_con area_cu_beta_rule_con area_hu_con area_hu_beta_rule_con dt_difference_con
