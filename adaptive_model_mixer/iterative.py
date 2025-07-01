@@ -13,7 +13,7 @@ from lib.iterations_helper import *
 from lib.results_generator.results_builder import build_heat_exchanger_results
 from lib.constants import *
 
-
+    
 def can_terminate_absolute(epsilons, max_errors):
     if epsilons[balancing_ref] <= max_errors[balancing_ref][absolute_error]:
         return False
@@ -97,7 +97,7 @@ else:
         opt.options[ 'MarkowitzTol' ] = args.MarkowitzTol
         tolerances[ 'MarkowitzTol' ] = args.MarkowitzTol
 
-model = initialise_hx_model(datafile)
+
 
 warmstart = False
 
@@ -133,123 +133,188 @@ iterations = 1
 
 new_points = copy.deepcopy(get_all_points())
 
-output_file.write('Running:\n')
-output_file.write('\tAdaptive Model\n')
-output_file.write('\t' + args.model + '\n')
-output_file.write('on: '+ socket.gethostname() + '\n\n')
-
+# output_file.write('Running:\n')
+# output_file.write('\tAdaptive Model\n')
+# output_file.write('\t' + args.model + '\n')
+# output_file.write('on: '+ socket.gethostname() + '\n\n')
+_ = initialise_hx_model(datafile)
 iter_finish = start
+model     = create_model()                # Abstract
+instance  = model.create_instance(datafile)
 
-for run in range(1, maxIters):
+for run in range(1, maxIters + 1):    # (+1 so “maxIters” is inclusive)
     iter_start = iter_finish
+    print(f'Running iteration {run}')
 
-    print('Running iteration ', run)
-
-    instance = model.create_instance(datafile)
-    output_file.write('----------------------------------\n')
-    output_file.write('---- Run: ' + str(run) + '\n')
-    output_file.write('----------------------------------\n')
-
-    opt.options[ 'LogFile' ] = os.path.join(folders[ logs_folder ], 'gur' + str(run).zfill(len(str(maxIters))) + '.log')
-
+    # --------------------------------------------------------------
+    # 1. Solve current instance
+    # --------------------------------------------------------------
+    opt.options['LogFile'] = os.path.join(
+        folders[logs_folder], f'gur{run:0{len(str(maxIters))}d}.log'
+    )
     results = opt.solve(instance, tee=True)
-
     instance.solutions.load_from(results)
 
-    old_points = new_points
+    # --------------------------------------------------------------
+    # 2. Analyse results → update GLOBAL dicts
+    # --------------------------------------------------------------
+    active_hx, inactive_hx          = get_active_hx(instance)
+    new_tangent_points              = get_new_tangent_points(instance, active_hx)
+    added_tangents                  = add_new_tangent_points(new_tangent_points)
+    new_q_breakpoints               = get_new_q_breakpoints(instance, active_hx)
+    new_beta_breakpoints            = get_new_beta_breakpoints(instance, active_hx)
+    new_balancing_breakpoints       = get_new_balancing_breakpoints(
+                                          instance, active_hx, inactive_hx,
+                                          args.weaken)
 
-    active_hx, inactive_hx         = get_active_hx(instance)
+    # ( … logging, TAC printing, termination checks … )
 
-    new_tangent_points = get_new_tangent_points(instance, active_hx)
-    added_tangents    = add_new_tangent_points(new_tangent_points)
-    new_q_breakpoints = get_new_q_breakpoints(instance, active_hx)
-    new_beta_breakpoints = get_new_beta_breakpoints(instance, active_hx)
-    new_balancing_breakpoints = get_new_balancing_breakpoints(instance, active_hx, inactive_hx, args.weaken)
-
-    new_points = copy.deepcopy(get_all_points())
-
-    output_file.write('----------------------------------\n')
-    output_file.write('---- TAC: ' + str(value(instance.TAC)) + '\n')
-    output_file.write('----------------------------------\n')
-    output_file.write('\n')
-    output_file.write('Found ActiveHx:\n')
-    pprint(active_hx, output_file)
-    output_file.write('\n')
-    output_file.write('Adding Tangents at:\n')
-    pprint(added_tangents, output_file)
-    output_file.write('\n')
-    output_file.write('Adding Balancing breakpoints at:\n')
-    pprint(new_balancing_breakpoints, output_file)
-    output_file.write('\n')
-    output_file.write('Adding q breakpoints at:\n')
-    pprint(new_q_breakpoints, output_file)
-    output_file.write('\n')
-    output_file.write('Adding area beta breakpoints at:\n')
-    pprint(new_beta_breakpoints, output_file)
-    output_file.write('\n')
-
-    output_file.flush()
-
-    iter_finish = time.time()
-
-    local_time = iter_finish-iter_start
-    total_time = iter_finish-start
-
-    print('\tTAC: %f' % value(instance.TAC))
-    print('\tTook: %.2fs' % local_time)
-    print('\tTotal: %.2fs' % total_time)
-
-    results_file.write('%d, %s, %s, %s\n' % (run, str(value(instance.TAC)), str(local_time), str(total_time)))
-
-    results_file.flush()
-
-    errors = summarise_errors(instance, active_hx, inactive_hx, args.weaken)
+    # --------------------------------------------------------------
+    # 3. Decide whether to stop
+    # --------------------------------------------------------------
+    errors     = summarise_errors(instance, active_hx, inactive_hx, args.weaken)
     max_errors = get_max_errors(errors, active_hx, inactive_hx, args.weaken)
 
-    filename = 'iteration' + str(run).zfill(len(str(maxIters)))
-    t = Process(target=build_heat_exchanger_results, args=(instance, folders, args.run_name, run, args.model, filename, active_hx, old_points, errors, local_time, total_time, epsilons, tolerances), kwargs={'iteration': True})
-    t.start()
+    print("Δtang", len(added_tangents),
+      "Δq",    len(new_q_breakpoints),
+      "Δβ",    len(new_beta_breakpoints),
+      "Δbal",  len(new_balancing_breakpoints))
+    print("max-errors:", max_errors)
+    print("termination_func() →", termination_func(epsilons, max_errors))
+
+    model    = create_model()              # new AbstractModel
+    instance = model.create_instance(datafile)
 
     if termination_func(epsilons, max_errors):
-        print('/*/*/*/*//*/*/*/*//*/*/*/*//*/*/*/')
-        print('----------------------------------')
-        print('---- Completed Within Error')
-        print('----------------------------------')
-        print('/*/*/*/*//*/*/*/*//*/*/*/*//*/*/*/')
         break
 
-    if  len(added_tangents) == 0 \
-        and len(new_beta_breakpoints) == 0\
-        and len(new_q_breakpoints) == 0\
-        and len(new_balancing_breakpoints) == 0:
-        print('/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/')
-        print('---------------------------------------------------')
-        print('---- Completed No new tangents or breakpoints -----')
-        print('---------------------------------------------------')
-        print('/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/')
+    if (len(added_tangents) == 0 and len(new_beta_breakpoints) == 0
+        and len(new_q_breakpoints) == 0 and len(new_balancing_breakpoints) == 0):
         break
 
-    if args.cont:
-        if iterations == 1:
-            var = raw_input('Ran %d iterations. How many more?\n' % run)
-            while True:
-                try:
-                    iters = int(var)
-                except ValueError:
-                    var = raw_input('\'%s\' is not an integer. How many more?\n' % var)
-                else:
-                    break
+    # --------------------------------------------------------------
+    # 4. RE-BUILD a new model/instance for the next iteration
+    #    (using the updated global dictionaries)
+    # --------------------------------------------------------------
+       # new ConcreteModel
 
-            if iters <= 0:
-                print('/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/')
-                print('-----------------------------------')
-                print('---- Completed Not Continuing -----')
-                print('-----------------------------------')
-                print('/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/')
-                break
-            else:
-                iterations = iters + 1
-        iterations = iterations - 1
+    iter_finish = time.time()   
+    
+               # update tim
+# #for run in range(1, maxIters):
+#     iter_start = iter_finish
+#     print('Running iteration ', run)
+    
+#     output_file.write('------------------------------------\n')
+#     output_file.write('---- Run: ' + str(run) + '\n')
+#     output_file.write('----------------------------------\n')
+
+#     opt.options[ 'LogFile' ] = os.path.join(folders[ logs_folder ], 'gur' + str(run).zfill(len(str(maxIters))) + '.log')
+
+#     results = opt.solve(instance, tee=True)
+
+#     instance.solutions.load_from(results)
+
+#     old_points = new_points
+
+#     active_hx, inactive_hx         = get_active_hx(instance)
+
+#     new_tangent_points = get_new_tangent_points(instance, active_hx)
+#     added_tangents    = add_new_tangent_points(new_tangent_points)
+#     new_q_breakpoints = get_new_q_breakpoints(instance, active_hx)
+#     new_beta_breakpoints = get_new_beta_breakpoints(instance, active_hx)
+#     new_balancing_breakpoints = get_new_balancing_breakpoints(instance, active_hx, inactive_hx, args.weaken)
+
+#     #refresh_sets(instance)
+
+
+
+#     new_points = copy.deepcopy(get_all_points())
+
+#     output_file.write('----------------------------------\n')
+#     output_file.write('---- TAC: ' + str(value(instance.TAC)) + '\n')
+#     output_file.write('----------------------------------\n')
+#     output_file.write('\n')
+#     output_file.write('Found ActiveHx:\n')
+#     pprint(active_hx, output_file)
+#     output_file.write('\n')
+#     output_file.write('Adding Tangents at:\n')
+#     pprint(added_tangents, output_file)
+#     output_file.write('\n')
+#     output_file.write('Adding Balancing breakpoints at:\n')
+#     pprint(new_balancing_breakpoints, output_file)
+#     output_file.write('\n')
+#     output_file.write('Adding q breakpoints at:\n')
+#     pprint(new_q_breakpoints, output_file)
+#     output_file.write('\n')
+#     output_file.write('Adding area beta breakpoints at:\n')
+#     pprint(new_beta_breakpoints, output_file)
+#     output_file.write('\n')
+
+#     output_file.flush()
+
+#     iter_finish = time.time()
+
+#     local_time = iter_finish-iter_start
+#     total_time = iter_finish-start
+
+#     print('\tTAC: %f' % value(instance.TAC))
+#     print('\tTook: %.2fs' % local_time)
+#     print('\tTotal: %.2fs' % total_time)
+
+#     results_file.write('%d, %s, %s, %s\n' % (run, str(value(instance.TAC)), str(local_time), str(total_time)))
+
+#     results_file.flush()
+
+#     errors = summarise_errors(instance, active_hx, inactive_hx, args.weaken)
+#     max_errors = get_max_errors(errors, active_hx, inactive_hx, args.weaken)
+
+#     filename = 'iteration' + str(run).zfill(len(str(maxIters)))
+#     t = Process(target=build_heat_exchanger_results, args=(instance, folders, args.run_name, run, args.model, filename, active_hx, old_points, errors, local_time, total_time, epsilons, tolerances), kwargs={'iteration': True})
+#     t.start()
+
+#     if termination_func(epsilons, max_errors):
+#         print('/*/*/*/*//*/*/*/*//*/*/*/*//*/*/*/')
+#         print('----------------------------------')
+#         print('---- Completed Within Error')
+#         print('----------------------------------')
+#         print('/*/*/*/*//*/*/*/*//*/*/*/*//*/*/*/')
+#         break
+
+#     if  len(added_tangents) == 0 \
+#         and len(new_beta_breakpoints) == 0\
+#         and len(new_q_breakpoints) == 0\
+#         and len(new_balancing_breakpoints) == 0:
+#         print('/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/')
+#         print('---------------------------------------------------')
+#         print('---- Completed No new tangents or breakpoints -----')
+#         print('---------------------------------------------------')
+#         print('/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/')
+#         break
+
+#     if args.cont:
+#         if iterations == 1:
+#             var = raw_input('Ran %d iterations. How many more?\n' % run)
+#             while True:
+#                 try:
+#                     iters = int(var)
+#                 except ValueError:
+#                     var = raw_input('\'%s\' is not an integer. How many more?\n' % var)
+#                 else:
+#                     break
+
+#             if iters <= 0:
+#                 print('/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/')
+#                 print('-----------------------------------')
+#                 print('---- Completed Not Continuing -----')
+#                 print('-----------------------------------')
+#                 print('/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/')
+#                 break
+#             else:
+#                 iterations = iters + 1
+#         model    = create_model()                 # fresh AbstractModel
+#         instance = model.create_instance(datafile)
+#         iterations = iterations - 1
 
 if args.print_instance:
     instance.pprint()

@@ -3,7 +3,9 @@
 
 from .helper_functions import lmtd_inverse_gradient_calculator, lmtd_inv
 
-from pyomo.core.base.constraint import Constraint
+# from pyomo.core.base.constraint import Constraint
+
+from pyomo.environ import Constraint
 
 def z_th_sum_rule(model, i, k):
     return sum(model.z_th[i,k,n] for n in range(1, len(model.Th_breakpoints[i,k])) ) == 1

@@ -7,7 +7,7 @@ from argparse import ArgumentParser, RawTextHelpFormatter
 
 from pprint import pprint
 
-from pyomo.core.base.numvalue import value
+from pyomo.environ import value
 from .model_declarations.model_builder import create_model
 from .model_declarations.helper_functions import two_point_generator, three_point_generator, lmtd_inv
 

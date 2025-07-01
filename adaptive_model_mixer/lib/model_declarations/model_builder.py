@@ -1,8 +1,10 @@
 # Author: Miten Mistry
 #         Department of Computing, Imperial College London
 
-from pyomo.core.base.PyomoModel import AbstractModel
-from pyomo.core.base.sets import Set
+# from pyomo.core.base.PyomoModel import AbstractModel
+# from pyomo.core.base.sets import Set
+
+from pyomo.environ import AbstractModel, Set
 
 from .parameters  import declare_parameters
 from .variables   import declare_variables

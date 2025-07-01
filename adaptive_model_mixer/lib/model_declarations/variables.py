@@ -1,8 +1,10 @@
 # Author: Miten Mistry
 #         Department of Computing, Imperial College London
 
-from pyomo.core.base.var import Var
-from pyomo.core.base.set_types import Binary, NonNegativeReals
+# from pyomo.core.base.var import Var
+# from pyomo.core.base.set_types import Binary, NonNegativeReals
+
+from pyomo.environ import Var, Binary, NonNegativeReals
 
 from .bound_generators import *
 from .index_generators import z_area_beta_index, z_area_cu_beta_index, z_area_hu_beta_index, z_q_index, z_q_cu_index, z_q_hu_index, z_th_index, z_thx_index, z_tc_index, z_tcx_index, var_delta_fh_index, var_delta_fhx_index, var_delta_fc_index, var_delta_fcx_index
