@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# But not these files...
+!*/
+!*.py
+!.gitignore
+
+# Ignore Python bytecode
+*.pyc
+__pycache__/ 
