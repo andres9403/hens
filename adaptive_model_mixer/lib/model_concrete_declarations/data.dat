@@ -1,0 +1,6 @@
+set A := A B C ;
+
+param cost :=
+  A 5
+  B 10
+  C 2 ;
