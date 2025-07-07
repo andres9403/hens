@@ -2,70 +2,67 @@
 #         Department of Computing, Imperial College London
 
 import pyomo.environ
+import pickle
 import sys, os, copy, time, socket
 
 from multiprocessing import Process, cpu_count
 
 from pyomo.opt import SolverFactory
 from pprint import pprint
-from pyomo.core.base.numvalue import value
 
-from lib.iterations_helper import IterationState
+from lib.iterations_helper import *
 from lib.results_generator.results_builder import build_heat_exchanger_results
 from lib.constants import *
-
 
 def can_terminate_absolute(epsilons, max_errors):
     if epsilons[balancing_ref] <= max_errors[balancing_ref][absolute_error]:
         return False
-    if epsilons[reclmtd_ref] <= max_errors[reclmtd_ref][absolute_error]:
+    if epsilons[q_beta_ref] <= max_errors[q_beta_ref][absolute_error]:
         return False
-    if epsilons[area_ref] <= max_errors[area_ref][absolute_error]:
+    if epsilons[lmtd_beta_ref] <= max_errors[lmtd_beta_ref][absolute_error]:
         return False
-    if epsilons[beta_ref] <= max_errors[beta_ref][absolute_error]:
+    if epsilons[area_beta_ref] <= max_errors[area_beta_ref][absolute_error]:
         return False
     return True
-
 
 def can_terminate_relative(epsilons, max_errors):
     if epsilons[balancing_ref] <= max_errors[balancing_ref][relative_error]:
         print('balancing: %s, %s' % (str(max_errors[balancing_ref][relative_error]),str(epsilons[balancing_ref])))
         return False
-    if epsilons[reclmtd_ref] <= max_errors[reclmtd_ref][relative_error]:
-        print('lmtd: %s, %s' % (str(max_errors[reclmtd_ref][relative_error]),str(epsilons[reclmtd_ref])))
+    if epsilons[q_beta_ref] <= max_errors[q_beta_ref][relative_error]:
+        print('beta: %s, %s' % (str(max_errors[q_beta_ref][relative_error]),str(epsilons[q_beta_ref])))
         return False
-    if epsilons[area_ref] <= max_errors[area_ref][relative_error]:
-        print('area: %s, %s' % (str(max_errors[area_ref][relative_error]),str(epsilons[area_ref])))
+    if epsilons[lmtd_beta_ref] <= max_errors[lmtd_beta_ref][relative_error]:
+        print('lmtd: %s, %s' % (str(max_errors[lmtd_beta_ref][relative_error]),str(epsilons[lmtd_beta_ref])))
         return False
-    if epsilons[beta_ref] <= max_errors[beta_ref][relative_error]:
-        print('beta: %s, %s' % (str(max_errors[beta_ref][relative_error]),str(epsilons[beta_ref])))
+    if epsilons[area_beta_ref] <= max_errors[area_beta_ref][relative_error]:
+        print('area: %s, %s' % (str(max_errors[area_beta_ref][relative_error]),str(epsilons[area_beta_ref])))
         return False
     return True
 
 termination_func = can_terminate_relative
 
+model_name = 'Adaptive Beta Model'
+
 start = time.time()
 
-maxIters = 500
+max_iters = 500
 
 number_of_cores = cpu_count()
 
-# Instantiate the IterationState
-state = IterationState()
-
-argparser = state.initialise_parser()
+argparser = initialise_parser()
 args = argparser.parse_args()
 
-state.validate_and_assign_args(args)
+validate_and_assign_args(args)
 
-folders = state.create_output_dir('.', args.model, args.run_name)
+folders = create_output_dir('.', args.model, args.run_name)
 
 output_file = open(os.path.join(folders[append_folder], 'output.txt'), 'w')
 results_file = open(os.path.join(folders[append_folder], 'results.csv'), 'w')
 
-results_file.write('iteration, tac, time, total_time\n')
+results_file.write('iteration, tac, time, totalTime\n')
 
-datafile = '/home/andresfel9403/hens/datafiles/' + args.model + '.dat'
+datafile = '../datafiles/' + args.model + '.dat'
 
 solver = 'gurobi'
 opt    = SolverFactory(solver)
@@ -90,61 +87,60 @@ if args.tighten_tol:
 else:
     if args.IntFeasTol:
         opt.options[ 'IntFeasTol' ] = args.IntFeasTol
-        tolerances[ 'IntFeasTol' ] = args.IntFeasTol
+        tolerances['IntFeasTol'] = args.IntFeasTol
     if args.FeasibilityTol:
         opt.options[ 'FeasibilityTol' ] = args.FeasibilityTol
-        tolerances[ 'FeasibilityTol' ] = args.FeasibilityTol
+        tolerances['FeasibilityTol'] = args.FeasibilityTol
     if args.OptimalityTol:
         opt.options[ 'OptimalityTol' ] = args.OptimalityTol
-        tolerances[ 'OptimalityTol' ] = args.OptimalityTol
+        tolerances['OptimalityTol'] = args.OptimalityTol
     if args.MarkowitzTol:
         opt.options[ 'MarkowitzTol' ] = args.MarkowitzTol
-        tolerances[ 'MarkowitzTol' ] = args.MarkowitzTol
+        opt.options[ 'MarkowitzTol' ] = args.MarkowitzTol
 
-model = state.initialise_hx_model(datafile)
+model = initialise_hx_model(datafile)
 
 warmstart = False
-
 default_eps = 0.0001
 
 epsilons = {
     balancing_ref: default_eps,
-    reclmtd_ref: default_eps,
-    area_ref: default_eps,
-    beta_ref: default_eps
+    q_beta_ref: default_eps,
+    lmtd_beta_ref: default_eps,
+    area_beta_ref: default_eps,
 }
 
 if args.all_error:
     eps = args.all_error
     epsilons[balancing_ref] = eps
-    epsilons[reclmtd_ref] = eps
-    epsilons[area_ref] = eps
-    epsilons[beta_ref] = eps
+    epsilons[q_beta_ref] = eps
+    epsilons[lmtd_beta_ref] = eps
+    epsilons[area_beta_ref] = eps
 else:
     if args.bal_eps:
         epsilons[balancing_ref] = args.bal_eps
-    if args.lmtd_eps:
-        epsilons[reclmtd_ref] = args.lmtd_eps
-    if args.area_eps:
-        epsilons[area_ref] = args.area_eps
-    if args.beta_eps:
-        epsilons[beta_ref] = args.beta_eps
+    if args.q_beta_eps:
+        epsilons[q_beta_ref] = args.q_beta_eps
+    if args.lmtd_beta_eps:
+        epsilons[lmtd_beta_ref] = args.lmtd_beta_eps
+    if args.area_beta_eps:
+        epsilons[area_beta_ref] = args.area_beta_eps
 
 if args.absolute:
     termination_func = can_terminate_absolute
 
 iterations = 1
 
-new_points = copy.deepcopy(state.get_all_points())
+new_points = copy.deepcopy(get_all_points())
 
 output_file.write('Running:\n')
-output_file.write('\tAdaptive Model\n')
+output_file.write('\t%s\n' % model_name)
 output_file.write('\t' + args.model + '\n')
 output_file.write('on: '+ socket.gethostname() + '\n\n')
 
-iter_finish = start
+iter_finish = time.time()
 
-for run in range(1, maxIters):
+for run in range(1, max_iters):
     iter_start = iter_finish
 
     print('Running iteration ', run)
@@ -154,23 +150,34 @@ for run in range(1, maxIters):
     output_file.write('---- Run: ' + str(run) + '\n')
     output_file.write('----------------------------------\n')
 
-    opt.options[ 'LogFile' ] = os.path.join(folders[ logs_folder ], 'gur' + str(run).zfill(len(str(maxIters))) + '.log')
+    # if not args.z_run:
+    #   instance.z_heat_x_test.deactivate()
 
-    results = opt.solve(instance, tee=True)
+    opt.options[ 'LogFile' ] = os.path.join(folders[ logs_folder ], 'gur' + str(run).zfill(len(str(max_iters))) + '.log')
+
+    results = opt.solve(instance, tee=False)
 
     instance.solutions.load_from(results)
 
+    # with open('%s%sinstance%s.p' % (folders[instances_folder], os.sep, str(run).zfill(len(str(max_iters)))), 'wb') as instanceFile:
+    #   pickle.dump(instance, instanceFile, -1)
+
     old_points = new_points
 
-    active_hx, inactive_hx = state.get_active_hx(instance)
+    active_hx, inactive_hx = get_active_hx(instance)
 
-    new_tangent_points = state.get_new_tangent_points(instance, active_hx)
-    added_tangents    = state.add_new_tangent_points(new_tangent_points)
-    new_q_breakpoints = state.get_new_q_breakpoints(instance, active_hx)
-    new_beta_breakpoints = state.get_new_beta_breakpoints(instance, active_hx)
-    new_balancing_breakpoints = state.get_new_balancing_breakpoints(instance, active_hx, inactive_hx, args.weaken)
+    # maxE, relE = checkLMTDEpsilon(instance, active_hx)
+    new_tangent_points = get_new_tangent_points(instance, active_hx)
+    added_tangents    = add_new_tangent_points(new_tangent_points)
 
-    new_points = copy.deepcopy(state.get_all_points())
+    new_q_beta_breakpoints = get_new_q_beta_breakpoints(instance, active_hx)
+    new_area_q_beta_breakpoints = get_new_area_q_beta_breakpoints(instance, active_hx)
+
+    # newQBreakpoints = getNewQBreakpoints(instance, active_hx)
+    # newBetaBreakpoints = getNewBetaBreakpoints(instance, active_hx)
+    new_balancing_breakpoints = get_new_balancing_breakpoints(instance, active_hx, inactive_hx, args.weaken)
+
+    new_points = copy.deepcopy(get_all_points())
 
     output_file.write('----------------------------------\n')
     output_file.write('---- TAC: ' + str(value(instance.TAC)) + '\n')
@@ -185,11 +192,11 @@ for run in range(1, maxIters):
     output_file.write('Adding Balancing breakpoints at:\n')
     pprint(new_balancing_breakpoints, output_file)
     output_file.write('\n')
-    output_file.write('Adding q breakpoints at:\n')
-    pprint(new_q_breakpoints, output_file)
+    output_file.write('Adding q beta breakpoints at:\n')
+    pprint(new_q_beta_breakpoints, output_file)
     output_file.write('\n')
-    output_file.write('Adding area beta breakpoints at:\n')
-    pprint(new_beta_breakpoints, output_file)
+    output_file.write('Adding AREA q-beta breakpoints at:\n')
+    pprint(new_area_q_beta_breakpoints, output_file)
     output_file.write('\n')
 
     output_file.flush()
@@ -207,10 +214,10 @@ for run in range(1, maxIters):
 
     results_file.flush()
 
-    errors = state.summarise_errors(instance, active_hx, inactive_hx, args.weaken)
-    max_errors = state.get_max_errors(errors, active_hx, inactive_hx, args.weaken)
+    errors = summarise_errors(instance, active_hx, inactive_hx, args.weaken)
+    max_errors = get_max_errors(errors, active_hx, inactive_hx, args.weaken)
 
-    filename = 'iteration' + str(run).zfill(len(str(maxIters)))
+    filename = 'iteration' + str(run).zfill(len(str(max_iters)))
     t = Process(target=build_heat_exchanger_results, args=(instance, folders, args.run_name, run, args.model, filename, active_hx, old_points, errors, local_time, total_time, epsilons, tolerances), kwargs={'iteration': True})
     t.start()
 
@@ -223,8 +230,8 @@ for run in range(1, maxIters):
         break
 
     if  len(added_tangents) == 0 \
-        and len(new_beta_breakpoints) == 0\
-        and len(new_q_breakpoints) == 0\
+        and len(new_q_beta_breakpoints) == 0\
+        and len(new_area_q_beta_breakpoints) == 0\
         and len(new_balancing_breakpoints) == 0:
         print('/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/')
         print('---------------------------------------------------')
