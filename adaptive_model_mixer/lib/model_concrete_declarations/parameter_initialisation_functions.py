@@ -63,8 +63,8 @@ def area_beta_breakpoints_init(model, i, j, *k):
 def area_beta_gradients_init(model, i, j, k):
     gradients = [0]*(len(model.Area_beta_breakpoints[i,j,k])-1)
     for m in range(1,len(model.Area_beta_breakpoints[i,j,k])):
-        numerator = model.Area_beta_exp[i,j,k].at(m+1) - model.Area_beta_exp[i,j,k].at(m)
-        denominator = model.Area_beta_breakpoints[i,j,k].at(m+1) - model.Area_beta_breakpoints[i,j,k].at(m)
+        numerator = model.Area_beta_exp[i,j,k][m+1] - model.Area_beta_exp[i,j,k][m]
+        denominator = model.Area_beta_breakpoints[i,j,k][m+1] - model.Area_beta_breakpoints[i,j,k][m]
         gradients[m-1] = numerator/denominator
     return gradients
 
@@ -74,8 +74,8 @@ def area_cu_beta_breakpoints_init(model, i):
 def area_cu_beta_gradients_init(model, i):
     gradients = [0]*(len(model.Area_cu_beta_breakpoints[i])-1)
     for m in range(1,len(model.Area_cu_beta_breakpoints[i])):
-        numerator = model.Area_cu_beta_exp[i].at(m+1) - model.Area_cu_beta_exp[i].at(m)
-        denominator = model.Area_cu_beta_breakpoints[i].at(m+1) - model.Area_cu_beta_breakpoints[i].at(m)
+        numerator = model.Area_cu_beta_exp[i][m+1] - model.Area_cu_beta_exp[i][m]
+        denominator = model.Area_cu_beta_breakpoints[i][m+1] - model.Area_cu_beta_breakpoints[i][m]
         gradients[m-1] = numerator/denominator
     return gradients
 
@@ -85,7 +85,7 @@ def area_hu_beta_breakpoints_init(model, j):
 def area_hu_beta_gradients_init(model, j):
     gradients = [0]*(len(model.Area_hu_beta_breakpoints[j])-1)
     for m in range(1,len(model.Area_hu_beta_breakpoints[j])):
-        numerator = model.Area_hu_beta_exp[j].at(m+1) - model.Area_hu_beta_exp[j].at(m)
-        denominator = model.Area_hu_beta_breakpoints[j].at(m+1) - model.Area_hu_beta_breakpoints[j].at(m)
+        numerator = model.Area_hu_beta_exp[j][m+1] - model.Area_hu_beta_exp[j][m]
+        denominator = model.Area_hu_beta_breakpoints[j][m+1] - model.Area_hu_beta_breakpoints[j][m]
         gradients[m-1] = numerator/denominator
     return gradients
