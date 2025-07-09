@@ -3,6 +3,7 @@ from pyomo.dataportal import DataPortal
 from lib_concrete.model_concrete_declarations.concrete_model_builder import build_concrete_model
 from pyomo.opt import SolverFactory
 from lib_concrete.iterations_helper import IterationState
+from lib_concrete.model_concrete_declarations.constraints import declare_concrete_constraints
 
 
 
@@ -28,11 +29,12 @@ state = IterationState()
 
 _ = state.safe_initial_breakpoints(model)
 
+max_iterations = 1
+
+#for i in range(1, max_iterations):
+
 model = state.add_tangent_points(model)
-
-
-model = state.add_T_breakpoints(model)
-#model = state.add_area_beta_breakpoints(model)
+_ = declare_concrete_constraints(model)
 
 num_vars = len(list(model.component_data_objects(Var, active=True)))
 num_cons = len(list(model.component_data_objects(Constraint, active=True)))
