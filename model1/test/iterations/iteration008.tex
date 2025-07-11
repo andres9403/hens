@@ -1,0 +1,1440 @@
+\documentclass{article}%
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+\usepackage{float, amsmath, amssymb, supertabular, multicol, url, subcaption, tikz, pgfplots, fancyhdr, morefloats, setspace}%
+\usepackage[parfill]{parskip}%
+\usepackage[tmargin=1in,lmargin=0.5in,rmargin=1in,bmargin=20mm]{geometry}%
+%
+\usetikzlibrary{calc}%
+\pgfplotsset{samples=500}%
+\renewcommand{\arraystretch}{1.5}%
+\setlength{\columnseprule}{0.4pt}%
+\makeatletter%
+\let\mcnewpage=\newpage%
+\newcommand{\TrickSupertabularIntoMulticols}{%%
+\renewcommand\newpage{%%
+\if@firstcolumn%
+\hrule width\linewidth height0pt%
+\columnbreak%
+\else%
+\mcnewpage%
+\fi%
+}%%
+}%
+\makeatother%
+\relax%
+\pagestyle{fancy}%
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}%
+%
+\begin{document}%
+\normalsize%
+\section{Summary}%
+\thispagestyle{plain}%
+\begin{spacing}{1.3}%
+\Large%
+Model (Run-name): model1 (test)\\%
+Iteration: 8\\%
+\textbf{TAC: 153386.34908473463}\\%
+Took: 1.8953087329864502s\\%
+Total Time: 7.156022310256958s\\%
+Epsilons:%
+\begin{itemize}%
+	\item $\varepsilon_{\textsl{LMTD}}$: 1e-06%
+	\item $\varepsilon_{\textsl{Balancing}}$: 1e-06%
+	\item $\varepsilon_{\textsl{Area}}$: 1e-06%
+	\item $\varepsilon_{\textsl{Beta}}$: 1e-06%
+\end{itemize}%
+Gurobi Tolerances:%
+\begin{itemize}%
+	\item IntFeasTol: 1e-05%
+	\item FeasibilityTol: 1e-06%
+	\item OptimalityTol: 1e-06%
+\end{itemize}%
+\end{spacing}%
+\normalsize%
+Gamsworld Solution: \url{http://www.gamsworld.org/minlp/minlplib2/html/heatexch_gen1.html}%
+%
+% hello%
+\clearpage%
+\section{Results}%
+\thispagestyle{plain}%
+\begin{multicols*}{3}%
+\TrickSupertabularIntoMulticols%
+\tablehead{Variable&Value\\\hline}%
+\begin{supertabular}{lr}%
+	$z_{1,1,1}$ & 1.0 \\%
+	$z_{1,2,2}$ & 1.0 \\%
+	$z_{2,1,2}$ & 1.0 \\%
+	$z_{cu,1}$ & 1.0 \\%
+	$z_{cu,2}$ & 1.0 \\%
+	$z_{hu,1}$ & 1.0 \\%
+	$A_{1,1,1}^{\beta}$ & 70.30181758862284 \\%
+	$A_{1,2,2}^{\beta}$ & 69.34502840170047 \\%
+	$A_{2,1,2}^{\beta}$ & 131.69760457629607 \\%
+	$A_{cu,1}^{\beta}$ & 3.1809419553840232 \\%
+	$A_{cu,2}^{\beta}$ & 37.47875108132638 \\%
+	$A_{hu,1}^{\beta}$ & 13.22717920580809 \\%
+	$A_{1,1,1}$ & 70.30181758862284 \\%
+	$A_{1,2,2}$ & 69.34502840170047 \\%
+	$A_{2,1,2}$ & 131.69760457629607 \\%
+	$A_{cu,1}$ & 3.1809419553840232 \\%
+	$A_{cu,2}$ & 37.47875108132638 \\%
+	$A_{hu,1}$ & 13.22717920580809 \\%
+	$dt_{1,1,1}$ & 32.87835134271154 \\%
+	$dt_{1,1,2}$ & 10.0 \\%
+	$dt_{1,2,2}$ & 81.3649459718655 \\%
+	$dt_{1,2,3}$ & 36.36494597186547 \\%
+	$dt_{2,1,2}$ & 18.63505402813462 \\%
+	$dt_{2,1,3}$ & 58.976290521100964 \\%
+	$dt_{cu,1}$ & 66.36494597186547 \\%
+	$dt_{cu,2}$ & 148.97629052110096 \\%
+	$dt_{hu,1}$ & 62.87835134271154 \\%
+	$f_{1,1,1}^{H}$ & 2.4512519295762334 \\%
+	$f_{1,2,2}^{H}$ & 10.0 \\%
+	$f_{2,1,2}^{H}$ & 20.0 \\%
+	$f_{1,1,1}^{C}$ & 14.531446372159014 \\%
+	$f_{1,2,2}^{C}$ & 13.0 \\%
+	$f_{2,1,2}^{C}$ & 11.247338764656906 \\%
+	$\textsl{RecLMTD}_{1,1,1}$ & 0.05202106736660487 \\%
+	$\textsl{RecLMTD}_{1,2,2}$ & 0.017780776513256547 \\%
+	$\textsl{RecLMTD}_{2,1,2}$ & 0.028096007654785208 \\%
+	$\textsl{RecLMTD}_{cu,1}$ & 0.0146495744298314 \\%
+	$\textsl{RecLMTD}_{cu,2}$ & 0.009563349339146031 \\%
+	$\textsl{RecLMTD}_{hu,1}$ & 0.02250701784425265 \\%
+	$q_{1,1,1}$ & 686.3505402813454 \\%
+	$q_{1,2,2}$ & 1950.0 \\%
+	$q_{2,1,2}$ & 2420.4741895779807 \\%
+	$q_{cu,1}$ & 163.6494597186546 \\%
+	$q_{cu,2}$ & 1979.5258104220193 \\%
+	$q_{hu,1}$ & 493.1752701406731 \\%
+	$t_{1,1}^{(H)}$ & 650.0 \\%
+	$t_{1,2}^{(H)}$ & 581.3649459718655 \\%
+	$t_{1,3}^{(H)}$ & 386.36494597186544 \\%
+	$t_{2,1}^{(H)}$ & 590.0 \\%
+	$t_{2,2}^{(H)}$ & 590.0 \\%
+	$t_{2,3}^{(H)}$ & 468.97629052110096 \\%
+	$t_{1,1}^{(C)}$ & 617.1216486572885 \\%
+	$t_{1,2}^{(C)}$ & 571.3649459718654 \\%
+	$t_{1,3}^{(C)}$ & 410.0 \\%
+	$t_{2,1}^{(C)}$ & 500.0 \\%
+	$t_{2,2}^{(C)}$ & 500.0 \\%
+	$t_{2,3}^{(C)}$ & 350.0 \\%
+	$t_{1,1,1}^{H}$ & 370.0 \\%
+	$t_{1,2,2}^{H}$ & 386.3649459718548 \\%
+	$t_{2,1,2}^{H}$ & 468.9762905211007 \\%
+	$t_{1,1,1}^{C}$ & 618.6342496050581 \\%
+	$t_{1,2,2}^{C}$ & 500.0 \\%
+	$t_{2,1,2}^{C}$ & 613.8951066390871 \\%
+	$b_{1,1,1}^{H,\text{in}}$ & 1593.3137542245518 \\%
+	$b_{1,2,2}^{H,\text{in}}$ & 5813.64945971849 \\%
+	$b_{2,1,2}^{H,\text{in}}$ & 11800.0 \\%
+	$b_{1,1,1}^{H,\text{out}}$ & 906.9632139432064 \\%
+	$b_{1,2,2}^{H,\text{out}}$ & 3863.64945971849 \\%
+	$b_{2,1,2}^{H,\text{out}}$ & 9379.525810422025 \\%
+	$b_{1,1,1}^{C,\text{in}}$ & 8303.29988183539 \\%
+	$b_{1,2,2}^{C,\text{in}}$ & 4550.0 \\%
+	$b_{2,1,2}^{C,\text{in}}$ & 4611.408893509331 \\%
+	$b_{1,1,1}^{C,\text{out}}$ & 8989.650422116736 \\%
+	$b_{1,2,2}^{C,\text{out}}$ & 6500.0 \\%
+	$b_{2,1,2}^{C,\text{out}}$ & 7031.883083087312 \\%
+\end{supertabular}%
+\end{multicols*}%
+\clearpage%
+\section{$\textsl{RecLMTD}$ Tangent Points}%
+\thispagestyle{plain}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%  $\textsl{RecLMTD}^\beta$ Results  %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}%
+	\item $(1, 1, 1)$%
+	\begin{itemize}%
+		\item Value: 0.052021%
+		\item Error: 0.000003194192389%
+		\item Relative error: 0.000061398130273%
+	\end{itemize}%
+	\item $(1, 2, 2)$%
+	\begin{itemize}%
+		\item Value: 0.017781%
+		\item Error: 0.000115651335702%
+		\item Relative error: 0.006462258092957%
+	\end{itemize}%
+	\item $(2, 1, 2)$%
+	\begin{itemize}%
+		\item Value: 0.028096%
+		\item Error: 0.000462637927549%
+		\item Relative error: 0.016199575229002%
+	\end{itemize}%
+	\item $\textit{cu},1$%
+	\begin{itemize}%
+		\item Value: 0.014650%
+		\item Error: 0.000020426803888%
+		\item Relative error: 0.001392420052524%
+	\end{itemize}%
+	\item $\textit{cu},2$%
+	\begin{itemize}%
+		\item Value: 0.009563%
+		\item Error: 0.000000178173118%
+		\item Relative error: 0.000018630480998%
+	\end{itemize}%
+	\item $\textit{hu},1$%
+	\begin{itemize}%
+		\item Value: 0.022507%
+		\item Error: 0.000000331727418%
+		\item Relative error: 0.000014738626453%
+	\end{itemize}%
+\end{itemize}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{0.5\linewidth}%
+		\centering%
+		\begin{tikzpicture}[baseline]%
+		\begin{axis}%
+		[%
+			axis lines=middle,%
+			xmin=10.000000000000000, xmax=240.000000000000000,%
+			ymin=10.000000000000000, ymax=240.000000000000000,%
+			xtick=\empty, ytick=\empty,%
+			xticklabels=\empty,%
+			yticklabels=\empty,%
+			xlabel=\empty,ylabel=\empty,%
+			every axis x label/.style={%
+				at={(ticklabel* cs:1)},%
+				anchor=west,%
+			},%
+			every axis y label/.style={%
+				at={(ticklabel* cs:1)},%
+				anchor=south,%
+			}%
+		]%
+			\draw[dashed] (axis cs: 10.000000000000000,10.000000000000000) -- ( axis cs: 240.000000000000000,240.000000000000000);%
+%
+			\addplot[only marks] table {%
+				10.000000000000000 10.000000000000000%
+				240.000000000000000 240.000000000000000%
+				240.000000000000000 10.000000000000000%
+				10.000000000000000 240.000000000000000%
+				125.000000000000000 125.000000000000000%
+				15.838829030214169 10.000000000000000%
+				10.000000000000000 15.838829030214169%
+				32.422050225094040 13.633075337641060%
+				13.633075337641060 32.422050225094040%
+				35.004759515646157 10.000000000000000%
+				10.000000000000000 35.004759515646157%
+				38.931422677323610 10.598089343990296%
+				10.598089343990296 38.931422677323610%
+				32.492612594431996 10.000000000000000%
+				10.000000000000000 32.492612594431996%
+				33.263088885055716 10.000000000000000%
+				10.000000000000000 33.263088885055716%
+				31.365750394942037 10.000000000000000%
+				10.000000000000000 31.365750394942037%
+			};%
+%
+			\addplot[only marks, mark=+, color=red, thick] table {%
+				32.878351342711539 10.000000000000000%
+			};%
+%
+		\end{axis}%
+		\end{tikzpicture}%
+		\caption{$\textsl{RecLMTD}$ - $(1, 1, 1)$}%
+	\end{subfigure}%%%
+	\begin{subfigure}{0.5\linewidth}%
+		\centering%
+		\begin{tikzpicture}[baseline]%
+		\begin{axis}%
+		[%
+			axis lines=middle,%
+			xmin=10.000000000000000, xmax=300.000000000000000,%
+			ymin=10.000000000000000, ymax=300.000000000000000,%
+			xtick=\empty, ytick=\empty,%
+			xticklabels=\empty,%
+			yticklabels=\empty,%
+			xlabel=\empty,ylabel=\empty,%
+			every axis x label/.style={%
+				at={(ticklabel* cs:1)},%
+				anchor=west,%
+			},%
+			every axis y label/.style={%
+				at={(ticklabel* cs:1)},%
+				anchor=south,%
+			}%
+		]%
+			\draw[dashed] (axis cs: 10.000000000000000,10.000000000000000) -- ( axis cs: 300.000000000000000,300.000000000000000);%
+%
+			\addplot[only marks] table {%
+				10.000000000000000 10.000000000000000%
+				300.000000000000000 300.000000000000000%
+				300.000000000000000 10.000000000000000%
+				10.000000000000000 300.000000000000000%
+				155.000000000000000 155.000000000000000%
+				90.000000000000000 45.000000000000000%
+				45.000000000000000 90.000000000000000%
+				74.985721453061501 56.044793908001246%
+				56.044793908001246 74.985721453061501%
+				65.000000000000000 20.000000000000000%
+				20.000000000000000 65.000000000000000%
+				84.749357675607342 80.210733344832875%
+				80.210733344832875 84.749357675607342%
+				85.902748815173936 40.902748815173936%
+				40.902748815173936 85.902748815173936%
+			};%
+%
+			\addplot[only marks, mark=+, color=red, thick] table {%
+				81.364945971865495 36.364945971865467%
+			};%
+%
+		\end{axis}%
+		\end{tikzpicture}%
+		\caption{$\textsl{RecLMTD}$ - $(1, 2, 2)$}%
+	\end{subfigure}%%%
+\end{figure}%
+\begin{figure}[p]%
+	\ContinuedFloat%
+	\centering%
+	\begin{subfigure}{0.5\linewidth}%
+		\centering%
+		\begin{tikzpicture}[baseline]%
+		\begin{axis}%
+		[%
+			axis lines=middle,%
+			xmin=10.000000000000000, xmax=180.000000000000000,%
+			ymin=10.000000000000000, ymax=180.000000000000000,%
+			xtick=\empty, ytick=\empty,%
+			xticklabels=\empty,%
+			yticklabels=\empty,%
+			xlabel=\empty,ylabel=\empty,%
+			every axis x label/.style={%
+				at={(ticklabel* cs:1)},%
+				anchor=west,%
+			},%
+			every axis y label/.style={%
+				at={(ticklabel* cs:1)},%
+				anchor=south,%
+			}%
+		]%
+			\draw[dashed] (axis cs: 10.000000000000000,10.000000000000000) -- ( axis cs: 180.000000000000000,180.000000000000000);%
+%
+			\addplot[only marks] table {%
+				10.000000000000000 10.000000000000000%
+				180.000000000000000 180.000000000000000%
+				180.000000000000000 10.000000000000000%
+				10.000000000000000 180.000000000000000%
+				95.000000000000000 95.000000000000000%
+				24.145960128303280 10.000000000000000%
+				10.000000000000000 24.145960128303280%
+				37.954633185090259 10.000000000000000%
+				10.000000000000000 37.954633185090259%
+				50.731172682733977 25.014278546938385%
+				25.014278546938385 50.731172682733977%
+				71.698567007992708 35.598089343990303%
+				35.598089343990303 71.698567007992708%
+				25.490489261331078 17.477837783295019%
+				17.477837783295019 25.490489261331078%
+				35.072637825988060 19.789266655167093%
+				19.789266655167093 35.072637825988060%
+				55.572938388619562 14.097251184826096%
+				14.097251184826096 55.572938388619562%
+			};%
+%
+			\addplot[only marks, mark=+, color=red, thick] table {%
+				18.635054028134618 58.976290521100964%
+			};%
+%
+		\end{axis}%
+		\end{tikzpicture}%
+		\caption{$\textsl{RecLMTD}$ - $(2, 1, 2)$}%
+	\end{subfigure}%%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{0.95\textwidth}{!}{%
+		\begin{tikzpicture}[baseline]%
+			\draw (10.000000000000000,0) -- (350.000000000000000,0);%
+			\draw (10.000000000000000,-11.333333333333334) -- (10.000000000000000,11.333333333333334);%
+			\draw (350.000000000000000,-11.333333333333334) -- (350.000000000000000,11.333333333333334);%
+			\draw (180.000000000000000,-11.333333333333334) -- (180.000000000000000,11.333333333333334);%
+			\draw (75.000000000000000,-11.333333333333334) -- (75.000000000000000,11.333333333333334);%
+			\draw (107.723808967460542,-11.333333333333334) -- (107.723808967460542,11.333333333333334);%
+			\draw (86.044793908001253,-11.333333333333334) -- (86.044793908001253,11.333333333333334);%
+			\draw (132.755749207863488,-11.333333333333334) -- (132.755749207863488,11.333333333333334);%
+			\draw (114.749357675607342,-11.333333333333334) -- (114.749357675607342,11.333333333333334);%
+			\draw (70.902748815173510,-11.333333333333334) -- (70.902748815173510,11.333333333333334);%
+			\draw[color=red] (66.364945971865467,-17.000000000000000) -- (66.364945971865467,17.000000000000000);%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textsl{RecLMTD}$ - $\textsl{cu},1$}%
+	\end{subfigure}%%%
+\end{figure}%
+\begin{figure}[p]%
+	\ContinuedFloat%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{0.95\textwidth}{!}{%
+		\begin{tikzpicture}[baseline]%
+			\draw (10.000000000000000,0) -- (290.000000000000000,0);%
+			\draw (10.000000000000000,-9.333333333333334) -- (10.000000000000000,9.333333333333334);%
+			\draw (290.000000000000000,-9.333333333333334) -- (290.000000000000000,9.333333333333334);%
+			\draw (150.000000000000000,-9.333333333333334) -- (150.000000000000000,9.333333333333334);%
+			\draw (142.500000000000000,-9.333333333333334) -- (142.500000000000000,9.333333333333334);%
+			\draw (127.954633185090259,-9.333333333333334) -- (127.954633185090259,9.333333333333334);%
+			\draw (140.731172682733984,-9.333333333333334) -- (140.731172682733984,9.333333333333334);%
+			\draw (161.698567007992722,-9.333333333333334) -- (161.698567007992722,9.333333333333334);%
+			\draw (115.491584841890727,-9.333333333333334) -- (115.491584841890727,9.333333333333334);%
+			\draw (125.072637825988068,-9.333333333333334) -- (125.072637825988068,9.333333333333334);%
+			\draw (145.572938388619548,-9.333333333333334) -- (145.572938388619548,9.333333333333334);%
+			\draw[color=red] (148.976290521100964,-14.000000000000000) -- (148.976290521100964,14.000000000000000);%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textsl{RecLMTD}$ - $\textsl{cu},2$}%
+	\end{subfigure}%%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{0.95\linewidth}{!}{%
+		\begin{tikzpicture}[baseline]%
+			\draw (10.000000000000000,0) -- (270.000000000000000,0);%
+			\draw (10.000000000000000,-8.666666666666666) -- (10.000000000000000,8.666666666666666);%
+			\draw (270.000000000000000,-8.666666666666666) -- (270.000000000000000,8.666666666666666);%
+			\draw (140.000000000000000,-8.666666666666666) -- (140.000000000000000,8.666666666666666);%
+			\draw (60.000000000000000,-8.666666666666666) -- (60.000000000000000,8.666666666666666);%
+			\draw (62.422050225094040,-8.666666666666666) -- (62.422050225094040,8.666666666666666);%
+			\draw (65.004759515646157,-8.666666666666666) -- (65.004759515646157,8.666666666666666);%
+			\draw (68.931422677323610,-8.666666666666666) -- (68.931422677323610,8.666666666666666);%
+			\draw (62.492612594431741,-8.666666666666666) -- (62.492612594431741,8.666666666666666);%
+			\draw (63.263088885055716,-8.666666666666666) -- (63.263088885055716,8.666666666666666);%
+			\draw (61.365750394942040,-8.666666666666666) -- (61.365750394942040,8.666666666666666);%
+			\draw[color=red] (62.878351342711539,-13.000000000000000) -- (62.878351342711539,13.000000000000000);%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textsl{RecLMTD}$ - $\textsl{hu},1$}%
+	\end{subfigure}%%%
+\end{figure}%
+\clearpage%
+\section{Balancing Breakpoints}%
+\subsection{$b^{\textsl{H},\text{in}}$}%
+\begin{itemize}%
+	\item $(1, 1, 1)$%
+	\begin{itemize}%
+		\item Value: 1593.3137542245518%
+		\item Absolute error: 0.0%
+		\item Relative error: 0.0%
+	\end{itemize}%
+	\item $(1, 2, 2)$%
+	\begin{itemize}%
+		\item Value: 5813.64945971849%
+		\item Absolute error: 1.646185410209e-10%
+		\item Relative error: -2.8315869775345303e-14%
+	\end{itemize}%
+	\item $(2, 1, 2)$%
+	\begin{itemize}%
+		\item Value: 11800.0%
+		\item Absolute error: 0.0%
+		\item Relative error: 0.0%
+	\end{itemize}%
+\end{itemize}%
+\subsection{$b^{\textsl{H},\text{out}}$}%
+\begin{itemize}%
+	\item $(1, 1, 1)$%
+	\begin{itemize}%
+		\item Value: 906.9632139432064%
+		\item Absolute error: 0.0%
+		\item Relative error: 0.0%
+	\end{itemize}%
+	\item $(1, 2, 2)$%
+	\begin{itemize}%
+		\item Value: 3863.64945971849%
+		\item Absolute error: 5.820766091346741e-11%
+		\item Relative error: -1.5065461170928174e-14%
+	\end{itemize}%
+	\item $(2, 1, 2)$%
+	\begin{itemize}%
+		\item Value: 9379.525810422025%
+		\item Absolute error: 1.0913936421275139e-11%
+		\item Relative error: 1.163591490856411e-15%
+	\end{itemize}%
+\end{itemize}%
+\subsection{$b^{\textsl{C},\text{in}}$}%
+\begin{itemize}%
+	\item $(1, 1, 1)$%
+	\begin{itemize}%
+		\item Value: 8303.29988183539%
+		\item Absolute error: 0.5408105136957602%
+		\item Relative error: 6.513624074240058e-05%
+	\end{itemize}%
+	\item $(1, 2, 2)$%
+	\begin{itemize}%
+		\item Value: 4550.0%
+		\item Absolute error: 0.0%
+		\item Relative error: 0.0%
+	\end{itemize}%
+	\item $(2, 1, 2)$%
+	\begin{itemize}%
+		\item Value: 4611.408893509331%
+		\item Absolute error: 0.0%
+		\item Relative error: 0.0%
+	\end{itemize}%
+\end{itemize}%
+\subsection{$b^{\textsl{C},\text{out}}$}%
+\begin{itemize}%
+	\item $(1, 1, 1)$%
+	\begin{itemize}%
+		\item Value: 8989.650422116736%
+		\item Absolute error: 0.0%
+		\item Relative error: 0.0%
+	\end{itemize}%
+	\item $(1, 2, 2)$%
+	\begin{itemize}%
+		\item Value: 6500.0%
+		\item Absolute error: 0.0%
+		\item Relative error: 0.0%
+	\end{itemize}%
+	\item $(2, 1, 2)$%
+	\begin{itemize}%
+		\item Value: 7031.883083087312%
+		\item Absolute error: 127.19685275232314%
+		\item Relative error: 0.01842181505562086%
+	\end{itemize}%
+\end{itemize}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{\linewidth}{!}{%
+		\begin{tikzpicture}%
+		\begin{axis}%
+		[%
+			hide axis,%
+			axis equal image,%
+			scale only axis,%
+			width=\textwidth,%
+			xmin=370.000000000000000, xmax=650.000000000000000,%
+			ymin=-14.000000000000000, ymax=14.000000000000000,%
+		]%
+			\draw (axis cs: 370.000000000000000,0) -- (axis cs: 650.000000000000000,0);%
+			\draw (axis cs: 370.000000000000000,-9.333333333333334) -- (axis cs: 370.000000000000000,9.333333333333334);%
+			\draw (axis cs: 650.000000000000000,-9.333333333333334) -- (axis cs: 650.000000000000000,9.333333333333334);%
+			\draw[color=red] (axis cs: 650.000000000000000,-14.000000000000000) -- (axis cs: 650.000000000000000,14.000000000000000);%
+		\end{axis}%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textit{t}^{\textsl{(H)}}$ - $(1, 1)$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{\linewidth}{!}{%
+		\begin{tikzpicture}%
+		\begin{axis}%
+		[%
+			hide axis,%
+			axis equal image,%
+			scale only axis,%
+			width=\textwidth,%
+			xmin=370.000000000000000, xmax=650.000000000000000,%
+			ymin=-14.000000000000000, ymax=14.000000000000000,%
+		]%
+			\draw (axis cs: 370.000000000000000,0) -- (axis cs: 650.000000000000000,0);%
+			\draw (axis cs: 370.000000000000000,-9.333333333333334) -- (axis cs: 370.000000000000000,9.333333333333334);%
+			\draw (axis cs: 565.000000000000000,-9.333333333333334) -- (axis cs: 565.000000000000000,9.333333333333334);%
+			\draw (axis cs: 574.985721453061615,-9.333333333333334) -- (axis cs: 574.985721453061615,9.333333333333334);%
+			\draw (axis cs: 580.210733344832875,-9.333333333333334) -- (axis cs: 580.210733344832875,9.333333333333334);%
+			\draw (axis cs: 582.522162216704601,-9.333333333333334) -- (axis cs: 582.522162216704601,9.333333333333334);%
+			\draw (axis cs: 585.902748815173595,-9.333333333333334) -- (axis cs: 585.902748815173595,9.333333333333334);%
+			\draw (axis cs: 590.000000000000000,-9.333333333333334) -- (axis cs: 590.000000000000000,9.333333333333334);%
+			\draw (axis cs: 593.633075337641117,-9.333333333333334) -- (axis cs: 593.633075337641117,9.333333333333334);%
+			\draw (axis cs: 650.000000000000000,-9.333333333333334) -- (axis cs: 650.000000000000000,9.333333333333334);%
+			\draw[color=red] (axis cs: 581.364945971865495,-14.000000000000000) -- (axis cs: 581.364945971865495,14.000000000000000);%
+		\end{axis}%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textit{t}^{\textsl{(H)}}$ - $(1, 2)$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{\linewidth}{!}{%
+		\begin{tikzpicture}%
+		\begin{axis}%
+		[%
+			hide axis,%
+			axis equal image,%
+			scale only axis,%
+			width=\textwidth,%
+			xmin=370.000000000000000, xmax=590.000000000000000,%
+			ymin=-11.000000000000000, ymax=11.000000000000000,%
+		]%
+			\draw (axis cs: 370.000000000000000,0) -- (axis cs: 590.000000000000000,0);%
+			\draw (axis cs: 370.000000000000000,-7.333333333333333) -- (axis cs: 370.000000000000000,7.333333333333333);%
+			\draw (axis cs: 590.000000000000000,-7.333333333333333) -- (axis cs: 590.000000000000000,7.333333333333333);%
+			\draw[color=red] (axis cs: 590.000000000000000,-11.000000000000000) -- (axis cs: 590.000000000000000,11.000000000000000);%
+		\end{axis}%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textit{t}^{\textsl{(H)}}$ - $(2, 2)$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{\linewidth}{!}{%
+		\begin{tikzpicture}%
+		\begin{axis}%
+		[%
+			hide axis,%
+			axis equal image,%
+			scale only axis,%
+			width=\textwidth,%
+			xmin=370.000000000000000, xmax=650.000000000000000,%
+			ymin=-14.000000000000000, ymax=14.000000000000000,%
+		]%
+			\draw (axis cs: 370.000000000000000,0) -- (axis cs: 650.000000000000000,0);%
+			\draw (axis cs: 370.000000000000000,-9.333333333333334) -- (axis cs: 370.000000000000000,9.333333333333334);%
+			\draw (axis cs: 504.308952756851738,-9.333333333333334) -- (axis cs: 504.308952756851738,9.333333333333334);%
+			\draw (axis cs: 546.953341617012256,-9.333333333333334) -- (axis cs: 546.953341617012256,9.333333333333334);%
+			\draw (axis cs: 590.000000000000000,-9.333333333333334) -- (axis cs: 590.000000000000000,9.333333333333334);%
+			\draw (axis cs: 650.000000000000000,-9.333333333333334) -- (axis cs: 650.000000000000000,9.333333333333334);%
+			\draw[color=red] (axis cs: 370.000000000000000,-14.000000000000000) -- (axis cs: 370.000000000000000,14.000000000000000);%
+		\end{axis}%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textit{t}^{\textsl{(H)}}$ - $(1, 1, 1)$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{\linewidth}{!}{%
+		\begin{tikzpicture}%
+		\begin{axis}%
+		[%
+			hide axis,%
+			axis equal image,%
+			scale only axis,%
+			width=\textwidth,%
+			xmin=370.000000000000000, xmax=650.000000000000000,%
+			ymin=-14.000000000000000, ymax=14.000000000000000,%
+		]%
+			\draw (axis cs: 370.000000000000000,0) -- (axis cs: 650.000000000000000,0);%
+			\draw (axis cs: 370.000000000000000,-9.333333333333334) -- (axis cs: 370.000000000000000,9.333333333333334);%
+			\draw (axis cs: 390.902748815173368,-9.333333333333334) -- (axis cs: 390.902748815173368,9.333333333333334);%
+			\draw (axis cs: 393.584000781025452,-9.333333333333334) -- (axis cs: 393.584000781025452,9.333333333333334);%
+			\draw (axis cs: 395.000000000000000,-9.333333333333334) -- (axis cs: 395.000000000000000,9.333333333333334);%
+			\draw (axis cs: 425.079756714885661,-9.333333333333334) -- (axis cs: 425.079756714885661,9.333333333333334);%
+			\draw (axis cs: 650.000000000000000,-9.333333333333334) -- (axis cs: 650.000000000000000,9.333333333333334);%
+			\draw[color=red] (axis cs: 386.364945971854809,-14.000000000000000) -- (axis cs: 386.364945971854809,14.000000000000000);%
+		\end{axis}%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textit{t}^{\textsl{(H)}}$ - $(1, 2, 2)$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{\linewidth}{!}{%
+		\begin{tikzpicture}%
+		\begin{axis}%
+		[%
+			hide axis,%
+			axis equal image,%
+			scale only axis,%
+			width=\textwidth,%
+			xmin=370.000000000000000, xmax=590.000000000000000,%
+			ymin=-11.000000000000000, ymax=11.000000000000000,%
+		]%
+			\draw (axis cs: 370.000000000000000,0) -- (axis cs: 590.000000000000000,0);%
+			\draw (axis cs: 370.000000000000000,-7.333333333333333) -- (axis cs: 370.000000000000000,7.333333333333333);%
+			\draw (axis cs: 404.835440952336626,-7.333333333333333) -- (axis cs: 404.835440952336626,7.333333333333333);%
+			\draw (axis cs: 430.216775671643177,-7.333333333333333) -- (axis cs: 430.216775671643177,7.333333333333333);%
+			\draw (axis cs: 451.278371890255869,-7.333333333333333) -- (axis cs: 451.278371890255869,7.333333333333333);%
+			\draw (axis cs: 481.698567007992722,-7.333333333333333) -- (axis cs: 481.698567007992722,7.333333333333333);%
+			\draw (axis cs: 590.000000000000000,-7.333333333333333) -- (axis cs: 590.000000000000000,7.333333333333333);%
+			\draw[color=red] (axis cs: 468.976290521100680,-11.000000000000000) -- (axis cs: 468.976290521100680,11.000000000000000);%
+		\end{axis}%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textit{t}^{\textsl{(H)}}$ - $(2, 1, 2)$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{\linewidth}{!}{%
+		\begin{tikzpicture}%
+		\begin{axis}%
+		[%
+			hide axis,%
+			axis equal image,%
+			scale only axis,%
+			width=\textwidth,%
+			xmin=410.000000000000000, xmax=650.000000000000000,%
+			ymin=-12.000000000000000, ymax=12.000000000000000,%
+		]%
+			\draw (axis cs: 410.000000000000000,0) -- (axis cs: 650.000000000000000,0);%
+			\draw (axis cs: 410.000000000000000,-8.000000000000000) -- (axis cs: 410.000000000000000,8.000000000000000);%
+			\draw (axis cs: 554.401910656009704,-8.000000000000000) -- (axis cs: 554.401910656009704,8.000000000000000);%
+			\draw (axis cs: 564.985721453061615,-8.000000000000000) -- (axis cs: 564.985721453061615,8.000000000000000);%
+			\draw (axis cs: 570.210733344832875,-8.000000000000000) -- (axis cs: 570.210733344832875,8.000000000000000);%
+			\draw (axis cs: 572.522162216704601,-8.000000000000000) -- (axis cs: 572.522162216704601,8.000000000000000);%
+			\draw (axis cs: 575.902748815174277,-8.000000000000000) -- (axis cs: 575.902748815174277,8.000000000000000);%
+			\draw (axis cs: 580.000000000000000,-8.000000000000000) -- (axis cs: 580.000000000000000,8.000000000000000);%
+			\draw (axis cs: 650.000000000000000,-8.000000000000000) -- (axis cs: 650.000000000000000,8.000000000000000);%
+			\draw[color=red] (axis cs: 571.364945971865382,-12.000000000000000) -- (axis cs: 571.364945971865382,12.000000000000000);%
+		\end{axis}%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textit{t}^{\textsl{(C)}}$ - $(1, 2)$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{\linewidth}{!}{%
+		\begin{tikzpicture}%
+		\begin{axis}%
+		[%
+			hide axis,%
+			axis equal image,%
+			scale only axis,%
+			width=\textwidth,%
+			xmin=350.000000000000000, xmax=500.000000000000000,%
+			ymin=-7.500000000000000, ymax=7.500000000000000,%
+		]%
+			\draw (axis cs: 350.000000000000000,0) -- (axis cs: 500.000000000000000,0);%
+			\draw (axis cs: 350.000000000000000,-5.000000000000000) -- (axis cs: 350.000000000000000,5.000000000000000);%
+			\draw (axis cs: 500.000000000000000,-5.000000000000000) -- (axis cs: 500.000000000000000,5.000000000000000);%
+			\draw[color=red] (axis cs: 350.000000000000000,-7.500000000000000) -- (axis cs: 350.000000000000000,7.500000000000000);%
+		\end{axis}%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textit{t}^{\textsl{(C)}}$ - $(2, 3)$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{\linewidth}{!}{%
+		\begin{tikzpicture}%
+		\begin{axis}%
+		[%
+			hide axis,%
+			axis equal image,%
+			scale only axis,%
+			width=\textwidth,%
+			xmin=410.000000000000000, xmax=650.000000000000000,%
+			ymin=-12.000000000000000, ymax=12.000000000000000,%
+		]%
+			\draw (axis cs: 410.000000000000000,0) -- (axis cs: 650.000000000000000,0);%
+			\draw (axis cs: 410.000000000000000,-8.000000000000000) -- (axis cs: 410.000000000000000,8.000000000000000);%
+			\draw (axis cs: 650.000000000000000,-8.000000000000000) -- (axis cs: 650.000000000000000,8.000000000000000);%
+			\draw[color=red] (axis cs: 410.000000000000000,-12.000000000000000) -- (axis cs: 410.000000000000000,12.000000000000000);%
+		\end{axis}%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textit{t}^{\textsl{(C)}}$ - $(1, 3)$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{\linewidth}{!}{%
+		\begin{tikzpicture}%
+		\begin{axis}%
+		[%
+			hide axis,%
+			axis equal image,%
+			scale only axis,%
+			width=\textwidth,%
+			xmin=410.000000000000000, xmax=650.000000000000000,%
+			ymin=-12.000000000000000, ymax=12.000000000000000,%
+		]%
+			\draw (axis cs: 410.000000000000000,0) -- (axis cs: 650.000000000000000,0);%
+			\draw (axis cs: 410.000000000000000,-8.000000000000000) -- (axis cs: 410.000000000000000,8.000000000000000);%
+			\draw (axis cs: 450.000000000000000,-8.000000000000000) -- (axis cs: 450.000000000000000,8.000000000000000);%
+			\draw (axis cs: 557.365570785445470,-8.000000000000000) -- (axis cs: 557.365570785445470,8.000000000000000);%
+			\draw (axis cs: 614.995240484353872,-8.000000000000000) -- (axis cs: 614.995240484353872,8.000000000000000);%
+			\draw (axis cs: 617.507387405553004,-8.000000000000000) -- (axis cs: 617.507387405553004,8.000000000000000);%
+			\draw (axis cs: 618.634249605058130,-8.000000000000000) -- (axis cs: 618.634249605058130,8.000000000000000);%
+			\draw (axis cs: 650.000000000000000,-8.000000000000000) -- (axis cs: 650.000000000000000,8.000000000000000);%
+			\draw[color=red] (axis cs: 618.634249605058130,-12.000000000000000) -- (axis cs: 618.634249605058130,12.000000000000000);%
+		\end{axis}%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textit{t}^{\textsl{(C)}}$ - $(1, 1, 1)$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{\linewidth}{!}{%
+		\begin{tikzpicture}%
+		\begin{axis}%
+		[%
+			hide axis,%
+			axis equal image,%
+			scale only axis,%
+			width=\textwidth,%
+			xmin=350.000000000000000, xmax=500.000000000000000,%
+			ymin=-7.500000000000000, ymax=7.500000000000000,%
+		]%
+			\draw (axis cs: 350.000000000000000,0) -- (axis cs: 500.000000000000000,0);%
+			\draw (axis cs: 350.000000000000000,-5.000000000000000) -- (axis cs: 350.000000000000000,5.000000000000000);%
+			\draw (axis cs: 479.954559650046406,-5.000000000000000) -- (axis cs: 479.954559650046406,5.000000000000000);%
+			\draw (axis cs: 500.000000000000000,-5.000000000000000) -- (axis cs: 500.000000000000000,5.000000000000000);%
+			\draw[color=red] (axis cs: 500.000000000000000,-7.500000000000000) -- (axis cs: 500.000000000000000,7.500000000000000);%
+		\end{axis}%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textit{t}^{\textsl{(C)}}$ - $(1, 2, 2)$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{\linewidth}{!}{%
+		\begin{tikzpicture}%
+		\begin{axis}%
+		[%
+			hide axis,%
+			axis equal image,%
+			scale only axis,%
+			width=\textwidth,%
+			xmin=410.000000000000000, xmax=650.000000000000000,%
+			ymin=-12.000000000000000, ymax=12.000000000000000,%
+		]%
+			\draw (axis cs: 410.000000000000000,0) -- (axis cs: 650.000000000000000,0);%
+			\draw (axis cs: 410.000000000000000,-8.000000000000000) -- (axis cs: 410.000000000000000,8.000000000000000);%
+			\draw (axis cs: 469.393822419879768,-8.000000000000000) -- (axis cs: 469.393822419879768,8.000000000000000);%
+			\draw (axis cs: 542.394012077458456,-8.000000000000000) -- (axis cs: 542.394012077458456,8.000000000000000);%
+			\draw (axis cs: 580.000000000000000,-8.000000000000000) -- (axis cs: 580.000000000000000,8.000000000000000);%
+			\draw (axis cs: 625.204168757142952,-8.000000000000000) -- (axis cs: 625.204168757142952,8.000000000000000);%
+			\draw (axis cs: 642.344571100243911,-8.000000000000000) -- (axis cs: 642.344571100243911,8.000000000000000);%
+			\draw (axis cs: 650.000000000000000,-8.000000000000000) -- (axis cs: 650.000000000000000,8.000000000000000);%
+			\draw[color=red] (axis cs: 613.895106639087089,-12.000000000000000) -- (axis cs: 613.895106639087089,12.000000000000000);%
+		\end{axis}%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textit{t}^{\textsl{(C)}}$ - $(2, 1, 2)$}%
+	\end{subfigure}%%
+\end{figure}%
+\clearpage%
+\section{Area Breakpoints}%
+\thispagestyle{plain}%
+\subsection{$A$}%
+\begin{itemize}%
+	\item $(1, 1, 1)$%
+	\begin{itemize}%
+		\item Value: 70.301818%
+		\item Error: 1.107557797540196%
+		\item Relative error: 0.015509977388134%
+	\end{itemize}%
+	\item $(1, 2, 2)$%
+	\begin{itemize}%
+		\item Value: 69.345028%
+		\item Error: 0.000000000000057%
+		\item Relative error: 0.000000000000001%
+	\end{itemize}%
+	\item $(2, 1, 2)$%
+	\begin{itemize}%
+		\item Value: 131.697605%
+		\item Error: 4.313718140889875%
+		\item Relative error: 0.031715875227973%
+	\end{itemize}%
+\end{itemize}%
+\subsection{$A_{CU}$}%
+\begin{itemize}%
+	\item $\textit{cu},1$%
+	\begin{itemize}%
+		\item Value: 3.180942%
+		\item Error: 1.613847925716230%
+		\item Relative error: 0.336583659708964%
+	\end{itemize}%
+	\item $\textit{cu},2$%
+	\begin{itemize}%
+		\item Value: 37.478751%
+		\item Error: 0.383042620517479%
+		\item Relative error: 0.010116864075006%
+	\end{itemize}%
+\end{itemize}%
+\subsection{$A_{HU}$}%
+\begin{itemize}%
+	\item $\textit{hu},1$%
+	\begin{itemize}%
+		\item Value: 13.227179%
+		\item Error: 0.092706320672210%
+		\item Relative error: 0.006959993799339%
+	\end{itemize}%
+\end{itemize}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{\linewidth}{!}{%
+		\begin{tikzpicture}%
+		\begin{axis}%
+		[%
+			hide axis,%
+			axis equal image,%
+			scale only axis,%
+			width=\textwidth,%
+			xmin=0.000000000000000, xmax=2800.000000000000000,%
+			ymin=-140.000000000000000, ymax=140.000000000000000,%
+		]%
+			\draw (axis cs: 0.000000000000000,0) -- (axis cs: 2800.000000000000000,0);%
+			\draw (axis cs: 0.000000000000000,-93.333333333333329) -- (axis cs: 0.000000000000000,93.333333333333329);%
+			\draw (axis cs: 563.669246623589402,-93.333333333333329) -- (axis cs: 563.669246623589402,93.333333333333329);%
+			\draw (axis cs: 600.000000000000000,-93.333333333333329) -- (axis cs: 600.000000000000000,93.333333333333329);%
+			\draw (axis cs: 640.972511848260638,-93.333333333333329) -- (axis cs: 640.972511848260638,93.333333333333329);%
+			\draw (axis cs: 674.778377832953993,-93.333333333333329) -- (axis cs: 674.778377832953993,93.333333333333329);%
+			\draw (axis cs: 697.892666551671255,-93.333333333333329) -- (axis cs: 697.892666551671255,93.333333333333329);%
+			\draw (axis cs: 750.142785469383853,-93.333333333333329) -- (axis cs: 750.142785469383853,93.333333333333329);%
+			\draw (axis cs: 850.000000000000000,-93.333333333333329) -- (axis cs: 850.000000000000000,93.333333333333329);%
+			\draw (axis cs: 2800.000000000000000,-93.333333333333329) -- (axis cs: 2800.000000000000000,93.333333333333329);%
+			\draw[color=red] (axis cs: 686.350540281345388,-140.000000000000000) -- (axis cs: 686.350540281345388,140.000000000000000);%
+		\end{axis}%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textit{A}^{\beta}$ - $(1, 1, 1)$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{\linewidth}{!}{%
+		\begin{tikzpicture}%
+		\begin{axis}%
+		[%
+			hide axis,%
+			axis equal image,%
+			scale only axis,%
+			width=\textwidth,%
+			xmin=0.000000000000000, xmax=1950.000000000000000,%
+			ymin=-97.500000000000000, ymax=97.500000000000000,%
+		]%
+			\draw (axis cs: 0.000000000000000,0) -- (axis cs: 1950.000000000000000,0);%
+			\draw (axis cs: 0.000000000000000,-65.000000000000000) -- (axis cs: 0.000000000000000,65.000000000000000);%
+			\draw (axis cs: 900.146584504173916,-65.000000000000000) -- (axis cs: 900.146584504173916,65.000000000000000);%
+			\draw (axis cs: 1689.409275450603218,-65.000000000000000) -- (axis cs: 1689.409275450603218,65.000000000000000);%
+			\draw (axis cs: 1950.000000000000000,-65.000000000000000) -- (axis cs: 1950.000000000000000,65.000000000000000);%
+			\draw[color=red] (axis cs: 1950.000000000000000,-97.500000000000000) -- (axis cs: 1950.000000000000000,97.500000000000000);%
+		\end{axis}%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textit{A}^{\beta}$ - $(1, 2, 2)$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{\linewidth}{!}{%
+		\begin{tikzpicture}%
+		\begin{axis}%
+		[%
+			hide axis,%
+			axis equal image,%
+			scale only axis,%
+			width=\textwidth,%
+			xmin=0.000000000000000, xmax=3600.000000000000000,%
+			ymin=-180.000000000000000, ymax=180.000000000000000,%
+		]%
+			\draw (axis cs: 0.000000000000000,0) -- (axis cs: 3600.000000000000000,0);%
+			\draw (axis cs: 0.000000000000000,-120.000000000000000) -- (axis cs: 0.000000000000000,120.000000000000000);%
+			\draw (axis cs: 890.907336298194878,-120.000000000000000) -- (axis cs: 890.907336298194878,120.000000000000000);%
+			\draw (axis cs: 1140.168303162159873,-120.000000000000000) -- (axis cs: 1140.168303162159873,120.000000000000000);%
+			\draw (axis cs: 1848.693827984412792,-120.000000000000000) -- (axis cs: 1848.693827984412792,120.000000000000000);%
+			\draw (axis cs: 2166.028659840145792,-120.000000000000000) -- (axis cs: 2166.028659840145792,120.000000000000000);%
+			\draw (axis cs: 2324.785821795923312,-120.000000000000000) -- (axis cs: 2324.785821795923312,120.000000000000000);%
+			\draw (axis cs: 2488.541232227608816,-120.000000000000000) -- (axis cs: 2488.541232227608816,120.000000000000000);%
+			\draw (axis cs: 2550.000000000000000,-120.000000000000000) -- (axis cs: 2550.000000000000000,120.000000000000000);%
+			\draw (axis cs: 3600.000000000000000,-120.000000000000000) -- (axis cs: 3600.000000000000000,120.000000000000000);%
+			\draw[color=red] (axis cs: 2420.474189577980724,-180.000000000000000) -- (axis cs: 2420.474189577980724,180.000000000000000);%
+		\end{axis}%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textit{A}^{\beta}$ - $(2, 1, 2)$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{\linewidth}{!}{%
+		\begin{tikzpicture}%
+		\begin{axis}%
+		[%
+			hide axis,%
+			axis equal image,%
+			scale only axis,%
+			width=\textwidth,%
+			xmin=0.000000000000000, xmax=2800.000000000000000,%
+			ymin=-140.000000000000000, ymax=140.000000000000000,%
+		]%
+			\draw (axis cs: 0.000000000000000,0) -- (axis cs: 2800.000000000000000,0);%
+			\draw (axis cs: 0.000000000000000,-93.333333333333329) -- (axis cs: 0.000000000000000,93.333333333333329);%
+			\draw (axis cs: 209.027488151735156,-93.333333333333329) -- (axis cs: 209.027488151735156,93.333333333333329);%
+			\draw (axis cs: 250.000000000000000,-93.333333333333329) -- (axis cs: 250.000000000000000,93.333333333333329);%
+			\draw (axis cs: 360.447939080012475,-93.333333333333329) -- (axis cs: 360.447939080012475,93.333333333333329);%
+			\draw (axis cs: 577.238089674605362,-93.333333333333329) -- (axis cs: 577.238089674605362,93.333333333333329);%
+			\draw (axis cs: 647.493576756073367,-93.333333333333329) -- (axis cs: 647.493576756073367,93.333333333333329);%
+			\draw (axis cs: 827.557492078634823,-93.333333333333329) -- (axis cs: 827.557492078634823,93.333333333333329);%
+			\draw (axis cs: 2800.000000000000000,-93.333333333333329) -- (axis cs: 2800.000000000000000,93.333333333333329);%
+			\draw[color=red] (axis cs: 163.649459718654612,-140.000000000000000) -- (axis cs: 163.649459718654612,140.000000000000000);%
+		\end{axis}%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textit{A}^{\beta}$ - $cu,1$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{\linewidth}{!}{%
+		\begin{tikzpicture}%
+		\begin{axis}%
+		[%
+			hide axis,%
+			axis equal image,%
+			scale only axis,%
+			width=\textwidth,%
+			xmin=0.000000000000000, xmax=4400.000000000000000,%
+			ymin=-220.000000000000000, ymax=220.000000000000000,%
+		]%
+			\draw (axis cs: 0.000000000000000,0) -- (axis cs: 4400.000000000000000,0);%
+			\draw (axis cs: 0.000000000000000,-146.666666666666657) -- (axis cs: 0.000000000000000,146.666666666666657);%
+			\draw (axis cs: 1309.831696837814434,-146.666666666666657) -- (axis cs: 1309.831696837814434,146.666666666666657);%
+			\draw (axis cs: 1501.452756519761351,-146.666666666666657) -- (axis cs: 1501.452756519761351,146.666666666666657);%
+			\draw (axis cs: 1559.092663701805122,-146.666666666666657) -- (axis cs: 1559.092663701805122,146.666666666666657);%
+			\draw (axis cs: 1814.623453654679906,-146.666666666666657) -- (axis cs: 1814.623453654679906,146.666666666666657);%
+			\draw (axis cs: 1850.000000000000000,-146.666666666666657) -- (axis cs: 1850.000000000000000,146.666666666666657);%
+			\draw (axis cs: 1911.458767772391184,-146.666666666666657) -- (axis cs: 1911.458767772391184,146.666666666666657);%
+			\draw (axis cs: 2233.971340159854208,-146.666666666666657) -- (axis cs: 2233.971340159854208,146.666666666666657);%
+			\draw (axis cs: 4400.000000000000000,-146.666666666666657) -- (axis cs: 4400.000000000000000,146.666666666666657);%
+			\draw[color=red] (axis cs: 1979.525810422019276,-220.000000000000000) -- (axis cs: 1979.525810422019276,220.000000000000000);%
+		\end{axis}%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textit{A}^{\beta}$ - $cu,2$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{\linewidth}%
+		\centering%
+		\resizebox{\linewidth}{!}{%
+		\begin{tikzpicture}%
+		\begin{axis}%
+		[%
+			hide axis,%
+			axis equal image,%
+			scale only axis,%
+			width=\textwidth,%
+			xmin=0.000000000000000, xmax=3600.000000000000000,%
+			ymin=-180.000000000000000, ymax=180.000000000000000,%
+		]%
+			\draw (axis cs: 0.000000000000000,0) -- (axis cs: 3600.000000000000000,0);%
+			\draw (axis cs: 0.000000000000000,-120.000000000000000) -- (axis cs: 0.000000000000000,120.000000000000000);%
+			\draw (axis cs: 450.000000000000000,-120.000000000000000) -- (axis cs: 450.000000000000000,120.000000000000000);%
+			\draw (axis cs: 470.486255924130546,-120.000000000000000) -- (axis cs: 470.486255924130546,120.000000000000000);%
+			\draw (axis cs: 486.330753376410598,-120.000000000000000) -- (axis cs: 486.330753376410598,120.000000000000000);%
+			\draw (axis cs: 487.389188916476087,-120.000000000000000) -- (axis cs: 487.389188916476087,120.000000000000000);%
+			\draw (axis cs: 498.946333275835741,-120.000000000000000) -- (axis cs: 498.946333275835741,120.000000000000000);%
+			\draw (axis cs: 525.071392734692381,-120.000000000000000) -- (axis cs: 525.071392734692381,120.000000000000000);%
+			\draw (axis cs: 583.971340159854208,-120.000000000000000) -- (axis cs: 583.971340159854208,120.000000000000000);%
+			\draw (axis cs: 3600.000000000000000,-120.000000000000000) -- (axis cs: 3600.000000000000000,120.000000000000000);%
+			\draw[color=red] (axis cs: 493.175270140673092,-180.000000000000000) -- (axis cs: 493.175270140673092,180.000000000000000);%
+		\end{axis}%
+		\end{tikzpicture}%
+		}%
+		\caption{$\textit{A}^{\beta}$ - $hu,1$}%
+	\end{subfigure}%%
+\end{figure}%
+\clearpage%
+\section{$A^\beta$ Breakpoints}%
+\thispagestyle{plain}%
+\begin{itemize}%
+	\item $(1, 1, 1)$%
+	\begin{itemize}%
+		\item $q$: 70.301818%
+		\item $\hat{q}^\beta$: 70.301818%
+		\item $q^\beta$: 70.301818%
+		\item Breakpoints: $[$$0$, $5.0$, $18.13353447520507$, $60.38493803732795$, $63.3468696286352$, $65.40595072874316$, $69.14107665413653$, \textcolor{red}{$69.89902342903967$}, \textcolor{red}{$560.0$}$]$%
+		\item Error: 0.000000000000000%
+		\item Relative error: 0.000000000000000%
+	\end{itemize}%
+	\item $(1, 2, 2)$%
+	\begin{itemize}%
+		\item $q$: 69.345028%
+		\item $\hat{q}^\beta$: 69.345028%
+		\item $q^\beta$: 69.345028%
+		\item Breakpoints: $[$$0$, $6.000977230027827$, $11.262728503004022$, $39.36524453694061$, \textcolor{red}{$64.01825678947372$}, \textcolor{red}{$84.1468297226002$}, $390.0$$]$%
+		\item Error: 0.000000000000000%
+		\item Relative error: 0.000000000000000%
+	\end{itemize}%
+	\item $(2, 1, 2)$%
+	\begin{itemize}%
+		\item $q$: 131.697605%
+		\item $\hat{q}^\beta$: 131.697605%
+		\item $q^\beta$: 131.697605%
+		\item Breakpoints: $[$$0$, $9.898970403313276$, $28.333333333333332$, $42.69900440382105$, $48.67452649027746$, $79.83702775273511$, \textcolor{red}{$87.16107999267206$}, \textcolor{red}{$147.48374761404892$}, $720.0$$]$%
+		\item Error: 0.000000000000000%
+		\item Relative error: 0.000000000000000%
+	\end{itemize}%
+	\item $\textit{cu},1$%
+	\begin{itemize}%
+		\item $q$: 3.180942%
+		\item $\hat{q}^\beta$: 3.180942%
+		\item $q^\beta$: 3.180942%
+		\item Breakpoints: $[$$0$, \textcolor{red}{$2.9819181007907165$}, \textcolor{red}{$4.432280503220532$}, $7.702824927089129$, $9.28003023700696$, $13.56934656224007$, $14.535545040173215$, $181.61828057849593$$]$%
+		\item Error: 0.000000000000000%
+		\item Relative error: 0.000000000000000%
+	\end{itemize}%
+	\item $\textit{cu},2$%
+	\begin{itemize}%
+		\item $q$: 37.478751%
+		\item $\hat{q}^\beta$: 37.478751%
+		\item $q^\beta$: 37.478751%
+		\item Breakpoints: $[$$0$, $18.023935870161154$, $21.04660840930274$, $24.97364426355679$, $30.189424467922265$, $34.23465128608717$, \textcolor{red}{$36.670233878040335$}, \textcolor{red}{$38.88483572219945$}, $285.4001551947793$$]$%
+		\item Error: 0.000000000000000%
+		\item Relative error: 0.000000000000000%
+	\end{itemize}%
+	\item $\textit{hu},1$%
+	\begin{itemize}%
+		\item $q$: 13.227179%
+		\item $\hat{q}^\beta$: 13.227179%
+		\item $q^\beta$: 13.227179%
+		\item Breakpoints: $[$$0$, $4.943755299006499$, $12.544341108707222$, $12.595096067947068$, \textcolor{red}{$13.192252946941991$}, \textcolor{red}{$13.244985069124171$}, $13.30871858348944$, $14.09178614751222$, $237.3002543523117$$]$%
+		\item Error: 0.000000000000000%
+		\item Relative error: 0.000000000000000%
+	\end{itemize}%
+\end{itemize}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{0.5\linewidth}%
+		\centering%
+		\begin{tikzpicture}[baseline]%
+		\begin{axis}%
+		[%
+			axis lines=middle,%
+			xmin=0.000000000000000, xmax=560.000000000000000,%
+			ymin=0.000000000000000, ymax=560.000000000000000,%
+			xtick=\empty, ytick=\empty,%
+			xticklabels=\empty,%
+			yticklabels=\empty,%
+			xlabel=\empty,ylabel=\empty,%
+			every axis x label/.style={%
+				at={(ticklabel* cs:1)},%
+				anchor=west,%
+			},%
+			every axis y label/.style={%
+				at={(ticklabel* cs:1)},%
+				anchor=south,%
+			}%
+		]%
+			\addplot[domain=0.000000:560.000000, color=blue]{x^1.000000};%
+			\draw[dotted, thick] (axis cs: 0.000000, 0.000000) -- (axis cs: 5.000000, 5.000000);%
+			\draw[dotted, thick] (axis cs: 5.000000, 5.000000) -- (axis cs: 18.133534, 18.133534);%
+			\draw[dotted, thick] (axis cs: 18.133534, 18.133534) -- (axis cs: 60.384938, 60.384938);%
+			\draw[dotted, thick] (axis cs: 60.384938, 60.384938) -- (axis cs: 63.346870, 63.346870);%
+			\draw[dotted, thick] (axis cs: 63.346870, 63.346870) -- (axis cs: 65.405951, 65.405951);%
+			\draw[dotted, thick] (axis cs: 65.405951, 65.405951) -- (axis cs: 69.141077, 69.141077);%
+			\draw[dotted, thick] (axis cs: 69.141077, 69.141077) -- (axis cs: 69.899023, 69.899023);%
+			\draw[dotted, thick] (axis cs: 69.899023, 69.899023) -- (axis cs: 560.000000, 560.000000);%
+			\draw[dashed, color=red] (axis cs: 70.301818, 0.000000) -- (axis cs: 70.301818, 70.301818);%
+		\end{axis}%
+		\end{tikzpicture}%
+		\caption{$q^\beta$ - $(1, 1, 1)$}%
+	\end{subfigure}%%
+	\begin{subfigure}{0.5\linewidth}%
+		\centering%
+		\begin{tikzpicture}[baseline]%
+		\begin{axis}%
+		[%
+			axis lines=middle,%
+			xmin=0.000000000000000, xmax=390.000000000000000,%
+			ymin=0.000000000000000, ymax=390.000000000000000,%
+			xtick=\empty, ytick=\empty,%
+			xticklabels=\empty,%
+			yticklabels=\empty,%
+			xlabel=\empty,ylabel=\empty,%
+			every axis x label/.style={%
+				at={(ticklabel* cs:1)},%
+				anchor=west,%
+			},%
+			every axis y label/.style={%
+				at={(ticklabel* cs:1)},%
+				anchor=south,%
+			}%
+		]%
+			\addplot[domain=0.000000:390.000000, color=blue]{x^1.000000};%
+			\draw[dotted, thick] (axis cs: 0.000000, 0.000000) -- (axis cs: 6.000977, 6.000977);%
+			\draw[dotted, thick] (axis cs: 6.000977, 6.000977) -- (axis cs: 11.262729, 11.262729);%
+			\draw[dotted, thick] (axis cs: 11.262729, 11.262729) -- (axis cs: 39.365245, 39.365245);%
+			\draw[dotted, thick] (axis cs: 39.365245, 39.365245) -- (axis cs: 64.018257, 64.018257);%
+			\draw[dotted, thick] (axis cs: 64.018257, 64.018257) -- (axis cs: 84.146830, 84.146830);%
+			\draw[dotted, thick] (axis cs: 84.146830, 84.146830) -- (axis cs: 390.000000, 390.000000);%
+			\draw[dashed, color=red] (axis cs: 69.345028, 0.000000) -- (axis cs: 69.345028, 69.345028);%
+		\end{axis}%
+		\end{tikzpicture}%
+		\caption{$q^\beta$ - $(1, 2, 2)$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\ContinuedFloat%
+	\centering%
+	\begin{subfigure}{0.5\linewidth}%
+		\centering%
+		\begin{tikzpicture}[baseline]%
+		\begin{axis}%
+		[%
+			axis lines=middle,%
+			xmin=0.000000000000000, xmax=720.000000000000000,%
+			ymin=0.000000000000000, ymax=720.000000000000000,%
+			xtick=\empty, ytick=\empty,%
+			xticklabels=\empty,%
+			yticklabels=\empty,%
+			xlabel=\empty,ylabel=\empty,%
+			every axis x label/.style={%
+				at={(ticklabel* cs:1)},%
+				anchor=west,%
+			},%
+			every axis y label/.style={%
+				at={(ticklabel* cs:1)},%
+				anchor=south,%
+			}%
+		]%
+			\addplot[domain=0.000000:720.000000, color=blue]{x^1.000000};%
+			\draw[dotted, thick] (axis cs: 0.000000, 0.000000) -- (axis cs: 9.898970, 9.898970);%
+			\draw[dotted, thick] (axis cs: 9.898970, 9.898970) -- (axis cs: 28.333333, 28.333333);%
+			\draw[dotted, thick] (axis cs: 28.333333, 28.333333) -- (axis cs: 42.699004, 42.699004);%
+			\draw[dotted, thick] (axis cs: 42.699004, 42.699004) -- (axis cs: 48.674526, 48.674526);%
+			\draw[dotted, thick] (axis cs: 48.674526, 48.674526) -- (axis cs: 79.837028, 79.837028);%
+			\draw[dotted, thick] (axis cs: 79.837028, 79.837028) -- (axis cs: 87.161080, 87.161080);%
+			\draw[dotted, thick] (axis cs: 87.161080, 87.161080) -- (axis cs: 147.483748, 147.483748);%
+			\draw[dotted, thick] (axis cs: 147.483748, 147.483748) -- (axis cs: 720.000000, 720.000000);%
+			\draw[dashed, color=red] (axis cs: 131.697605, 0.000000) -- (axis cs: 131.697605, 131.697605);%
+		\end{axis}%
+		\end{tikzpicture}%
+		\caption{$q^\beta$ - $(2, 1, 2)$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{0.5\linewidth}%
+		\centering%
+		\begin{tikzpicture}[baseline]%
+		\begin{axis}%
+		[%
+			axis lines=middle,%
+			xmin=0.000000000000000, xmax=181.618280578495927,%
+			ymin=0.000000000000000, ymax=181.618280578495927,%
+			xtick=\empty, ytick=\empty,%
+			xticklabels=\empty,%
+			yticklabels=\empty,%
+			xlabel=\empty,ylabel=\empty,%
+			every axis x label/.style={%
+				at={(ticklabel* cs:1)},%
+				anchor=west,%
+			},%
+			every axis y label/.style={%
+				at={(ticklabel* cs:1)},%
+				anchor=south,%
+			}%
+		]%
+			\addplot[domain=0.000000:181.618281, color=blue]{x^1.000000};%
+			\draw[dotted, thick] (axis cs: 0.000000, 0.000000) -- (axis cs: 2.981918, 2.981918);%
+			\draw[dotted, thick] (axis cs: 2.981918, 2.981918) -- (axis cs: 4.432281, 4.432281);%
+			\draw[dotted, thick] (axis cs: 4.432281, 4.432281) -- (axis cs: 7.702825, 7.702825);%
+			\draw[dotted, thick] (axis cs: 7.702825, 7.702825) -- (axis cs: 9.280030, 9.280030);%
+			\draw[dotted, thick] (axis cs: 9.280030, 9.280030) -- (axis cs: 13.569347, 13.569347);%
+			\draw[dotted, thick] (axis cs: 13.569347, 13.569347) -- (axis cs: 14.535545, 14.535545);%
+			\draw[dotted, thick] (axis cs: 14.535545, 14.535545) -- (axis cs: 181.618281, 181.618281);%
+			\draw[dashed, color=red] (axis cs: 3.180942, 0.000000) -- (axis cs: 3.180942, 3.180942);%
+		\end{axis}%
+		\end{tikzpicture}%
+		\caption{$q^\beta$ - $\textit{cu},1$}%
+	\end{subfigure}%%
+	\begin{subfigure}{0.5\linewidth}%
+		\centering%
+		\begin{tikzpicture}[baseline]%
+		\begin{axis}%
+		[%
+			axis lines=middle,%
+			xmin=0.000000000000000, xmax=285.400155194779302,%
+			ymin=0.000000000000000, ymax=285.400155194779302,%
+			xtick=\empty, ytick=\empty,%
+			xticklabels=\empty,%
+			yticklabels=\empty,%
+			xlabel=\empty,ylabel=\empty,%
+			every axis x label/.style={%
+				at={(ticklabel* cs:1)},%
+				anchor=west,%
+			},%
+			every axis y label/.style={%
+				at={(ticklabel* cs:1)},%
+				anchor=south,%
+			}%
+		]%
+			\addplot[domain=0.000000:285.400155, color=blue]{x^1.000000};%
+			\draw[dotted, thick] (axis cs: 0.000000, 0.000000) -- (axis cs: 18.023936, 18.023936);%
+			\draw[dotted, thick] (axis cs: 18.023936, 18.023936) -- (axis cs: 21.046608, 21.046608);%
+			\draw[dotted, thick] (axis cs: 21.046608, 21.046608) -- (axis cs: 24.973644, 24.973644);%
+			\draw[dotted, thick] (axis cs: 24.973644, 24.973644) -- (axis cs: 30.189424, 30.189424);%
+			\draw[dotted, thick] (axis cs: 30.189424, 30.189424) -- (axis cs: 34.234651, 34.234651);%
+			\draw[dotted, thick] (axis cs: 34.234651, 34.234651) -- (axis cs: 36.670234, 36.670234);%
+			\draw[dotted, thick] (axis cs: 36.670234, 36.670234) -- (axis cs: 38.884836, 38.884836);%
+			\draw[dotted, thick] (axis cs: 38.884836, 38.884836) -- (axis cs: 285.400155, 285.400155);%
+			\draw[dashed, color=red] (axis cs: 37.478751, 0.000000) -- (axis cs: 37.478751, 37.478751);%
+		\end{axis}%
+		\end{tikzpicture}%
+		\caption{$q^\beta$ - $\textit{cu},2$}%
+	\end{subfigure}%%
+\end{figure}%
+\begin{figure}[p]%
+	\centering%
+	\begin{subfigure}{0.5\linewidth}%
+		\centering%
+		\begin{tikzpicture}[baseline]%
+		\begin{axis}%
+		[%
+			axis lines=middle,%
+			xmin=0.000000000000000, xmax=237.300254352311697,%
+			ymin=0.000000000000000, ymax=237.300254352311697,%
+			xtick=\empty, ytick=\empty,%
+			xticklabels=\empty,%
+			yticklabels=\empty,%
+			xlabel=\empty,ylabel=\empty,%
+			every axis x label/.style={%
+				at={(ticklabel* cs:1)},%
+				anchor=west,%
+			},%
+			every axis y label/.style={%
+				at={(ticklabel* cs:1)},%
+				anchor=south,%
+			}%
+		]%
+			\addplot[domain=0.000000:237.300254, color=blue]{x^1.000000};%
+			\draw[dotted, thick] (axis cs: 0.000000, 0.000000) -- (axis cs: 4.943755, 4.943755);%
+			\draw[dotted, thick] (axis cs: 4.943755, 4.943755) -- (axis cs: 12.544341, 12.544341);%
+			\draw[dotted, thick] (axis cs: 12.544341, 12.544341) -- (axis cs: 12.595096, 12.595096);%
+			\draw[dotted, thick] (axis cs: 12.595096, 12.595096) -- (axis cs: 13.192253, 13.192253);%
+			\draw[dotted, thick] (axis cs: 13.192253, 13.192253) -- (axis cs: 13.244985, 13.244985);%
+			\draw[dotted, thick] (axis cs: 13.244985, 13.244985) -- (axis cs: 13.308719, 13.308719);%
+			\draw[dotted, thick] (axis cs: 13.308719, 13.308719) -- (axis cs: 14.091786, 14.091786);%
+			\draw[dotted, thick] (axis cs: 14.091786, 14.091786) -- (axis cs: 237.300254, 237.300254);%
+			\draw[dashed, color=red] (axis cs: 13.227179, 0.000000) -- (axis cs: 13.227179, 13.227179);%
+		\end{axis}%
+		\end{tikzpicture}%
+		\caption{$q^\beta$ - $\textit{hu},1$}%
+	\end{subfigure}%%
+\end{figure}%
+\clearpage%
+\section{Other variables}%
+\thispagestyle{plain}%
+\begin{multicols*}{3}%
+\TrickSupertabularIntoMulticols%
+\tablehead{Variable&Value\\\hline}%
+\begin{supertabular}{lr}%
+	$z_{1,1,2}$ & -0.0 \\%
+	$z_{1,2,1}$ & -0.0 \\%
+	$z_{2,1,1}$ & 0.0 \\%
+	$z_{2,2,1}$ & -0.0 \\%
+	$z_{2,2,2}$ & -0.0 \\%
+	$z_{hu,2}$ & -0.0 \\%
+	$A_{1,1,2}^{\beta}$ & 0.0 \\%
+	$A_{1,2,1}^{\beta}$ & 0.0 \\%
+	$A_{2,1,1}^{\beta}$ & 0.0 \\%
+	$A_{2,2,1}^{\beta}$ & 0.0 \\%
+	$A_{2,2,2}^{\beta}$ & 0.0 \\%
+	$A_{hu,2}^{\beta}$ & 0.0 \\%
+	$A_{1,1,2}$ & 0.0 \\%
+	$A_{1,2,1}$ & 0.0 \\%
+	$A_{2,1,1}$ & 0.0 \\%
+	$A_{2,2,1}$ & 0.0 \\%
+	$A_{2,2,2}$ & 0.0 \\%
+	$A_{hu,2}$ & 0.0 \\%
+	$dt_{1,1,3}$ & 240.0 \\%
+	$dt_{1,2,1}$ & 150.0 \\%
+	$dt_{2,1,1}$ & 10.0 \\%
+	$dt_{2,2,1}$ & 90.0 \\%
+	$dt_{2,2,2}$ & 220.0 \\%
+	$dt_{2,2,3}$ & 240.0 \\%
+	$dt_{hu,2}$ & 180.0 \\%
+	$f_{1,1,2}^{H}$ & 0.0 \\%
+	$f_{1,2,1}^{H}$ & 7.548748070423766 \\%
+	$f_{2,1,1}^{H}$ & 20.0 \\%
+	$f_{2,2,1}^{H}$ & 0.0 \\%
+	$f_{2,2,2}^{H}$ & 0.0 \\%
+	$f_{1,1,2}^{C}$ & 3.752661235343094 \\%
+	$f_{1,2,1}^{C}$ & 13.0 \\%
+	$f_{2,1,1}^{C}$ & 0.4685536278409863 \\%
+	$f_{2,2,1}^{C}$ & 0.0 \\%
+	$f_{2,2,2}^{C}$ & 0.0 \\%
+	$\textsl{RecLMTD}_{1,1,2}$ & 0.1 \\%
+	$\textsl{RecLMTD}_{1,2,1}$ & 0.008088138481334745 \\%
+	$\textsl{RecLMTD}_{2,1,1}$ & 0.1 \\%
+	$\textsl{RecLMTD}_{2,2,1}$ & 0.00608 \\%
+	$\textsl{RecLMTD}_{2,2,2}$ & 0.004340277777777778 \\%
+	$\textsl{RecLMTD}_{hu,2}$ & 0.005549329826813255 \\%
+	$q_{1,1,2}$ & 0.0 \\%
+	$q_{1,2,1}$ & 0.0 \\%
+	$q_{2,1,1}$ & 0.0 \\%
+	$q_{2,2,1}$ & 0.0 \\%
+	$q_{2,2,2}$ & 0.0 \\%
+	$q_{hu,2}$ & 0.0 \\%
+	$t_{1,1,2}^{H}$ & 557.1548250268942 \\%
+	$t_{1,2,1}^{H}$ & 650.0 \\%
+	$t_{2,1,1}^{H}$ & 590.0 \\%
+	$t_{2,2,1}^{H}$ & 590.0 \\%
+	$t_{2,2,2}^{H}$ & 466.16891151778816 \\%
+	$t_{1,1,2}^{C}$ & 410.0 \\%
+	$t_{1,2,1}^{C}$ & 500.0 \\%
+	$t_{2,1,1}^{C}$ & 417.2070597455825 \\%
+	$t_{2,2,1}^{C}$ & 350.0 \\%
+	$t_{2,2,2}^{C}$ & 440.01120358475225 \\%
+	$b_{1,1,2}^{H,\text{in}}$ & 0.0 \\%
+	$b_{1,2,1}^{H,\text{in}}$ & 4906.686245775449 \\%
+	$b_{2,1,1}^{H,\text{in}}$ & 11800.0 \\%
+	$b_{2,2,1}^{H,\text{in}}$ & 0.0 \\%
+	$b_{2,2,2}^{H,\text{in}}$ & 0.0 \\%
+	$b_{1,1,2}^{H,\text{out}}$ & 0.0 \\%
+	$b_{1,2,1}^{H,\text{out}}$ & 4906.686245775449 \\%
+	$b_{2,1,1}^{H,\text{out}}$ & 11800.0 \\%
+	$b_{2,2,1}^{H,\text{out}}$ & 0.0 \\%
+	$b_{2,2,2}^{H,\text{out}}$ & 0.0 \\%
+	$b_{1,1,2}^{C,\text{in}}$ & 1538.5911064906686 \\%
+	$b_{1,2,1}^{C,\text{in}}$ & 6500.0 \\%
+	$b_{2,1,1}^{C,\text{in}}$ & 267.17430774259145 \\%
+	$b_{2,2,1}^{C,\text{in}}$ & 0.0 \\%
+	$b_{2,2,2}^{C,\text{in}}$ & 0.0 \\%
+	$b_{1,1,2}^{C,\text{out}}$ & 1538.5911064906686 \\%
+	$b_{1,2,1}^{C,\text{out}}$ & 6500.0 \\%
+	$b_{2,1,1}^{C,\text{out}}$ & 267.17430774259145 \\%
+	$b_{2,2,1}^{C,\text{out}}$ & 0.0 \\%
+	$b_{2,2,2}^{C,\text{out}}$ & 0.0 \\%
+\end{supertabular}%
+\end{multicols*}%
+\end{document}

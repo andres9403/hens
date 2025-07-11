@@ -10,6 +10,8 @@ from lib_concrete.model_concrete_declarations.objective import declare_concrete_
 from lib_concrete.constants import * 
 import sys, os, copy, time, socket
 from multiprocessing import Process, cpu_count
+from pprint import pprint
+from lib_concrete.results_generator.results_builder import build_heat_exchanger_results
 
 def can_terminate_absolute(epsilons, max_errors):
     if epsilons[balancing_ref] <= max_errors[balancing_ref][absolute_error]:
@@ -47,15 +49,37 @@ def parse_dat_to_dict(dat_file):
 termination_func = can_terminate_relative
 start = time.time()
 number_of_cores = cpu_count()
+
+
 state = IterationState()
 
 argparser = state.initialise_parser()
 args = argparser.parse_args()
 state.validate_and_assign_args(args)
 
-data = parse_dat_to_dict("/home/andresfel9403/hens/datafiles/model3.dat")
-print(data)
+## Create a folder to save the results
 
+if not os.path.exists(os.path.join('.', args.model, args.run_name)):
+    folders = state.create_output_dir('.', args.model, args.run_name)
+else:
+    print(f"Folder '{os.path.join('.', args.model, args.run_name)}' already exists.")
+    folders = {
+        'model_folder': os.path.join('.', args.model),
+        'append_folder': os.path.join('.', args.model, args.run_name),
+        'iterations_folder': os.path.join('.', args.model, args.run_name, 'iterations'),
+        'logs_folder': os.path.join('.', args.model, args.run_name, 'iterations', 'logs'),
+    }
+
+output_file = open(os.path.join(folders[append_folder], 'output.txt'), 'w')
+results_file = open(os.path.join(folders[append_folder], 'results.csv'), 'w')
+
+results_file.write('iteration, tac, time, total_time\n')
+
+
+datafile = os.path.join('datafiles', f"{args.model}.dat")
+data = parse_dat_to_dict(datafile)
+
+## Optimization solver options
 solver = 'gurobi'
 opt = SolverFactory(solver)
 opt.options[ 'MIPFocus' ] = 1
@@ -122,12 +146,28 @@ if args.absolute:
 model = build_concrete_model(data)
 _ = state.safe_initial_breakpoints(model)
 
-max_iterations = 10
+iterations = 1
+max_iterations = 100
 
 new_points = copy.deepcopy(state.get_all_points())
 
-for i in range(1, max_iterations):
-    if i == 1:
+output_file.write('Running:\n')
+output_file.write('\tAdaptive Model\n')
+output_file.write('\t' + args.model + '\n')
+output_file.write('on: '+ socket.gethostname() + '\n\n')
+
+iter_finish = start
+
+for run in range(1, max_iterations):
+
+    iter_start = iter_finish
+    print('Running iteration ', run)
+
+    output_file.write('----------------------------------\n')
+    output_file.write('---- Run: ' + str(run) + '\n')
+    output_file.write('----------------------------------\n')
+
+    if run == 1:
         model = state.add_tangent_points(model)
         _ = declare_concrete_constraints(model)
         num_vars = len(list(model.component_data_objects(Var, active=True)))
@@ -147,12 +187,14 @@ for i in range(1, max_iterations):
         num_cons = len(list(model.component_data_objects(Constraint, active=True)))
         print(num_vars, 'variables')
         print(num_cons, 'constraints')
-        new_model = copy.deepcopy(model)
+        #new_model = copy.deepcopy(model)
 
 
 
     results = opt.solve(model, tee=True)
     model.solutions.load_from(results)
+
+    old_points = new_points
 
     active_hx, inactive_hx = state.get_active_hx(model)
     new_tangent_points = state.get_new_tangent_points(model, active_hx) 
@@ -163,10 +205,94 @@ for i in range(1, max_iterations):
 
     new_points = copy.deepcopy(state.get_all_points())
 
+    output_file.write('----------------------------------\n')
+    output_file.write('---- TAC: ' + str(value(model.TAC)) + '\n')
+    output_file.write('----------------------------------\n')
+    output_file.write('\n')
+    output_file.write('Found ActiveHx:\n')
+    pprint(active_hx, output_file)
+    output_file.write('\n')
+    output_file.write('Adding Tangents at:\n')
+    pprint(added_tangents, output_file)
+    output_file.write('\n')
+    output_file.write('Adding Balancing breakpoints at:\n')
+    pprint(new_balancing_breakpoints, output_file)
+    output_file.write('\n')
+    output_file.write('Adding q breakpoints at:\n')
+    pprint(new_q_breakpoints, output_file)
+    output_file.write('\n')
+    output_file.write('Adding area beta breakpoints at:\n')
+    pprint(new_beta_breakpoints, output_file)
+    output_file.write('\n')
+
+    output_file.flush()
+
+    iter_finish = time.time()
+
+    local_time = iter_finish-iter_start
+    total_time = iter_finish-start
+
+    print('\tTAC: %f' % value(model.TAC))
+    print('\tTook: %.2fs' % local_time)
+    print('\tTotal: %.2fs' % total_time)
+
+    results_file.write('%d, %s, %s, %s\n' % (run, str(value(model.TAC)), str(local_time), str(total_time)))
+
+    results_file.flush()
+
     errors = state.summarise_errors(model, active_hx, inactive_hx, args.weaken)
     max_errors = state.get_max_errors(errors, active_hx, inactive_hx, args.weaken)
 
- 
+    filename = 'iteration' + str(run).zfill(len(str(max_iterations)))
+    t = Process(target=build_heat_exchanger_results, args=(model, folders, args.run_name, run, args.model, filename, active_hx, old_points, errors, local_time, total_time, epsilons, tolerances), kwargs={'iteration': True})
+    t.start()
+
+    if termination_func(epsilons, max_errors):
+        print('/*/*/*/*//*/*/*/*//*/*/*/*//*/*/*/')
+        print('----------------------------------')
+        print('---- Completed Within Error')
+        print('----------------------------------')
+        print('/*/*/*/*//*/*/*/*//*/*/*/*//*/*/*/')
+        break
+
+    if  len(added_tangents) == 0 \
+        and len(new_beta_breakpoints) == 0\
+        and len(new_q_breakpoints) == 0\
+        and len(new_balancing_breakpoints) == 0:
+        print('/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/')
+        print('---------------------------------------------------')
+        print('---- Completed No new tangents or breakpoints -----')
+        print('---------------------------------------------------')
+        print('/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/')
+        break
+
+    if args.cont:
+        if iterations == 1:
+            var = raw_input('Ran %d iterations. How many more?\n' % run)
+            while True:
+                try:
+                    iters = int(var)
+                except ValueError:
+                    var = raw_input('\'%s\' is not an integer. How many more?\n' % var)
+                else:
+                    break
+
+            if iters <= 0:
+                print('/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/')
+                print('-----------------------------------')
+                print('---- Completed Not Continuing -----')
+                print('-----------------------------------')
+                print('/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/')
+                break
+            else:
+                iterations = iters + 1
+        iterations = iterations - 1
+
+if args.print_instance:
+    model.pprint()
+
+output_file.close()
+results_file.close()
 
 
   
