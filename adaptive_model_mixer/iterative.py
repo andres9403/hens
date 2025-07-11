@@ -108,10 +108,10 @@ warmstart = False
 default_eps = 0.0001
 
 epsilons = {
-    balancing_ref: default_eps,
-    reclmtd_ref: default_eps,
-    area_ref: default_eps,
-    beta_ref: default_eps
+    balancing_ref: 0.001,
+    reclmtd_ref: 0.001,
+    area_ref: 0.01,
+    beta_ref: 0.1
 }
 
 if args.all_error:
