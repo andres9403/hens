@@ -8,6 +8,42 @@ from .index_generators import reclmtd_index, reclmtd_cu_index, reclmtd_hu_index,
 from .constraint_rules import *
 
 def declare_concrete_constraints(model):
+    for cname in [
+        'z_th_sum', 'th_lower', 'th_upper',
+        'var_delta_fh_sum', 'var_delta_fh_upper',
+        'z_thx_sum', 'thx_lower', 'thx_upper',
+        'var_delta_fhx_sum', 'var_delta_fhx_upper',
+        'z_tc_sum', 'tc_lower', 'tc_upper',
+        'var_delta_fc_sum', 'var_delta_fc_upper',
+        'z_tcx_sum', 'tcx_lower', 'tcx_upper',
+        'var_delta_fcx_sum', 'var_delta_fcx_upper',
+        'overall_heat_balance_hot', 'overall_heat_balance_cold',
+        'energy_balance_hot', 'energy_balance_cold', 'energy_balance_cu', 'energy_balance_hu',
+        'hot_inlet', 'cold_inlet',
+        'mass_balance_hot', 'mass_balance_cold',
+        'decreasing_hot', 'decreasing_cold', 'hot_upper_bound', 'cold_lower_bound',
+        'q_big_m', 'q_cu_big_m', 'q_hu_big_m',
+        'temp_app_in', 'temp_app_out', 'temp_app_cu', 'temp_app_hu',
+        'mccor_convex_h_in_1', 'mccor_convex_h_in_2', 'mccor_concave_h_in_1', 'mccor_concave_h_in_2',
+        'mccor_convex_h_out_1', 'mccor_convex_h_out_2', 'mccor_concave_h_out_1', 'mccor_concave_h_out_2',
+        'mccor_convex_c_in_1', 'mccor_convex_c_in_2', 'mccor_concave_c_in_1', 'mccor_concave_c_in_2',
+        'mccor_convex_c_out_1', 'mccor_convex_c_out_2', 'mccor_concave_c_out_1', 'mccor_concave_c_out_2',
+        'q_energy_bal_hot', 'q_energy_bal_cold',
+        'mixer_energy_bal_hot', 'mixer_energy_bal_cold',
+        'grad_reclmtd', 'grad_reclmtd_cu', 'grad_reclmtd_hu',
+        'z_q_sum', 'q_lower', 'q_upper', 'var_delta_reclmtd_sum', 'var_delta_reclmtd_upper',
+        'area_mccor_convex_1', 'area_mccor_convex_2', 'area_mccor_concave_1', 'area_mccor_concave_2',
+        'z_q_cu_sum', 'q_cu_lower', 'q_cu_upper', 'var_delta_reclmtd_cu_sum', 'var_delta_reclmtd_cu_upper',
+        'area_cu_mccor_convex_1', 'area_cu_mccor_convex_2', 'area_cu_mccor_concave_1', 'area_cu_mccor_concave_2',
+        'z_q_hu_sum', 'q_hu_lower', 'q_hu_upper', 'var_delta_reclmtd_hu_sum', 'var_delta_reclmtd_hu_upper',
+        'area_hu_mccor_convex_1', 'area_hu_mccor_convex_2', 'area_hu_concave_mccor_1', 'area_hu_concave_mccor_2',
+        'z_area_beta_sum', 'area_low', 'area_up', 'area_pow_beta',
+        'z_area_cu_beta_sum', 'area_cu_low', 'area_cu_up', 'area_cu_pow_beta',
+        'z_area_hu_beta_sum', 'area_hu_low', 'area_hu_up', 'area_hu_pow_beta',
+    ]:
+        if hasattr(model, cname):
+            model.del_component(cname)
+
     model.z_th_sum = Constraint(model.HP, model.ST, rule=z_th_sum_rule)
     model.th_lower = Constraint(model.HP, model.ST, rule=th_lower_rule)
     model.th_upper = Constraint(model.HP, model.ST, rule=th_upper_rule)

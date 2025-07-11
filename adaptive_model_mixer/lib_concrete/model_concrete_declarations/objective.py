@@ -20,4 +20,6 @@ def TAC_rule(model):
     return model.Cost_cu*total_cu_load + model.Cost_hu*total_hu_load + model.Cost_hx*total_number_of_hx + model.Alpha*total_area_of_hx
 
 def declare_concrete_objective(model):
+    if hasattr(model, 'TAC'):
+        model.del_component('TAC')
     model.TAC = Objective(rule=TAC_rule)

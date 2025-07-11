@@ -122,7 +122,7 @@ if args.absolute:
 model = build_concrete_model(data)
 _ = state.safe_initial_breakpoints(model)
 
-max_iterations = 3
+max_iterations = 10
 
 new_points = copy.deepcopy(state.get_all_points())
 

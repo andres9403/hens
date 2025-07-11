@@ -1,0 +1,1645 @@
+{'Alpha': 146, 'Beta': 0.6, 'Cost_hx': 4000, 'Cost_cu': 10, 'Cost_hu': 200, 'Delta_t_min': 10, 'Number_stages': 2, 'Number_hot_stream': 5, 'Number_cold_stream': 5, 'Th_in': {1: 160, 2: 248.9, 3: 226.7, 4: 271.1, 5: 198.9}, 'Th_out': {1: 93.3, 2: 137.8, 3: 65.6, 4: 148.9, 5: 65.6}, 'Hh': {1: 1.7, 2: 1.7, 3: 1.7, 4: 1.7, 5: 1.7}, 'Fh': {1: 8.8, 2: 10.6, 3: 14.8, 4: 12.6, 5: 17.7}, 'Tc_in': {1: 60, 2: 115.6, 3: 37.8, 4: 82.2, 5: 93.3}, 'Tc_out': {1: 160, 2: 221.7, 3: 221.1, 4: 176.7, 5: 204.4}, 'Hc': {1: 1.7, 2: 1.7, 3: 1.7, 4: 1.7, 5: 1.7}, 'Fc': {1: 7.6, 2: 6.1, 3: 8.4, 4: 17.3, 5: 13.9}, 'H_cu': 1.7, 'T_cu_in': 25, 'T_cu_out': 40, 'H_hu': 3.4, 'T_hu_in': 240, 'T_hu_out': 240}
+Adding tangent points
+WARNING: Implicitly replacing the Component attribute z_th_sum (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute th_lower (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute th_upper (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fh_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fh_upper
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_thx_sum (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute thx_lower (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute thx_upper (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fhx_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fhx_upper
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_tc_sum (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute tc_lower (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute tc_upper (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fc_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fc_upper
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_tcx_sum (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute tcx_lower (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute tcx_upper (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fcx_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fcx_upper
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute overall_heat_balance_hot
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute
+overall_heat_balance_cold (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute energy_balance_hot
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute energy_balance_cold
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute energy_balance_cu
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute energy_balance_hu
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute hot_inlet (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute cold_inlet (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute mass_balance_hot
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mass_balance_cold
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute decreasing_hot
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute decreasing_cold
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute hot_upper_bound
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute cold_lower_bound
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute q_big_m (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute q_cu_big_m (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute q_hu_big_m (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute temp_app_in (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute temp_app_out
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute temp_app_cu (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute temp_app_hu (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_convex_h_in_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_convex_h_in_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_concave_h_in_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_concave_h_in_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_convex_h_out_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_convex_h_out_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_concave_h_out_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_concave_h_out_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_convex_c_in_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_convex_c_in_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_concave_c_in_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_concave_c_in_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_convex_c_out_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_convex_c_out_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_concave_c_out_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_concave_c_out_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute q_energy_bal_hot
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute q_energy_bal_cold
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mixer_energy_bal_hot
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mixer_energy_bal_cold
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute grad_reclmtd
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute grad_reclmtd_cu
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute grad_reclmtd_hu
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_q_sum (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute q_lower (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute q_upper (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_reclmtd_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_reclmtd_upper
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_mccor_convex_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_mccor_convex_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_mccor_concave_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_mccor_concave_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_q_cu_sum (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute q_cu_lower (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute q_cu_upper (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_reclmtd_cu_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute
+var_delta_reclmtd_cu_upper (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute area_cu_mccor_convex_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_cu_mccor_convex_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_cu_mccor_concave_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_cu_mccor_concave_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_q_hu_sum (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute q_hu_lower (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute q_hu_upper (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_reclmtd_hu_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute
+var_delta_reclmtd_hu_upper (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute area_hu_mccor_convex_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_hu_mccor_convex_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_hu_concave_mccor_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_hu_concave_mccor_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_area_beta_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_low (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute area_up (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute area_pow_beta
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_area_cu_beta_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_cu_low (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute area_cu_up (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute area_cu_pow_beta
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_area_hu_beta_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_hu_low (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute area_hu_up (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute area_hu_pow_beta
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+1315 variables
+3010 constraints
+Read LP format model from file /tmp/tmpops393es.pyomo.lp
+Reading time = 0.00 seconds
+x1: 2950 rows, 1315 columns, 7380 nonzeros
+Set parameter MIPFocus to value 1
+Set parameter IntFeasTol to value 1e-05
+Set parameter FeasibilityTol to value 1e-06
+Set parameter OptimalityTol to value 1e-06
+Set parameter MarkowitzTol to value 0.0078125
+Gurobi Optimizer version 12.0.2 build v12.0.2rc0 (linux64 - "Ubuntu 22.04.5 LTS")
+
+CPU model: 13th Gen Intel(R) Core(TM) i7-1365U, instruction set [SSE2|AVX|AVX2]
+Thread count: 6 physical cores, 12 logical processors, using up to 12 threads
+
+Non-default parameters:
+MIPFocus  1
+
+Optimize a model with 2950 rows, 1315 columns and 7380 nonzeros
+Model fingerprint: 0x984c2196
+Model has 60 quadratic constraints
+Variable types: 1015 continuous, 300 integer (300 binary)
+Coefficient statistics:
+  Matrix range     [9e-06, 4e+03]
+  QMatrix range    [1e-01, 3e-01]
+  QLMatrix range   [1e+00, 1e+00]
+  Objective range  [1e+01, 4e+03]
+  Bounds range     [4e-03, 4e+03]
+  RHS range        [4e-03, 3e+03]
+Presolve removed 1891 rows and 740 columns
+Presolve time: 0.01s
+Presolved: 1059 rows, 575 columns, 3151 nonzeros
+Variable types: 515 continuous, 60 integer (60 binary)
+Found heuristic solution: objective 1349854.8806
+Found heuristic solution: objective 1230595.1750
+Found heuristic solution: objective 1074764.1628
+
+Root relaxation: objective 4.520590e+04, 502 iterations, 0.01 seconds (0.01 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 45205.8972    0   13 1074764.16 45205.8972  95.8%     -    0s
+H    0     0                    117343.53006 45205.8972  61.5%     -    0s
+H    0     0                    66144.923790 45205.8972  31.7%     -    0s
+     0     0 46802.1533    0   15 66144.9238 46802.1533  29.2%     -    0s
+     0     0 46802.1533    0   15 66144.9238 46802.1533  29.2%     -    0s
+H    0     0                    65615.912426 46802.1533  28.7%     -    0s
+     0     0 46803.3983    0   16 65615.9124 46803.3983  28.7%     -    0s
+     0     0 46803.3983    0   16 65615.9124 46803.3983  28.7%     -    0s
+     0     0 48267.4220    0   19 65615.9124 48267.4220  26.4%     -    0s
+H    0     0                    65546.013247 48323.0134  26.3%     -    0s
+     0     0 48323.0134    0   19 65546.0132 48323.0134  26.3%     -    0s
+     0     0 48494.1162    0   21 65546.0132 48494.1162  26.0%     -    0s
+     0     0 48567.6162    0   21 65546.0132 48567.6162  25.9%     -    0s
+     0     0 49036.9021    0   22 65546.0132 49036.9021  25.2%     -    0s
+H    0     0                    61901.479661 49036.9021  20.8%     -    0s
+     0     0 49312.3249    0   21 61901.4797 49312.3249  20.3%     -    0s
+     0     0 49402.8551    0   23 61901.4797 49402.8551  20.2%     -    0s
+     0     0 49411.9839    0   25 61901.4797 49411.9839  20.2%     -    0s
+     0     0 49435.9884    0   26 61901.4797 49435.9884  20.1%     -    0s
+     0     0 49469.2494    0   25 61901.4797 49469.2494  20.1%     -    0s
+     0     0 49469.9809    0   25 61901.4797 49469.9809  20.1%     -    0s
+     0     0 49710.9323    0   27 61901.4797 49710.9323  19.7%     -    0s
+     0     0 49946.2353    0   26 61901.4797 49946.2353  19.3%     -    0s
+     0     0 49946.8277    0   29 61901.4797 49946.8277  19.3%     -    0s
+     0     0 49946.8277    0   30 61901.4797 49946.8277  19.3%     -    0s
+     0     0 50456.9910    0   26 61901.4797 50456.9910  18.5%     -    0s
+H    0     0                    61546.672877 50456.9910  18.0%     -    0s
+     0     2 50456.9910    0   26 61546.6729 50456.9910  18.0%     -    0s
+H   36    38                    58409.121544 52200.5721  10.6%  42.9    0s
+*  114    67              16    58242.149462 52282.9678  10.2%  28.7    0s
+*  123    67              13    58219.433017 53278.6704  8.49%  28.5    0s
+H  274    96                    58090.114394 53293.4343  8.26%  27.6    0s
+H  420   119                    58067.797652 54085.4856  6.86%  24.8    0s
+H  484   115                    58067.769205 54095.6705  6.84%  24.9    0s
+H  982   128                    58067.749946 55639.6589  4.18%  24.1    1s
+* 1234    96              15    57934.361890 56277.4998  2.86%  23.7    1s
+
+Cutting planes:
+  Learned: 3
+  Gomory: 7
+  Cover: 21
+  Implied bound: 6
+  MIR: 35
+  Flow cover: 58
+  Inf proof: 3
+  Network: 9
+  RLT: 3
+  Relax-and-lift: 5
+  PSD: 1
+
+Explored 1612 nodes (38840 simplex iterations) in 1.29 seconds (0.76 work units)
+Thread count was 12 (of 12 available processors)
+
+Solution count 10: 57934.4 58067.7 58090.1 ... 65615.9
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 5.793436189033e+04, best bound 5.793436189033e+04, gap 0.0000%
+Adding tangent points
+WARNING: Implicitly replacing the Component attribute U (type=<class
+'pyomo.core.base.param.IndexedParam'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.param.IndexedParam'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute U_cu (type=<class
+'pyomo.core.base.param.IndexedParam'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.param.IndexedParam'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute U_hu (type=<class
+'pyomo.core.base.param.IndexedParam'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.param.IndexedParam'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute Ech (type=<class
+'pyomo.core.base.param.IndexedParam'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.param.IndexedParam'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute Ecc (type=<class
+'pyomo.core.base.param.IndexedParam'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.param.IndexedParam'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute Omega_ij (type=<class
+'pyomo.core.base.param.IndexedParam'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.param.IndexedParam'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute Omega_i (type=<class
+'pyomo.core.base.param.IndexedParam'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.param.IndexedParam'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute Omega_j (type=<class
+'pyomo.core.base.param.IndexedParam'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.param.IndexedParam'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute Gamma (type=<class
+'pyomo.core.base.param.IndexedParam'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.param.IndexedParam'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute area (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_cu (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_hu (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_beta (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_cu_beta
+(type=<class 'pyomo.core.base.var.IndexedVar'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute area_hu_beta
+(type=<class 'pyomo.core.base.var.IndexedVar'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute fh (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute fc (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute thx (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute tcx (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute dt (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute dt_cu (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute dt_hu (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute reclmtd (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute reclmtd_cu (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute reclmtd_hu (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute q (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute q_cu (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute q_hu (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute th (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute tc (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_cu (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_hu (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_area_beta (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_area_cu_beta
+(type=<class 'pyomo.core.base.var.IndexedVar'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute z_area_hu_beta
+(type=<class 'pyomo.core.base.var.IndexedVar'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute z_q (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_q_cu (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_q_hu (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_reclmtd
+(type=<class 'pyomo.core.base.var.IndexedVar'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_reclmtd_cu
+(type=<class 'pyomo.core.base.var.IndexedVar'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_reclmtd_hu
+(type=<class 'pyomo.core.base.var.IndexedVar'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute bh_in (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute bh_out (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute bc_in (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute bc_out (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_th (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_thx (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_tc (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_tcx (type=<class
+'pyomo.core.base.var.IndexedVar'>) on block unknown with a new Component
+(type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually indicative of
+a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fh
+(type=<class 'pyomo.core.base.var.IndexedVar'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fhx
+(type=<class 'pyomo.core.base.var.IndexedVar'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fc
+(type=<class 'pyomo.core.base.var.IndexedVar'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fcx
+(type=<class 'pyomo.core.base.var.IndexedVar'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.var.IndexedVar'>). This is usually
+indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute z_th_sum (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute th_lower (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute th_upper (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fh_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fh_upper
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_thx_sum (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute thx_lower (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute thx_upper (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fhx_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fhx_upper
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_tc_sum (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute tc_lower (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute tc_upper (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fc_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fc_upper
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_tcx_sum (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute tcx_lower (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute tcx_upper (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fcx_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_fcx_upper
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute overall_heat_balance_hot
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute
+overall_heat_balance_cold (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute energy_balance_hot
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute energy_balance_cold
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute energy_balance_cu
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute energy_balance_hu
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute hot_inlet (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute cold_inlet (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute mass_balance_hot
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mass_balance_cold
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute decreasing_hot
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute decreasing_cold
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute hot_upper_bound
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute cold_lower_bound
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute q_big_m (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute q_cu_big_m (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute q_hu_big_m (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute temp_app_in (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute temp_app_out
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute temp_app_cu (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute temp_app_hu (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_convex_h_in_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_convex_h_in_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_concave_h_in_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_concave_h_in_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_convex_h_out_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_convex_h_out_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_concave_h_out_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_concave_h_out_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_convex_c_in_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_convex_c_in_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_concave_c_in_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_concave_c_in_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_convex_c_out_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_convex_c_out_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_concave_c_out_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mccor_concave_c_out_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute q_energy_bal_hot
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute q_energy_bal_cold
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mixer_energy_bal_hot
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute mixer_energy_bal_cold
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute grad_reclmtd
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute grad_reclmtd_cu
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute grad_reclmtd_hu
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_q_sum (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute q_lower (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute q_upper (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_reclmtd_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_reclmtd_upper
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_mccor_convex_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_mccor_convex_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_mccor_concave_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_mccor_concave_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_q_cu_sum (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute q_cu_lower (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute q_cu_upper (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_reclmtd_cu_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute
+var_delta_reclmtd_cu_upper (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute area_cu_mccor_convex_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_cu_mccor_convex_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_cu_mccor_concave_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_cu_mccor_concave_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_q_hu_sum (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute q_hu_lower (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute q_hu_upper (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute var_delta_reclmtd_hu_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute
+var_delta_reclmtd_hu_upper (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute area_hu_mccor_convex_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_hu_mccor_convex_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_hu_concave_mccor_1
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_hu_concave_mccor_2
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_area_beta_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_low (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute area_up (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute area_pow_beta
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_area_cu_beta_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_cu_low (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute area_cu_up (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute area_cu_pow_beta
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute z_area_hu_beta_sum
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute area_hu_low (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute area_hu_up (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.constraint.IndexedConstraint'>). This
+is usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+WARNING: Implicitly replacing the Component attribute area_hu_pow_beta
+(type=<class 'pyomo.core.base.constraint.IndexedConstraint'>) on block unknown
+with a new Component (type=<class
+'pyomo.core.base.constraint.IndexedConstraint'>). This is usually indicative
+of a modelling error. To avoid this warning, use block.del_component() and
+block.add_component().
+WARNING: Implicitly replacing the Component attribute TAC (type=<class
+'pyomo.core.base.objective.ScalarObjective'>) on block unknown with a new
+Component (type=<class 'pyomo.core.base.objective.ScalarObjective'>). This is
+usually indicative of a modelling error. To avoid this warning, use
+block.del_component() and block.add_component().
+1376 variables
+3056 constraints
+Read LP format model from file /tmp/tmp1ztry12m.pyomo.lp
+Reading time = 0.01 seconds
+x1: 2996 rows, 1376 columns, 7789 nonzeros
+Set parameter MIPFocus to value 1
+Set parameter IntFeasTol to value 1e-05
+Set parameter FeasibilityTol to value 1e-06
+Set parameter OptimalityTol to value 1e-06
+Set parameter MarkowitzTol to value 0.0078125
+Gurobi Optimizer version 12.0.2 build v12.0.2rc0 (linux64 - "Ubuntu 22.04.5 LTS")
+
+CPU model: 13th Gen Intel(R) Core(TM) i7-1365U, instruction set [SSE2|AVX|AVX2]
+Thread count: 6 physical cores, 12 logical processors, using up to 12 threads
+
+Non-default parameters:
+MIPFocus  1
+
+Optimize a model with 2996 rows, 1376 columns and 7789 nonzeros
+Model fingerprint: 0x638c5c00
+Model has 60 quadratic constraints
+Variable types: 1045 continuous, 331 integer (331 binary)
+Coefficient statistics:
+  Matrix range     [9e-06, 4e+03]
+  QMatrix range    [9e-02, 1e+01]
+  QLMatrix range   [1e+00, 1e+01]
+  Objective range  [1e+01, 4e+03]
+  Bounds range     [4e-03, 4e+03]
+  RHS range        [4e-03, 3e+03]
+Presolve removed 1733 rows and 699 columns
+Presolve time: 0.02s
+Presolved: 1263 rows, 677 columns, 3869 nonzeros
+Variable types: 586 continuous, 91 integer (91 binary)
+Found heuristic solution: objective 907373.05553
+Found heuristic solution: objective 548473.74076
+
+Root relaxation: objective 4.521236e+04, 613 iterations, 0.01 seconds (0.01 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 45212.3613    0   20 548473.741 45212.3613  91.8%     -    0s
+H    0     0                    532473.74076 45212.3613  91.5%     -    0s
+H    0     0                    71211.859165 45212.3613  36.5%     -    0s
+H    0     0                    63210.905424 45212.3613  28.5%     -    0s
+     0     0 46421.5020    0   30 63210.9054 46421.5020  26.6%     -    0s
+     0     0 47343.3264    0   32 63210.9054 47343.3264  25.1%     -    0s
+     0     0 47343.3264    0   32 63210.9054 47343.3264  25.1%     -    0s
+     0     0 47624.1391    0   32 63210.9054 47624.1391  24.7%     -    0s
+     0     0 48043.9376    0   30 63210.9054 48043.9376  24.0%     -    0s
+     0     0 48979.7817    0   23 63210.9054 48979.7817  22.5%     -    0s
+     0     0 48979.7817    0   23 63210.9054 48979.7817  22.5%     -    0s
+     0     0 49121.2261    0   24 63210.9054 49121.2261  22.3%     -    0s
+     0     0 49126.8516    0   28 63210.9054 49126.8516  22.3%     -    0s
+     0     0 49130.4941    0   25 63210.9054 49130.4941  22.3%     -    0s
+     0     0 49339.5334    0   30 63210.9054 49339.5334  21.9%     -    0s
+     0     0 50017.2620    0   28 63210.9054 50017.2620  20.9%     -    0s
+     0     0 50192.0247    0   34 63210.9054 50192.0247  20.6%     -    0s
+     0     0 50229.8814    0   35 63210.9054 50229.8814  20.5%     -    0s
+     0     0 50247.1819    0   37 63210.9054 50247.1819  20.5%     -    0s
+     0     0 50247.8164    0   38 63210.9054 50247.8164  20.5%     -    0s
+     0     0 50251.9836    0   38 63210.9054 50251.9836  20.5%     -    0s
+     0     0 50305.6860    0   34 63210.9054 50305.6860  20.4%     -    0s
+     0     0 50432.2128    0   32 63210.9054 50432.2128  20.2%     -    0s
+     0     0 50496.8320    0   37 63210.9054 50496.8320  20.1%     -    0s
+     0     0 50499.6198    0   37 63210.9054 50499.6198  20.1%     -    0s
+     0     0 50500.6754    0   39 63210.9054 50500.6754  20.1%     -    0s
+     0     0 50500.6754    0   39 63210.9054 50500.6754  20.1%     -    0s
+     0     0 50577.4867    0   34 63210.9054 50577.4867  20.0%     -    0s
+H    0     0                    63188.597624 50577.4867  20.0%     -    0s
+H    0     0                    59174.827716 50577.4867  14.5%     -    0s
+     0     2 50577.4867    0   33 59174.8277 50577.4867  14.5%     -    0s
+H  113    73                    59174.821375 51841.8193  12.4%  40.2    1s
+H  355   132                    59174.821187 53796.7085  9.09%  30.6    1s
+H  365   132                    59174.803774 53796.7085  9.09%  30.8    1s
+H 2917   391                    59040.758487 56475.4034  4.35%  29.3    4s
+H 3369   373                    59040.744726 56751.7422  3.88%  29.0    4s
+  3660   266     cutoff   14      59040.7447 57039.3604  3.39%  28.7    5s
+H 3888   220                    58799.002784 57194.1958  2.73%  28.7    5s
+
+Cutting planes:
+  Learned: 6
+  Gomory: 10
+  Cover: 29
+  Implied bound: 13
+  Clique: 1
+  MIR: 71
+  Flow cover: 78
+  Inf proof: 9
+  Network: 5
+  RLT: 8
+  Relax-and-lift: 8
+  PSD: 1
+
+Explored 4402 nodes (124458 simplex iterations) in 5.44 seconds (2.21 work units)
+Thread count was 12 (of 12 available processors)
+
+Solution count 10: 58799 59040.7 59174.8 ... 548474
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 5.879900278431e+04, best bound 5.879900278431e+04, gap 0.0000%
+
