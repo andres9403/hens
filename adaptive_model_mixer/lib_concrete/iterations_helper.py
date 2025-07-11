@@ -10,6 +10,7 @@ from pprint import pprint
 from pyomo.core.base.numvalue import value
 from .model_concrete_declarations.concrete_model_builder import build_concrete_model
 from .model_concrete_declarations.helper_functions import two_point_generator, three_point_generator, lmtd_inv
+from .model_concrete_declarations.parameter_initialisation_functions import area_beta_gradients_init, area_cu_beta_gradients_init, area_hu_beta_gradients_init
 from pyomo.environ import Set
 
 from .constants import *
@@ -61,7 +62,7 @@ class IterationState:
     @staticmethod
     def initialise_parser():
         parser = ArgumentParser()
-        parser.add_argument('model', nargs='?', default='model3', help='The model you wish to run e.g. model1 for datafile: ../datafiles/model1.dat')
+        parser.add_argument('model', nargs='?', default='model1', help='The model you wish to run e.g. model1 for datafile: ../datafiles/model1.dat')
         parser.add_argument('run_name', nargs='?', default='test', help='The name of the run you are running the results will be placed in a directory with this name')
         parser.add_argument('-i', '--print-instance', help='print instance of final run', action='store_true')
         parser.add_argument('-t', '--num-threads', type=int, help='Number of cpu cores used.', default=1)
@@ -220,12 +221,9 @@ class IterationState:
         return model
     
     def add_q_breakpoints(self, model):
-        self.add_initial_stream_q_points(model)
-        self.add_initial_cu_q_points(model)
-        self.add_initial_hu_q_points(model)
         
         model.del_component('Q_breakpoints')
-        model.add_component('Q_breakpoints', Set(model.HP, model.CP, model.ST, dimen=3, initialize = lambda model, i, j, k: self.declare_stream_q_breakpoints(model, i, j, k)))
+        model.add_component('Q_breakpoints', Set(model.HP, model.CP, model.ST, dimen=1, initialize = lambda model, i, j, k: self.declare_stream_q_breakpoints(model, i, j, k)))
 
         model.del_component('Q_cu_breakpoints')
         model.add_component('Q_cu_breakpoints', Set(model.HP, dimen=1, initialize = lambda model, i: self.declare_cu_q_breakpoints(model, i)))
@@ -236,19 +234,28 @@ class IterationState:
         return model
     
     def add_area_beta_breakpoints(self, model):
-        self.add_initial_stream_area_beta_points(model)
-        self.add_initial_cu_area_beta_points(model)
-        self.add_initial_hu_area_beta_points(model)
         
         model.del_component('Area_beta_breakpoints')
-        model.add_component('Area_beta_breakpoints', Set(model.HP, model.CP, model.ST, dimen=3, initialize = lambda model, i, j, k: self.declare_stream_area_beta_breakpoints(model, i, j, k)))
+        model.add_component('Area_beta_breakpoints', Set(model.HP, model.CP, model.ST, dimen=1, initialize = lambda model, i, j, k: self.declare_stream_area_beta_breakpoints(model, i, j, k)))
+        model.del_component('Area_beta_exp')
+        model.add_component('Area_beta_exp', Set(model.HP, model.CP, model.ST, dimen=1, ordered=True, initialize=lambda model,i,j,k: map(lambda A: pow(A, value(model.Beta)), model.Area_beta_breakpoints[i,j,k])))
+        model.del_component('Area_beta_gradients')
+        model.add_component('Area_beta_gradients', Set(model.HP, model.CP, model.ST, dimen=1, ordered=True, initialize=area_beta_gradients_init))
 
         model.del_component('Area_cu_beta_breakpoints')
         model.add_component('Area_cu_beta_breakpoints', Set(model.HP, dimen=1, initialize = lambda model, i: self.declare_cu_area_beta_breakpoints(model, i)))
-        
+        model.del_component('Area_cu_beta_exp')
+        model.add_component('Area_cu_beta_exp', Set(model.HP, dimen=1, ordered=True, initialize=lambda model,i: map(lambda A: pow(A, value(model.Beta)), model.Area_cu_beta_breakpoints[i])))
+        model.del_component('Area_cu_beta_gradients')
+        model.add_component('Area_cu_beta_gradients', Set(model.HP, dimen=1, ordered=True, initialize=area_cu_beta_gradients_init))
+
         model.del_component('Area_hu_beta_breakpoints')
         model.add_component('Area_hu_beta_breakpoints', Set(model.CP, dimen=1, initialize = lambda model, j: self.declare_hu_area_beta_breakpoints(model, j)))
-        
+        model.del_component('Area_hu_beta_exp')
+        model.add_component('Area_hu_beta_exp', Set(model.CP, dimen=1, ordered=True, initialize=lambda model,j: map(lambda A: pow(A, value(model.Beta)), model.Area_hu_beta_breakpoints[j])))
+        model.del_component('Area_hu_beta_gradients')
+        model.add_component('Area_hu_beta_gradients', Set(model.CP, dimen=1, ordered=True, initialize=area_hu_beta_gradients_init))
+
         return model
     
     def safe_initial_breakpoints(self, model):
@@ -274,47 +281,47 @@ class IterationState:
     ## END NEW FEATURES ##
 
 
-    def initialise_hx_model(self, datafile):
-        model = create_model()
-        instance = model.create_instance(datafile)
+    # def initialise_hx_model(self, datafile):
+    #     model = create_model()
+    #     instance = model.create_instance(datafile)
 
-        self.add_initial_th_breakpoints(instance)
-        self.add_initial_thx_breakpoints(instance)
-        self.add_initial_tc_breakpoints(instance)
-        self.add_initial_tcx_breakpoints(instance)
+    #     self.add_initial_th_breakpoints(instance)
+    #     self.add_initial_thx_breakpoints(instance)
+    #     self.add_initial_tc_breakpoints(instance)
+    #     self.add_initial_tcx_breakpoints(instance)
 
-        self.add_initial_stream_tangent_points(instance)
-        self.add_initial_cu_tangent_points(instance)
-        self.add_initial_hu_tangent_points(instance)
+    #     self.add_initial_stream_tangent_points(instance)
+    #     self.add_initial_cu_tangent_points(instance)
+    #     self.add_initial_hu_tangent_points(instance)
 
-        self.add_initial_stream_q_points(instance)
-        self.add_initial_cu_q_points(instance)
-        self.add_initial_hu_q_points(instance)
+    #     self.add_initial_stream_q_points(instance)
+    #     self.add_initial_cu_q_points(instance)
+    #     self.add_initial_hu_q_points(instance)
 
-        self.add_initial_stream_area_beta_points(instance)
-        self.add_initial_cu_area_beta_points(instance)
-        self.add_initial_hu_area_beta_points(instance)
+    #     self.add_initial_stream_area_beta_points(instance)
+    #     self.add_initial_cu_area_beta_points(instance)
+    #     self.add_initial_hu_area_beta_points(instance)
 
-        # Use lambdas to wrap the methods for Pyomo initialize
+    #     # Use lambdas to wrap the methods for Pyomo initialize
         
-        model.Th_breakpoints.initialize  = lambda model, i, k: self.declare_th_breakpoints(model, i, k)
-        model.Thx_breakpoints.initialize = lambda model, i, j, k: self.declare_thx_breakpoints(model, i, j, k)
-        model.Tc_breakpoints.initialize  = lambda model, j, k: self.declare_tc_breakpoints(model, j, k)
-        model.Tcx_breakpoints.initialize = lambda model, i, j, k: self.declare_tcx_breakpoints(model, i, j, k)
+    #     model.Th_breakpoints.initialize  = lambda model, i, k: self.declare_th_breakpoints(model, i, k)
+    #     model.Thx_breakpoints.initialize = lambda model, i, j, k: self.declare_thx_breakpoints(model, i, j, k)
+    #     model.Tc_breakpoints.initialize  = lambda model, j, k: self.declare_tc_breakpoints(model, j, k)
+    #     model.Tcx_breakpoints.initialize = lambda model, i, j, k: self.declare_tcx_breakpoints(model, i, j, k)
 
-        model.Reclmtd_gradient_points.initialize    = lambda model, i, j, k: self.declare_stream_tangent_points(model, i, j, k)
-        model.Reclmtd_cu_gradient_points.initialize = lambda model, i: self.declare_cu_tangent_points(model, i)
-        model.Reclmtd_hu_gradient_points.initialize = lambda model, j: self.declare_hu_tangent_points(model, j)
+    #     model.Reclmtd_gradient_points.initialize    = lambda model, i, j, k: self.declare_stream_tangent_points(model, i, j, k)
+    #     model.Reclmtd_cu_gradient_points.initialize = lambda model, i: self.declare_cu_tangent_points(model, i)
+    #     model.Reclmtd_hu_gradient_points.initialize = lambda model, j: self.declare_hu_tangent_points(model, j)
 
-        model.Q_breakpoints.initialize = lambda model, i, j, k: self.declare_stream_q_breakpoints(model, i, j, k)
-        model.Q_cu_breakpoints.initialize = lambda model, i: self.declare_cu_q_breakpoints(model, i)
-        model.Q_hu_breakpoints.initialize = lambda model, j: self.declare_hu_q_breakpoints(model, j)
+    #     model.Q_breakpoints.initialize = lambda model, i, j, k: self.declare_stream_q_breakpoints(model, i, j, k)
+    #     model.Q_cu_breakpoints.initialize = lambda model, i: self.declare_cu_q_breakpoints(model, i)
+    #     model.Q_hu_breakpoints.initialize = lambda model, j: self.declare_hu_q_breakpoints(model, j)
 
-        model.Area_beta_breakpoints.initialize = lambda model, i, j, k: self.declare_stream_area_beta_breakpoints(model, i, j, k)
-        model.Area_cu_beta_breakpoints.initialize = lambda model, i: self.declare_cu_area_beta_breakpoints(model, i)
-        model.Area_hu_beta_breakpoints.initialize = lambda model, j: self.declare_hu_area_beta_breakpoints(model, j)
+    #     model.Area_beta_breakpoints.initialize = lambda model, i, j, k: self.declare_stream_area_beta_breakpoints(model, i, j, k)
+    #     model.Area_cu_beta_breakpoints.initialize = lambda model, i: self.declare_cu_area_beta_breakpoints(model, i)
+    #     model.Area_hu_beta_breakpoints.initialize = lambda model, j: self.declare_hu_area_beta_breakpoints(model, j)
 
-        return model
+    #     return model
 
     def get_active_hx(self, instance):
         active_hx = {
