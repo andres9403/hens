@@ -12,6 +12,9 @@ import sys, os, copy, time, socket
 from multiprocessing import Process, cpu_count
 from pprint import pprint
 from lib_concrete.results_generator.results_builder import build_heat_exchanger_results
+import matplotlib.pyplot as plt
+import csv
+
 
 def can_terminate_absolute(epsilons, max_errors):
     if epsilons[balancing_ref] <= max_errors[balancing_ref][absolute_error]:
@@ -147,7 +150,7 @@ model = build_concrete_model(data)
 _ = state.safe_initial_breakpoints(model)
 
 iterations = 1
-max_iterations = 100
+max_iterations = 22
 
 new_points = copy.deepcopy(state.get_all_points())
 
@@ -157,6 +160,10 @@ output_file.write('\t' + args.model + '\n')
 output_file.write('on: '+ socket.gethostname() + '\n\n')
 
 iter_finish = start
+
+tac_history = {}
+relative_error_history = {balancing_ref: [], reclmtd_ref: [], area_ref: [], beta_ref: []}
+error_history = {balancing_ref: [], reclmtd_ref: [], area_ref: [], beta_ref: []}    
 
 for run in range(1, max_iterations):
 
@@ -243,6 +250,15 @@ for run in range(1, max_iterations):
     errors = state.summarise_errors(model, active_hx, inactive_hx, args.weaken)
     max_errors = state.get_max_errors(errors, active_hx, inactive_hx, args.weaken)
 
+ 
+
+    for key in max_errors:
+        # Use absolute error for plotting; change to relative if needed
+        error_history[key].append(max_errors[key][absolute_error])
+        relative_error_history[key].append(max_errors[key][relative_error])
+
+    tac_history[run] = value(model.TAC)
+
     filename = 'iteration' + str(run).zfill(len(str(max_iterations)))
     t = Process(target=build_heat_exchanger_results, args=(model, folders, args.run_name, run, args.model, filename, active_hx, old_points, errors, local_time, total_time, epsilons, tolerances), kwargs={'iteration': True})
     t.start()
@@ -290,6 +306,40 @@ for run in range(1, max_iterations):
 
 if args.print_instance:
     model.pprint()
+
+
+plt.figure(figsize=(10, 6))
+plt.suptitle('Max Relative Errors per Iteration')
+plt.xlabel('Iteration')
+plt.ylabel('Max Relative Error')
+plt.grid(True)
+
+for key, errors in relative_error_history.items():
+    plt.plot(range(1, len(errors) + 1), errors, label=str(key))
+plt.legend()
+plt.show()
+
+
+if args.print_instance:
+    instance.pprint()
+    # Store tac_history in a CSV file
+
+tac_csv_path = os.path.join(folders[append_folder], 'tac_history.csv')
+with open(tac_csv_path, 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(['iteration', 'tac'])
+    for iter_num, tac_val in tac_history.items():
+        writer.writerow([iter_num, tac_val])
+
+plt.figure(figsize=(10, 6))
+plt.plot(list(tac_history.keys()), list(tac_history.values()), marker='o')
+plt.title('TAC per Iteration')
+plt.xlabel('Iteration')
+plt.ylabel('TAC')
+plt.grid(True)
+plt.show()
+
+
 
 output_file.close()
 results_file.close()
