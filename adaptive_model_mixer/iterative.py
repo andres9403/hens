@@ -13,6 +13,8 @@ from pyomo.core.base.numvalue import value
 from lib.iterations_helper import IterationState
 from lib.results_generator.results_builder import build_heat_exchanger_results
 from lib.constants import *
+import csv
+import matplotlib.pyplot as plt
 
 
 def can_terminate_absolute(epsilons, max_errors):
@@ -46,7 +48,7 @@ termination_func = can_terminate_relative
 
 start = time.time()
 
-maxIters = 500
+maxIters = 22
 
 number_of_cores = cpu_count()
 
@@ -143,6 +145,7 @@ output_file.write('\t' + args.model + '\n')
 output_file.write('on: '+ socket.gethostname() + '\n\n')
 
 iter_finish = start
+tac_history = {}
 
 for run in range(1, maxIters):
     iter_start = iter_finish
@@ -210,6 +213,29 @@ for run in range(1, maxIters):
     errors = state.summarise_errors(instance, active_hx, inactive_hx, args.weaken)
     max_errors = state.get_max_errors(errors, active_hx, inactive_hx, args.weaken)
 
+
+    # Collect max_errors for plotting
+    if run == 1:
+        error_history = {key: [] for key in max_errors.keys()}
+
+    for key in max_errors:
+        # Use absolute error for plotting; change to relative if needed
+        error_history[key].append(max_errors[key][absolute_error])
+    
+    # Collect relative errors for plotting
+    if run == 1:
+        relative_error_history = {key: [] for key in max_errors.keys()}
+
+    for key in max_errors:
+        relative_error_history[key].append(max_errors[key][relative_error])
+
+   
+    # Store objective function value per iteration
+    
+
+    tac_history[run] = value(instance.TAC)
+  
+
     filename = 'iteration' + str(run).zfill(len(str(maxIters)))
     t = Process(target=build_heat_exchanger_results, args=(instance, folders, args.run_name, run, args.model, filename, active_hx, old_points, errors, local_time, total_time, epsilons, tolerances), kwargs={'iteration': True})
     t.start()
@@ -255,8 +281,50 @@ for run in range(1, maxIters):
                 iterations = iters + 1
         iterations = iterations - 1
 
+plt.figure(figsize=(10, 6))
+plt.suptitle('Max Errors per Iteration')
+plt.xlabel('Iteration')
+plt.ylabel('Max Absolute Error')
+plt.grid(True)
+
+    # Plot each er
+for key, errors in error_history.items():
+        plt.plot(range(1, len(errors) + 1), errors, label=str(key))
+plt.show()
+
+plt.figure(figsize=(10, 6))
+plt.suptitle('Max Relative Errors per Iteration')
+plt.xlabel('Iteration')
+plt.ylabel('Max Relative Error')
+plt.grid(True)
+
+for key, errors in relative_error_history.items():
+    plt.plot(range(1, len(errors) + 1), errors, label=str(key))
+plt.legend()
+plt.show()
+
+
 if args.print_instance:
     instance.pprint()
+    # Store tac_history in a CSV file
+
+tac_csv_path = os.path.join(folders[append_folder], 'tac_history.csv')
+with open(tac_csv_path, 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(['iteration', 'tac'])
+    for iter_num, tac_val in tac_history.items():
+        writer.writerow([iter_num, tac_val])
+
+plt.figure(figsize=(10, 6))
+plt.plot(list(tac_history.keys()), list(tac_history.values()), marker='o')
+plt.title('TAC per Iteration')
+plt.xlabel('Iteration')
+plt.ylabel('TAC')
+plt.grid(True)
+plt.show()
+
+
+
 
 output_file.close()
 results_file.close()
