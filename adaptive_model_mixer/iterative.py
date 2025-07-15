@@ -146,6 +146,8 @@ output_file.write('on: '+ socket.gethostname() + '\n\n')
 
 iter_finish = start
 tac_history = {}
+relative_error_history = {balancing_ref: [], reclmtd_ref: [], area_ref: [], beta_ref: []}
+error_history = {balancing_ref: [], reclmtd_ref: [], area_ref: [], beta_ref: []}    
 
 for run in range(1, maxIters):
     iter_start = iter_finish
@@ -153,6 +155,7 @@ for run in range(1, maxIters):
     print('Running iteration ', run)
 
     instance = model.create_instance(datafile)
+    print(instance.Area_hu_beta_gradients.pprint())
     output_file.write('----------------------------------\n')
     output_file.write('---- Run: ' + str(run) + '\n')
     output_file.write('----------------------------------\n')
@@ -214,17 +217,12 @@ for run in range(1, maxIters):
     max_errors = state.get_max_errors(errors, active_hx, inactive_hx, args.weaken)
 
 
-    # Collect max_errors for plotting
-    if run == 1:
-        error_history = {key: [] for key in max_errors.keys()}
 
     for key in max_errors:
         # Use absolute error for plotting; change to relative if needed
         error_history[key].append(max_errors[key][absolute_error])
     
     # Collect relative errors for plotting
-    if run == 1:
-        relative_error_history = {key: [] for key in max_errors.keys()}
 
     for key in max_errors:
         relative_error_history[key].append(max_errors[key][relative_error])
@@ -281,16 +279,16 @@ for run in range(1, maxIters):
                 iterations = iters + 1
         iterations = iterations - 1
 
-plt.figure(figsize=(10, 6))
-plt.suptitle('Max Errors per Iteration')
-plt.xlabel('Iteration')
-plt.ylabel('Max Absolute Error')
-plt.grid(True)
+# plt.figure(figsize=(10, 6))
+# plt.suptitle('Max Errors per Iteration')
+# plt.xlabel('Iteration')
+# plt.ylabel('Max Absolute Error')
+# plt.grid(True)
 
-    # Plot each er
-for key, errors in error_history.items():
-        plt.plot(range(1, len(errors) + 1), errors, label=str(key))
-plt.show()
+#     # Plot each er
+# for key, errors in error_history.items():
+#         plt.plot(range(1, len(errors) + 1), errors, label=str(key))
+# plt.show()
 
 plt.figure(figsize=(10, 6))
 plt.suptitle('Max Relative Errors per Iteration')

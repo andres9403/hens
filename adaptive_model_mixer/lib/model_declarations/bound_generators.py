@@ -4,6 +4,7 @@
 from .helper_functions import lmtd_inv
 
 def area_bounds(model, i, j, *k):
+    print("area_bounds called")
     _, q_upper    = q_bounds(model, i, j)
     _, reclmtd_upper = reclmtd_bounds(model, i, j)
 
@@ -22,6 +23,7 @@ def area_cu_bounds(model, i):
     return (area_cu_lower, area_cu_upper)
 
 def area_hu_bounds(model, j):
+    print("area_hu_bounds called")
     _, q_hu_upper    = q_hu_bounds(model, j)
     _, reclmtd_hu_upper = reclmtd_hu_bounds(model, j)
 
