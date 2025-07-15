@@ -28,9 +28,9 @@ def declare_parameters(model):
 
     model.First_stage = Param(within=PositiveIntegers, default=1,                    doc='Index of the first stage')
    ## Problem when using the last stage as a parameter
-    model.Last_stage  = Param(within=PositiveIntegers, default=model.Number_stages+1, doc='Index of the last stage' )
+    #model.Last_stage  = Param(within=PositiveIntegers, default=model.Number_stages+1, doc='Index of the last stage' )
 
-    #model.Last_stage = Expression(expr=model.Number_stages + 1)
+    model.Last_stage = Expression(expr=model.Number_stages + 1)
    
     model.HP = RangeSet(1, model.Number_hot_stream,  doc="set of hot process streams i"          )
     model.CP = RangeSet(1, model.Number_cold_stream, doc="set of cold process streams j"         )
